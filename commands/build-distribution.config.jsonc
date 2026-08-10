@@ -1,7 +1,7 @@
 // Builds a sanitized collaborator ZIP at release/canvas-automation-toolkit.zip. The ZIP bytes
 // are deterministic for the same recipe and locked environments.
 // Course-specific material, credentials, .git, venvs, and output are excluded.
-// A generated INDEX.html sits at the archive root.
+// A generated index.html sits at the archive root.
 {
   // "$schema": "./build-distribution.schema.json",
   "OUT_DIR": "$ENGINE/out/distribution", // temporary, automatically pruned build workspace

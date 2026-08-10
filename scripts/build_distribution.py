@@ -22,7 +22,7 @@ from canvas_automation.util import fresh_out_dir, resolve_out_base
 
 FIXED_ZIP_TIME = (2026, 1, 1, 0, 0, 0)
 TOP_FILES = {
-    ".gitignore", "AGENTS.md", "CHATGPT_CANVAS_COURSE_AUTHORING_GUIDE.md", "INDEX.html", "LICENSE",
+    ".gitignore", "AGENTS.md", "CHATGPT_CANVAS_COURSE_AUTHORING_GUIDE.md", "index.html", "LICENSE",
     "LICENSES.md", "PUBLIC_REPOSITORY.md", "README.md", "TODO.md", "pyproject.toml", "uv.lock",
     "setup-after-move.command", "verify.command",
 }
@@ -285,7 +285,7 @@ def build(root, config):
             target = staging / rel
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_bytes(sanitize(rel, source.read_bytes()))
-        (staging / "INDEX.html").write_text(render_index(root), encoding="utf-8")
+        (staging / "index.html").write_text(render_index(root), encoding="utf-8")
         (staging / "sbom.json").write_text(json.dumps(build_sbom(root), indent=2, sort_keys=True) + "\n", encoding="utf-8")
         safety = audit_distribution_safety(staging, config.get("disclosed_content", ""))
         (staging / "DISTRIBUTION-SAFETY.json").write_text(json.dumps(safety, indent=2, sort_keys=True) + "\n", encoding="utf-8")

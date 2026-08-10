@@ -33,7 +33,7 @@ def test_distribution_is_deterministic_sanitized_and_has_index(tmp_path):
     assert hashlib.sha256(first.read_bytes()).digest() == hashlib.sha256(second.read_bytes()).digest()
     with zipfile.ZipFile(first) as archive:
         names = set(archive.namelist())
-        assert {"INDEX.html", "AGENTS.md", "README.md", "PUBLIC_REPOSITORY.md", "LICENSE", "LICENSES.md", "sbom.json", "DISTRIBUTION-MANIFEST.json", "DISTRIBUTION-SAFETY.json"} <= names
+        assert {"index.html", "AGENTS.md", "README.md", "PUBLIC_REPOSITORY.md", "LICENSE", "LICENSES.md", "sbom.json", "DISTRIBUTION-MANIFEST.json", "DISTRIBUTION-SAFETY.json"} <= names
         assert json.loads(archive.read("DISTRIBUTION-SAFETY.json"))["status"] == "PASS"
         assert "docs/TESTMAKING.md" in names
         assert "scripts/build_test_forms.py" in names
@@ -65,8 +65,8 @@ def test_distribution_is_deterministic_sanitized_and_has_index(tmp_path):
         assert starter_name in names and notice_name in names
         assert "examples/iat210/prepare_course_starter.py" in names
         assert "scripts/configure_iat210_course.py" not in names
-        assert archive.read("INDEX.html") == (ROOT / "INDEX.html").read_bytes()
-        index = archive.read("INDEX.html").decode()
+        assert archive.read("index.html") == (ROOT / "index.html").read_bytes()
+        index = archive.read("index.html").decode()
         assert "Upload this file first:" in index
         assert index.index("AI in a web chat") < index.index("First run on Mac for command-line operation")
         assert "what installing the local command-line toolkit adds" in index

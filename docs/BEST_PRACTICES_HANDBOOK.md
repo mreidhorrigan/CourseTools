@@ -170,7 +170,7 @@ applicable topic guide. Leave substantive reusable logic in `src/` or `scripts/`
 - [ ] `uv.lock` and the MCP pin are current and tested.
 - [ ] `./verify.command` and the full stored test suite pass.
 - [ ] Two distribution builds have matching SHA-256 values.
-- [ ] The ZIP opens with `INDEX.html` at its top level.
+- [ ] The ZIP opens with `index.html` at its top level.
 - [ ] The ZIP contains source, scripts, configs, schemas, documentation, tests, licenses, SBOM,
       manifest, and provenance.
 - [ ] No private course export, student data, access token, virtual environment, or generated

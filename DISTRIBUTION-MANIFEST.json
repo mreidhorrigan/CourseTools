@@ -8,7 +8,7 @@
     {
       "bytes": 2033,
       "path": "AGENTS.md",
-      "sha256": "0f504157f8952c0316ac7692049fffb3e7a0df5e2950950f4a20dc99636ec533"
+      "sha256": "05ea0f7d84bed4a6a517747a1423641d5c1a9dbb08fbef4c089e0b6806a822c6"
     },
     {
       "bytes": 18381,
@@ -19,11 +19,6 @@
       "bytes": 642,
       "path": "DISTRIBUTION-SAFETY.json",
       "sha256": "2f3ab50634b5a7192bd94f55f22cf4d07040c9aaa1f0839e7553e75c44e71960"
-    },
-    {
-      "bytes": 15905,
-      "path": "INDEX.html",
-      "sha256": "1e8067e4ed45fd6fb0b58166c3c91f28aaf8e31e6435c5dc1514edaaa649a352"
     },
     {
       "bytes": 1070,
@@ -43,7 +38,7 @@
     {
       "bytes": 20068,
       "path": "README.md",
-      "sha256": "c8924b004e5a8c1dc27ad7b1b7256aed02db9eb3a415599017cdf8062a08ae10"
+      "sha256": "a2fbb8cb43951c955f9b5e3ceb940b5e81b62559af41f378b09007d17abaac74"
     },
     {
       "bytes": 1502,
@@ -88,7 +83,7 @@
     {
       "bytes": 1750,
       "path": "commands/build-distribution.config.jsonc",
-      "sha256": "74f6ca7210e9dcd693090f0f52b80dfff853921c26724f2d91f0de38ce72aad5"
+      "sha256": "c7d7d650b1ba56af03cb0d0d87c292a38b0562bb961e2d28dd61e1e03007a4c8"
     },
     {
       "bytes": 551,
@@ -638,12 +633,12 @@
     {
       "bytes": 10963,
       "path": "docs/BEST_PRACTICES_HANDBOOK.md",
-      "sha256": "ead519e0d4bca3fb04159270991a5bb0ed9b30ddacbd01319c4ce8a7edba26ee"
+      "sha256": "a57bf58f6bdbbd520085ed50effbc7572609a08ec5b0ae383954b601b1d8d1ad"
     },
     {
       "bytes": 9916,
       "path": "docs/OPERATIONS.md",
-      "sha256": "61909c6da2866e86443383cedc6b03509d1bb96844876d7adf86839e48fee6e6"
+      "sha256": "25aac48506a0933ee274a89700fbbd13d5af2c985671e17dd928be33ad5b3ae6"
     },
     {
       "bytes": 1976,
@@ -716,6 +711,11 @@
       "sha256": "bfda629f729fab944d3bec95d150d147dc404bd16f7cb7b83098fe6db589449c"
     },
     {
+      "bytes": 15905,
+      "path": "index.html",
+      "sha256": "1e8067e4ed45fd6fb0b58166c3c91f28aaf8e31e6435c5dc1514edaaa649a352"
+    },
+    {
       "bytes": 1391,
       "path": "input/README.md",
       "sha256": "43748fe3234956189524a0d610a6bed2c478c52e9138a446b85fa12a047cb0c8"
@@ -773,7 +773,7 @@
     {
       "bytes": 2293,
       "path": "mcp/README.md",
-      "sha256": "96fe4a50a89876ea7b2fb6620a92594f9c04fc0e49d0fcf518b7ef0b4bc632f7"
+      "sha256": "573b0e3b5962c0ec5641c92e0073a52c3eecf9c9573b38911144707369f28c4e"
     },
     {
       "bytes": 828,
@@ -828,7 +828,7 @@
     {
       "bytes": 2532,
       "path": "research/06-distribution-and-link-qa.md",
-      "sha256": "b1b865a7f9a47f9e4f2c2d09c71930d1cfe41c54d7c80ed33c5d7519a2f2aa97"
+      "sha256": "1b982e2a0b7f691820c88a12b306336300d116b7ff370abbb7d60ef2a9956a5f"
     },
     {
       "bytes": 2165,
@@ -873,12 +873,12 @@
     {
       "bytes": 16747,
       "path": "scripts/build_distribution.py",
-      "sha256": "dae58c105341d5b841567763d6380d106857a5fbb46e990b87b3ffbf21f23a55"
+      "sha256": "9ac8db47ae3881e48a030b0e7bcd0783beeb608ce758f6731cb61a889fff45bb"
     },
     {
       "bytes": 675,
       "path": "scripts/build_html_index.py",
-      "sha256": "3a7467447e3148fb1f0981a56f4080ff2414e1e23b630f829aa644162283b9ad"
+      "sha256": "a02f3c028eca12e4d2a89d6fb6ac942ee592346bb13bae648f7b962d53db835b"
     },
     {
       "bytes": 879,
@@ -1068,7 +1068,7 @@
     {
       "bytes": 10716,
       "path": "tests/test_distribution.py",
-      "sha256": "ec8553390d7e0e9df2e9325fd780aad4d6a38baf446340f947d1f5bf61fe0d77"
+      "sha256": "739ac97588e1ebc50ef5204b4b9b93cf50b6ef9a8047ffb6c0175b44ffb492ba"
     },
     {
       "bytes": 31036,

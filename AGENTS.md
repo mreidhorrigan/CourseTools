@@ -1,6 +1,6 @@
 # Agent operating notes
 
-Read `INDEX.html`, `README.md`, `docs/SECURITY.md`, and the relevant config and
+Read `index.html`, `README.md`, `docs/SECURITY.md`, and the relevant config and
 schema before acting.
 
 For course prose, treat `course/content/` as authoritative. Read

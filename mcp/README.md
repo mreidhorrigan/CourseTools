@@ -29,7 +29,7 @@ before committing. Rollback is then a normal Git revert.
 3. Run `./verify.command`. The gate checks the direct pin, transitive hash lock,
    shell syntax, schemas, and toolkit compatibility tests.
 4. Run `commands/build-distribution.command` twice. Compare the printed ZIP
-   SHA-256 values. The generated `INDEX.html` reads the MCP version from the
+   SHA-256 values. The generated `index.html` reads the MCP version from the
    lock, and `sbom.json` inventories the whole optional environment.
 5. In a fresh AI session, confirm the server version and make one harmless read
    in a sandbox. Make a write only when the release changes write behavior.

@@ -90,7 +90,7 @@ video is unavailable. A `PROTECTED` result needs manual confirmation.
 
 Run `commands/build-distribution.command`. The builder publishes the ZIP as
 `release/canvas-automation-toolkit.zip` and places its provenance record beside it.
-The temporary timestamped build directory is removed automatically. It generates `INDEX.html`, a file
+The temporary timestamped build directory is removed automatically. It generates `index.html`, a file
 manifest, and a CycloneDX SBOM at archive root. It sanitizes Canvas course
 targets and excludes course-specific working material, credentials, `.git`,
 virtual environments, and generated output. Build twice and compare the printed
@@ -133,7 +133,7 @@ Start the guarded server in an unpublished sandbox. Confirm that `/health`
 returns the expected course ID and the HTTP `Server` header identifies Waitress.
 Run one guarded read and the course verifier. Build two distributions and
 compare their ZIP SHA-256 values. Review and commit `pyproject.toml`, `uv.lock`,
-the generated root `INDEX.html`, dependency/license documentation, tests, and
+the generated root `index.html`, dependency/license documentation, tests, and
 any compatibility changes together. Restore the previous commit and run
 `uv sync --extra dev` to roll back.
 

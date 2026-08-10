@@ -13,7 +13,7 @@ macOS is the tested interface. The Python CLI is the portable contract for
 Linux. Windows is experimental until native wrappers and credential handling
 have their own acceptance tests.
 
-The generated `INDEX.html` is a local, script-built landing page. It presents
+The generated `index.html` is a local, script-built landing page. It presents
 four operator paths: deterministic macOS, web-chat-assisted file preparation,
 CLI agent operation, and optional MCP. The deterministic path remains complete
 without AI.

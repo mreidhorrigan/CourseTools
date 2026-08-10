@@ -1,6 +1,6 @@
 # Canvas Automation
 
-Open `INDEX.html` for the concise visual guide. Regenerate it deterministically
+Open `index.html` for the concise visual guide. Regenerate it deterministically
 after editing its template or dependency pins with
 `.venv/bin/python scripts/build_html_index.py`.
 
@@ -315,14 +315,14 @@ timestamped distribution builds are removed automatically. The same source and l
 the same ZIP bytes. The builder uses an allowlist, sanitizes course IDs and the
 sandbox URL, and excludes undisclosed course-specific working material, tokens, `.git`,
 virtual environments, and generated output. After unzipping, the collaborator
-starts with `INDEX.html` at the top level.
+starts with `index.html` at the top level.
 
 Before release, run `./verify.command`. Its portability audit scans the same
 file set used by the distribution builder. Institution-, course-, instructor-,
 and content-specific markers may live in documented JSONC configuration and
 under `examples/`; the audit fails when they occur in reusable code. Adapt the
 marker list in `commands/portability-audit.config.jsonc` for another institution
-or course. `INDEX.html` lists every configuration recipients must review.
+or course. `index.html` lists every configuration recipients must review.
 
 The distribution intentionally includes
 `examples/iat210/IAT210-Fall2026-example-course-starter-v2.0.imscc`. This seven-quiz,
