@@ -1,0 +1,25 @@
+{
+  "OUT_DIR": "$ENGINE/out/assignment-rubric-qa/iat210-revised",
+  "instructions_file": "$ENGINE/course/content/assignments/207279-actual-play-project-final-submission.html",
+  "rubric_file": "$ENGINE/course/content/rubrics/actual-play-final.json",
+  "context_files": ["$ENGINE/course/content/syllabus.html"],
+  "expected_requirements": [
+    "Submit one ZIP.", "Include a 10–15 minute gameplay audio or video.",
+    "Include a transcript or captions and final rules and session materials.",
+    "Include consent and permission records without disclosing private participant information.",
+    "Include credits, test and revision evidence, and individual contribution evidence.",
+    "Demonstrate playable agency, responsible facilitation, listener orientation, intelligibility, and access.",
+    "Provide test evidence and at least one evidence-based revision or retention decision.",
+    "Each student analyzes how a contribution affected the project.",
+    "Include complete relevant AI chatlogs or a no-AI statement."
+  ],
+  "student_profiles": [
+    "Literal and minimally strategic: satisfy only requirements stated clearly enough to notice.",
+    "Competent but hurried: make reasonable choices where instructions leave details open."
+  ],
+  "trials": 2, "seed": 2102, "model": "mistral-small-latest",
+  "api_url": "https://api.mistral.ai/v1/chat/completions",
+  "student_temperature": 0.5, "grader_temperature": 0.1,
+  "student_max_tokens": 2600, "analysis_max_tokens": 2200,
+  "max_input_chars": 100000, "timeout_seconds": 180
+}

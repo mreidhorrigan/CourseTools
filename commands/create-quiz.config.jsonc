@@ -1,0 +1,52 @@
+// ============================================================================
+//  TESTMAKER -> CANVAS CLASSIC QUIZ. Edit this file, then double-click
+//  create-quiz.command. You may also drag/pass a .docx, .md, or .txt path as
+//  the first argument to override source_file.
+//
+//  Start with dry_run=true. The conversion plan and provenance go into a fresh
+//  out/create-quiz/<timestamp>/ directory. Set dry_run=false only after checking
+//  the plan; then start start-server.command and run this again.
+// ============================================================================
+{
+  // "$schema": "./create-quiz.schema.json",
+  "OUT_DIR": "$ENGINE/out/create-quiz",
+  "course_id": 12345,
+  "source_file": "input/example-testmaker-quiz.md",
+  "quiz_engine": "classic", // classic | new; take-N pools require classic
+
+  // Required when the source contains [Only Version X.]. Run once for each
+  // desired quiz. Shared questions plus the selected version's questions are
+  // included. The title gains " - Version X" by default.
+  // "fixed_version": "A",
+  "append_version_to_title": true,
+
+  // true validates and previews locally; false creates the quiz in Canvas.
+  "dry_run": true,
+
+  // Delete the unpublished partial quiz if any question upload fails.
+  "rollback_on_error": true,
+
+  "mcq_points": 1,
+  "written_points": 5,
+  "pool_question_points": 5,
+
+  "quiz": {
+    "title": "Reading Quiz",
+    "description": "<p>Complete this quiz independently.</p>",
+    "quiz_type": "assignment",
+    "time_limit": 30,
+    "shuffle_answers": true,
+    "allowed_attempts": 1,
+    "one_question_at_a_time": false,
+    "show_correct_answers": false,
+    "published": false
+
+    // Optional Canvas settings. Use ISO 8601 timestamps with an explicit offset.
+    // ,"due_at": "2026-09-15T23:59:00-07:00"
+    // ,"unlock_at": "2026-09-15T09:00:00-07:00"
+    // ,"lock_at": "2026-09-16T00:00:00-07:00"
+    // ,"assignment_group_id": 123
+    // ,"hide_results": "always"
+    // ,"access_code": "set-this-only-if-needed"
+  }
+}

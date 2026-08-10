@@ -1,0 +1,7 @@
+// Institution- and course-specific settings for external-link QA.
+// Replace these hosts when adapting the example course for another institution.
+{
+  "search_resolver_hosts": [
+    "search.lib.sfu.ca" // Search-result pages are outtakes; use stable item-level links instead.
+  ]
+}

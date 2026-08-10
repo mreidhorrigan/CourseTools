@@ -1,0 +1,22 @@
+{
+  "OUT_DIR": "$ENGINE/out/assignment-rubric-qa/iat210-revised",
+  "instructions_file": "$ENGINE/course/content/assignments/207309-actual-play-project-session-plan-and-rulebook.html",
+  "rubric_file": "$ENGINE/course/content/rubrics/actual-play-plan.json",
+  "context_files": ["$ENGINE/course/content/syllabus.html"],
+  "expected_requirements": [
+    "Submit one PDF.", "Include playable rules and a playable situation.",
+    "Identify consequential player choices.", "Define consent and safety procedures.",
+    "Define recording workflow and role assignments.", "Include an accessibility plan.",
+    "State a testable dry-run question, evidence to collect, schedule, and observable definition of done.",
+    "Append complete relevant AI chatlogs or state that no AI was used."
+  ],
+  "student_profiles": [
+    "Literal and minimally strategic: satisfy only requirements stated clearly enough to notice.",
+    "Competent but hurried: make reasonable choices where instructions leave details open."
+  ],
+  "trials": 2, "seed": 2101, "model": "mistral-small-latest",
+  "api_url": "https://api.mistral.ai/v1/chat/completions",
+  "student_temperature": 0.5, "grader_temperature": 0.1,
+  "student_max_tokens": 2200, "analysis_max_tokens": 2200,
+  "max_input_chars": 100000, "timeout_seconds": 180
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "create-quiz config",
+  "type": "object",
+  "required": ["OUT_DIR", "course_id", "source_file", "quiz"],
+  "properties": {
+    "OUT_DIR": {"type": "string"},
+    "course_id": {"type": "integer", "minimum": 1},
+    "source_file": {"type": "string"},
+    "quiz_engine": {"type": "string", "enum": ["classic", "new"]},
+    "fixed_version": {"type": "string", "enum": ["A", "B", "C", "D", "E"]},
+    "append_version_to_title": {"type": "boolean"},
+    "dry_run": {"type": "boolean"},
+    "rollback_on_error": {"type": "boolean"},
+    "mcq_points": {"type": "number", "minimum": 0},
+    "written_points": {"type": "number", "minimum": 0},
+    "pool_question_points": {"type": "number", "minimum": 0},
+    "quiz": {
+      "type": "object",
+      "required": ["title"],
+      "properties": {
+        "title": {"type": "string"},
+        "description": {"type": "string"},
+        "quiz_type": {"type": "string", "enum": ["practice_quiz", "assignment", "graded_survey", "survey"]},
+        "time_limit": {"type": ["integer", "null"], "minimum": 1},
+        "shuffle_answers": {"type": "boolean"},
+        "hide_results": {"type": "string", "enum": ["always", "until_after_last_attempt"]},
+        "show_correct_answers": {"type": "boolean"},
+        "allowed_attempts": {"type": "integer", "minimum": -1},
+        "scoring_policy": {"type": "string", "enum": ["keep_highest", "keep_latest"]},
+        "one_question_at_a_time": {"type": "boolean"},
+        "cant_go_back": {"type": "boolean"},
+        "access_code": {"type": "string"},
+        "due_at": {"type": "string"},
+        "lock_at": {"type": "string"},
+        "unlock_at": {"type": "string"},
+        "assignment_group_id": {"type": "integer", "minimum": 1},
+        "published": {"type": "boolean"}
+      }
+    }
+  }
+}

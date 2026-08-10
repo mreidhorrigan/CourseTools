@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "download-content config",
+  "description": "Sibling schema for download-content.config.jsonc. See 04-config-files-jsonc.md.",
+  "type": "object",
+  "required": ["OUT_DIR", "course_id", "resources"],
+  "additionalProperties": true,
+  "properties": {
+    "OUT_DIR": { "type": "string", "description": "where output lands; $ENGINE and $HOME expand" },
+    "course_id": { "type": "integer", "minimum": 1 },
+    "resources": {
+      "type": "array",
+      "description": "Canvas list endpoints to fetch, e.g. assignments, pages, rubrics, discussion_topics",
+      "items": { "type": "string" }
+    }
+  }
+}

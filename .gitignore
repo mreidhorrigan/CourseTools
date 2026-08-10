@@ -1,0 +1,30 @@
+# .gitignore -- commit the recipe, ignore the bulk, keep the manifest.
+# See 05-git-and-artifacts.md. This tool has no API-key dotfile: the Canvas
+# token is entered interactively and lives only in the running server's
+# memory, never in a file, so there is no secrets file to list here.
+
+# Python env / caches / build
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+
+# Generated artifacts: regenerable by re-running the matching *.command
+out/
+release/
+
+# Instructor-only assessment data. Keep the instructions, never version real
+# question sources, answer mappings, generated keys, or Canvas backups.
+private/testmaking/*
+!private/testmaking/README.md
+private/transcripts/
+
+# macOS
+.DS_Store
+
+# If a future asset directory needs bulk-ignore-but-keep-the-manifest,
+# add it here following this pattern:
+# assets/<lib>/*
+# !assets/<lib>/manifest.json

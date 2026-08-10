@@ -1,0 +1,1156 @@
+{
+  "files": [
+    {
+      "bytes": 855,
+      "path": ".gitignore",
+      "sha256": "c444231c8956250d4ae1deb0a19edded975d9d0438a3e3a599c5fa559db22b31"
+    },
+    {
+      "bytes": 2033,
+      "path": "AGENTS.md",
+      "sha256": "0f504157f8952c0316ac7692049fffb3e7a0df5e2950950f4a20dc99636ec533"
+    },
+    {
+      "bytes": 18381,
+      "path": "CHATGPT_CANVAS_COURSE_AUTHORING_GUIDE.md",
+      "sha256": "9552c039d66e23172420e1e042e2327adf6bc9da113ede2a9d9bbe8cec7d326f"
+    },
+    {
+      "bytes": 642,
+      "path": "DISTRIBUTION-SAFETY.json",
+      "sha256": "2f3ab50634b5a7192bd94f55f22cf4d07040c9aaa1f0839e7553e75c44e71960"
+    },
+    {
+      "bytes": 15905,
+      "path": "INDEX.html",
+      "sha256": "1e8067e4ed45fd6fb0b58166c3c91f28aaf8e31e6435c5dc1514edaaa649a352"
+    },
+    {
+      "bytes": 1070,
+      "path": "LICENSE",
+      "sha256": "a1d3ef7e50a5110ab575da79ecf22a279ccca5fa758bd6f13ecc5b9a189fc551"
+    },
+    {
+      "bytes": 3595,
+      "path": "LICENSES.md",
+      "sha256": "41da7c5b4f6558f2fb816160de3f63760bc3ed29ccfc8110840f855959942585"
+    },
+    {
+      "bytes": 2857,
+      "path": "PUBLIC_REPOSITORY.md",
+      "sha256": "f7b8f8a50314706b2c6dc1c5c31c7d302ee6b645e3a59aa7dd12dd2f9d56c1ef"
+    },
+    {
+      "bytes": 20068,
+      "path": "README.md",
+      "sha256": "c8924b004e5a8c1dc27ad7b1b7256aed02db9eb3a415599017cdf8062a08ae10"
+    },
+    {
+      "bytes": 1502,
+      "path": "TODO.md",
+      "sha256": "e140ae845ce699e2bd4ebf544f6cfec2a2083872fdcd72dde053c5b311c845b8"
+    },
+    {
+      "bytes": 794,
+      "path": "assets/favicon-slime.svg",
+      "sha256": "287cda836fdac840382e6b01b7d716af60141abb90ad7ecaddc70a46ddc9a67a"
+    },
+    {
+      "bytes": 3486,
+      "path": "assets/slime-widget.js",
+      "sha256": "36c8be7c71db9424aa30a9cf82b31af64b7eaecea6aafcdc020caf3b244c78f3"
+    },
+    {
+      "bytes": 6623,
+      "path": "commands/_jsonc.py",
+      "sha256": "70797751e97cdf4d0a840668c3ef95aca2c45ae3fc645dea2f893d2285882f9d"
+    },
+    {
+      "bytes": 6711,
+      "path": "commands/_lib.sh",
+      "sha256": "f80143e9711f3912ffa1ffb6ca1f791159a3166a061ef37a43b729438e1ecee7"
+    },
+    {
+      "bytes": 317,
+      "path": "commands/build-course-imscc.command",
+      "sha256": "9d6fe8b84e1dd170c9d014b2c644e25cb1022026b50e1da6562921e17c0ba649"
+    },
+    {
+      "bytes": 319,
+      "path": "commands/build-course-tests.command",
+      "sha256": "2626bf4fa6805c5966fe46279493e7fcf198fe8b526e364b6aee731b70239f05"
+    },
+    {
+      "bytes": 502,
+      "path": "commands/build-distribution.command",
+      "sha256": "a44e39af5505c27251cbda86a42380f8dbe819c5e9b143155d1a22d2cbbf799e"
+    },
+    {
+      "bytes": 1750,
+      "path": "commands/build-distribution.config.jsonc",
+      "sha256": "74f6ca7210e9dcd693090f0f52b80dfff853921c26724f2d91f0de38ce72aad5"
+    },
+    {
+      "bytes": 551,
+      "path": "commands/build-distribution.schema.json",
+      "sha256": "30f7c90a71431668a43a3788bedef688b078b5fb3ff4ad9a316c376efcf9e790"
+    },
+    {
+      "bytes": 590,
+      "path": "commands/build-imscc.command",
+      "sha256": "dbe55e2b3d05ed43dc9a142d5de8fae4354299d1ca327fe6422c98c8d6ba3ad7"
+    },
+    {
+      "bytes": 271,
+      "path": "commands/build-imscc.config.jsonc",
+      "sha256": "641d23bff9bfe4fd6ed5f882fe140ca86f5e6aa5e92b41da24b97e60699a15e3"
+    },
+    {
+      "bytes": 210,
+      "path": "commands/build-imscc.schema.json",
+      "sha256": "5fc1eedc22c80348f062151306ccc24da274b2f2f97cf6a2f65a298ea4c98382"
+    },
+    {
+      "bytes": 550,
+      "path": "commands/build-test-forms.command",
+      "sha256": "1ee015804a7527a4db0a70f395e4d444f5544dee10267f5f435b6bd4b8bdd795"
+    },
+    {
+      "bytes": 396,
+      "path": "commands/build-test-forms.config.jsonc",
+      "sha256": "a7a7541aeed62f3a78704d1a0b4bad87d5afa246726051398f7a9a67da513ee9"
+    },
+    {
+      "bytes": 524,
+      "path": "commands/build-test-forms.schema.json",
+      "sha256": "6cf1bc2e7d00dde98c1e279d60db223cb6b3b4c7269b4c0c38db939250464766"
+    },
+    {
+      "bytes": 721,
+      "path": "commands/create-assignment.command",
+      "sha256": "1888d2809c616c9343ee5b5741a2ca23f37eb7952057cacd472c05453823a6f5"
+    },
+    {
+      "bytes": 2043,
+      "path": "commands/create-assignment.config.jsonc",
+      "sha256": "0970558e693d9e0ea4362660473c0e4f38f6a4e062350ed72a4c1adab09bcb57"
+    },
+    {
+      "bytes": 1653,
+      "path": "commands/create-assignment.schema.json",
+      "sha256": "9d99a2529bd3cb769144ef6b0d303557e65e7b069f2809be464b34cc34c70f67"
+    },
+    {
+      "bytes": 662,
+      "path": "commands/create-discussion.command",
+      "sha256": "b83380413c48c82c7dfcd57b650bb2ae8821804315fc20c0f0aba0e633e28e2d"
+    },
+    {
+      "bytes": 1702,
+      "path": "commands/create-discussion.config.jsonc",
+      "sha256": "446f1ef341ce2017c01f63d531156e2bbc8426a3ac545536810fa7c13180b4e4"
+    },
+    {
+      "bytes": 1507,
+      "path": "commands/create-discussion.schema.json",
+      "sha256": "674d033be4c2a5060f73eb4ff3351c24c64c3b6b7cb0d0cf63df95484c8a3a4d"
+    },
+    {
+      "bytes": 638,
+      "path": "commands/create-page.command",
+      "sha256": "c810e6ecf8cbdf54714068a4ba3da0845e2aa0b6698156ccaab4187ca5b82e3e"
+    },
+    {
+      "bytes": 1224,
+      "path": "commands/create-page.config.jsonc",
+      "sha256": "2dd57100bee2d3256da6d65a81ad91c7ed85192a81001c5975890e6f2ca2a2c5"
+    },
+    {
+      "bytes": 1140,
+      "path": "commands/create-page.schema.json",
+      "sha256": "1730eda792cb1a76c07ebae6b3f97588e1b22fc6ae65441565054d055635371b"
+    },
+    {
+      "bytes": 655,
+      "path": "commands/create-quiz.command",
+      "sha256": "87415c03a0262fbda0ecf5c1111c1e50e7c41b421c67bc54483b4b896fb7ccc7"
+    },
+    {
+      "bytes": 2026,
+      "path": "commands/create-quiz.config.jsonc",
+      "sha256": "c28670dcf2c9cc427ab6eb613615882e5701ce367773d1264b5010c4cd40afed"
+    },
+    {
+      "bytes": 1842,
+      "path": "commands/create-quiz.schema.json",
+      "sha256": "04ec63f135e2be3ce56d67fbea027344059afff2b464a9c3aef30cd974d3fe93"
+    },
+    {
+      "bytes": 644,
+      "path": "commands/create-rubric.command",
+      "sha256": "c2ec1a43d9f8213628b057cc770bf7d6ebe8772c7851c6152cbabcf9c5ce7f8a"
+    },
+    {
+      "bytes": 2536,
+      "path": "commands/create-rubric.config.jsonc",
+      "sha256": "c7ea44031d682111b64d0e91148c0ee1bdf4926664e069a3a78b919c5c677089"
+    },
+    {
+      "bytes": 1959,
+      "path": "commands/create-rubric.schema.json",
+      "sha256": "fbff78704ec0b2e26880521a220490edf1a250b795fd71cd1f1198cc81a68476"
+    },
+    {
+      "bytes": 670,
+      "path": "commands/download-content.command",
+      "sha256": "50083abe310a10892f105d37b3d503867d0c65e21e43cc2cf977facb3f63dd2d"
+    },
+    {
+      "bytes": 1160,
+      "path": "commands/download-content.config.jsonc",
+      "sha256": "c0fac4e1b27061b62c99a0776d72f6bb6b847a9424dede93bb8eb91e85933016"
+    },
+    {
+      "bytes": 671,
+      "path": "commands/download-content.schema.json",
+      "sha256": "860cd1a4831a88fc524c9f1f087be89dad1912ea180e97cf8af7e43b623a3b45"
+    },
+    {
+      "bytes": 1510,
+      "path": "commands/export-course-packet.command",
+      "sha256": "642baba6f879667271ad177df17a8f4f540e1421b8e5b580f7c9dc52b027c6af"
+    },
+    {
+      "bytes": 2157,
+      "path": "commands/export-course-packet.config.jsonc",
+      "sha256": "4d3a9a55f6d20724f6a235f31381a15d4c9e8eb3c136e6b129ee70298e9e44f7"
+    },
+    {
+      "bytes": 953,
+      "path": "commands/export-course-packet.schema.json",
+      "sha256": "1536000bfac0a5567ced3f4b12dfab500eb7a4acae6ab40e2cc2a9762003fbcb"
+    },
+    {
+      "bytes": 626,
+      "path": "commands/initialize-testmaking.command",
+      "sha256": "bf5b4e6cae7ca06d3440315b7d0ac920c7f730a5a2991dc300ff756d6c70d93e"
+    },
+    {
+      "bytes": 523,
+      "path": "commands/initialize.command",
+      "sha256": "75249fc63e1f4897121566c1645212bed7166a7bee1f74fda9db529dfa182dc9"
+    },
+    {
+      "bytes": 2123,
+      "path": "commands/merge-pdfs.command",
+      "sha256": "e98fb50cb6c9a5599fc2b7223ece99514772a60771673634c7e0ea68d5ebfd2d"
+    },
+    {
+      "bytes": 832,
+      "path": "commands/merge-pdfs.config.jsonc",
+      "sha256": "f28532ffd95293b1132ced50e29941bf16613f1f246c2feca23727a72d67a619"
+    },
+    {
+      "bytes": 669,
+      "path": "commands/merge-pdfs.schema.json",
+      "sha256": "817c30d96b9dfcd0b9f0cb255ebd75556c6ee2a2c7810ac1eda7751a69ca287e"
+    },
+    {
+      "bytes": 1158,
+      "path": "commands/portability-audit.config.jsonc",
+      "sha256": "21b39fa5a82af46a0d552af6659fa90e3bddcb382c7e7dbe654d790abefd7e0b"
+    },
+    {
+      "bytes": 820,
+      "path": "commands/portability-audit.schema.json",
+      "sha256": "493a46a2559ef8bfc2dacc58689442b49370d61dbd746711ced2a68f7add9207"
+    },
+    {
+      "bytes": 1174,
+      "path": "commands/setup-canvas-mcp.command",
+      "sha256": "4e936032e56ee02c7fbe6451ac3f8eb456d7f6f8b4f971e4cad3dda9ec1d7654"
+    },
+    {
+      "bytes": 3558,
+      "path": "commands/start-server.command",
+      "sha256": "ef424786cdc27368bc426e567391e914a0773aafc3a978796270fb3eb22ab9a9"
+    },
+    {
+      "bytes": 1080,
+      "path": "commands/start-server.config.jsonc",
+      "sha256": "7534322dc022731a751019231ac5816eacd1bae12d5ccdf2448518f454b88770"
+    },
+    {
+      "bytes": 797,
+      "path": "commands/start-server.schema.json",
+      "sha256": "e7ed3942ce9fdacdf90a6559379d12e450a073a97da1bfcca199e1d5650d4635"
+    },
+    {
+      "bytes": 910,
+      "path": "commands/stop-server.command",
+      "sha256": "be4628d24a081175da907c579d236144d75094925e77c95e5362b919d271fa71"
+    },
+    {
+      "bytes": 497,
+      "path": "commands/test-assignment-rubric.command",
+      "sha256": "b80ad565998ca0290f8d57102ba78d8aba18999d46823ac67bc16dec3ea3a060"
+    },
+    {
+      "bytes": 1422,
+      "path": "commands/test-assignment-rubric.config.jsonc",
+      "sha256": "bdd26eac6ab3b7f5b40704d87a5aa336bd104f29a71a4f9c90dc6d668955607c"
+    },
+    {
+      "bytes": 1804,
+      "path": "commands/test-assignment-rubric.schema.json",
+      "sha256": "eb1bc9f2d7fd8a33944161a92f82a923e0e25317fee6ab53177bdb390e45de09"
+    },
+    {
+      "bytes": 1517,
+      "path": "commands/update-canvas-mcp.command",
+      "sha256": "0c0970769ccfdf0aae77f5716a17e20bf0c1acfa345503b98b646687d5e64e51"
+    },
+    {
+      "bytes": 650,
+      "path": "commands/verify-authoring.command",
+      "sha256": "b4618853563ce549cbef9a1d7b49b2405dee43abc6ef899e42846e4bc2d0b58a"
+    },
+    {
+      "bytes": 1406,
+      "path": "course/AUTHORING.md",
+      "sha256": "d9bba7ea45203780badf9204a0a21a61c303a14037ab2fa0e84bdab9f40a629c"
+    },
+    {
+      "bytes": 1541,
+      "path": "course/assignment-qa/actual-play-final.config.jsonc",
+      "sha256": "06fb995fb339481218a372fa0f2fe78ee446182c77a4474313e17f80744c75d9"
+    },
+    {
+      "bytes": 1296,
+      "path": "course/assignment-qa/actual-play-plan.config.jsonc",
+      "sha256": "3f6cc1593cbe893b2ac8520f3709bfa061f8f7501bc301cdafc20980ce72a212"
+    },
+    {
+      "bytes": 4247,
+      "path": "course/content/assignments/207279-actual-play-project-final-submission.html",
+      "sha256": "d95f38025e4fffd7ac5e8a15862ef67edb901f46b41931c5fb53d5e133925a49"
+    },
+    {
+      "bytes": 733,
+      "path": "course/content/assignments/207280-board-game-project-final-submission.html",
+      "sha256": "b0e02db5e3e34923e70f8757dac6c8d44d5e099da6586fdf61d4f34d05fa37eb"
+    },
+    {
+      "bytes": 737,
+      "path": "course/content/assignments/207281-digital-procedural-ecology-project-final-submission.html",
+      "sha256": "ab30219b0bc10c89fc8572dd10c38324e7413a232df5edabca8fcd621940131c"
+    },
+    {
+      "bytes": 723,
+      "path": "course/content/assignments/207282-in-person-final-examination.html",
+      "sha256": "bd36c35916e99d7fe0adc6921f612126c850c77a64296278eedd087b3b4adf38"
+    },
+    {
+      "bytes": 3907,
+      "path": "course/content/assignments/207309-actual-play-project-session-plan-and-rulebook.html",
+      "sha256": "43977138a4cce5065aa4849f0979e6330244d8d1e56b1a9b0ec53ad152107252"
+    },
+    {
+      "bytes": 877,
+      "path": "course/content/assignments/207310-board-game-project-design-plan-and-draft-rulebook.html",
+      "sha256": "7b76cad6559d97392e1a2a27578558677cca0492e8c864f36bde761024bcaa11"
+    },
+    {
+      "bytes": 916,
+      "path": "course/content/assignments/207311-digital-procedural-ecology-project-design-and-technical-plan.html",
+      "sha256": "08be170977d1ca99186f071e8965eb6b88d4c5e869ee513c5fafd66b51b03c1c"
+    },
+    {
+      "bytes": 815,
+      "path": "course/content/discussions/256071-actual-play-project-ideation-discussion.html",
+      "sha256": "a6bd767d3f4711d33a25b573a79da41f7d1042f001af3a2670f5578cf8619bf6"
+    },
+    {
+      "bytes": 806,
+      "path": "course/content/discussions/256072-board-game-project-ideation-discussion.html",
+      "sha256": "6dd60250313100f92a80d34897f31e894c613686c1e2e1bd774d725d52dd5c70"
+    },
+    {
+      "bytes": 896,
+      "path": "course/content/discussions/256073-digital-procedural-ecology-project-ideation-discussion.html",
+      "sha256": "24899388b24f0179d1df9ea7f4d4694fbcdb61e04a9e355588eaba25f35d0c08"
+    },
+    {
+      "bytes": 1414,
+      "path": "course/content/outtakes/pages/outtake-week-10-deep-history-and-historiography-of-board-games.html",
+      "sha256": "e724a4bbb8f18a378ed343dc3719eaa1efd9d76c6660d9f9819bb5c8d1a5a983"
+    },
+    {
+      "bytes": 1668,
+      "path": "course/content/outtakes/pages/outtake-week-11-strategy-metagames-and-expert-ecosystems.html",
+      "sha256": "c1ca6d823b079691cf06b22072177dc94902c59edbdac67d7cde838a50a321ac"
+    },
+    {
+      "bytes": 1371,
+      "path": "course/content/outtakes/pages/outtake-week-12-serious-persuasive-and-educational-games.html",
+      "sha256": "c6b7871073e3fc74a5b62bdea672a195286b5bad082c7c7f825d90dc301ba629"
+    },
+    {
+      "bytes": 1232,
+      "path": "course/content/outtakes/pages/outtake-week-13-playtesting-balance-and-rulebook-engineering.html",
+      "sha256": "6ce4ad2b7d811d181465ff17e905b3b16452ecc6ac57a520a2caf55349be572d"
+    },
+    {
+      "bytes": 2123,
+      "path": "course/content/outtakes/pages/outtake-week-2-historiography-gender-slash-race-and-game-culture.html",
+      "sha256": "9b1ac1e61e75d0f89dc0c36d42706f4242a96983399c2480b5fdb0210b28a94d"
+    },
+    {
+      "bytes": 1830,
+      "path": "course/content/outtakes/pages/outtake-week-3-criticism-paratexts-and-parasociality.html",
+      "sha256": "84deaeb3a47e3290a6219ba98b665eee855db0c3a883ec0c27047856d60178fa"
+    },
+    {
+      "bytes": 1606,
+      "path": "course/content/outtakes/pages/outtake-week-4-actual-play-as-medium.html",
+      "sha256": "e959fddb8b1811dde5819284346ce7077329815c60515697fcfee5899bceff6a"
+    },
+    {
+      "bytes": 1213,
+      "path": "course/content/outtakes/pages/outtake-week-5-formal-systems-and-computational-rules.html",
+      "sha256": "bdc168c1c7ccbae5adf6f8fdd4ec4cf97fa79d9ba5e02098acad2396253c9090"
+    },
+    {
+      "bytes": 1864,
+      "path": "course/content/outtakes/pages/outtake-week-6-vibe-coding-modding-and-computational-authorship.html",
+      "sha256": "d7f0587b102cca854668d7897dc5f58fbe7924907affceca3e7020e7498b750e"
+    },
+    {
+      "bytes": 1292,
+      "path": "course/content/outtakes/pages/outtake-week-7-audiovisual-assets-interfaces-and-representation.html",
+      "sha256": "232da0c06d8bafce779b2ee62a974facf52868992cac8c2e434612eb0367c09c"
+    },
+    {
+      "bytes": 1461,
+      "path": "course/content/outtakes/pages/outtake-week-8-gamblification-monetization-and-whales.html",
+      "sha256": "4df4b8b61b809743f6fea8cc5b5b65ee1dad5ed19e36f10f25f97756684a0775"
+    },
+    {
+      "bytes": 1073,
+      "path": "course/content/outtakes/pages/outtake-week-9-simulation-and-procedural-ecology.html",
+      "sha256": "59cbb44343868989a68f0516d84ec35f9d25f382987b5d9c23ce8e6f1f7a3e7a"
+    },
+    {
+      "bytes": 1836,
+      "path": "course/content/pages/final-month-video-interview.html",
+      "sha256": "0e992464323635990ee788690f0adfc4a3395216dc942648c0b53c057db2238b"
+    },
+    {
+      "bytes": 657,
+      "path": "course/content/pages/start-here.html",
+      "sha256": "053f2c954ef2ee2c390a043cc3bad4fa998037c7d0263378712f85e848168036"
+    },
+    {
+      "bytes": 1223,
+      "path": "course/content/pages/week-01.html",
+      "sha256": "e3767be1a507c0cf89b7b7543211cb668a032ffb42548f45ed29f3fcb62d29ec"
+    },
+    {
+      "bytes": 1414,
+      "path": "course/content/pages/week-10-deep-history-and-historiography-of-board-games.html",
+      "sha256": "e724a4bbb8f18a378ed343dc3719eaa1efd9d76c6660d9f9819bb5c8d1a5a983"
+    },
+    {
+      "bytes": 1668,
+      "path": "course/content/pages/week-11-strategy-metagames-and-expert-ecosystems.html",
+      "sha256": "c1ca6d823b079691cf06b22072177dc94902c59edbdac67d7cde838a50a321ac"
+    },
+    {
+      "bytes": 1371,
+      "path": "course/content/pages/week-12-serious-persuasive-and-educational-games.html",
+      "sha256": "c6b7871073e3fc74a5b62bdea672a195286b5bad082c7c7f825d90dc301ba629"
+    },
+    {
+      "bytes": 1232,
+      "path": "course/content/pages/week-13-playtesting-balance-and-rulebook-engineering-2.html",
+      "sha256": "6ce4ad2b7d811d181465ff17e905b3b16452ecc6ac57a520a2caf55349be572d"
+    },
+    {
+      "bytes": 2123,
+      "path": "course/content/pages/week-2-historiography-gender-slash-race-and-game-culture-2.html",
+      "sha256": "9b1ac1e61e75d0f89dc0c36d42706f4242a96983399c2480b5fdb0210b28a94d"
+    },
+    {
+      "bytes": 1830,
+      "path": "course/content/pages/week-3-criticism-paratexts-and-parasociality-2.html",
+      "sha256": "84deaeb3a47e3290a6219ba98b665eee855db0c3a883ec0c27047856d60178fa"
+    },
+    {
+      "bytes": 1606,
+      "path": "course/content/pages/week-4-actual-play-as-medium.html",
+      "sha256": "e959fddb8b1811dde5819284346ce7077329815c60515697fcfee5899bceff6a"
+    },
+    {
+      "bytes": 1213,
+      "path": "course/content/pages/week-5-formal-systems-and-computational-rules-2.html",
+      "sha256": "bdc168c1c7ccbae5adf6f8fdd4ec4cf97fa79d9ba5e02098acad2396253c9090"
+    },
+    {
+      "bytes": 1864,
+      "path": "course/content/pages/week-6-vibe-coding-modding-and-computational-authorship-2.html",
+      "sha256": "d7f0587b102cca854668d7897dc5f58fbe7924907affceca3e7020e7498b750e"
+    },
+    {
+      "bytes": 1292,
+      "path": "course/content/pages/week-7-audiovisual-assets-interfaces-and-representation.html",
+      "sha256": "232da0c06d8bafce779b2ee62a974facf52868992cac8c2e434612eb0367c09c"
+    },
+    {
+      "bytes": 1461,
+      "path": "course/content/pages/week-8-gamblification-monetization-and-whales-2.html",
+      "sha256": "4df4b8b61b809743f6fea8cc5b5b65ee1dad5ed19e36f10f25f97756684a0775"
+    },
+    {
+      "bytes": 1073,
+      "path": "course/content/pages/week-9-simulation-and-procedural-ecology.html",
+      "sha256": "59cbb44343868989a68f0516d84ec35f9d25f382987b5d9c23ce8e6f1f7a3e7a"
+    },
+    {
+      "bytes": 327,
+      "path": "course/content/quizzes/74952-practice-quiz-5.html",
+      "sha256": "4d0c3fcd9b81d28b402d0e98adf64eb043bc5e8b16e8b40baff8d036926be911"
+    },
+    {
+      "bytes": 327,
+      "path": "course/content/quizzes/74953-practice-quiz-2.html",
+      "sha256": "4d0c3fcd9b81d28b402d0e98adf64eb043bc5e8b16e8b40baff8d036926be911"
+    },
+    {
+      "bytes": 327,
+      "path": "course/content/quizzes/74954-practice-quiz-6.html",
+      "sha256": "4d0c3fcd9b81d28b402d0e98adf64eb043bc5e8b16e8b40baff8d036926be911"
+    },
+    {
+      "bytes": 327,
+      "path": "course/content/quizzes/74955-practice-quiz-1.html",
+      "sha256": "4d0c3fcd9b81d28b402d0e98adf64eb043bc5e8b16e8b40baff8d036926be911"
+    },
+    {
+      "bytes": 327,
+      "path": "course/content/quizzes/74958-practice-quiz-7.html",
+      "sha256": "4d0c3fcd9b81d28b402d0e98adf64eb043bc5e8b16e8b40baff8d036926be911"
+    },
+    {
+      "bytes": 327,
+      "path": "course/content/quizzes/74959-practice-quiz-4.html",
+      "sha256": "4d0c3fcd9b81d28b402d0e98adf64eb043bc5e8b16e8b40baff8d036926be911"
+    },
+    {
+      "bytes": 327,
+      "path": "course/content/quizzes/74960-practice-quiz-3.html",
+      "sha256": "4d0c3fcd9b81d28b402d0e98adf64eb043bc5e8b16e8b40baff8d036926be911"
+    },
+    {
+      "bytes": 4064,
+      "path": "course/content/rubrics/actual-play-final.json",
+      "sha256": "13ffe312038bab8f4c3985e0a42072279c986a01013520e67b8d764f61b21ea9"
+    },
+    {
+      "bytes": 997,
+      "path": "course/content/rubrics/actual-play-ideation.json",
+      "sha256": "8322d214f9bf68a85e330fef247529094f2a97061215ee10cadd2b8cfa86dc22"
+    },
+    {
+      "bytes": 2928,
+      "path": "course/content/rubrics/actual-play-plan.json",
+      "sha256": "9808ba3e50a7d05ef1f61fb8f90853f483be6583d4e3fd7bc99d4ad171fc5c10"
+    },
+    {
+      "bytes": 2384,
+      "path": "course/content/rubrics/board-game-final.json",
+      "sha256": "cafd3f6bb99e34ab8d9ad03e51abc773d707c64bb73212b19cefa45b539e1493"
+    },
+    {
+      "bytes": 1009,
+      "path": "course/content/rubrics/board-game-ideation.json",
+      "sha256": "0ffa85bba9e485c893b88882f6101db8fe173e41ce25a84d1c75363513325fac"
+    },
+    {
+      "bytes": 1834,
+      "path": "course/content/rubrics/board-game-plan.json",
+      "sha256": "55fc556e5bd0fe3bcdf6fe47164881daf6d534b6d497ea7a0a6e55cf2163ae92"
+    },
+    {
+      "bytes": 2450,
+      "path": "course/content/rubrics/digital-procedural-ecology-final.json",
+      "sha256": "fb55a202db4fbe4500541423b35b69f462a419f5beea5b8fbb78140bd1f497c7"
+    },
+    {
+      "bytes": 1042,
+      "path": "course/content/rubrics/digital-procedural-ecology-ideation.json",
+      "sha256": "ea946d1241ed7ed0757bb478127e565bf445393282b34483bd39d8de3ade3208"
+    },
+    {
+      "bytes": 1870,
+      "path": "course/content/rubrics/digital-procedural-ecology-plan.json",
+      "sha256": "2b04c0dc8ddb699f2f72677fb038d6b27cc8555f1f448201ea07cf1c21a42d55"
+    },
+    {
+      "bytes": 40028,
+      "path": "course/content/syllabus.html",
+      "sha256": "cb7d1b90c90857050156c2247048a42d58df7bb6ace551a5e948eab933692091"
+    },
+    {
+      "bytes": 13844,
+      "path": "course/course-manifest.json",
+      "sha256": "dd9f55b7b677bd780c744b6a8b992121274317803a7baaaf417470d7d3efb251"
+    },
+    {
+      "bytes": 581,
+      "path": "course/course.config.jsonc",
+      "sha256": "2a734980e924647dbad2e31ef9d6097b0f95f56af55726755a5d0f1cc3d6228e"
+    },
+    {
+      "bytes": 1050,
+      "path": "course/course.schema.json",
+      "sha256": "b35704db5324e9c849946ff98adc216eaddb116f49bfef1a578d2ac85ac1aad9"
+    },
+    {
+      "bytes": 78629,
+      "path": "course/links-manifest.json",
+      "sha256": "41a3604fa20c2766ba5eca45a4c4c2feb58bb0a10dbe096680a40af047ee79c5"
+    },
+    {
+      "bytes": 1520,
+      "path": "course/rubric-manifest.json",
+      "sha256": "e1ccc7e429bd64a0da288fe901a0ae7e0fbf3b18c8ba95e4678a5665ba996904"
+    },
+    {
+      "bytes": 2894,
+      "path": "docs/ARCHITECTURE.md",
+      "sha256": "e82f9ad4e350332a281136d0fa0ae65d792b0a6e96efcbfe6f829c4f5fa25dd9"
+    },
+    {
+      "bytes": 3582,
+      "path": "docs/ASSIGNMENT_RUBRIC_QA.md",
+      "sha256": "7984a52c1a08056d2a672aa8840176499716a0e132adc151c18de72bce8fccaf"
+    },
+    {
+      "bytes": 10963,
+      "path": "docs/BEST_PRACTICES_HANDBOOK.md",
+      "sha256": "ead519e0d4bca3fb04159270991a5bb0ed9b30ddacbd01319c4ce8a7edba26ee"
+    },
+    {
+      "bytes": 9916,
+      "path": "docs/OPERATIONS.md",
+      "sha256": "61909c6da2866e86443383cedc6b03509d1bb96844876d7adf86839e48fee6e6"
+    },
+    {
+      "bytes": 1976,
+      "path": "docs/PLATFORMS.md",
+      "sha256": "9bc62d8cbea44c14abf5f65d264e78f08bbe91ce0b5ce69de1887f1d0c7c687a"
+    },
+    {
+      "bytes": 3195,
+      "path": "docs/QUALITY_ASSURANCE.md",
+      "sha256": "5dd0153761171daf47f2794c31e49a1456bd1c66fb1f0619eac45e88cff00ab4"
+    },
+    {
+      "bytes": 2424,
+      "path": "docs/SECURITY.md",
+      "sha256": "59d85220e5c5ed9b4d6055184d349fbd3ac67284759b1ff5c6f330d266e61a10"
+    },
+    {
+      "bytes": 2518,
+      "path": "docs/TESTING.md",
+      "sha256": "275259d655bc7e84d0559c404cd615d73449582c1f8964004d1036df6893a40a"
+    },
+    {
+      "bytes": 2206,
+      "path": "docs/TESTMAKER_AUTHORING.md",
+      "sha256": "72c9eecbf8a1b3f915aaa71bf8c6548afebbbb13fcefe0ed2992c232811a29ec"
+    },
+    {
+      "bytes": 3666,
+      "path": "docs/TESTMAKING.md",
+      "sha256": "772d759a6db81428eca91540e546e5640b5e4b06da1a6b79c8dd8408d4f3f887"
+    },
+    {
+      "bytes": 16279,
+      "path": "docs/canvas-html-link-research.md",
+      "sha256": "eb6290106774f700491d9ccb1fa35d627df23ac2c7aebbc4bb92124f3bd9f9bc"
+    },
+    {
+      "bytes": 97903,
+      "path": "examples/iat210/IAT210-Fall2026-example-course-starter-v2.0.imscc",
+      "sha256": "d93a24bbdfa34e7a0888e8f3edef066d9bd2046b8390136ebdb5aefaa36f32cf"
+    },
+    {
+      "bytes": 2415,
+      "path": "examples/iat210/README.md",
+      "sha256": "e692bb0c6a3d985eaef27bc87d1ada147fe7357decf65d6c251181a2972fb55c"
+    },
+    {
+      "bytes": 283,
+      "path": "examples/iat210/link-check.config.jsonc",
+      "sha256": "1cd1c38a3f6ec994c4f20f89853e72fe73b2523c8b116e555d5da5ee562c8523"
+    },
+    {
+      "bytes": 439,
+      "path": "examples/iat210/link-check.schema.json",
+      "sha256": "461560311b84da43ceb0f0c81d669015e191269eadf303c4039eafd9b60bece5"
+    },
+    {
+      "bytes": 11432,
+      "path": "examples/iat210/prepare_course_starter.py",
+      "sha256": "2df4581146aff3fa65841adf95f77e427941dc01d29285a9981f7ac30f8b338b"
+    },
+    {
+      "bytes": 9383,
+      "path": "examples/iat210/syllabus-links.config.jsonc",
+      "sha256": "ba2c9e9071e113e7293ae6b5b72c9774618e937b5a1d196a9b69b423536f0f84"
+    },
+    {
+      "bytes": 3186,
+      "path": "examples/iat210/syllabus-links.schema.json",
+      "sha256": "bfda629f729fab944d3bec95d150d147dc404bd16f7cb7b83098fe6db589449c"
+    },
+    {
+      "bytes": 1391,
+      "path": "input/README.md",
+      "sha256": "43748fe3234956189524a0d610a6bed2c478c52e9138a446b85fa12a047cb0c8"
+    },
+    {
+      "bytes": 322,
+      "path": "input/assignment-qa.example/assignment.md",
+      "sha256": "660956714ffdabfa759ea059f2a50d8336840c642852300ca418989719804ab9"
+    },
+    {
+      "bytes": 889,
+      "path": "input/assignment-qa.example/rubric.md",
+      "sha256": "97e968193b788e91cf70b9598dfa8d3eec185fd695f23c1ec199516d52fcda5d"
+    },
+    {
+      "bytes": 1311,
+      "path": "input/course-package.example.jsonc",
+      "sha256": "a38d288079b2473896eee6a92f90828ea3d0a41eaf332fca1b10b128793c7be8"
+    },
+    {
+      "bytes": 55,
+      "path": "input/example-course-assignment.html",
+      "sha256": "47a4dde8e6b02a43de5a2c57a0beddeb4610bc14848b50f1b7fe4d01dc4361d2"
+    },
+    {
+      "bytes": 104,
+      "path": "input/example-course-discussion.html",
+      "sha256": "7b05d472971aeb99db6f629a166d58012250e1393e9f6a7c6fb9f88872753772"
+    },
+    {
+      "bytes": 71,
+      "path": "input/example-course-welcome.html",
+      "sha256": "345092df82c33263e7640aa48d8970f846104698b9ea2f3918204a0b3cf73ceb"
+    },
+    {
+      "bytes": 431,
+      "path": "input/example-testmaker-quiz.md",
+      "sha256": "2378fe1bdf3619e1940973e3233ccb3089bdadd743cd483a577bf181ffd1aedc"
+    },
+    {
+      "bytes": 214,
+      "path": "input/syllabus-addendum.html",
+      "sha256": "68c368a2aa3162c2a807238b12a6d8ffd4f1d521cba4c962cd6c5966e0641351"
+    },
+    {
+      "bytes": 314,
+      "path": "input/week3-discussion.html",
+      "sha256": "ddefd7f9fd7c0a79ddafdc89c04499e420002597039263a6cea54b15663f932a"
+    },
+    {
+      "bytes": 262,
+      "path": "input/week3-reflection.html",
+      "sha256": "bad1fdb6501c2ba268bbb4f3c7163978f63a7ebb5893641233903d476b68b829"
+    },
+    {
+      "bytes": 2293,
+      "path": "mcp/README.md",
+      "sha256": "96fe4a50a89876ea7b2fb6620a92594f9c04fc0e49d0fcf518b7ef0b4bc632f7"
+    },
+    {
+      "bytes": 828,
+      "path": "mcp/canvas-mcp-launcher",
+      "sha256": "bd51491df6e54a480e243d7c0821fe96849b341e51250c2dbc12bf734c914515"
+    },
+    {
+      "bytes": 106,
+      "path": "mcp/requirements.in",
+      "sha256": "ac17dd38a548cbb49f794596bb5a5539707a9e4a365388faa0f32c00281de45f"
+    },
+    {
+      "bytes": 77065,
+      "path": "mcp/requirements.lock",
+      "sha256": "106226cdd773055f0f763922bdd8ad888a1a6ccd57f842cd19e325cfb1725c74"
+    },
+    {
+      "bytes": 676,
+      "path": "pyproject.toml",
+      "sha256": "dcd8397e9ba4cea5abb8f9b9e1d90f622f1cc360df3dbeff55f08cf7bdd3a2b3"
+    },
+    {
+      "bytes": 6886,
+      "path": "research/00-retrofit-notes.md",
+      "sha256": "b04d9557e7598285f96598b8c55605c188bafc4900b9f1ff3b29163756fbe965"
+    },
+    {
+      "bytes": 2553,
+      "path": "research/01-course-packet-and-merge-pdfs.md",
+      "sha256": "a7a8f03f50b1491db453b5c73dafbf51c4f5553fe296ea14fa3175bcb39f23d8"
+    },
+    {
+      "bytes": 5791,
+      "path": "research/02-engine-root-resolution.md",
+      "sha256": "7e2d238d3923b3592d70b913b41e8fb9d023e93b452219a90230c48673f1dcbc"
+    },
+    {
+      "bytes": 2420,
+      "path": "research/03-testmaker-to-canvas-quizzes.md",
+      "sha256": "6ef6b7ec36320ca99c870dd2e2a95672424b407754edfd0fd571aa6a939502b6"
+    },
+    {
+      "bytes": 1010,
+      "path": "research/04-imscc-generation.md",
+      "sha256": "b2a6606b9cc648f2c3b87b8dbe121a7bf28299032a77e5ceb8093bdb55562128"
+    },
+    {
+      "bytes": 1681,
+      "path": "research/05-canvas-mcp-selection.md",
+      "sha256": "82369e4f3966afbc53879a56709e3f77a71b982924be0abe8166efd7c1793550"
+    },
+    {
+      "bytes": 2532,
+      "path": "research/06-distribution-and-link-qa.md",
+      "sha256": "b1b865a7f9a47f9e4f2c2d09c71930d1cfe41c54d7c80ed33c5d7519a2f2aa97"
+    },
+    {
+      "bytes": 2165,
+      "path": "research/07-iat210-materials-v2.md",
+      "sha256": "cacd9f6b5761b1c4fa37b7926a5e58c472751e6575508083c32aa96b680faff7"
+    },
+    {
+      "bytes": 1548,
+      "path": "research/07-wsgi-asgi-decision.md",
+      "sha256": "a4ad38d762ed917bc8ff79344c4ae7f0f2550dfabc6892d6a67967919ba0aa4e"
+    },
+    {
+      "bytes": 4220,
+      "path": "research/08-assignment-instruction-canaries.md",
+      "sha256": "622c98a7421dfebb30ddef48382d4241a021b8fd5abb36691474d8e4a24da535"
+    },
+    {
+      "bytes": 3598,
+      "path": "research/09-iat210-mistral-assignment-qa.md",
+      "sha256": "eebf709736eb13683a106b60c9bf2e6446b502538786bc342198bcc5df432ce1"
+    },
+    {
+      "bytes": 2015,
+      "path": "research/README.md",
+      "sha256": "6eb17a81ac89b9bbe462015b33dcfe40ca66e46c8328638f7951798df795d2a0"
+    },
+    {
+      "bytes": 6863,
+      "path": "research/canvas-api-endpoints.md",
+      "sha256": "164592204c7159b828456630db4c36477ff72a2c759d7b0042fcb890516e6d8e"
+    },
+    {
+      "bytes": 29963,
+      "path": "sbom.json",
+      "sha256": "4f6d6ac87b021c9983c9ccd5e87e286534ecb601ed09ee0d6fd5b1ec329e6df5"
+    },
+    {
+      "bytes": 2390,
+      "path": "scripts/audit_portability.py",
+      "sha256": "dd389ef03acc8eb65e85f557612e48726365f4c2896af34ad179a29c4c1dda01"
+    },
+    {
+      "bytes": 16747,
+      "path": "scripts/build_distribution.py",
+      "sha256": "dae58c105341d5b841567763d6380d106857a5fbb46e990b87b3ffbf21f23a55"
+    },
+    {
+      "bytes": 675,
+      "path": "scripts/build_html_index.py",
+      "sha256": "3a7467447e3148fb1f0981a56f4080ff2414e1e23b630f829aa644162283b9ad"
+    },
+    {
+      "bytes": 879,
+      "path": "scripts/build_test_forms.py",
+      "sha256": "faa14f1e1225b16f0236ff95e0f0885124b972c81040fa4c3bbbb11e1103356d"
+    },
+    {
+      "bytes": 4373,
+      "path": "scripts/check_external_links.py",
+      "sha256": "71148a22a91fca2d965aa9b2e8f66f423cfe650f5040261c44b95aeda99f4761"
+    },
+    {
+      "bytes": 2256,
+      "path": "scripts/check_running_server.py",
+      "sha256": "0db2aba8f89785c0b1feda7c5d34acd8c065d450f06d2c9181a58af05ebca880"
+    },
+    {
+      "bytes": 19690,
+      "path": "scripts/course_authoring.py",
+      "sha256": "ae47945e84dfa7a83140d8f65ec21c33bf0b3eb41d1d5d11bfd3539c9f71a6e4"
+    },
+    {
+      "bytes": 4267,
+      "path": "scripts/export_codex_transcript.py",
+      "sha256": "134e639ae248cdaaa487bac95d76c8bd91f4ef14e7e93a7480081eb1321cf7d7"
+    },
+    {
+      "bytes": 2873,
+      "path": "scripts/extract_imscc_rubrics.py",
+      "sha256": "230b41e8ae3bddcf6f2741702165d9e8ed6456ab6a9e7ee30231fbbc4a666a1f"
+    },
+    {
+      "bytes": 3985,
+      "path": "scripts/initialize_toolkit.py",
+      "sha256": "0e88abff22a9b10ea0bb1eb909285f75dad911d7ace29161ce372aac0bddc3a9"
+    },
+    {
+      "bytes": 14030,
+      "path": "scripts/mistral_assignment_qa.py",
+      "sha256": "a43e0aaa6592153e1180a062f5fe1c49dd7445d47f0219cdbd845cea4e1256cf"
+    },
+    {
+      "bytes": 14273,
+      "path": "scripts/sandbox_course_lifecycle.py",
+      "sha256": "4c20a5166ae1d4461e5adcb70e0859817295183e5ddbcd234a206d0eab49acbd"
+    },
+    {
+      "bytes": 411,
+      "path": "scripts/setup.sh",
+      "sha256": "7eba0501996f5d41bbaa2a9e3108b0b4606d70d31458b6c18a9bfe9d81df3d1a"
+    },
+    {
+      "bytes": 5469,
+      "path": "scripts/sync_course_rubrics.py",
+      "sha256": "9d7c52662b2602e07ff06413005858461dde9de2625a085e8ac03a8e2109c150"
+    },
+    {
+      "bytes": 10303,
+      "path": "scripts/testmaking_authoring.py",
+      "sha256": "961f24c2f04b1b668c64112432e105708f9f03efe57963d11397c9a1181d7fea"
+    },
+    {
+      "bytes": 9572,
+      "path": "scripts/update_syllabus_links.py",
+      "sha256": "a48ae58fa7d549aa603601e00c28fa3478fd407eeba64a9f41b9cadfaa2566ef"
+    },
+    {
+      "bytes": 2909,
+      "path": "scripts/upload_course_file.py",
+      "sha256": "c52858c80d035399e8320385eedec6e733e8bd8347667cce3ed8fe993cf0eb98"
+    },
+    {
+      "bytes": 1070,
+      "path": "scripts/validate_question_pool.py",
+      "sha256": "21adfa5d26a5d60566a335ad85877614bfdf0211827568c4580bb52a6ce16bee"
+    },
+    {
+      "bytes": 1206,
+      "path": "setup-after-move.command",
+      "sha256": "f1ef9ca6488b3b7d792c22aa21cb3d3be075bf7e2990fb3f4585aa0e8116c79b"
+    },
+    {
+      "bytes": 2083,
+      "path": "skills/configure-canvas-course/SKILL.md",
+      "sha256": "9c4716fbbbeca6d6944a17220751b35c5064a915103622a6f358db67da61eef8"
+    },
+    {
+      "bytes": 238,
+      "path": "skills/configure-canvas-course/agents/openai.yaml",
+      "sha256": "e6f2ee52bf67a6acac31e3a78abc1362f31a42fe527708763fa60d1c32971aaa"
+    },
+    {
+      "bytes": 1287,
+      "path": "skills/configure-canvas-course/references/reconfiguration.md",
+      "sha256": "ac8536e3ec32a88d1aa47f1515077e87e23768079fb18ad76891fa886a51126b"
+    },
+    {
+      "bytes": 381,
+      "path": "src/canvas_automation/__init__.py",
+      "sha256": "fdad93ca88ca066f137404097ca6233a1a3365c135f43ece7ff28eca756271e3"
+    },
+    {
+      "bytes": 6987,
+      "path": "src/canvas_automation/canvas_client.py",
+      "sha256": "ad565274d4334703d879d4e274a55a465c8fb42359a0ac06e951adf31dbe67dd"
+    },
+    {
+      "bytes": 33225,
+      "path": "src/canvas_automation/cli.py",
+      "sha256": "586e1bd6ceaf1d6f627be88af264f917ed01a096566d17501d9b842d80939210"
+    },
+    {
+      "bytes": 6687,
+      "path": "src/canvas_automation/course_packet.py",
+      "sha256": "4888da841b697c6be71a050e042180dbf943f5ef1af0a906de13df7f4b91c3d3"
+    },
+    {
+      "bytes": 11705,
+      "path": "src/canvas_automation/imscc.py",
+      "sha256": "7687f8b10713126fa0f30a912e8bfe0fc4388047348ccc10bd9f6566a8c3eec3"
+    },
+    {
+      "bytes": 6807,
+      "path": "src/canvas_automation/jsonc.py",
+      "sha256": "511d34cf4bf7c05caa46a663236be52c13b70c3d48f7c0c2e03df0a7a5422216"
+    },
+    {
+      "bytes": 3614,
+      "path": "src/canvas_automation/link_check.py",
+      "sha256": "df3bcfc6a054bb5d46b411484b05f9372c9a5037743ff207201ccd6a5e7cee77"
+    },
+    {
+      "bytes": 352,
+      "path": "src/canvas_automation/mcqer.py",
+      "sha256": "2e1f864097e235d856915bf10cab6c78427212d47934d220cc3d2ee7ce63b2be"
+    },
+    {
+      "bytes": 1576,
+      "path": "src/canvas_automation/new_quizzes.py",
+      "sha256": "1c84268c605559a68566693e3c85fa53166acbe5fe87f6d7ed110de11e0151bc"
+    },
+    {
+      "bytes": 1589,
+      "path": "src/canvas_automation/payloads.py",
+      "sha256": "1bf9a128bf6bffbde39548a6f02391bb1b0cc07cb8c226c3e54bf2bc1d56382e"
+    },
+    {
+      "bytes": 6244,
+      "path": "src/canvas_automation/pdf_tools.py",
+      "sha256": "a6526415c9ff0a0d7f2543da7008117a787e211f7fe6f97a95ab50428804ae27"
+    },
+    {
+      "bytes": 12394,
+      "path": "src/canvas_automation/server.py",
+      "sha256": "ea8a50164b4200372fdcbc3201eb5271ffa8aafbd3ff66a35e91fe4f07a24cee"
+    },
+    {
+      "bytes": 4256,
+      "path": "src/canvas_automation/test_forms.py",
+      "sha256": "dbd9c62c0f6467a5b36bb0dab1a7feb085231191f4a19f5f7d35042cbc6d390a"
+    },
+    {
+      "bytes": 3074,
+      "path": "src/canvas_automation/test_quality.py",
+      "sha256": "edd4d4c2fe01f3eedfeefec7777c34c416b5cb861e9325807ebee6ed579c53f4"
+    },
+    {
+      "bytes": 10224,
+      "path": "src/canvas_automation/testmaker.py",
+      "sha256": "a4f64d16407246ca1ec7fe15cfd5b000779fad3535d53057f8d98d5ae3ab816b"
+    },
+    {
+      "bytes": 8044,
+      "path": "src/canvas_automation/util.py",
+      "sha256": "b9c1f4f057d04f5cec9cfa1445c43348697fbcbff7fc0571494e40d9cc3d495a"
+    },
+    {
+      "bytes": 15915,
+      "path": "templates/distribution-index.html",
+      "sha256": "38c30b750c0585d76a91d72e5ebeb3da8074a7bd832a9faf1dae255e25d18a48"
+    },
+    {
+      "bytes": 3982,
+      "path": "tests/test_direct_authoring.py",
+      "sha256": "82d4ea4813160b9420768f1e5e7c484b0e867fd1e7be7dc3a9587bff8e59e863"
+    },
+    {
+      "bytes": 10716,
+      "path": "tests/test_distribution.py",
+      "sha256": "ec8553390d7e0e9df2e9325fd780aad4d6a38baf446340f947d1f5bf61fe0d77"
+    },
+    {
+      "bytes": 31036,
+      "path": "tests/test_engine.py",
+      "sha256": "38f69ff57ef67e5599e0c24103d80d5a8a149a9ddcad71be08533347a0cdaf09"
+    },
+    {
+      "bytes": 1768,
+      "path": "tests/test_export_codex_transcript.py",
+      "sha256": "28f9d867bd430fba581f61f0cc0ba5a550c8e2fb15ac14bed707d165601791ff"
+    },
+    {
+      "bytes": 1269,
+      "path": "tests/test_extract_imscc_rubrics.py",
+      "sha256": "9796d0529a7f5d82a9df252d68eece19a109363b072aa7271fd14569b91faa01"
+    },
+    {
+      "bytes": 1789,
+      "path": "tests/test_iat210_assignment_qa_revisions.py",
+      "sha256": "dc38002a1cc8689e11ef308b2c13b1bd7068b746c91a1f1646abddec482c0aee"
+    },
+    {
+      "bytes": 2202,
+      "path": "tests/test_iat210_syllabus_454.py",
+      "sha256": "935a48ee5144a2002f425e1d3c05443c087cc1e4cea64247ee2b09101052b99c"
+    },
+    {
+      "bytes": 3176,
+      "path": "tests/test_link_check.py",
+      "sha256": "1e177a1c8b46244d311d3d87513ad45695ba298f173aa9f8cdf7d4bf6906d1aa"
+    },
+    {
+      "bytes": 4837,
+      "path": "tests/test_mistral_assignment_qa.py",
+      "sha256": "5ee68fec9f7a530d4690a478149232c5f8f63b958a703a2e535a39b365780ba4"
+    },
+    {
+      "bytes": 1411,
+      "path": "tests/test_portability_audit.py",
+      "sha256": "024462556b22c07b43aee4d8e8fccf3ca5cb715b3bd988746fcc77baffe18b78"
+    },
+    {
+      "bytes": 2228,
+      "path": "tests/test_running_server_probe.py",
+      "sha256": "41eab29e03abf9773e12911a9124e7bb5abe30035e2842db90f928221b1c7ef7"
+    },
+    {
+      "bytes": 2298,
+      "path": "tests/test_sandbox_lifecycle.py",
+      "sha256": "80bb8cfe05517caddb79e26e85e75b43a4ca51116dd6d3b2cf16f0c6802a6644"
+    },
+    {
+      "bytes": 3674,
+      "path": "tests/test_syllabus_links.py",
+      "sha256": "4964ea39354a7f1d52d5eb9bbba3c5269ec222319a7b3b83b2fd77b4f1af2a58"
+    },
+    {
+      "bytes": 1168,
+      "path": "tests/test_sync_course_rubrics.py",
+      "sha256": "35898dfa69cc140e4f2c8e898aef42c4e6f26fc959fc3cc7480e68f2263e405f"
+    },
+    {
+      "bytes": 1860,
+      "path": "tests/test_test_forms.py",
+      "sha256": "6d6edfa004856c9bd2b8b482aade12c15580ae705e2f042302da7cc16c1bc8af"
+    },
+    {
+      "bytes": 1337,
+      "path": "tests/test_test_quality.py",
+      "sha256": "e904c45396e60dc9cc71b4cd20dc785a8a22db8d9443493f538895f47df30db7"
+    },
+    {
+      "bytes": 205746,
+      "path": "uv.lock",
+      "sha256": "d0ab9a71e693486eecaeb6d51c8521846eb3a1752fa4a4b25dadca514cc0a748"
+    },
+    {
+      "bytes": 2207,
+      "path": "verify.command",
+      "sha256": "a04680eb9337c8c321c16515d43478ef7c1819b8e04e6ad9dd4a41b42b556adb"
+    }
+  ],
+  "sanitized": true,
+  "schema": "canvas-automation-distribution/v1"
+}

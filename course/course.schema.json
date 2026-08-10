@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Canonical Canvas course configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["course_url", "institution", "authoring"],
+  "properties": {
+    "course_url": {"type": "string", "pattern": "^https://[^/]+/courses/[1-9][0-9]*/?(?:[?#].*)?$"},
+    "institution": {
+      "type": "object",
+      "required": ["name", "homepage", "canvas_host", "policy_search_domains", "library_resolver_hosts"],
+      "properties": {
+        "name": {"type": "string"}, "homepage": {"type": "string"}, "canvas_host": {"type": "string"},
+        "policy_search_domains": {"type": "array", "items": {"type": "string"}},
+        "library_resolver_hosts": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "authoring": {
+      "type": "object",
+      "required": ["manifest", "links_manifest", "imscc_template"],
+      "properties": {"manifest": {"type": "string"}, "links_manifest": {"type": "string"}, "imscc_template": {"type": "string"}}
+    }
+  }
+}

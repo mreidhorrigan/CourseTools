@@ -1,0 +1,1 @@
+{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","required":["OUT_DIR","spec_file"],"properties":{"OUT_DIR":{"type":"string"},"spec_file":{"type":"string"},"output_name":{"type":"string"}}}

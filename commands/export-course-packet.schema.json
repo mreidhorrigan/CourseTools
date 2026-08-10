@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "export-course-packet config",
+  "description": "Sibling schema for export-course-packet.config.jsonc. No course_id here by design: the command prompts for a course URL each run. See 04-config-files-jsonc.md.",
+  "type": "object",
+  "required": ["OUT_DIR"],
+  "additionalProperties": true,
+  "properties": {
+    "OUT_DIR": { "type": "string", "description": "where output lands; $ENGINE and $HOME expand" },
+    "assignments_pdf": {
+      "type": "object",
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "only_published": { "type": "boolean" },
+        "sort_by": { "type": "string", "enum": ["due_at", "name", "position"] }
+      }
+    },
+    "gradebook": {
+      "type": "object",
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "only_published": { "type": "boolean" },
+        "also_xlsx": { "type": "boolean" }
+      }
+    }
+  }
+}

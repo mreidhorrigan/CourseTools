@@ -1,0 +1,32 @@
+// Uses Mistral as a lower-capability boundary tester for assignment instructions and a rubric.
+// The API key is requested with hidden input and is never written to this file or the report.
+// Do not send student work, student data, confidential materials, or restricted course exports.
+{
+  // "$schema": "./test-assignment-rubric.schema.json",
+  "OUT_DIR": "$ENGINE/out/assignment-rubric-qa",
+  "instructions_file": "$ENGINE/input/assignment-qa.example/assignment.md",
+  "rubric_file": "$ENGINE/input/assignment-qa.example/rubric.md",
+  "context_files": [],
+  "expected_requirements": [
+    "Submit a 600–800 word analysis.",
+    "Make one specific claim and support it with two cited observations.",
+    "Include a brief limitations paragraph."
+  ],
+  "student_profiles": [
+    "Literal and minimally strategic: satisfy only requirements stated clearly enough to notice.",
+    "Competent but hurried: make reasonable choices where instructions leave details open.",
+    "Confident misreader: follow one plausible interpretation without asking for clarification."
+  ],
+  "trials": 3,
+  "seed": 210,
+  "model": "mistral-small-latest",
+  "api_url": "https://api.mistral.ai/v1/chat/completions",
+  "student_temperature": 0.5,
+  "grader_temperature": 0.1,
+  "student_max_tokens": 1800,
+  "analysis_max_tokens": 1800,
+  "max_input_chars": 60000,
+  "timeout_seconds": 180,
+  "retry_attempts": 5,
+  "retry_base_seconds": 5
+}

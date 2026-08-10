@@ -1,0 +1,48 @@
+// ============================================================================
+//  CANVAS AUTOMATION -- export-course-packet. Your config. Edit this file,
+//  then double-click export-course-packet.command; it will prompt you for
+//  a Canvas course URL each time (see research/00-retrofit-notes.md for
+//  why course_id lives in a prompt here rather than in this file, unlike
+//  every other command).
+//
+//  Every option lives in this file: the ACTIVE ones are uncommented, the
+//  rest are commented out with a note. Uncomment to enable. Output lands
+//  in a fresh out/export-course-packet/<timestamp>__course-<id>/ folder,
+//  never overwritten. Requires start-server.command to already be
+//  running. Full guide: README.md
+// ============================================================================
+{
+  // "$schema": "./export-course-packet.schema.json",
+
+  "OUT_DIR": "$ENGINE/out/export-course-packet",
+
+  "assignments_pdf": {
+    "enabled": true,
+
+    // Only published assignments are ever included. Uncomment to include
+    // unpublished ones too (they will still be excluded from the
+    // gradebook below, since ungraded/unpublished assignments generally
+    // have no real submission data yet).
+    "only_published": true,
+
+    "sort_by": "due_at"   // due_at | name | position
+
+    // Each assignment also gets saved individually before merging:
+    //   out/export-course-packet/<run>/assignments/<id>.json
+    //   out/export-course-packet/<run>/assignments_pdf/<NNN>-<slug>.pdf
+    // and the merge of all of those becomes assignments_combined.pdf.
+  },
+
+  "gradebook": {
+    "enabled": true,
+    "only_published": true,   // matches assignments_pdf's default; see note above
+    "also_xlsx": true
+
+    // Canvas has no documented API endpoint for the gradebook CSV export
+    // the web UI produces (see research/canvas-api-endpoints.md), so this
+    // is synthesized from the Enrollments and Submissions APIs instead:
+    // one row per active student, one column per published assignment,
+    // plus Current Score and Final Score. It will not include assignment
+    // GROUP subtotals the way the UI's own export does.
+  }
+}

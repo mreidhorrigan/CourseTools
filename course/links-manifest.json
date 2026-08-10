@@ -1,0 +1,1955 @@
+{
+  "institution": {
+    "canvas_host": "canvas.example.edu",
+    "homepage": "https://www.example.edu/",
+    "library_resolver_hosts": [],
+    "name": "Example Institution",
+    "policy_search_domains": [
+      "example.edu"
+    ]
+  },
+  "links": [
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "W05-R1 \u2014 Hunicke, LeBlanc, and Zubek, \u2018MDA\u2019",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-5-formal-systems-and-computational-rules.html",
+          "title": "[OUTTAKE] Week 5: Formal systems and computational rules"
+        },
+        {
+          "anchor_text": "W05-R1 \u2014 Hunicke, LeBlanc, and Zubek, \u2018MDA\u2019",
+          "kind": "page",
+          "source": "course/content/pages/week-5-formal-systems-and-computational-rules-2.html",
+          "title": "Week 5: Formal systems and computational rules"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://aaai.org/papers/ws04-04-001-mda-a-formal-approach-to-game-design-and-game-research/"
+    },
+    {
+      "category": "canvas-instance",
+      "occurrences": [
+        {
+          "anchor_text": "Final 12%",
+          "kind": "syllabus",
+          "source": "course/content/syllabus.html",
+          "title": "Canvas Syllabus"
+        },
+        {
+          "anchor_text": "Final submission",
+          "kind": "syllabus",
+          "source": "course/content/syllabus.html",
+          "title": "Canvas Syllabus"
+        },
+        {
+          "anchor_text": "Final 12%",
+          "kind": "page",
+          "source": "course/content/syllabus.html",
+          "title": "IAT 210 Course Syllabus"
+        },
+        {
+          "anchor_text": "Final submission",
+          "kind": "page",
+          "source": "course/content/syllabus.html",
+          "title": "IAT 210 Course Syllabus"
+        }
+      ],
+      "review_action": "replace or migration-enable for target course",
+      "url": "https://canvas.example.edu/courses/12345/assignments/207279"
+    },
+    {
+      "category": "canvas-instance",
+      "occurrences": [
+        {
+          "anchor_text": "Final 12%",
+          "kind": "syllabus",
+          "source": "course/content/syllabus.html",
+          "title": "Canvas Syllabus"
+        },
+        {
+          "anchor_text": "Final submission",
+          "kind": "syllabus",
+          "source": "course/content/syllabus.html",
+          "title": "Canvas Syllabus"
+        },
+        {
+          "anchor_text": "Final 12%",
+          "kind": "page",
+          "source": "course/content/syllabus.html",
+          "title": "IAT 210 Course Syllabus"
+        },
+        {
+          "anchor_text": "Final submission",
+          "kind": "page",
+          "source": "course/content/syllabus.html",
+          "title": "IAT 210 Course Syllabus"
+        }
+      ],
+      "review_action": "replace or migration-enable for target course",
+      "url": "https://canvas.example.edu/courses/12345/assignments/207280"
+    },
+    {
+      "category": "canvas-instance",
+      "occurrences": [
+        {
+          "anchor_text": "Final 12%",
+          "kind": "syllabus",
+          "source": "course/content/syllabus.html",
+          "title": "Canvas Syllabus"
+        },
+        {
+          "anchor_text": "Final submission",
+          "kind": "syllabus",
+          "source": "course/content/syllabus.html",
+          "title": "Canvas Syllabus"
+        },
+        {
+          "anchor_text": "Final 12%",
+          "kind": "page",
+          "source": "course/content/syllabus.html",
+          "title": "IAT 210 Course Syllabus"
+        },
+        {
+          "anchor_text": "Final submission",
+          "kind": "page",
+          "source": "course/content/syllabus.html",
+          "title": "IAT 210 Course Syllabus"
+        }
+      ],
+      "review_action": "replace or migration-enable for target course",
+      "url": "https://canvas.example.edu/courses/12345/assignments/207281"
+    },
+    {
+      "category": "canvas-instance",
+      "occurrences": [
+        {
+          "anchor_text": "Plan 6%",
+          "kind": "syllabus",
+          "source": "course/content/syllabus.html",
+          "title": "Canvas Syllabus"
+        },
+        {
+          "anchor_text": "Session plan and rulebook",
+          "kind": "syllabus",
+          "source": "course/content/syllabus.html",
+          "title": "Canvas Syllabus"
+        },
+        {
+          "anchor_text": "Plan 6%",
+          "kind": "page",
+          "source": "course/content/syllabus.html",
+          "title": "IAT 210 Course Syllabus"
+        },
+        {
+          "anchor_text": "Session plan and rulebook",
+          "kind": "page",
+          "source": "course/content/syllabus.html",
+          "title": "IAT 210 Course Syllabus"
+        }
+      ],
+      "review_action": "replace or migration-enable for target course",
+      "url": "https://canvas.example.edu/courses/12345/assignments/207309"
+    },
+    {
+      "category": "canvas-instance",
+      "occurrences": [
+        {
+          "anchor_text": "Plan 6%",
+          "kind": "syllabus",
+          "source": "course/content/syllabus.html",
+          "title": "Canvas Syllabus"
+        },
+        {
+          "anchor_text": "Design plan and draft rulebook",
+          "kind": "syllabus",
+          "source": "course/content/syllabus.html",
+          "title": "Canvas Syllabus"
+        },
+        {
+          "anchor_text": "Plan 6%",
+          "kind": "page",
+          "source": "course/content/syllabus.html",
+          "title": "IAT 210 Course Syllabus"
+        },
+        {
+          "anchor_text": "Design plan and draft rulebook",
+          "kind": "page",
+          "source": "course/content/syllabus.html",
+          "title": "IAT 210 Course Syllabus"
+        }
+      ],
+      "review_action": "replace or migration-enable for target course",
+      "url": "https://canvas.example.edu/courses/12345/assignments/207310"
+    },
+    {
+      "category": "canvas-instance",
+      "occurrences": [
+        {
+          "anchor_text": "Plan 6%",
+          "kind": "syllabus",
+          "source": "course/content/syllabus.html",
+          "title": "Canvas Syllabus"
+        },
+        {
+          "anchor_text": "Design and technical plan",
+          "kind": "syllabus",
+          "source": "course/content/syllabus.html",
+          "title": "Canvas Syllabus"
+        },
+        {
+          "anchor_text": "Plan 6%",
+          "kind": "page",
+          "source": "course/content/syllabus.html",
+          "title": "IAT 210 Course Syllabus"
+        },
+        {
+          "anchor_text": "Design and technical plan",
+          "kind": "page",
+          "source": "course/content/syllabus.html",
+          "title": "IAT 210 Course Syllabus"
+        }
+      ],
+      "review_action": "replace or migration-enable for target course",
+      "url": "https://canvas.example.edu/courses/12345/assignments/207311"
+    },
+    {
+      "category": "canvas-instance",
+      "occurrences": [
+        {
+          "anchor_text": "Ideation 3%",
+          "kind": "syllabus",
+          "source": "course/content/syllabus.html",
+          "title": "Canvas Syllabus"
+        },
+        {
+          "anchor_text": "Ideation",
+          "kind": "syllabus",
+          "source": "course/content/syllabus.html",
+          "title": "Canvas Syllabus"
+        },
+        {
+          "anchor_text": "Ideation 3%",
+          "kind": "page",
+          "source": "course/content/syllabus.html",
+          "title": "IAT 210 Course Syllabus"
+        },
+        {
+          "anchor_text": "Ideation",
+          "kind": "page",
+          "source": "course/content/syllabus.html",
+          "title": "IAT 210 Course Syllabus"
+        }
+      ],
+      "review_action": "replace or migration-enable for target course",
+      "url": "https://canvas.example.edu/courses/12345/discussion_topics/256071"
+    },
+    {
+      "category": "canvas-instance",
+      "occurrences": [
+        {
+          "anchor_text": "Ideation 3%",
+          "kind": "syllabus",
+          "source": "course/content/syllabus.html",
+          "title": "Canvas Syllabus"
+        },
+        {
+          "anchor_text": "Ideation",
+          "kind": "syllabus",
+          "source": "course/content/syllabus.html",
+          "title": "Canvas Syllabus"
+        },
+        {
+          "anchor_text": "Ideation 3%",
+          "kind": "page",
+          "source": "course/content/syllabus.html",
+          "title": "IAT 210 Course Syllabus"
+        },
+        {
+          "anchor_text": "Ideation",
+          "kind": "page",
+          "source": "course/content/syllabus.html",
+          "title": "IAT 210 Course Syllabus"
+        }
+      ],
+      "review_action": "replace or migration-enable for target course",
+      "url": "https://canvas.example.edu/courses/12345/discussion_topics/256072"
+    },
+    {
+      "category": "canvas-instance",
+      "occurrences": [
+        {
+          "anchor_text": "Ideation 3%",
+          "kind": "syllabus",
+          "source": "course/content/syllabus.html",
+          "title": "Canvas Syllabus"
+        },
+        {
+          "anchor_text": "Ideation",
+          "kind": "syllabus",
+          "source": "course/content/syllabus.html",
+          "title": "Canvas Syllabus"
+        },
+        {
+          "anchor_text": "Ideation 3%",
+          "kind": "page",
+          "source": "course/content/syllabus.html",
+          "title": "IAT 210 Course Syllabus"
+        },
+        {
+          "anchor_text": "Ideation",
+          "kind": "page",
+          "source": "course/content/syllabus.html",
+          "title": "IAT 210 Course Syllabus"
+        }
+      ],
+      "review_action": "replace or migration-enable for target course",
+      "url": "https://canvas.example.edu/courses/12345/discussion_topics/256073"
+    },
+    {
+      "category": "canvas-instance",
+      "occurrences": [
+        {
+          "anchor_text": "W02-R2 \u2014 Trammell, \u2018Torture, Play, and the Black Experience\u2019",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-2-historiography-gender-slash-race-and-game-culture.html",
+          "title": "[OUTTAKE] Week 2: Historiography, gender/race, and game culture"
+        },
+        {
+          "anchor_text": "W02-R2 \u2014 Trammell, \u2018Torture, Play, and the Black Experience\u2019",
+          "kind": "page",
+          "source": "course/content/pages/week-2-historiography-gender-slash-race-and-game-culture-2.html",
+          "title": "Week 2: Historiography, gender/race, and game culture"
+        }
+      ],
+      "review_action": "replace or migration-enable for target course",
+      "url": "https://canvas.example.edu/courses/12345/files/3057238/download?download_frd=1&verifier=ZIuv4Owi0E6tYaEPALYkSlMszw1x15zs6zza10PI"
+    },
+    {
+      "category": "canvas-instance",
+      "occurrences": [
+        {
+          "anchor_text": "Final-Month Video Interview page",
+          "kind": "syllabus",
+          "source": "course/content/syllabus.html",
+          "title": "Canvas Syllabus"
+        },
+        {
+          "anchor_text": "Final-Month Video Interview page",
+          "kind": "page",
+          "source": "course/content/syllabus.html",
+          "title": "IAT 210 Course Syllabus"
+        }
+      ],
+      "review_action": "replace or migration-enable for target course",
+      "url": "https://canvas.example.edu/courses/12345/pages/final-month-video-interview"
+    },
+    {
+      "category": "canvas-instance",
+      "occurrences": [
+        {
+          "anchor_text": "course syllabus and home page",
+          "kind": "page",
+          "source": "course/content/pages/start-here.html",
+          "title": "Start Here"
+        }
+      ],
+      "review_action": "replace or migration-enable for target course",
+      "url": "https://canvas.example.edu/courses/12345/pages/iat-210-course-syllabus"
+    },
+    {
+      "category": "canvas-instance",
+      "occurrences": [
+        {
+          "anchor_text": "Back to syllabus criteria",
+          "kind": "assignment",
+          "source": "course/content/assignments/207279-actual-play-project-final-submission.html",
+          "title": "Actual-Play Project: Final Submission"
+        }
+      ],
+      "review_action": "replace or migration-enable for target course",
+      "url": "https://canvas.example.edu/courses/12345/pages/iat-210-course-syllabus#actual-play-final"
+    },
+    {
+      "category": "canvas-instance",
+      "occurrences": [
+        {
+          "anchor_text": "Back to syllabus criteria",
+          "kind": "discussion",
+          "source": "course/content/discussions/256071-actual-play-project-ideation-discussion.html",
+          "title": "Actual-Play Project: Ideation Discussion"
+        }
+      ],
+      "review_action": "replace or migration-enable for target course",
+      "url": "https://canvas.example.edu/courses/12345/pages/iat-210-course-syllabus#actual-play-ideation"
+    },
+    {
+      "category": "canvas-instance",
+      "occurrences": [
+        {
+          "anchor_text": "Back to syllabus criteria",
+          "kind": "assignment",
+          "source": "course/content/assignments/207309-actual-play-project-session-plan-and-rulebook.html",
+          "title": "Actual-Play Project: Session Plan and Rulebook"
+        }
+      ],
+      "review_action": "replace or migration-enable for target course",
+      "url": "https://canvas.example.edu/courses/12345/pages/iat-210-course-syllabus#actual-play-plan"
+    },
+    {
+      "category": "canvas-instance",
+      "occurrences": [
+        {
+          "anchor_text": "Back to syllabus criteria",
+          "kind": "assignment",
+          "source": "course/content/assignments/207282-in-person-final-examination.html",
+          "title": "In-Person Final Examination"
+        }
+      ],
+      "review_action": "replace or migration-enable for target course",
+      "url": "https://canvas.example.edu/courses/12345/pages/iat-210-course-syllabus#assessment"
+    },
+    {
+      "category": "canvas-instance",
+      "occurrences": [
+        {
+          "anchor_text": "Back to syllabus criteria",
+          "kind": "assignment",
+          "source": "course/content/assignments/207280-board-game-project-final-submission.html",
+          "title": "Board-Game Project: Final Submission"
+        }
+      ],
+      "review_action": "replace or migration-enable for target course",
+      "url": "https://canvas.example.edu/courses/12345/pages/iat-210-course-syllabus#board-game-final"
+    },
+    {
+      "category": "canvas-instance",
+      "occurrences": [
+        {
+          "anchor_text": "Back to syllabus criteria",
+          "kind": "discussion",
+          "source": "course/content/discussions/256072-board-game-project-ideation-discussion.html",
+          "title": "Board-Game Project: Ideation Discussion"
+        }
+      ],
+      "review_action": "replace or migration-enable for target course",
+      "url": "https://canvas.example.edu/courses/12345/pages/iat-210-course-syllabus#board-game-ideation"
+    },
+    {
+      "category": "canvas-instance",
+      "occurrences": [
+        {
+          "anchor_text": "Back to syllabus criteria",
+          "kind": "assignment",
+          "source": "course/content/assignments/207310-board-game-project-design-plan-and-draft-rulebook.html",
+          "title": "Board-Game Project: Design Plan and Draft Rulebook"
+        }
+      ],
+      "review_action": "replace or migration-enable for target course",
+      "url": "https://canvas.example.edu/courses/12345/pages/iat-210-course-syllabus#board-game-plan"
+    },
+    {
+      "category": "canvas-instance",
+      "occurrences": [
+        {
+          "anchor_text": "Back to syllabus criteria",
+          "kind": "assignment",
+          "source": "course/content/assignments/207281-digital-procedural-ecology-project-final-submission.html",
+          "title": "Digital Procedural-Ecology Project: Final Submission"
+        }
+      ],
+      "review_action": "replace or migration-enable for target course",
+      "url": "https://canvas.example.edu/courses/12345/pages/iat-210-course-syllabus#digital-final"
+    },
+    {
+      "category": "canvas-instance",
+      "occurrences": [
+        {
+          "anchor_text": "Back to syllabus criteria",
+          "kind": "discussion",
+          "source": "course/content/discussions/256073-digital-procedural-ecology-project-ideation-discussion.html",
+          "title": "Digital Procedural-Ecology Project: Ideation Discussion"
+        }
+      ],
+      "review_action": "replace or migration-enable for target course",
+      "url": "https://canvas.example.edu/courses/12345/pages/iat-210-course-syllabus#digital-ideation"
+    },
+    {
+      "category": "canvas-instance",
+      "occurrences": [
+        {
+          "anchor_text": "Back to syllabus criteria",
+          "kind": "assignment",
+          "source": "course/content/assignments/207311-digital-procedural-ecology-project-design-and-technical-plan.html",
+          "title": "Digital Procedural-Ecology Project: Design and Technical Plan"
+        }
+      ],
+      "review_action": "replace or migration-enable for target course",
+      "url": "https://canvas.example.edu/courses/12345/pages/iat-210-course-syllabus#digital-plan"
+    },
+    {
+      "category": "canvas-instance",
+      "occurrences": [
+        {
+          "anchor_text": "Back to weekly schedule",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-10-deep-history-and-historiography-of-board-games.html",
+          "title": "[OUTTAKE] Week 10: Deep history and historiography of board games"
+        },
+        {
+          "anchor_text": "Back to weekly schedule",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-11-strategy-metagames-and-expert-ecosystems.html",
+          "title": "[OUTTAKE] Week 11: Strategy, metagames, and expert ecosystems"
+        },
+        {
+          "anchor_text": "Back to weekly schedule",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-12-serious-persuasive-and-educational-games.html",
+          "title": "[OUTTAKE] Week 12: Serious, persuasive, and educational games"
+        },
+        {
+          "anchor_text": "Back to weekly schedule",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-13-playtesting-balance-and-rulebook-engineering.html",
+          "title": "[OUTTAKE] Week 13: Playtesting, balance, and rulebook engineering"
+        },
+        {
+          "anchor_text": "Back to weekly schedule",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-2-historiography-gender-slash-race-and-game-culture.html",
+          "title": "[OUTTAKE] Week 2: Historiography, gender/race, and game culture"
+        },
+        {
+          "anchor_text": "Back to weekly schedule",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-3-criticism-paratexts-and-parasociality.html",
+          "title": "[OUTTAKE] Week 3: Criticism, paratexts, and parasociality"
+        },
+        {
+          "anchor_text": "Back to weekly schedule",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-4-actual-play-as-medium.html",
+          "title": "[OUTTAKE] Week 4: Actual play as medium"
+        },
+        {
+          "anchor_text": "Back to weekly schedule",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-5-formal-systems-and-computational-rules.html",
+          "title": "[OUTTAKE] Week 5: Formal systems and computational rules"
+        },
+        {
+          "anchor_text": "Back to weekly schedule",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-6-vibe-coding-modding-and-computational-authorship.html",
+          "title": "[OUTTAKE] Week 6: Vibe coding, modding, and computational authorship"
+        },
+        {
+          "anchor_text": "Back to weekly schedule",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-7-audiovisual-assets-interfaces-and-representation.html",
+          "title": "[OUTTAKE] Week 7: Audiovisual assets, interfaces, and representation"
+        },
+        {
+          "anchor_text": "Back to weekly schedule",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-8-gamblification-monetization-and-whales.html",
+          "title": "[OUTTAKE] Week 8: Gamblification, monetization, and whales"
+        },
+        {
+          "anchor_text": "Back to weekly schedule",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-9-simulation-and-procedural-ecology.html",
+          "title": "[OUTTAKE] Week 9: Simulation and procedural ecology"
+        },
+        {
+          "anchor_text": "Back to weekly schedule",
+          "kind": "page",
+          "source": "course/content/pages/week-01.html",
+          "title": "Week 1: Roleplay: rules, player action, and facilitation"
+        },
+        {
+          "anchor_text": "Back to weekly schedule",
+          "kind": "page",
+          "source": "course/content/pages/week-10-deep-history-and-historiography-of-board-games.html",
+          "title": "Week 10: Deep history and historiography of board games"
+        },
+        {
+          "anchor_text": "Back to weekly schedule",
+          "kind": "page",
+          "source": "course/content/pages/week-11-strategy-metagames-and-expert-ecosystems.html",
+          "title": "Week 11: Strategy, metagames, and expert ecosystems"
+        },
+        {
+          "anchor_text": "Back to weekly schedule",
+          "kind": "page",
+          "source": "course/content/pages/week-12-serious-persuasive-and-educational-games.html",
+          "title": "Week 12: Serious, persuasive, and educational games"
+        },
+        {
+          "anchor_text": "Back to weekly schedule",
+          "kind": "page",
+          "source": "course/content/pages/week-13-playtesting-balance-and-rulebook-engineering-2.html",
+          "title": "Week 13: Playtesting, balance, and rulebook engineering"
+        },
+        {
+          "anchor_text": "Back to weekly schedule",
+          "kind": "page",
+          "source": "course/content/pages/week-2-historiography-gender-slash-race-and-game-culture-2.html",
+          "title": "Week 2: Historiography, gender/race, and game culture"
+        },
+        {
+          "anchor_text": "Back to weekly schedule",
+          "kind": "page",
+          "source": "course/content/pages/week-3-criticism-paratexts-and-parasociality-2.html",
+          "title": "Week 3: Criticism, paratexts, and parasociality"
+        },
+        {
+          "anchor_text": "Back to weekly schedule",
+          "kind": "page",
+          "source": "course/content/pages/week-4-actual-play-as-medium.html",
+          "title": "Week 4: Actual play as medium"
+        },
+        {
+          "anchor_text": "Back to weekly schedule",
+          "kind": "page",
+          "source": "course/content/pages/week-5-formal-systems-and-computational-rules-2.html",
+          "title": "Week 5: Formal systems and computational rules"
+        },
+        {
+          "anchor_text": "Back to weekly schedule",
+          "kind": "page",
+          "source": "course/content/pages/week-6-vibe-coding-modding-and-computational-authorship-2.html",
+          "title": "Week 6: Vibe coding, modding, and computational authorship"
+        },
+        {
+          "anchor_text": "Back to weekly schedule",
+          "kind": "page",
+          "source": "course/content/pages/week-7-audiovisual-assets-interfaces-and-representation.html",
+          "title": "Week 7: Audiovisual assets, interfaces, and representation"
+        },
+        {
+          "anchor_text": "Back to weekly schedule",
+          "kind": "page",
+          "source": "course/content/pages/week-8-gamblification-monetization-and-whales-2.html",
+          "title": "Week 8: Gamblification, monetization, and whales"
+        },
+        {
+          "anchor_text": "Back to weekly schedule",
+          "kind": "page",
+          "source": "course/content/pages/week-9-simulation-and-procedural-ecology.html",
+          "title": "Week 9: Simulation and procedural ecology"
+        }
+      ],
+      "review_action": "replace or migration-enable for target course",
+      "url": "https://canvas.example.edu/courses/12345/pages/iat-210-course-syllabus#schedule"
+    },
+    {
+      "category": "canvas-instance",
+      "occurrences": [
+        {
+          "anchor_text": "Back to the syllabus requirement",
+          "kind": "page",
+          "source": "course/content/pages/final-month-video-interview.html",
+          "title": "Required Final-Month Video Interview"
+        }
+      ],
+      "review_action": "replace or migration-enable for target course",
+      "url": "https://canvas.example.edu/courses/12345/pages/iat-210-course-syllabus#video-interview"
+    },
+    {
+      "category": "canvas-instance",
+      "occurrences": [
+        {
+          "anchor_text": "Open the week page for access routes and enrichment.",
+          "kind": "syllabus",
+          "source": "course/content/syllabus.html",
+          "title": "Canvas Syllabus"
+        },
+        {
+          "anchor_text": "Open the week page for access routes and enrichment.",
+          "kind": "page",
+          "source": "course/content/syllabus.html",
+          "title": "IAT 210 Course Syllabus"
+        }
+      ],
+      "review_action": "replace or migration-enable for target course",
+      "url": "https://canvas.example.edu/courses/12345/pages/week-01"
+    },
+    {
+      "category": "canvas-instance",
+      "occurrences": [
+        {
+          "anchor_text": "Open the week page for access routes and enrichment.",
+          "kind": "syllabus",
+          "source": "course/content/syllabus.html",
+          "title": "Canvas Syllabus"
+        },
+        {
+          "anchor_text": "Open the week page for access routes and enrichment.",
+          "kind": "page",
+          "source": "course/content/syllabus.html",
+          "title": "IAT 210 Course Syllabus"
+        }
+      ],
+      "review_action": "replace or migration-enable for target course",
+      "url": "https://canvas.example.edu/courses/12345/pages/week-10-deep-history-and-historiography-of-board-games"
+    },
+    {
+      "category": "canvas-instance",
+      "occurrences": [
+        {
+          "anchor_text": "Open the week page for access routes and enrichment.",
+          "kind": "syllabus",
+          "source": "course/content/syllabus.html",
+          "title": "Canvas Syllabus"
+        },
+        {
+          "anchor_text": "Open the week page for access routes and enrichment.",
+          "kind": "page",
+          "source": "course/content/syllabus.html",
+          "title": "IAT 210 Course Syllabus"
+        }
+      ],
+      "review_action": "replace or migration-enable for target course",
+      "url": "https://canvas.example.edu/courses/12345/pages/week-11-strategy-metagames-and-expert-ecosystems"
+    },
+    {
+      "category": "canvas-instance",
+      "occurrences": [
+        {
+          "anchor_text": "Open the week page for access routes and enrichment.",
+          "kind": "syllabus",
+          "source": "course/content/syllabus.html",
+          "title": "Canvas Syllabus"
+        },
+        {
+          "anchor_text": "Open the week page for access routes and enrichment.",
+          "kind": "page",
+          "source": "course/content/syllabus.html",
+          "title": "IAT 210 Course Syllabus"
+        }
+      ],
+      "review_action": "replace or migration-enable for target course",
+      "url": "https://canvas.example.edu/courses/12345/pages/week-12-serious-persuasive-and-educational-games"
+    },
+    {
+      "category": "canvas-instance",
+      "occurrences": [
+        {
+          "anchor_text": "Open the week page for access routes and enrichment.",
+          "kind": "syllabus",
+          "source": "course/content/syllabus.html",
+          "title": "Canvas Syllabus"
+        },
+        {
+          "anchor_text": "Open the week page for access routes and enrichment.",
+          "kind": "page",
+          "source": "course/content/syllabus.html",
+          "title": "IAT 210 Course Syllabus"
+        }
+      ],
+      "review_action": "replace or migration-enable for target course",
+      "url": "https://canvas.example.edu/courses/12345/pages/week-13-playtesting-balance-and-rulebook-engineering-2"
+    },
+    {
+      "category": "canvas-instance",
+      "occurrences": [
+        {
+          "anchor_text": "Open the week page for access routes and enrichment.",
+          "kind": "syllabus",
+          "source": "course/content/syllabus.html",
+          "title": "Canvas Syllabus"
+        },
+        {
+          "anchor_text": "Open the week page for access routes and enrichment.",
+          "kind": "page",
+          "source": "course/content/syllabus.html",
+          "title": "IAT 210 Course Syllabus"
+        }
+      ],
+      "review_action": "replace or migration-enable for target course",
+      "url": "https://canvas.example.edu/courses/12345/pages/week-2-historiography-gender-slash-race-and-game-culture-2"
+    },
+    {
+      "category": "canvas-instance",
+      "occurrences": [
+        {
+          "anchor_text": "Open the week page for access routes and enrichment.",
+          "kind": "syllabus",
+          "source": "course/content/syllabus.html",
+          "title": "Canvas Syllabus"
+        },
+        {
+          "anchor_text": "Open the week page for access routes and enrichment.",
+          "kind": "page",
+          "source": "course/content/syllabus.html",
+          "title": "IAT 210 Course Syllabus"
+        }
+      ],
+      "review_action": "replace or migration-enable for target course",
+      "url": "https://canvas.example.edu/courses/12345/pages/week-3-criticism-paratexts-and-parasociality-2"
+    },
+    {
+      "category": "canvas-instance",
+      "occurrences": [
+        {
+          "anchor_text": "Open the week page for access routes and enrichment.",
+          "kind": "syllabus",
+          "source": "course/content/syllabus.html",
+          "title": "Canvas Syllabus"
+        },
+        {
+          "anchor_text": "Open the week page for access routes and enrichment.",
+          "kind": "page",
+          "source": "course/content/syllabus.html",
+          "title": "IAT 210 Course Syllabus"
+        }
+      ],
+      "review_action": "replace or migration-enable for target course",
+      "url": "https://canvas.example.edu/courses/12345/pages/week-4-actual-play-as-medium"
+    },
+    {
+      "category": "canvas-instance",
+      "occurrences": [
+        {
+          "anchor_text": "Open the week page for access routes and enrichment.",
+          "kind": "syllabus",
+          "source": "course/content/syllabus.html",
+          "title": "Canvas Syllabus"
+        },
+        {
+          "anchor_text": "Open the week page for access routes and enrichment.",
+          "kind": "page",
+          "source": "course/content/syllabus.html",
+          "title": "IAT 210 Course Syllabus"
+        }
+      ],
+      "review_action": "replace or migration-enable for target course",
+      "url": "https://canvas.example.edu/courses/12345/pages/week-5-formal-systems-and-computational-rules-2"
+    },
+    {
+      "category": "canvas-instance",
+      "occurrences": [
+        {
+          "anchor_text": "Open the week page for access routes and enrichment.",
+          "kind": "syllabus",
+          "source": "course/content/syllabus.html",
+          "title": "Canvas Syllabus"
+        },
+        {
+          "anchor_text": "Open the week page for access routes and enrichment.",
+          "kind": "page",
+          "source": "course/content/syllabus.html",
+          "title": "IAT 210 Course Syllabus"
+        }
+      ],
+      "review_action": "replace or migration-enable for target course",
+      "url": "https://canvas.example.edu/courses/12345/pages/week-6-vibe-coding-modding-and-computational-authorship-2"
+    },
+    {
+      "category": "canvas-instance",
+      "occurrences": [
+        {
+          "anchor_text": "Open the week page for access routes and enrichment.",
+          "kind": "syllabus",
+          "source": "course/content/syllabus.html",
+          "title": "Canvas Syllabus"
+        },
+        {
+          "anchor_text": "Open the week page for access routes and enrichment.",
+          "kind": "page",
+          "source": "course/content/syllabus.html",
+          "title": "IAT 210 Course Syllabus"
+        }
+      ],
+      "review_action": "replace or migration-enable for target course",
+      "url": "https://canvas.example.edu/courses/12345/pages/week-7-audiovisual-assets-interfaces-and-representation"
+    },
+    {
+      "category": "canvas-instance",
+      "occurrences": [
+        {
+          "anchor_text": "Open the week page for access routes and enrichment.",
+          "kind": "syllabus",
+          "source": "course/content/syllabus.html",
+          "title": "Canvas Syllabus"
+        },
+        {
+          "anchor_text": "Open the week page for access routes and enrichment.",
+          "kind": "page",
+          "source": "course/content/syllabus.html",
+          "title": "IAT 210 Course Syllabus"
+        }
+      ],
+      "review_action": "replace or migration-enable for target course",
+      "url": "https://canvas.example.edu/courses/12345/pages/week-8-gamblification-monetization-and-whales-2"
+    },
+    {
+      "category": "canvas-instance",
+      "occurrences": [
+        {
+          "anchor_text": "Open the week page for access routes and enrichment.",
+          "kind": "syllabus",
+          "source": "course/content/syllabus.html",
+          "title": "Canvas Syllabus"
+        },
+        {
+          "anchor_text": "Open the week page for access routes and enrichment.",
+          "kind": "page",
+          "source": "course/content/syllabus.html",
+          "title": "IAT 210 Course Syllabus"
+        }
+      ],
+      "review_action": "replace or migration-enable for target course",
+      "url": "https://canvas.example.edu/courses/12345/pages/week-9-simulation-and-procedural-ecology"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "https://dl.digra.org/index.php/dl/article/view/490",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-9-simulation-and-procedural-ecology.html",
+          "title": "[OUTTAKE] Week 9: Simulation and procedural ecology"
+        },
+        {
+          "anchor_text": "https://dl.digra.org/index.php/dl/article/view/490",
+          "kind": "page",
+          "source": "course/content/pages/week-9-simulation-and-procedural-ecology.html",
+          "title": "Week 9: Simulation and procedural ecology"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://dl.digra.org/index.php/dl/article/view/490"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "https://dl.digra.org/index.php/dl/article/view/65",
+          "kind": "page",
+          "source": "course/content/pages/week-01.html",
+          "title": "Week 1: Roleplay: rules, player action, and facilitation"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://dl.digra.org/index.php/dl/article/view/65"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "W11-R1 \u2014 De Marzo and Servedio, \u2018Complexity and Similarity of Chess Openings\u2019",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-11-strategy-metagames-and-expert-ecosystems.html",
+          "title": "[OUTTAKE] Week 11: Strategy, metagames, and expert ecosystems"
+        },
+        {
+          "anchor_text": "W11-R1 \u2014 De Marzo and Servedio, \u2018Complexity and Similarity of Chess Openings\u2019",
+          "kind": "page",
+          "source": "course/content/pages/week-11-strategy-metagames-and-expert-ecosystems.html",
+          "title": "Week 11: Strategy, metagames, and expert ecosystems"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://doi.org/10.1038/s41598-023-31658-w"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "W03-R2 \u2014 Horton and Wohl, \u2018Mass Communication and Para-Social Interaction\u2019",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-3-criticism-paratexts-and-parasociality.html",
+          "title": "[OUTTAKE] Week 3: Criticism, paratexts, and parasociality"
+        },
+        {
+          "anchor_text": "W03-R2 \u2014 Horton and Wohl, \u2018Mass Communication and Para-Social Interaction\u2019",
+          "kind": "page",
+          "source": "course/content/pages/week-3-criticism-paratexts-and-parasociality-2.html",
+          "title": "Week 3: Criticism, paratexts, and parasociality"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://doi.org/10.1080/00332747.1956.11023049"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "W08-R2 \u2014 Macey and Hamari, \u2018Gamblification: A Definition\u2019",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-8-gamblification-monetization-and-whales.html",
+          "title": "[OUTTAKE] Week 8: Gamblification, monetization, and whales"
+        },
+        {
+          "anchor_text": "W08-R2 \u2014 Macey and Hamari, \u2018Gamblification: A Definition\u2019",
+          "kind": "page",
+          "source": "course/content/pages/week-8-gamblification-monetization-and-whales-2.html",
+          "title": "Week 8: Gamblification, monetization, and whales"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://doi.org/10.1177/14614448221083903"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "W06-R2 \u2014 Postigo, \u2018Of Mods and Modders\u2019",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-6-vibe-coding-modding-and-computational-authorship.html",
+          "title": "[OUTTAKE] Week 6: Vibe coding, modding, and computational authorship"
+        },
+        {
+          "anchor_text": "W06-R2 \u2014 Postigo, \u2018Of Mods and Modders\u2019",
+          "kind": "page",
+          "source": "course/content/pages/week-6-vibe-coding-modding-and-computational-authorship-2.html",
+          "title": "Week 6: Vibe coding, modding, and computational authorship"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://doi.org/10.1177/1555412007307955"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "W08-R1 \u2014 Sch\u00fcll, \u2018Engineering Experience,\u2019 pp. 52\u201375",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-8-gamblification-monetization-and-whales.html",
+          "title": "[OUTTAKE] Week 8: Gamblification, monetization, and whales"
+        },
+        {
+          "anchor_text": "W08-R1 \u2014 Sch\u00fcll, \u2018Engineering Experience,\u2019 pp. 52\u201375",
+          "kind": "page",
+          "source": "course/content/pages/week-8-gamblification-monetization-and-whales-2.html",
+          "title": "Week 8: Gamblification, monetization, and whales"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://doi.org/10.1515/9781400834655-006"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "W12-R2 \u2014 Engelbrecht et al., procedural-rhetoric experiment",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-12-serious-persuasive-and-educational-games.html",
+          "title": "[OUTTAKE] Week 12: Serious, persuasive, and educational games"
+        },
+        {
+          "anchor_text": "W12-R2 \u2014 Engelbrecht et al., procedural-rhetoric experiment",
+          "kind": "page",
+          "source": "course/content/pages/week-12-serious-persuasive-and-educational-games.html",
+          "title": "Week 12: Serious, persuasive, and educational games"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://doi.org/10.17083/ijsg.v12i2.886"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "W10-R1 \u2014 de Voogt, \u2018Misconceptions in the History of Mancala Games\u2019",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-10-deep-history-and-historiography-of-board-games.html",
+          "title": "[OUTTAKE] Week 10: Deep history and historiography of board games"
+        },
+        {
+          "anchor_text": "W10-R1 \u2014 de Voogt, \u2018Misconceptions in the History of Mancala Games\u2019",
+          "kind": "page",
+          "source": "course/content/pages/week-10-deep-history-and-historiography-of-board-games.html",
+          "title": "Week 10: Deep history and historiography of board games"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://doi.org/10.2478/bgs-2021-0001"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "W10-R2 \u2014 Crist, \u2018Debunking the Diffusion of Senet\u2019",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-10-deep-history-and-historiography-of-board-games.html",
+          "title": "[OUTTAKE] Week 10: Deep history and historiography of board games"
+        },
+        {
+          "anchor_text": "W10-R2 \u2014 Crist, \u2018Debunking the Diffusion of Senet\u2019",
+          "kind": "page",
+          "source": "course/content/pages/week-10-deep-history-and-historiography-of-board-games.html",
+          "title": "Week 10: Deep history and historiography of board games"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://doi.org/10.2478/bgs-2021-0002"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "W01-R1 \u2014 Juul, \u2018The Game, the Player, the World\u2019",
+          "kind": "page",
+          "source": "course/content/pages/week-01.html",
+          "title": "Week 1: Roleplay: rules, player action, and facilitation"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://doi.org/10.26503/dl.v2003i1.65"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "W09-R1 \u2014 Wardrip-Fruin and Mateas, \u2018Defining Operational Logics\u2019",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-9-simulation-and-procedural-ecology.html",
+          "title": "[OUTTAKE] Week 9: Simulation and procedural ecology"
+        },
+        {
+          "anchor_text": "W09-R1 \u2014 Wardrip-Fruin and Mateas, \u2018Defining Operational Logics\u2019",
+          "kind": "page",
+          "source": "course/content/pages/week-9-simulation-and-procedural-ecology.html",
+          "title": "Week 9: Simulation and procedural ecology"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://doi.org/10.26503/dl.v2009i1.490"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "W04-R2 \u2014 White, \u2018Actual Play at the Forge\u2019",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-4-actual-play-as-medium.html",
+          "title": "[OUTTAKE] Week 4: Actual play as medium"
+        },
+        {
+          "anchor_text": "W04-R2 \u2014 White, \u2018Actual Play at the Forge\u2019",
+          "kind": "page",
+          "source": "course/content/pages/week-4-actual-play-as-medium.html",
+          "title": "Week 4: Actual play as medium"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://doi.org/10.33063/ijrp.vi7.256"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "W04-R1 \u2014 Bognar and Costabile, \u2018Honor the Dice\u2019",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-4-actual-play-as-medium.html",
+          "title": "[OUTTAKE] Week 4: Actual play as medium"
+        },
+        {
+          "anchor_text": "W04-R1 \u2014 Bognar and Costabile, \u2018Honor the Dice\u2019",
+          "kind": "page",
+          "source": "course/content/pages/week-4-actual-play-as-medium.html",
+          "title": "Week 4: Actual play as medium"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://doi.org/10.3389/fpsyg.2026.1780225"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "W06-R1 \u2014 Pellas, \u2018From Prompt to Play\u2019",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-6-vibe-coding-modding-and-computational-authorship.html",
+          "title": "[OUTTAKE] Week 6: Vibe coding, modding, and computational authorship"
+        },
+        {
+          "anchor_text": "W06-R1 \u2014 Pellas, \u2018From Prompt to Play\u2019",
+          "kind": "page",
+          "source": "course/content/pages/week-6-vibe-coding-modding-and-computational-authorship-2.html",
+          "title": "Week 6: Vibe coding, modding, and computational authorship"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://doi.org/10.3390/mti10050057"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "W11-R2 \u2014 Boluk and LeMieux, introduction to Metagaming, pp. 1\u201322",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-11-strategy-metagames-and-expert-ecosystems.html",
+          "title": "[OUTTAKE] Week 11: Strategy, metagames, and expert ecosystems"
+        },
+        {
+          "anchor_text": "W11-R2 \u2014 Boluk and LeMieux, introduction to Metagaming, pp. 1\u201322",
+          "kind": "page",
+          "source": "course/content/pages/week-11-strategy-metagames-and-expert-ecosystems.html",
+          "title": "Week 11: Strategy, metagames, and expert ecosystems"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://doi.org/10.5749/j.ctt1n2ttjx.3"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "W03-R1 \u2014 Consalvo, \u2018Capitalizing on Paratexts,\u2019 pp. 175\u2013190",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-3-criticism-paratexts-and-parasociality.html",
+          "title": "[OUTTAKE] Week 3: Criticism, paratexts, and parasociality"
+        },
+        {
+          "anchor_text": "W03-R1 \u2014 Consalvo, \u2018Capitalizing on Paratexts,\u2019 pp. 175\u2013190",
+          "kind": "page",
+          "source": "course/content/pages/week-3-criticism-paratexts-and-parasociality-2.html",
+          "title": "Week 3: Criticism, paratexts, and parasociality"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://doi.org/10.7551/mitpress/1802.003.0013"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "W02-AV1 \u2014 Sarkeesian, \u2018Damsel in Distress (Part 1)\u2019 (24 min)",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-2-historiography-gender-slash-race-and-game-culture.html",
+          "title": "[OUTTAKE] Week 2: Historiography, gender/race, and game culture"
+        },
+        {
+          "anchor_text": "W02-AV1 \u2014 Sarkeesian, \u2018Damsel in Distress (Part 1)\u2019 (24 min)",
+          "kind": "page",
+          "source": "course/content/pages/week-2-historiography-gender-slash-race-and-game-culture-2.html",
+          "title": "Week 2: Historiography, gender/race, and game culture"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://feministfrequency.com/video/damsel-in-distress-part-1/"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "W12-R3 \u2014 Sicart, \u2018Against Procedurality\u2019",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-12-serious-persuasive-and-educational-games.html",
+          "title": "[OUTTAKE] Week 12: Serious, persuasive, and educational games"
+        },
+        {
+          "anchor_text": "W12-R3 \u2014 Sicart, \u2018Against Procedurality\u2019",
+          "kind": "page",
+          "source": "course/content/pages/week-12-serious-persuasive-and-educational-games.html",
+          "title": "Week 12: Serious, persuasive, and educational games"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://gamestudies.org/1103/articles/sicart_ap"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "W02-R1 \u2014 Nooney, \u2018A Pedestal, A Table, A Love Letter\u2019",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-2-historiography-gender-slash-race-and-game-culture.html",
+          "title": "[OUTTAKE] Week 2: Historiography, gender/race, and game culture"
+        },
+        {
+          "anchor_text": "W02-R1 \u2014 Nooney, \u2018A Pedestal, A Table, A Love Letter\u2019",
+          "kind": "page",
+          "source": "course/content/pages/week-2-historiography-gender-slash-race-and-game-culture-2.html",
+          "title": "Week 2: Historiography, gender/race, and game culture"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://gamestudies.org/1302/articles/nooney"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "W06-P2 \u2014 Infiniminer source/history (compilation not required)",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-6-vibe-coding-modding-and-computational-authorship.html",
+          "title": "[OUTTAKE] Week 6: Vibe coding, modding, and computational authorship"
+        },
+        {
+          "anchor_text": "W06-P2 \u2014 Infiniminer source/history (compilation not required)",
+          "kind": "page",
+          "source": "course/content/pages/week-6-vibe-coding-modding-and-computational-authorship-2.html",
+          "title": "Week 6: Vibe coding, modding, and computational authorship"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://github.com/craftworkgames/infiniminer"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "W07-P1 \u2014 Hair Nah",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-7-audiovisual-assets-interfaces-and-representation.html",
+          "title": "[OUTTAKE] Week 7: Audiovisual assets, interfaces, and representation"
+        },
+        {
+          "anchor_text": "W07-P1 \u2014 Hair Nah",
+          "kind": "page",
+          "source": "course/content/pages/week-7-audiovisual-assets-interfaces-and-representation.html",
+          "title": "Week 7: Audiovisual assets, interfaces, and representation"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://hairnah.com/"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "https://journal.seriousgamessociety.org/index.php/IJSG/article/view/886",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-12-serious-persuasive-and-educational-games.html",
+          "title": "[OUTTAKE] Week 12: Serious, persuasive, and educational games"
+        },
+        {
+          "anchor_text": "https://journal.seriousgamessociety.org/index.php/IJSG/article/view/886",
+          "kind": "page",
+          "source": "course/content/pages/week-12-serious-persuasive-and-educational-games.html",
+          "title": "Week 12: Serious, persuasive, and educational games"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://journal.seriousgamessociety.org/index.php/IJSG/article/view/886"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "https://journals.uu.se/IJRP/article/view/256",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-4-actual-play-as-medium.html",
+          "title": "[OUTTAKE] Week 4: Actual play as medium"
+        },
+        {
+          "anchor_text": "https://journals.uu.se/IJRP/article/view/256",
+          "kind": "page",
+          "source": "course/content/pages/week-4-actual-play-as-medium.html",
+          "title": "Week 4: Actual play as medium"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://journals.uu.se/IJRP/article/view/256"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "W11-P1 \u2014 Lichess analysis board and opening explorer",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-11-strategy-metagames-and-expert-ecosystems.html",
+          "title": "[OUTTAKE] Week 11: Strategy, metagames, and expert ecosystems"
+        },
+        {
+          "anchor_text": "W11-P1 \u2014 Lichess analysis board and opening explorer",
+          "kind": "page",
+          "source": "course/content/pages/week-11-strategy-metagames-and-expert-ecosystems.html",
+          "title": "Week 11: Strategy, metagames, and expert ecosystems"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://lichess.org/analysis"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "W06-AV1 \u2014 Non-Euclidean Doom talk (19 min)",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-6-vibe-coding-modding-and-computational-authorship.html",
+          "title": "[OUTTAKE] Week 6: Vibe coding, modding, and computational authorship"
+        },
+        {
+          "anchor_text": "W06-AV1 \u2014 Non-Euclidean Doom talk (19 min)",
+          "kind": "page",
+          "source": "course/content/pages/week-6-vibe-coding-modding-and-computational-authorship-2.html",
+          "title": "Week 6: Vibe coding, modding, and computational authorship"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://media.ccc.de/v/mch2022-236-non-euclidean-doom-what-happens-to-a-game-when-pi-is-not-3-14159-"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "W06-P1 \u2014 Slime Volleyball / One Slime",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-6-vibe-coding-modding-and-computational-authorship.html",
+          "title": "[OUTTAKE] Week 6: Vibe coding, modding, and computational authorship"
+        },
+        {
+          "anchor_text": "W06-P1 \u2014 Slime Volleyball / One Slime",
+          "kind": "page",
+          "source": "course/content/pages/week-6-vibe-coding-modding-and-computational-authorship-2.html",
+          "title": "Week 6: Vibe coding, modding, and computational authorship"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://oneslime.net/"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "W03-AV4 \u2014 Game Studies Study Buddies #86: Jacob Geller",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-3-criticism-paratexts-and-parasociality.html",
+          "title": "[OUTTAKE] Week 3: Criticism, paratexts, and parasociality"
+        },
+        {
+          "anchor_text": "W03-AV4 \u2014 Game Studies Study Buddies #86: Jacob Geller",
+          "kind": "page",
+          "source": "course/content/pages/week-3-criticism-paratexts-and-parasociality-2.html",
+          "title": "Week 3: Criticism, paratexts, and parasociality"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://rangedtouch.com/2025/09/30/86-jacob-geller/"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "https://reference-global.com/article/10.2478/bgs-2021-0001",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-10-deep-history-and-historiography-of-board-games.html",
+          "title": "[OUTTAKE] Week 10: Deep history and historiography of board games"
+        },
+        {
+          "anchor_text": "https://reference-global.com/article/10.2478/bgs-2021-0001",
+          "kind": "page",
+          "source": "course/content/pages/week-10-deep-history-and-historiography-of-board-games.html",
+          "title": "Week 10: Deep history and historiography of board games"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://reference-global.com/article/10.2478/bgs-2021-0001"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "https://reference-global.com/article/10.2478/bgs-2021-0002",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-10-deep-history-and-historiography-of-board-games.html",
+          "title": "[OUTTAKE] Week 10: Deep history and historiography of board games"
+        },
+        {
+          "anchor_text": "https://reference-global.com/article/10.2478/bgs-2021-0002",
+          "kind": "page",
+          "source": "course/content/pages/week-10-deep-history-and-historiography-of-board-games.html",
+          "title": "Week 10: Deep history and historiography of board games"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://reference-global.com/article/10.2478/bgs-2021-0002"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "remote Wednesdays, 12:00\u201313:00",
+          "kind": "syllabus",
+          "source": "course/content/syllabus.html",
+          "title": "Canvas Syllabus"
+        },
+        {
+          "anchor_text": "remote Wednesdays, 12:00\u201313:00",
+          "kind": "page",
+          "source": "course/content/syllabus.html",
+          "title": "IAT 210 Course Syllabus"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://sfu.zoom.us/j/9776081468"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "W02-P1 \u2014 Depression Quest",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-2-historiography-gender-slash-race-and-game-culture.html",
+          "title": "[OUTTAKE] Week 2: Historiography, gender/race, and game culture"
+        },
+        {
+          "anchor_text": "W02-P1 \u2014 Depression Quest",
+          "kind": "page",
+          "source": "course/content/pages/week-2-historiography-gender-slash-race-and-game-culture-2.html",
+          "title": "Week 2: Historiography, gender/race, and game culture"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://the-quinnspiracy.itch.io/depressionquest"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "https://urn.fi/URN:NBN:fi:tuni-202204053016",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-8-gamblification-monetization-and-whales.html",
+          "title": "[OUTTAKE] Week 8: Gamblification, monetization, and whales"
+        },
+        {
+          "anchor_text": "https://urn.fi/URN:NBN:fi:tuni-202204053016",
+          "kind": "page",
+          "source": "course/content/pages/week-8-gamblification-monetization-and-whales-2.html",
+          "title": "Week 8: Gamblification, monetization, and whales"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://urn.fi/URN:NBN:fi:tuni-202204053016"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "W02-AV2 \u2014 Trammell, Keywords in Play interview",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-2-historiography-gender-slash-race-and-game-culture.html",
+          "title": "[OUTTAKE] Week 2: Historiography, gender/race, and game culture"
+        },
+        {
+          "anchor_text": "W02-AV2 \u2014 Trammell, Keywords in Play interview",
+          "kind": "page",
+          "source": "course/content/pages/week-2-historiography-gender-slash-race-and-game-culture-2.html",
+          "title": "Week 2: Historiography, gender/race, and game culture"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://www.critical-distance.com/2021/05/14/aaron-trammell-keywords-in-play-episode-12/"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "W05-P1 \u2014 Universal Paperclips",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-5-formal-systems-and-computational-rules.html",
+          "title": "[OUTTAKE] Week 5: Formal systems and computational rules"
+        },
+        {
+          "anchor_text": "W05-P1 \u2014 Universal Paperclips",
+          "kind": "page",
+          "source": "course/content/pages/week-5-formal-systems-and-computational-rules-2.html",
+          "title": "Week 5: Formal systems and computational rules"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://www.decisionproblem.com/paperclips/index2.html"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "W04-N1 \u2014 Friedman, \u2018An Experiment in Criticism Begins\u2019",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-4-actual-play-as-medium.html",
+          "title": "[OUTTAKE] Week 4: Actual play as medium"
+        },
+        {
+          "anchor_text": "W04-N1 \u2014 Friedman, \u2018An Experiment in Criticism Begins\u2019",
+          "kind": "page",
+          "source": "course/content/pages/week-4-actual-play-as-medium.html",
+          "title": "Week 4: Actual play as medium"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://www.ecfriedman.com/post/an-experiment-in-criticism-begins"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "W13-R1 \u2014 Zimmerman, \u2018Play as Research: The Iterative Design Process\u2019",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-13-playtesting-balance-and-rulebook-engineering.html",
+          "title": "[OUTTAKE] Week 13: Playtesting, balance, and rulebook engineering"
+        },
+        {
+          "anchor_text": "W13-R1 \u2014 Zimmerman, \u2018Play as Research: The Iterative Design Process\u2019",
+          "kind": "page",
+          "source": "course/content/pages/week-13-playtesting-balance-and-rulebook-engineering-2.html",
+          "title": "Week 13: Playtesting, balance, and rulebook engineering"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://www.ericzimmerman.com/assets/pdfs/Iterative_Design.pdf"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2026.1780225/full",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-4-actual-play-as-medium.html",
+          "title": "[OUTTAKE] Week 4: Actual play as medium"
+        },
+        {
+          "anchor_text": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2026.1780225/full",
+          "kind": "page",
+          "source": "course/content/pages/week-4-actual-play-as-medium.html",
+          "title": "Week 4: Actual play as medium"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2026.1780225/full"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "https://www.jstor.org/content/oa_book_monograph/10.5749/j.ctt1n2ttjx",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-11-strategy-metagames-and-expert-ecosystems.html",
+          "title": "[OUTTAKE] Week 11: Strategy, metagames, and expert ecosystems"
+        },
+        {
+          "anchor_text": "https://www.jstor.org/content/oa_book_monograph/10.5749/j.ctt1n2ttjx",
+          "kind": "page",
+          "source": "course/content/pages/week-11-strategy-metagames-and-expert-ecosystems.html",
+          "title": "Week 11: Strategy, metagames, and expert ecosystems"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://www.jstor.org/content/oa_book_monograph/10.5749/j.ctt1n2ttjx"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "https://www.mdpi.com/2414-4088/10/5/57",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-6-vibe-coding-modding-and-computational-authorship.html",
+          "title": "[OUTTAKE] Week 6: Vibe coding, modding, and computational authorship"
+        },
+        {
+          "anchor_text": "https://www.mdpi.com/2414-4088/10/5/57",
+          "kind": "page",
+          "source": "course/content/pages/week-6-vibe-coding-modding-and-computational-authorship-2.html",
+          "title": "Week 6: Vibe coding, modding, and computational authorship"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://www.mdpi.com/2414-4088/10/5/57"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "https://www.momopixel.com/hair-nah",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-7-audiovisual-assets-interfaces-and-representation.html",
+          "title": "[OUTTAKE] Week 7: Audiovisual assets, interfaces, and representation"
+        },
+        {
+          "anchor_text": "https://www.momopixel.com/hair-nah",
+          "kind": "page",
+          "source": "course/content/pages/week-7-audiovisual-assets-interfaces-and-representation.html",
+          "title": "Week 7: Audiovisual assets, interfaces, and representation"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://www.momopixel.com/hair-nah"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "https://www.nature.com/articles/s41598-023-31658-w",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-11-strategy-metagames-and-expert-ecosystems.html",
+          "title": "[OUTTAKE] Week 11: Strategy, metagames, and expert ecosystems"
+        },
+        {
+          "anchor_text": "https://www.nature.com/articles/s41598-023-31658-w",
+          "kind": "page",
+          "source": "course/content/pages/week-11-strategy-metagames-and-expert-ecosystems.html",
+          "title": "Week 11: Strategy, metagames, and expert ecosystems"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://www.nature.com/articles/s41598-023-31658-w"
+    },
+    {
+      "category": "institution",
+      "occurrences": [
+        {
+          "anchor_text": "Protection of Privacy Policy",
+          "kind": "syllabus",
+          "source": "course/content/syllabus.html",
+          "title": "Canvas Syllabus"
+        },
+        {
+          "anchor_text": "Protection of Privacy Policy",
+          "kind": "page",
+          "source": "course/content/syllabus.html",
+          "title": "IAT 210 Course Syllabus"
+        }
+      ],
+      "review_action": "AI/human review against current official policy",
+      "url": "https://www.sfu.ca/about/leadership-governance-strategy/policies/gazette/I10-11.html"
+    },
+    {
+      "category": "institution",
+      "occurrences": [
+        {
+          "anchor_text": "Intellectual Property Policy",
+          "kind": "syllabus",
+          "source": "course/content/syllabus.html",
+          "title": "Canvas Syllabus"
+        },
+        {
+          "anchor_text": "Intellectual Property Policy",
+          "kind": "page",
+          "source": "course/content/syllabus.html",
+          "title": "IAT 210 Course Syllabus"
+        }
+      ],
+      "review_action": "AI/human review against current official policy",
+      "url": "https://www.sfu.ca/about/leadership-governance-strategy/policies/gazette/r30-03.html"
+    },
+    {
+      "category": "institution",
+      "occurrences": [
+        {
+          "anchor_text": "SFU academic-integrity rules",
+          "kind": "syllabus",
+          "source": "course/content/syllabus.html",
+          "title": "Canvas Syllabus"
+        },
+        {
+          "anchor_text": "SFU academic-integrity rules",
+          "kind": "page",
+          "source": "course/content/syllabus.html",
+          "title": "IAT 210 Course Syllabus"
+        }
+      ],
+      "review_action": "AI/human review against current official policy",
+      "url": "https://www.sfu.ca/about/leadership-governance-strategy/policies/gazette/s10-01.html"
+    },
+    {
+      "category": "institution",
+      "occurrences": [
+        {
+          "anchor_text": "SFU Student Conduct Policy",
+          "kind": "syllabus",
+          "source": "course/content/syllabus.html",
+          "title": "Canvas Syllabus"
+        },
+        {
+          "anchor_text": "SFU Student Conduct Policy",
+          "kind": "page",
+          "source": "course/content/syllabus.html",
+          "title": "IAT 210 Course Syllabus"
+        }
+      ],
+      "review_action": "AI/human review against current official policy",
+      "url": "https://www.sfu.ca/about/leadership-governance-strategy/policies/gazette/s10-05.html"
+    },
+    {
+      "category": "institution",
+      "occurrences": [
+        {
+          "anchor_text": "SFU\u2019s Grading and the Reconsideration of Grades policy",
+          "kind": "syllabus",
+          "source": "course/content/syllabus.html",
+          "title": "Canvas Syllabus"
+        },
+        {
+          "anchor_text": "SFU\u2019s Grading and the Reconsideration of Grades policy",
+          "kind": "page",
+          "source": "course/content/syllabus.html",
+          "title": "IAT 210 Course Syllabus"
+        }
+      ],
+      "review_action": "AI/human review against current official policy",
+      "url": "https://www.sfu.ca/about/leadership-governance-strategy/policies/gazette/t20-01.html"
+    },
+    {
+      "category": "institution",
+      "occurrences": [
+        {
+          "anchor_text": "SIAT recommended grading scale",
+          "kind": "syllabus",
+          "source": "course/content/syllabus.html",
+          "title": "Canvas Syllabus"
+        },
+        {
+          "anchor_text": "SIAT recommended grading scale",
+          "kind": "page",
+          "source": "course/content/syllabus.html",
+          "title": "IAT 210 Course Syllabus"
+        }
+      ],
+      "review_action": "AI/human review against current official policy",
+      "url": "https://www.sfu.ca/siat/programs/undergraduate/current-students/student-resources/grading-scale.html"
+    },
+    {
+      "category": "institution",
+      "occurrences": [
+        {
+          "anchor_text": "academic-integrity reporting procedures",
+          "kind": "syllabus",
+          "source": "course/content/syllabus.html",
+          "title": "Canvas Syllabus"
+        },
+        {
+          "anchor_text": "academic-integrity reporting procedures",
+          "kind": "page",
+          "source": "course/content/syllabus.html",
+          "title": "IAT 210 Course Syllabus"
+        }
+      ],
+      "review_action": "AI/human review against current official policy",
+      "url": "https://www.sfu.ca/students/academicintegrity/faculty/reporting.html"
+    },
+    {
+      "category": "institution",
+      "occurrences": [
+        {
+          "anchor_text": "Centre for Accessible Learning",
+          "kind": "syllabus",
+          "source": "course/content/syllabus.html",
+          "title": "Canvas Syllabus"
+        },
+        {
+          "anchor_text": "Centre for Accessible Learning",
+          "kind": "page",
+          "source": "course/content/syllabus.html",
+          "title": "IAT 210 Course Syllabus"
+        }
+      ],
+      "review_action": "AI/human review against current official policy",
+      "url": "https://www.sfu.ca/students/accessible-learning/"
+    },
+    {
+      "category": "institution",
+      "occurrences": [
+        {
+          "anchor_text": "academic concessions",
+          "kind": "syllabus",
+          "source": "course/content/syllabus.html",
+          "title": "Canvas Syllabus"
+        },
+        {
+          "anchor_text": "academic concessions guidance",
+          "kind": "syllabus",
+          "source": "course/content/syllabus.html",
+          "title": "Canvas Syllabus"
+        },
+        {
+          "anchor_text": "academic concessions",
+          "kind": "page",
+          "source": "course/content/syllabus.html",
+          "title": "IAT 210 Course Syllabus"
+        },
+        {
+          "anchor_text": "academic concessions guidance",
+          "kind": "page",
+          "source": "course/content/syllabus.html",
+          "title": "IAT 210 Course Syllabus"
+        }
+      ],
+      "review_action": "AI/human review against current official policy",
+      "url": "https://www.sfu.ca/students/enrolment-services/policies-and-procedures/academic-concessions.html.html"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "W07-N1 \u2014 Momo Pixel interview",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-7-audiovisual-assets-interfaces-and-representation.html",
+          "title": "[OUTTAKE] Week 7: Audiovisual assets, interfaces, and representation"
+        },
+        {
+          "anchor_text": "W07-N1 \u2014 Momo Pixel interview",
+          "kind": "page",
+          "source": "course/content/pages/week-7-audiovisual-assets-interfaces-and-representation.html",
+          "title": "Week 7: Audiovisual assets, interfaces, and representation"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://www.teenvogue.com/story/momo-pixel-hair-nah-video-game-interview"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "W03-AV3 \u2014 Caldwell-Gervais, Dragon Age retrospective (do not watch all 6.5 hours)",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-3-criticism-paratexts-and-parasociality.html",
+          "title": "[OUTTAKE] Week 3: Criticism, paratexts, and parasociality"
+        },
+        {
+          "anchor_text": "W03-AV3 \u2014 Caldwell-Gervais, Dragon Age retrospective (do not watch all 6.5 hours)",
+          "kind": "page",
+          "source": "course/content/pages/week-3-criticism-paratexts-and-parasociality-2.html",
+          "title": "Week 3: Criticism, paratexts, and parasociality"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://www.youtube.com/watch?v=Vrd6GpZXvdk"
+    },
+    {
+      "category": "external",
+      "occurrences": [
+        {
+          "anchor_text": "W03-AV1 \u2014 Geller, \u2018Nothing Ever Stops Existing,\u2019 24:04\u2013end",
+          "kind": "page",
+          "source": "course/content/outtakes/pages/outtake-week-3-criticism-paratexts-and-parasociality.html",
+          "title": "[OUTTAKE] Week 3: Criticism, paratexts, and parasociality"
+        },
+        {
+          "anchor_text": "W03-AV1 \u2014 Geller, \u2018Nothing Ever Stops Existing,\u2019 24:04\u2013end",
+          "kind": "page",
+          "source": "course/content/pages/week-3-criticism-paratexts-and-parasociality-2.html",
+          "title": "Week 3: Criticism, paratexts, and parasociality"
+        }
+      ],
+      "review_action": "run provider-aware link QA and confirm intended work",
+      "url": "https://www.youtube.com/watch?v=Wmi_6D6vwBQ"
+    },
+    {
+      "category": "contact",
+      "occurrences": [
+        {
+          "anchor_text": "mhorriga@sfu.ca",
+          "kind": "syllabus",
+          "source": "course/content/syllabus.html",
+          "title": "Canvas Syllabus"
+        },
+        {
+          "anchor_text": "mhorriga@sfu.ca",
+          "kind": "page",
+          "source": "course/content/syllabus.html",
+          "title": "IAT 210 Course Syllabus"
+        }
+      ],
+      "review_action": "confirm for target course",
+      "url": "mailto:mhorriga@sfu.ca"
+    }
+  ],
+  "schema": "canvas-course-links/v1"
+}

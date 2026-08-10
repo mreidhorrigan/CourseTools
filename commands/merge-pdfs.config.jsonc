@@ -1,0 +1,20 @@
+// ============================================================================
+//  CANVAS AUTOMATION -- merge-pdfs. Your config. Edit this file, then
+//  double-click merge-pdfs.command; it will open a native Finder dialog
+//  to pick any number of PDFs each run (see research/00-retrofit-notes.md
+//  for why there is no choose_input here).
+//
+//  Purely local: no Canvas involvement, no server required. Output lands
+//  in a fresh out/merge-pdfs/<timestamp>/ folder, never overwritten.
+// ============================================================================
+{
+  // "$schema": "./merge-pdfs.schema.json",
+
+  "OUT_DIR": "$ENGINE/out/merge-pdfs",
+
+  "output_name": "merged.pdf"
+
+  // Uncomment to merge in filename order instead of the order you
+  // selected them in the Finder dialog:
+  // ,"sort_alphabetically": true
+}

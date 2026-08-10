@@ -1,0 +1,47 @@
+// ============================================================================
+//  CANVAS AUTOMATION -- create-assignment. Your config. Edit this file,
+//  then double-click create-assignment.command (or run from a shell / a
+//  local AI: canvas-automation create-assignment --config
+//  commands/create-assignment.config.jsonc).
+//
+//  Every option lives in this file: the ACTIVE ones are uncommented, the
+//  rest are commented out with a note. Uncomment to enable. Output (a
+//  copy of what Canvas returned, plus provenance.json) lands in a fresh
+//  out/create-assignment/<timestamp>/ folder, never overwritten. Requires
+//  start-server.command to already be running. Full guide: README.md
+// ============================================================================
+{
+  // "$schema": "./create-assignment.schema.json",
+
+  "OUT_DIR": "$ENGINE/out/create-assignment",
+
+  // Canvas course to create the assignment in.
+  "course_id": 12345,
+
+  "assignment": {
+    "name": "Week 3 Reading Reflection",
+
+    // Write the description right here...
+    // "description": "<p>Write a 300-word reflection on this week's reading.</p>",
+
+    // ...or point at a file in /input and leave "description" out entirely.
+    // Whatever is in the file becomes the description (HTML is fine).
+    "description_file": "input/week3-reflection.html",
+
+    "points_possible": 20,
+
+    // ISO 8601. "Z" is UTC; use an offset like -06:00 for a specific timezone.
+    "due_at": "2026-09-15T23:59:00Z",
+
+    "submission_types": ["online_text_entry", "online_upload"],
+    "published": true
+
+    // A few other options Canvas supports here, uncomment as needed:
+    // ,"grading_type": "points"              // pass_fail | percent | letter_grade | gpa_scale | points | not_graded
+    // ,"allowed_extensions": ["pdf", "docx"]  // only used if submission_types includes online_upload
+    // ,"allowed_attempts": -1                 // -1 means unlimited
+    // ,"peer_reviews": false
+    // ,"assignment_group_id": null
+    // ,"grading_standard_id": null
+  }
+}

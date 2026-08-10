@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "create-rubric config",
+  "description": "Sibling schema for create-rubric.config.jsonc. Criteria are written as a list here; the engine converts them to the indexed-hash shape Canvas requires. See 04-config-files-jsonc.md and research/canvas-api-endpoints.md.",
+  "type": "object",
+  "required": ["OUT_DIR", "course_id", "rubric"],
+  "additionalProperties": true,
+  "properties": {
+    "OUT_DIR": { "type": "string", "description": "where output lands; $ENGINE and $HOME expand" },
+    "course_id": { "type": "integer", "minimum": 1 },
+    "rubric_association": {
+      "type": "object",
+      "properties": {
+        "association_type": { "type": "string", "enum": ["Course", "Assignment", "Account"] },
+        "association_id": { "type": "integer" },
+        "purpose": { "type": "string", "enum": ["grading", "bookmark"] },
+        "use_for_grading": { "type": "boolean" }
+      }
+    },
+    "rubric": {
+      "type": "object",
+      "required": ["title", "criteria"],
+      "properties": {
+        "title": { "type": "string" },
+        "free_form_criterion_comments": { "type": "boolean" },
+        "criteria": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["description", "points"],
+            "properties": {
+              "description": { "type": "string" },
+              "long_description": { "type": "string" },
+              "points": { "type": "number", "minimum": 0 },
+              "ratings": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["description", "points"],
+                  "properties": {
+                    "description": { "type": "string" },
+                    "points": { "type": "number", "minimum": 0 }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

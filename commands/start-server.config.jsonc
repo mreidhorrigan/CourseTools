@@ -1,0 +1,19 @@
+// ============================================================================
+//  CANVAS AUTOMATION -- start-server. Your config. Edit this file, then
+//  double-click start-server.command (or run: canvas-automation serve
+//  from a shell, after exporting CANVAS_BASE_URL and CANVAS_API_TOKEN).
+//
+//  Holds no credentials. The Canvas domain is derived from sandbox_course_url;
+//  the API token is entered interactively and kept only in the server process's
+//  memory. It is never written here or anywhere else on disk. Full guide:
+//  README.md
+// ============================================================================
+{
+  // "$schema": "./start-server.schema.json",
+
+  "host": "127.0.0.1",   // change only if you understand the exposure; 127.0.0.1 stays local-only
+  "port": 5055,          // change if something else on your machine already uses this port
+  // HARD GUARD: paste the sandbox URL directly from the browser bar.
+  // The server derives its numeric id and rejects every other course.
+  "sandbox_course_url": "https://canvas.example.edu/courses/12345"
+}

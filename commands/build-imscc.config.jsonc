@@ -1,0 +1,7 @@
+// Offline generator for Canvas Settings > Import Course Content > Common Cartridge 1.x.
+{
+  // "$schema": "./build-imscc.schema.json",
+  "OUT_DIR": "$ENGINE/out/build-imscc",
+  "spec_file": "input/course-package.example.jsonc",
+  "output_name": "example-course.imscc"
+}

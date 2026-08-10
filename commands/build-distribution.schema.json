@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Canvas Automation distribution build",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["OUT_DIR", "archive_name", "disclosed_content", "exclude_paths"],
+  "properties": {
+    "OUT_DIR": {"type": "string", "minLength": 1},
+    "archive_name": {"type": "string", "pattern": "^[A-Za-z0-9._-]+\\.zip$"},
+    "disclosed_content": {"type": "string"},
+    "exclude_paths": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true}
+  }
+}

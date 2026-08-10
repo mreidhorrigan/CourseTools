@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "start-server config",
+  "description": "Sibling schema for start-server.config.jsonc. No credentials are ever part of this file.",
+  "type": "object",
+  "required": ["host", "port", "sandbox_course_url"],
+  "additionalProperties": false,
+  "properties": {
+    "host": { "type": "string", "description": "bind address; 127.0.0.1 keeps the server local-only" },
+    "port": { "type": "integer", "minimum": 1, "maximum": 65535, "description": "local port the other commands connect to" },
+    "sandbox_course_url": {
+      "type": "string",
+      "pattern": "^https://[^/]+/courses/[1-9][0-9]*/?(?:[?#].*)?$",
+      "description": "full sandbox URL copied from the browser; its hostname must match the Canvas API URL"
+    }
+  }
+}

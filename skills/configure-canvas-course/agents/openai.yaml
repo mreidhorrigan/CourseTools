@@ -1,0 +1,4 @@
+interface:
+  display_name: "Configure Canvas Course"
+  short_description: "Research and configure one guarded Canvas course"
+  default_prompt: "Use $configure-canvas-course to initialize or reconfigure this toolkit for my Canvas course."

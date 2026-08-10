@@ -1,0 +1,19 @@
+// Release gate for institution- and course-specific data. Add local identifiers here.
+// Findings in *.config.jsonc are reported for recipient review; findings in reusable code fail.
+// Course examples and licensed brand assets are content, so their prefixes are explicitly exempt.
+{
+  // "$schema": "./portability-audit.schema.json",
+  "scan_extensions": [".py", ".sh", ".command", ".js", ".jsonc"],
+  "course_content_prefixes": ["course/", "examples/", "assets/"],
+  // These acceptance tests deliberately inspect the bundled example course itself.
+  "course_content_test_paths": ["tests/test_direct_authoring.py", "tests/test_distribution.py", "tests/test_iat210_syllabus_454.py"],
+  "markers": [
+    {"name": "institution domain", "pattern": "(?:canvas\\.)?sfu\\.ca"},
+    {"name": "institution name", "pattern": "Simon Fraser|\\bSFU\\b"},
+    {"name": "example course", "pattern": "IAT[ _-]?210|Fall 2026"},
+    {"name": "local course id", "pattern": "\\b4066\\b"},
+    {"name": "instructor identity", "pattern": "Horrigan|mhorriga"},
+    {"name": "course contact", "pattern": "9776081468"},
+    {"name": "course reading", "pattern": "Trammell"}
+  ]
+}

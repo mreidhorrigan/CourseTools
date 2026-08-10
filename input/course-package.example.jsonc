@@ -1,0 +1,27 @@
+{
+  "course": {"title":"Example Import Course","course_code":"EX 100","default_view":"modules","license":"private"},
+  "assignment_groups": [
+    {"title":"Coursework","weight":100}
+  ],
+  "rubrics": [
+    {"key":"reflection-rubric","title":"Opening Reflection Rubric","criteria":[
+      {"description":"Specific reflection","points":10,"ratings":[
+        {"description":"Demonstrated","points":10,"long_description":"The reflection uses a specific example and explains its significance."},
+        {"description":"Not demonstrated","points":0}
+      ]}
+    ]}
+  ],
+  "pages": [
+    {"key":"welcome","title":"Welcome","slug":"welcome","body_file":"input/example-course-welcome.html","published":false}
+  ],
+  "assignments": [
+    {"key":"reflection","title":"Opening Reflection","description_file":"input/example-course-assignment.html","assignment_group":"Coursework","rubric":"reflection-rubric","points":10,"submission_types":["online_text_entry"],"published":false}
+  ],
+  "discussions": [
+    {"key":"introductions","title":"Introductions","message_file":"input/example-course-discussion.html","discussion_type":"threaded","require_initial_post":true,"published":false}
+  ],
+  "files": [],
+  "modules": [
+    {"title":"Start Here","published":false,"items":["welcome","introductions","reflection"]}
+  ]
+}

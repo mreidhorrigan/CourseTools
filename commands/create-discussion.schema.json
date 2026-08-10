@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "create-discussion config",
+  "description": "Sibling schema for create-discussion.config.jsonc. Flat fields (no wrapper key), unlike assignment/rubric/page. See 04-config-files-jsonc.md.",
+  "type": "object",
+  "required": ["OUT_DIR", "course_id", "title"],
+  "additionalProperties": true,
+  "properties": {
+    "OUT_DIR": { "type": "string", "description": "where output lands; $ENGINE and $HOME expand" },
+    "course_id": { "type": "integer", "minimum": 1 },
+    "title": { "type": "string" },
+    "message": { "type": "string", "description": "HTML body; alternative to message_file" },
+    "message_file": { "type": "string", "description": "path under /input read as the message" },
+    "discussion_type": { "type": "string", "enum": ["side_comment", "not_threaded", "threaded"] },
+    "published": { "type": "boolean" },
+    "require_initial_post": { "type": "boolean" },
+    "is_announcement": { "type": "boolean" },
+    "allow_rating": { "type": "boolean" },
+    "delayed_post_at": { "type": "string", "description": "ISO 8601 timestamp" },
+    "lock_at": { "type": "string", "description": "ISO 8601 timestamp" },
+    "group_category_id": { "type": ["integer", "null"] },
+    "assignment": {
+      "type": "object",
+      "description": "present only for a graded discussion",
+      "properties": {
+        "points_possible": { "type": "number", "minimum": 0 },
+        "grading_type": { "type": "string" }
+      }
+    }
+  }
+}

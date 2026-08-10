@@ -1,0 +1,16 @@
+{
+  "schema": "canvas-course-rubrics/v1",
+  "course_id": 12345,
+  "source_policy": "Rubric JSON files named here are authoritative. Live rubric IDs and association IDs are discovered from the guarded sandbox at synchronization time.",
+  "rubrics": [
+    {"source": "course/content/rubrics/actual-play-ideation.json", "assignment_title": "Actual-Play Project: Ideation Discussion"},
+    {"source": "course/content/rubrics/actual-play-plan.json", "assignment_title": "Actual-Play Project: Session Plan and Rulebook"},
+    {"source": "course/content/rubrics/actual-play-final.json", "assignment_title": "Actual-Play Project: Final Submission"},
+    {"source": "course/content/rubrics/digital-procedural-ecology-ideation.json", "assignment_title": "Digital Procedural-Ecology Project: Ideation Discussion"},
+    {"source": "course/content/rubrics/digital-procedural-ecology-plan.json", "assignment_title": "Digital Procedural-Ecology Project: Design and Technical Plan"},
+    {"source": "course/content/rubrics/digital-procedural-ecology-final.json", "assignment_title": "Digital Procedural-Ecology Project: Final Submission"},
+    {"source": "course/content/rubrics/board-game-ideation.json", "assignment_title": "Board-Game Project: Ideation Discussion"},
+    {"source": "course/content/rubrics/board-game-plan.json", "assignment_title": "Board-Game Project: Design Plan and Draft Rulebook"},
+    {"source": "course/content/rubrics/board-game-final.json", "assignment_title": "Board-Game Project: Final Submission"}
+  ]
+}

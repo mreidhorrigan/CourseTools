@@ -1,0 +1,31 @@
+// ============================================================================
+//  CANVAS AUTOMATION -- create-page. Your config. Edit this file, then
+//  double-click create-page.command (or run from a shell / a local AI:
+//  canvas-automation create-page --config commands/create-page.config.jsonc).
+//
+//  Every option lives in this file: the ACTIVE ones are uncommented, the
+//  rest are commented out with a note. Uncomment to enable. Output lands
+//  in a fresh out/create-page/<timestamp>/ folder, never overwritten.
+//  Requires start-server.command to already be running. Full guide: README.md
+// ============================================================================
+{
+  // "$schema": "./create-page.schema.json",
+
+  "OUT_DIR": "$ENGINE/out/create-page",
+
+  "course_id": 12345,
+
+  "page": {
+    "title": "Syllabus Addendum",
+
+    // "body": "<p>Inline HTML...</p>",
+    "body_file": "input/syllabus-addendum.html",
+
+    "published": true,
+    "editing_roles": "teachers"   // any comma-separated mix of: teachers, students, members, public
+
+    // ,"notify_of_update": false
+    // ,"front_page": false
+    // ,"publish_at": "2026-09-01T00:00:00Z"   // requires the Scheduled Page Publication feature
+  }
+}

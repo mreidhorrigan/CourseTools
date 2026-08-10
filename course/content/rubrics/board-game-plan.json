@@ -1,0 +1,92 @@
+{
+  "schema": "canvas-automation/rubric-source/v1",
+  "key": "board-game-plan",
+  "title": "Board-Game Plan",
+  "points_possible": 6.0,
+  "criteria": [
+    {
+      "description": "Goal and scope",
+      "points": 1.0,
+      "ratings": [
+        {
+          "description": "Demonstrated",
+          "points": 1.0
+        },
+        {
+          "description": "Not demonstrated",
+          "points": 0.0
+        }
+      ]
+    },
+    {
+      "description": "Core loop",
+      "points": 1.0,
+      "ratings": [
+        {
+          "description": "Demonstrated",
+          "points": 1.0
+        },
+        {
+          "description": "Not demonstrated",
+          "points": 0.0
+        }
+      ]
+    },
+    {
+      "description": "Draft rulebook",
+      "points": 1.0,
+      "ratings": [
+        {
+          "description": "Demonstrated",
+          "points": 1.0
+        },
+        {
+          "description": "Not demonstrated",
+          "points": 0.0
+        }
+      ]
+    },
+    {
+      "description": "Components and simulations",
+      "points": 1.0,
+      "ratings": [
+        {
+          "description": "Demonstrated",
+          "points": 1.0
+        },
+        {
+          "description": "Not demonstrated",
+          "points": 0.0
+        }
+      ]
+    },
+    {
+      "description": "Playtest and balance plan",
+      "points": 1.0,
+      "ratings": [
+        {
+          "description": "Demonstrated",
+          "points": 1.0
+        },
+        {
+          "description": "Not demonstrated",
+          "points": 0.0
+        }
+      ]
+    },
+    {
+      "description": "Workflow and completion",
+      "points": 1.0,
+      "ratings": [
+        {
+          "description": "Demonstrated",
+          "points": 1.0
+        },
+        {
+          "description": "Not demonstrated",
+          "points": 0.0
+        }
+      ]
+    }
+  ]
+}

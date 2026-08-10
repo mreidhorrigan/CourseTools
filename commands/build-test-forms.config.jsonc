@@ -1,0 +1,10 @@
+// Builds paper forms and answer keys from the same Testmaker source used by
+// create-quiz. The source, seed, and config determine the PDF content.
+{
+  // "$schema": "./build-test-forms.schema.json",
+  "OUT_DIR": "$ENGINE/out/build-test-forms",
+  "source_file": "input/example-testmaker-quiz.md",
+  "title": "Example Test",
+  "versions": 3, // 1-5, corresponding to versions A-E
+  "seed": "1"
+}

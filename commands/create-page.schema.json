@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "create-page config",
+  "description": "Sibling schema for create-page.config.jsonc. Canvas calls this resource wiki_page internally; the config and CLI just say page. See 04-config-files-jsonc.md.",
+  "type": "object",
+  "required": ["OUT_DIR", "course_id", "page"],
+  "additionalProperties": true,
+  "properties": {
+    "OUT_DIR": { "type": "string", "description": "where output lands; $ENGINE and $HOME expand" },
+    "course_id": { "type": "integer", "minimum": 1 },
+    "page": {
+      "type": "object",
+      "required": ["title"],
+      "properties": {
+        "title": { "type": "string" },
+        "body": { "type": "string", "description": "HTML body; alternative to body_file" },
+        "body_file": { "type": "string", "description": "path under /input read as the body" },
+        "published": { "type": "boolean" },
+        "editing_roles": { "type": "string", "description": "comma-separated mix of teachers, students, members, public" },
+        "notify_of_update": { "type": "boolean" },
+        "front_page": { "type": "boolean" }
+      }
+    }
+  }
+}

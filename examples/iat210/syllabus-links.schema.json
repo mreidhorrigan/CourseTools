@@ -1,0 +1,98 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Configuration-driven Canvas syllabus links and information blocks",
+  "type": "object",
+  "required": ["page_slug", "confirmation_prefix", "insertions", "paragraph_rules", "verification"],
+  "properties": {
+    "page_slug": {"type": "string"},
+    "confirmation_prefix": {"type": "string"},
+    "front_page": {"type": "boolean"},
+    "published": {"type": "boolean"},
+    "sync_course_syllabus": {"type": "boolean"},
+    "text_replacements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["old", "new"],
+        "properties": {"old": {"type": "string", "minLength": 1}, "new": {"type": "string", "minLength": 1}, "exact": {"type": "boolean"}}
+      }
+    },
+    "heading_styles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["selector", "style"],
+        "properties": {"selector": {"type": "string"}, "style": {"type": "string"}}
+      }
+    },
+    "removals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["selector"],
+        "properties": {"selector": {"type": "string"}, "contains": {"type": "string"}}
+      }
+    },
+    "insertions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["marker_id", "after_selector", "html"],
+        "properties": {
+          "marker_id": {"type": "string"},
+          "after_selector": {"type": "string"},
+          "html": {"type": "string"}
+        }
+      }
+    },
+    "content_replacements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["container_selector", "start_after_selector", "stop_before_selector", "html"],
+        "properties": {
+          "container_selector": {"type": "string"},
+          "start_after_selector": {"type": "string"},
+          "stop_before_selector": {"type": "string"},
+          "html": {"type": "string"}
+        }
+      }
+    },
+    "paragraph_rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["heading"],
+        "properties": {
+          "heading": {"type": "string"},
+          "heading_levels": {"type": "array", "items": {"type": "string"}},
+          "links": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["phrase", "url"],
+              "properties": {"phrase": {"type": "string"}, "url": {"type": "string"}}
+            }
+          },
+          "append": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["marker", "html"],
+              "properties": {"marker": {"type": "string"}, "html": {"type": "string"}}
+            }
+          }
+        }
+      }
+    },
+    "verification": {
+      "type": "object",
+      "properties": {
+        "required_hrefs": {"type": "array", "items": {"type": "string"}},
+        "required_ids": {"type": "array", "items": {"type": "string"}},
+        "required_text": {"type": "array", "items": {"type": "string"}},
+        "forbidden_text": {"type": "array", "items": {"type": "string"}}
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schema": "canvas-automation/rubric-source/v1",
+  "key": "actual-play-plan",
+  "title": "Actual-Play Plan",
+  "points_possible": 6.0,
+  "criteria": [
+    {"description": "Rules and playable situation", "long_description": "The PDF specifies context, roles, objectives, initial conditions, action and resolution procedures, an end condition, and at least one consequential choice in enough detail to support the dry run.", "points": 1.0, "ratings": [{"description": "Demonstrated: concrete, internally consistent, and usable", "points": 1.0}, {"description": "Not demonstrated: missing, contradictory, or too general to use", "points": 0.0}]},
+    {"description": "Consent, safety, and participant agency", "long_description": "The plan specifies pre-session consent, boundaries, an in-session pause/change/leave procedure, post-session check-in, and a route to withdraw permission before submission.", "points": 1.0, "ratings": [{"description": "Demonstrated: all procedures are actionable", "points": 1.0}, {"description": "Not demonstrated: a required procedure is absent or unusable", "points": 0.0}]},
+    {"description": "Production workflow and responsibilities", "long_description": "The plan identifies primary and backup recording, file naming, storage, editing, export, each member's responsibilities, and completion dates.", "points": 1.0, "ratings": [{"description": "Demonstrated: workflow, owners, and dates are specific", "points": 1.0}, {"description": "Not demonstrated: responsibilities or production steps remain unspecified", "points": 0.0}]},
+    {"description": "Accessibility and listener access", "long_description": "The plan identifies expected barriers, concrete responses, a transcript or caption workflow, and at least one feature supporting listener comprehension.", "points": 1.0, "ratings": [{"description": "Demonstrated: barriers and implementable responses are connected", "points": 1.0}, {"description": "Not demonstrated: access is only asserted or omitted", "points": 0.0}]},
+    {"description": "Dry-run test and evidence", "long_description": "The plan states a testable question, evidence to collect, timing, and decisions or revisions that the evidence can inform.", "points": 1.0, "ratings": [{"description": "Demonstrated: question, evidence, and decision are testable", "points": 1.0}, {"description": "Not demonstrated: the dry run lacks a testable question or evidence plan", "points": 0.0}]},
+    {"description": "Schedule, completion, and AI appendix", "long_description": "The PDF includes dated milestones, observable definitions of done for recording and submission, and complete relevant AI chatlogs or a no-AI statement.", "points": 1.0, "ratings": [{"description": "Demonstrated: completion conditions and appendix are present", "points": 1.0}, {"description": "Not demonstrated: schedule, completion conditions, or required appendix is absent", "points": 0.0}]}
+  ]
+}

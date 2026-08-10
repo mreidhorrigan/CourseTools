@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Institution-specific external-link QA settings",
+  "type": "object",
+  "required": ["search_resolver_hosts"],
+  "properties": {
+    "search_resolver_hosts": {
+      "type": "array",
+      "description": "Library search or resolver hosts that cannot establish an item-level usable source and must be reported as outtakes.",
+      "items": {"type": "string"}
+    }
+  }
+}

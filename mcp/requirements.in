@@ -1,0 +1,2 @@
+# Direct optional MCP dependency. Compile with the command documented in mcp/README.md.
+canvas-mcp==1.7.0

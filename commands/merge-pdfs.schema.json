@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "merge-pdfs config",
+  "description": "Sibling schema for merge-pdfs.config.jsonc. No Canvas fields at all: this command is purely local. See 04-config-files-jsonc.md.",
+  "type": "object",
+  "required": ["OUT_DIR", "output_name"],
+  "additionalProperties": true,
+  "properties": {
+    "OUT_DIR": { "type": "string", "description": "where output lands; $ENGINE and $HOME expand" },
+    "output_name": { "type": "string", "description": "filename for the merged PDF" },
+    "sort_alphabetically": { "type": "boolean", "description": "merge in filename order instead of Finder selection order" }
+  }
+}

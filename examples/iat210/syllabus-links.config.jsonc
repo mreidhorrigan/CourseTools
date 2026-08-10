@@ -1,0 +1,103 @@
+// Example-specific content for scripts/update_syllabus_links.py.
+// Copy this config and its schema for another course; keep course identifiers and institutional
+// policy choices here rather than adding them to the reusable script.
+{
+  "page_slug": "iat-210-course-syllabus",
+  "confirmation_prefix": "UPDATE-SYLLABUS-LINKS",
+  "front_page": true,
+  "published": true,
+  // Keep Canvas's Syllabus navigation body identical to the configured front-page wiki content.
+  "sync_course_syllabus": true,
+  "text_replacements": [
+    {"old": "fabricate sources or playtests", "new": "fabricate sources"},
+    {"old": "When competing ideas cannot be", "new": "When two competing ideas cannot be"},
+    {"old": "The grade does not reward theatrical skill or professional equipment. It rewards", "new": "The grade rewards"},
+    {"old": "Report sustained team problems", "new": "Report persistent team problems"},
+    {"old": "Actual-play ideation; Quiz 1", "new": "Actual-play ideation; Quiz 1 (Sep 22, 09:00–23:59)", "exact": true},
+    {"old": "Actual-play final; Quiz 2", "new": "Actual-play final; Quiz 2 (Oct 6, 09:00–23:59)", "exact": true},
+    {"old": "Digital ideation; Quiz 3", "new": "Digital ideation; Quiz 3 (Oct 20, 09:00–23:59)", "exact": true},
+    {"old": "Quiz 4", "new": "Quiz 4 (Nov 3, 09:00–23:59)", "exact": true},
+    {"old": "Digital final; Quiz 5", "new": "Digital final; Quiz 5 (Nov 10, 09:00–23:59)", "exact": true},
+    {"old": "Board-game plan; Quiz 6; interviews", "new": "Board-game plan; Quiz 6 (Nov 24, 09:00–23:59); interviews", "exact": true},
+    {"old": "Board-game final; Quiz 7; exam review; interviews complete", "new": "Board-game final; Quiz 7 (Dec 7, 09:00–23:59); exam review; interviews complete", "exact": true},
+    {"old": "Each student must schedule and attend one synchronous video interview with the instructor or a teaching assistant during the final month of the course.", "new": "To receive a nonzero grade for this course's three major projects, each student must schedule and attend one synchronous video interview with the instructor or a teaching assistant during the final month of the course."}
+  ],
+  "heading_styles": [
+    {"selector": "h1, h2, h3", "style": "font-family: OpenDyslexic, 'Atkinson Hyperlegible', 'Avenir Next', 'Trebuchet MS', Arial, sans-serif"},
+    {"selector": "section > h2", "style": "color: #b83b21"}
+  ],
+  "removals": [
+    {"selector": "section[aria-labelledby='course-details']"},
+    {"selector": "#top > p", "contains": "Fall 2026 | 3 credits | Online asynchronous"},
+    {"selector": "#assessment table tr", "contains": "Total 100%"}
+  ],
+  "insertions": [
+    {
+      "marker_id": "instructor-and-office-hours",
+      "after_selector": "h1",
+      "html": "<section aria-labelledby=\"instructor-and-office-hours\"><h2 id=\"instructor-and-office-hours\">Instructor and office hours</h2><p><strong>Instructor:</strong> M. Horrigan, <a href=\"mailto:mhorriga@sfu.ca\">mhorriga@sfu.ca</a></p><p><strong>Office hours:</strong> <a href=\"https://sfu.zoom.us/j/9776081468\">remote Wednesdays, 12:00–13:00</a>.</p><p>You can attend office hours without making an appointment beforehand. We encourage you to attend early in the course when time is most available. Office-hours priority is (1) prioritized discussions, including prescheduled appointments and discussions requested by the instructor, followed by (2) first come, first served. We can review work in progress during office hours as time allows. Work in progress is not reviewed by email; use email for specific questions.</p></section>"
+    }
+  ],
+  "content_replacements": [
+    {
+      "container_selector": "#course",
+      "start_after_selector": "h2",
+      "stop_before_selector": "h3",
+      "html": "<p>IAT 210 studies the history and evolution of games from board and card games through contemporary electronic games. It examines games as rules and designed systems, games as play and experience, and games as cultural and industrial forms. Students move between reading, play, analysis, and making to ask how rules organize action, how games communicate values, how players create meaning together, and how technologies and platforms shape what designers can build.</p><p>The three project rounds introduce different forms of design practice. The first uses tabletop roleplay and actual-play recording to study facilitation, agency, consent, performance, and editing. The second uses a browser-playable procedural ecology to explore computational rules, interfaces, interacting entities, resources, variation, and emergence. The third uses a board game to make human-executable rules, probability, feedback, balance, onboarding, and blind testing visible. The project calendar follows a 4-5-4 sequence: four weeks of actual play, five weeks of digital game design, and four weeks of board-game design.</p>"
+    }
+  ],
+  "paragraph_rules": [
+    {
+      "heading": "Practice quizzes and final examination",
+      "append": [{"marker": "Quiz 1 is available", "html": "Quiz availability uses Pacific time: Quiz 1 is available Sep 22, 09:00–23:59; Quiz 2 Oct 6, 09:00–23:59; Quiz 3 Oct 20, 09:00–23:59; Quiz 4 Nov 3, 09:00–23:59; Quiz 5 Nov 10, 09:00–23:59; Quiz 6 Nov 24, 09:00–23:59; and Quiz 7 Dec 7, 09:00–23:59."}]
+    },
+    {
+      "heading": "How grading works",
+      "append": [{"marker": "Final percentage grades use", "html": "Final percentage grades use the <a href=\"https://www.sfu.ca/siat/programs/undergraduate/current-students/student-resources/grading-scale.html\">SIAT recommended grading scale</a>."}]
+    },
+    {
+      "heading": "Communication and collaboration",
+      "append": [{"marker": "Student Conduct Policy", "html": "The <a href=\"https://www.sfu.ca/about/leadership-governance-strategy/policies/gazette/s10-05.html\">SFU Student Conduct Policy</a> describes expectations for respectful and responsible conduct."}]
+    },
+    {
+      "heading": "Late and missing submissions",
+      "links": [{"phrase": "academic concessions", "url": "https://www.sfu.ca/students/enrolment-services/policies-and-procedures/academic-concessions.html.html"}]
+    },
+    {
+      "heading": "Grade reviews and appeals",
+      "append": [{"marker": "Grading and the Reconsideration of Grades", "html": "The university process is set out in <a href=\"https://www.sfu.ca/about/leadership-governance-strategy/policies/gazette/t20-01.html\">SFU’s Grading and the Reconsideration of Grades policy</a>."}]
+    },
+    {
+      "heading": "Consent, privacy, and rights",
+      "append": [{"marker": "Protection of Privacy Policy", "html": "Relevant institutional requirements include SFU’s <a href=\"https://www.sfu.ca/about/leadership-governance-strategy/policies/gazette/I10-11.html\">Protection of Privacy Policy</a> and <a href=\"https://www.sfu.ca/about/leadership-governance-strategy/policies/gazette/r30-03.html\">Intellectual Property Policy</a>."}]
+    },
+    {
+      "heading": "Accessibility",
+      "links": [{"phrase": "Centre for Accessible Learning", "url": "https://www.sfu.ca/students/accessible-learning/"}],
+      "append": [{"marker": "academic concessions guidance", "html": "SFU’s <a href=\"https://www.sfu.ca/students/enrolment-services/policies-and-procedures/academic-concessions.html.html\">academic concessions guidance</a> explains the distinction between concessions and accommodations, including disability and religious accommodations."}]
+    },
+    {
+      "heading": "Academic integrity",
+      "links": [{"phrase": "SFU academic-integrity rules", "url": "https://www.sfu.ca/about/leadership-governance-strategy/policies/gazette/s10-01.html"}],
+      "append": [{"marker": "academic-integrity reporting procedures", "html": "Suspected violations are addressed through SFU’s <a href=\"https://www.sfu.ca/students/academicintegrity/faculty/reporting.html\">academic-integrity reporting procedures</a>, which include notice and an opportunity for the student to respond."}]
+    }
+  ],
+  "verification": {
+    "required_hrefs": [
+      "mailto:mhorriga@sfu.ca",
+      "https://sfu.zoom.us/j/9776081468",
+      "https://www.sfu.ca/siat/programs/undergraduate/current-students/student-resources/grading-scale.html",
+      "https://www.sfu.ca/students/enrolment-services/policies-and-procedures/academic-concessions.html.html",
+      "https://www.sfu.ca/about/leadership-governance-strategy/policies/gazette/t20-01.html",
+      "https://www.sfu.ca/about/leadership-governance-strategy/policies/gazette/s10-05.html",
+      "https://www.sfu.ca/about/leadership-governance-strategy/policies/gazette/I10-11.html",
+      "https://www.sfu.ca/about/leadership-governance-strategy/policies/gazette/r30-03.html",
+      "https://www.sfu.ca/students/accessible-learning/",
+      "https://www.sfu.ca/about/leadership-governance-strategy/policies/gazette/s10-01.html",
+      "https://www.sfu.ca/students/academicintegrity/faculty/reporting.html"
+    ],
+    "required_ids": ["instructor-and-office-hours", "course"],
+    "required_text": ["M. Horrigan", "first come, first served", "history and evolution of games", "games as rules and designed systems", "4-5-4 sequence"],
+    "forbidden_text": ["Teaching assistant", "Michael Filimowicz", "Course details", "Calendar description", "Instructor: Matthew Horrigan", "Fall 2026 | 3 credits | Online asynchronous", "Total 100%"]
+  }
+}

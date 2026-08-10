@@ -1,0 +1,43 @@
+// ============================================================================
+//  CANVAS AUTOMATION -- create-discussion. Your config. Edit this file,
+//  then double-click create-discussion.command (or run from a shell / a
+//  local AI: canvas-automation create-discussion --config
+//  commands/create-discussion.config.jsonc).
+//
+//  Every option lives in this file: the ACTIVE ones are uncommented, the
+//  rest are commented out with a note. Uncomment to enable. Output lands
+//  in a fresh out/create-discussion/<timestamp>/ folder, never
+//  overwritten. Requires start-server.command to already be running.
+//  Full guide: README.md
+// ============================================================================
+{
+  // "$schema": "./create-discussion.schema.json",
+
+  "OUT_DIR": "$ENGINE/out/create-discussion",
+
+  "course_id": 12345,
+
+  // NOTE: unlike assignment/rubric/page, Canvas's Discussion Topics API
+  // takes flat fields directly here, with no wrapper key.
+  "title": "Week 3: Open Discussion",
+
+  // "message": "<p>Inline HTML message...</p>",
+  "message_file": "input/week3-discussion.html",
+
+  "discussion_type": "threaded",   // side_comment | not_threaded | threaded
+  "published": true,
+  "require_initial_post": true
+
+  // Uncomment to make this a graded discussion (points_possible etc. go
+  // in this sub-object; the title above is used as the assignment name):
+  // ,"assignment": {
+  //   "points_possible": 10,
+  //   "grading_type": "points"
+  // }
+
+  // ,"delayed_post_at": "2026-09-15T00:00:00Z"   // do not publish until this time
+  // ,"lock_at": "2026-09-22T23:59:00Z"
+  // ,"is_announcement": false
+  // ,"group_category_id": null
+  // ,"allow_rating": false
+}

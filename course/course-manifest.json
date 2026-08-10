@@ -1,0 +1,388 @@
+{
+  "course_code": "EXAMPLE-COURSE",
+  "course_id": 12345,
+  "course_name": "Example Course Authoring Baseline",
+  "course_url": "https://canvas.example.edu/courses/12345",
+  "objects": [
+    {
+      "canvas_id": 0,
+      "kind": "syllabus",
+      "source": "course/content/syllabus.html",
+      "title": "Canvas Syllabus"
+    },
+    {
+      "canvas_id": 0,
+      "front_page": false,
+      "kind": "page",
+      "published": true,
+      "slug": "final-month-video-interview",
+      "source": "course/content/pages/final-month-video-interview.html",
+      "title": "Required Final-Month Video Interview"
+    },
+    {
+      "canvas_id": 0,
+      "front_page": true,
+      "kind": "page",
+      "published": true,
+      "slug": "iat-210-course-syllabus",
+      "source": "course/content/syllabus.html",
+      "title": "IAT 210 Course Syllabus"
+    },
+    {
+      "canvas_id": 0,
+      "front_page": false,
+      "kind": "page",
+      "published": false,
+      "slug": "outtake-week-10-deep-history-and-historiography-of-board-games",
+      "source": "course/content/outtakes/pages/outtake-week-10-deep-history-and-historiography-of-board-games.html",
+      "title": "[OUTTAKE] Week 10: Deep history and historiography of board games"
+    },
+    {
+      "canvas_id": 0,
+      "front_page": false,
+      "kind": "page",
+      "published": false,
+      "slug": "outtake-week-11-strategy-metagames-and-expert-ecosystems",
+      "source": "course/content/outtakes/pages/outtake-week-11-strategy-metagames-and-expert-ecosystems.html",
+      "title": "[OUTTAKE] Week 11: Strategy, metagames, and expert ecosystems"
+    },
+    {
+      "canvas_id": 0,
+      "front_page": false,
+      "kind": "page",
+      "published": false,
+      "slug": "outtake-week-12-serious-persuasive-and-educational-games",
+      "source": "course/content/outtakes/pages/outtake-week-12-serious-persuasive-and-educational-games.html",
+      "title": "[OUTTAKE] Week 12: Serious, persuasive, and educational games"
+    },
+    {
+      "canvas_id": 0,
+      "front_page": false,
+      "kind": "page",
+      "published": false,
+      "slug": "outtake-week-13-playtesting-balance-and-rulebook-engineering",
+      "source": "course/content/outtakes/pages/outtake-week-13-playtesting-balance-and-rulebook-engineering.html",
+      "title": "[OUTTAKE] Week 13: Playtesting, balance, and rulebook engineering"
+    },
+    {
+      "canvas_id": 0,
+      "front_page": false,
+      "kind": "page",
+      "published": false,
+      "slug": "outtake-week-2-historiography-gender-slash-race-and-game-culture",
+      "source": "course/content/outtakes/pages/outtake-week-2-historiography-gender-slash-race-and-game-culture.html",
+      "title": "[OUTTAKE] Week 2: Historiography, gender/race, and game culture"
+    },
+    {
+      "canvas_id": 0,
+      "front_page": false,
+      "kind": "page",
+      "published": false,
+      "slug": "outtake-week-3-criticism-paratexts-and-parasociality",
+      "source": "course/content/outtakes/pages/outtake-week-3-criticism-paratexts-and-parasociality.html",
+      "title": "[OUTTAKE] Week 3: Criticism, paratexts, and parasociality"
+    },
+    {
+      "canvas_id": 0,
+      "front_page": false,
+      "kind": "page",
+      "published": false,
+      "slug": "outtake-week-4-actual-play-as-medium",
+      "source": "course/content/outtakes/pages/outtake-week-4-actual-play-as-medium.html",
+      "title": "[OUTTAKE] Week 4: Actual play as medium"
+    },
+    {
+      "canvas_id": 0,
+      "front_page": false,
+      "kind": "page",
+      "published": false,
+      "slug": "outtake-week-5-formal-systems-and-computational-rules",
+      "source": "course/content/outtakes/pages/outtake-week-5-formal-systems-and-computational-rules.html",
+      "title": "[OUTTAKE] Week 5: Formal systems and computational rules"
+    },
+    {
+      "canvas_id": 0,
+      "front_page": false,
+      "kind": "page",
+      "published": false,
+      "slug": "outtake-week-6-vibe-coding-modding-and-computational-authorship",
+      "source": "course/content/outtakes/pages/outtake-week-6-vibe-coding-modding-and-computational-authorship.html",
+      "title": "[OUTTAKE] Week 6: Vibe coding, modding, and computational authorship"
+    },
+    {
+      "canvas_id": 0,
+      "front_page": false,
+      "kind": "page",
+      "published": false,
+      "slug": "outtake-week-7-audiovisual-assets-interfaces-and-representation",
+      "source": "course/content/outtakes/pages/outtake-week-7-audiovisual-assets-interfaces-and-representation.html",
+      "title": "[OUTTAKE] Week 7: Audiovisual assets, interfaces, and representation"
+    },
+    {
+      "canvas_id": 0,
+      "front_page": false,
+      "kind": "page",
+      "published": false,
+      "slug": "outtake-week-8-gamblification-monetization-and-whales",
+      "source": "course/content/outtakes/pages/outtake-week-8-gamblification-monetization-and-whales.html",
+      "title": "[OUTTAKE] Week 8: Gamblification, monetization, and whales"
+    },
+    {
+      "canvas_id": 0,
+      "front_page": false,
+      "kind": "page",
+      "published": false,
+      "slug": "outtake-week-9-simulation-and-procedural-ecology",
+      "source": "course/content/outtakes/pages/outtake-week-9-simulation-and-procedural-ecology.html",
+      "title": "[OUTTAKE] Week 9: Simulation and procedural ecology"
+    },
+    {
+      "canvas_id": 0,
+      "front_page": false,
+      "kind": "page",
+      "published": true,
+      "slug": "start-here",
+      "source": "course/content/pages/start-here.html",
+      "title": "Start Here"
+    },
+    {
+      "canvas_id": 0,
+      "front_page": false,
+      "kind": "page",
+      "published": true,
+      "slug": "week-01",
+      "source": "course/content/pages/week-01.html",
+      "title": "Week 1: Roleplay: rules, player action, and facilitation"
+    },
+    {
+      "canvas_id": 0,
+      "front_page": false,
+      "kind": "page",
+      "published": true,
+      "slug": "week-10-deep-history-and-historiography-of-board-games",
+      "source": "course/content/pages/week-10-deep-history-and-historiography-of-board-games.html",
+      "title": "Week 10: Deep history and historiography of board games"
+    },
+    {
+      "canvas_id": 0,
+      "front_page": false,
+      "kind": "page",
+      "published": true,
+      "slug": "week-11-strategy-metagames-and-expert-ecosystems",
+      "source": "course/content/pages/week-11-strategy-metagames-and-expert-ecosystems.html",
+      "title": "Week 11: Strategy, metagames, and expert ecosystems"
+    },
+    {
+      "canvas_id": 0,
+      "front_page": false,
+      "kind": "page",
+      "published": true,
+      "slug": "week-12-serious-persuasive-and-educational-games",
+      "source": "course/content/pages/week-12-serious-persuasive-and-educational-games.html",
+      "title": "Week 12: Serious, persuasive, and educational games"
+    },
+    {
+      "canvas_id": 0,
+      "front_page": false,
+      "kind": "page",
+      "published": true,
+      "slug": "week-13-playtesting-balance-and-rulebook-engineering-2",
+      "source": "course/content/pages/week-13-playtesting-balance-and-rulebook-engineering-2.html",
+      "title": "Week 13: Playtesting, balance, and rulebook engineering"
+    },
+    {
+      "canvas_id": 0,
+      "front_page": false,
+      "kind": "page",
+      "published": true,
+      "slug": "week-2-historiography-gender-slash-race-and-game-culture-2",
+      "source": "course/content/pages/week-2-historiography-gender-slash-race-and-game-culture-2.html",
+      "title": "Week 2: Historiography, gender/race, and game culture"
+    },
+    {
+      "canvas_id": 0,
+      "front_page": false,
+      "kind": "page",
+      "published": true,
+      "slug": "week-3-criticism-paratexts-and-parasociality-2",
+      "source": "course/content/pages/week-3-criticism-paratexts-and-parasociality-2.html",
+      "title": "Week 3: Criticism, paratexts, and parasociality"
+    },
+    {
+      "canvas_id": 0,
+      "front_page": false,
+      "kind": "page",
+      "published": true,
+      "slug": "week-4-actual-play-as-medium",
+      "source": "course/content/pages/week-4-actual-play-as-medium.html",
+      "title": "Week 4: Actual play as medium"
+    },
+    {
+      "canvas_id": 0,
+      "front_page": false,
+      "kind": "page",
+      "published": true,
+      "slug": "week-5-formal-systems-and-computational-rules-2",
+      "source": "course/content/pages/week-5-formal-systems-and-computational-rules-2.html",
+      "title": "Week 5: Formal systems and computational rules"
+    },
+    {
+      "canvas_id": 0,
+      "front_page": false,
+      "kind": "page",
+      "published": true,
+      "slug": "week-6-vibe-coding-modding-and-computational-authorship-2",
+      "source": "course/content/pages/week-6-vibe-coding-modding-and-computational-authorship-2.html",
+      "title": "Week 6: Vibe coding, modding, and computational authorship"
+    },
+    {
+      "canvas_id": 0,
+      "front_page": false,
+      "kind": "page",
+      "published": true,
+      "slug": "week-7-audiovisual-assets-interfaces-and-representation",
+      "source": "course/content/pages/week-7-audiovisual-assets-interfaces-and-representation.html",
+      "title": "Week 7: Audiovisual assets, interfaces, and representation"
+    },
+    {
+      "canvas_id": 0,
+      "front_page": false,
+      "kind": "page",
+      "published": true,
+      "slug": "week-8-gamblification-monetization-and-whales-2",
+      "source": "course/content/pages/week-8-gamblification-monetization-and-whales-2.html",
+      "title": "Week 8: Gamblification, monetization, and whales"
+    },
+    {
+      "canvas_id": 0,
+      "front_page": false,
+      "kind": "page",
+      "published": true,
+      "slug": "week-9-simulation-and-procedural-ecology",
+      "source": "course/content/pages/week-9-simulation-and-procedural-ecology.html",
+      "title": "Week 9: Simulation and procedural ecology"
+    },
+    {
+      "canvas_id": 0,
+      "kind": "assignment",
+      "published": true,
+      "source": "course/content/assignments/207279-actual-play-project-final-submission.html",
+      "title": "Actual-Play Project: Final Submission"
+    },
+    {
+      "canvas_id": 0,
+      "kind": "assignment",
+      "published": true,
+      "source": "course/content/assignments/207309-actual-play-project-session-plan-and-rulebook.html",
+      "title": "Actual-Play Project: Session Plan and Rulebook"
+    },
+    {
+      "canvas_id": 0,
+      "kind": "assignment",
+      "published": true,
+      "source": "course/content/assignments/207310-board-game-project-design-plan-and-draft-rulebook.html",
+      "title": "Board-Game Project: Design Plan and Draft Rulebook"
+    },
+    {
+      "canvas_id": 0,
+      "kind": "assignment",
+      "published": true,
+      "source": "course/content/assignments/207280-board-game-project-final-submission.html",
+      "title": "Board-Game Project: Final Submission"
+    },
+    {
+      "canvas_id": 0,
+      "kind": "assignment",
+      "published": true,
+      "source": "course/content/assignments/207311-digital-procedural-ecology-project-design-and-technical-plan.html",
+      "title": "Digital Procedural-Ecology Project: Design and Technical Plan"
+    },
+    {
+      "canvas_id": 0,
+      "kind": "assignment",
+      "published": true,
+      "source": "course/content/assignments/207281-digital-procedural-ecology-project-final-submission.html",
+      "title": "Digital Procedural-Ecology Project: Final Submission"
+    },
+    {
+      "canvas_id": 0,
+      "kind": "assignment",
+      "published": true,
+      "source": "course/content/assignments/207282-in-person-final-examination.html",
+      "title": "In-Person Final Examination"
+    },
+    {
+      "canvas_id": 0,
+      "kind": "discussion",
+      "published": true,
+      "source": "course/content/discussions/256071-actual-play-project-ideation-discussion.html",
+      "title": "Actual-Play Project: Ideation Discussion"
+    },
+    {
+      "canvas_id": 0,
+      "kind": "discussion",
+      "published": true,
+      "source": "course/content/discussions/256072-board-game-project-ideation-discussion.html",
+      "title": "Board-Game Project: Ideation Discussion"
+    },
+    {
+      "canvas_id": 0,
+      "kind": "discussion",
+      "published": true,
+      "source": "course/content/discussions/256073-digital-procedural-ecology-project-ideation-discussion.html",
+      "title": "Digital Procedural-Ecology Project: Ideation Discussion"
+    },
+    {
+      "canvas_id": 0,
+      "kind": "quiz",
+      "published": false,
+      "source": "course/content/quizzes/74955-practice-quiz-1.html",
+      "title": "Practice Quiz 1"
+    },
+    {
+      "canvas_id": 0,
+      "kind": "quiz",
+      "published": false,
+      "source": "course/content/quizzes/74953-practice-quiz-2.html",
+      "title": "Practice Quiz 2"
+    },
+    {
+      "canvas_id": 0,
+      "kind": "quiz",
+      "published": false,
+      "source": "course/content/quizzes/74960-practice-quiz-3.html",
+      "title": "Practice Quiz 3"
+    },
+    {
+      "canvas_id": 0,
+      "kind": "quiz",
+      "published": false,
+      "source": "course/content/quizzes/74959-practice-quiz-4.html",
+      "title": "Practice Quiz 4"
+    },
+    {
+      "canvas_id": 0,
+      "kind": "quiz",
+      "published": false,
+      "source": "course/content/quizzes/74952-practice-quiz-5.html",
+      "title": "Practice Quiz 5"
+    },
+    {
+      "canvas_id": 0,
+      "kind": "quiz",
+      "published": false,
+      "source": "course/content/quizzes/74954-practice-quiz-6.html",
+      "title": "Practice Quiz 6"
+    },
+    {
+      "canvas_id": 0,
+      "kind": "quiz",
+      "published": false,
+      "source": "course/content/quizzes/74958-practice-quiz-7.html",
+      "title": "Practice Quiz 7"
+    }
+  ],
+  "requires_reinitialization": true,
+  "schema": "canvas-course-authoring/v1",
+  "source_policy": "Files named by source are authoritative; Canvas and IMSCC are generated targets."
+}

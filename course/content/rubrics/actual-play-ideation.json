@@ -1,0 +1,50 @@
+{
+  "schema": "canvas-automation/rubric-source/v1",
+  "key": "actual-play-ideation",
+  "title": "Actual-Play Ideation",
+  "points_possible": 3.0,
+  "criteria": [
+    {
+      "description": "Playable proposal",
+      "points": 1.0,
+      "ratings": [
+        {
+          "description": "Demonstrated",
+          "points": 1.0
+        },
+        {
+          "description": "Not demonstrated",
+          "points": 0.0
+        }
+      ]
+    },
+    {
+      "description": "Course concept",
+      "points": 1.0,
+      "ratings": [
+        {
+          "description": "Demonstrated",
+          "points": 1.0
+        },
+        {
+          "description": "Not demonstrated",
+          "points": 0.0
+        }
+      ]
+    },
+    {
+      "description": "Peer development",
+      "points": 1.0,
+      "ratings": [
+        {
+          "description": "Demonstrated",
+          "points": 1.0
+        },
+        {
+          "description": "Not demonstrated",
+          "points": 0.0
+        }
+      ]
+    }
+  ]
+}

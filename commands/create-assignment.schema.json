@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "create-assignment config",
+  "description": "Sibling schema for create-assignment.config.jsonc. commands/_jsonc.py checks this shallowly (top-level keys only); canvas_automation.jsonc checks it fully, recursing into 'assignment'. See 04-config-files-jsonc.md.",
+  "type": "object",
+  "required": ["OUT_DIR", "course_id", "assignment"],
+  "additionalProperties": true,
+  "properties": {
+    "OUT_DIR": { "type": "string", "description": "where output lands; $ENGINE and $HOME expand" },
+    "course_id": { "type": "integer", "minimum": 1, "description": "the Canvas course to create the assignment in" },
+    "assignment": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string", "description": "assignment title" },
+        "description": { "type": "string", "description": "HTML body; alternative to description_file" },
+        "description_file": { "type": "string", "description": "path under /input read as the description" },
+        "points_possible": { "type": "number", "minimum": 0 },
+        "due_at": { "type": "string", "description": "ISO 8601 timestamp" },
+        "submission_types": { "type": "array", "items": { "type": "string" } },
+        "published": { "type": "boolean" },
+        "grading_type": { "type": "string", "enum": ["pass_fail", "percent", "letter_grade", "gpa_scale", "points", "not_graded"] },
+        "allowed_extensions": { "type": "array", "items": { "type": "string" } },
+        "allowed_attempts": { "type": "integer" },
+        "peer_reviews": { "type": "boolean" }
+      }
+    }
+  }
+}

@@ -1,0 +1,66 @@
+// ============================================================================
+//  CANVAS AUTOMATION -- create-rubric. Your config. Edit this file, then
+//  double-click create-rubric.command (or run from a shell / a local AI:
+//  canvas-automation create-rubric --config commands/create-rubric.config.jsonc).
+//
+//  Every option lives in this file: the ACTIVE ones are uncommented, the
+//  rest are commented out with a note. Uncomment to enable. Output lands
+//  in a fresh out/create-rubric/<timestamp>/ folder, never overwritten.
+//  Requires start-server.command to already be running. Full guide: README.md
+// ============================================================================
+{
+  // "$schema": "./create-rubric.schema.json",
+
+  "OUT_DIR": "$ENGINE/out/create-rubric",
+
+  "course_id": 12345,
+
+  // How this rubric attaches to something in Canvas. A rubric cannot exist
+  // fully free-floating; it needs an association. The default below files
+  // it under the course itself (visible in Manage Rubrics but not yet
+  // grading anything); switch to the Assignment version once you have an
+  // assignment id to attach it to.
+  "rubric_association": {
+    "association_type": "Course",
+    "association_id": 12345,
+    "purpose": "bookmark"
+
+    // To attach directly to an assignment for grading instead, use:
+    // ,"association_type": "Assignment"
+    // ,"association_id": 67890
+    // ,"purpose": "grading"
+    // ,"use_for_grading": true
+  },
+
+  "rubric": {
+    "title": "Reading Reflection Rubric",
+
+    // If true, graders write free-text comments instead of picking a rating.
+    "free_form_criterion_comments": false,
+
+    // Plain list; the server converts this into the nested structure
+    // Canvas's API actually wants. See src/canvas_automation/canvas_client.py
+    // and research/canvas-api-endpoints.md.
+    "criteria": [
+      {
+        "description": "Depth of analysis",
+        "long_description": "How thoroughly the student engages with the reading.",
+        "points": 10,
+        "ratings": [
+          { "description": "Excellent", "points": 10 },
+          { "description": "Adequate", "points": 6 },
+          { "description": "Minimal", "points": 2 }
+        ]
+      },
+      {
+        "description": "Writing clarity",
+        "points": 10,
+        "ratings": [
+          { "description": "Clear and well-organized", "points": 10 },
+          { "description": "Some clarity issues", "points": 5 },
+          { "description": "Hard to follow", "points": 0 }
+        ]
+      }
+    ]
+  }
+}

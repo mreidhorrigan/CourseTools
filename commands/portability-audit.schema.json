@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Portability audit",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["scan_extensions", "course_content_prefixes", "course_content_test_paths", "markers"],
+  "properties": {
+    "scan_extensions": {"type": "array", "items": {"type": "string", "pattern": "^\\."}, "uniqueItems": true},
+    "course_content_prefixes": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+    "course_content_test_paths": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+    "markers": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["name", "pattern"], "properties": {"name": {"type": "string"}, "pattern": {"type": "string"}}}}
+  }
+}

@@ -1,0 +1,1411 @@
+{
+  "bomFormat": "CycloneDX",
+  "components": [
+    {
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "beautifulsoup4",
+      "purl": "pkg:pypi/beautifulsoup4@4.15.0",
+      "type": "library",
+      "version": "4.15.0"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "blinker",
+      "purl": "pkg:pypi/blinker@1.9.0",
+      "type": "library",
+      "version": "1.9.0"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "canvas-automation",
+      "purl": "pkg:pypi/canvas-automation@0.1.0",
+      "type": "library",
+      "version": "0.1.0"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "MPL-2.0"
+        }
+      ],
+      "name": "certifi",
+      "purl": "pkg:pypi/certifi@2026.6.17",
+      "type": "library",
+      "version": "2026.6.17"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "charset-normalizer",
+      "purl": "pkg:pypi/charset-normalizer@3.4.9",
+      "type": "library",
+      "version": "3.4.9"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "name": "click",
+      "purl": "pkg:pypi/click@8.1.8",
+      "type": "library",
+      "version": "8.1.8"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "name": "click",
+      "purl": "pkg:pypi/click@8.4.2",
+      "type": "library",
+      "version": "8.4.2"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "name": "colorama",
+      "purl": "pkg:pypi/colorama@0.4.6",
+      "type": "library",
+      "version": "0.4.6"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "et-xmlfile",
+      "purl": "pkg:pypi/et-xmlfile@2.0.0",
+      "type": "library",
+      "version": "2.0.0"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "exceptiongroup",
+      "purl": "pkg:pypi/exceptiongroup@1.3.1",
+      "type": "library",
+      "version": "1.3.1"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "name": "flask",
+      "purl": "pkg:pypi/flask@3.1.3",
+      "type": "library",
+      "version": "3.1.3"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "name": "idna",
+      "purl": "pkg:pypi/idna@3.18",
+      "type": "library",
+      "version": "3.18"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "Apache-2.0"
+        }
+      ],
+      "name": "importlib-metadata",
+      "purl": "pkg:pypi/importlib-metadata@8.7.1",
+      "type": "library",
+      "version": "8.7.1"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "iniconfig",
+      "purl": "pkg:pypi/iniconfig@2.1.0",
+      "type": "library",
+      "version": "2.1.0"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "iniconfig",
+      "purl": "pkg:pypi/iniconfig@2.3.0",
+      "type": "library",
+      "version": "2.3.0"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "name": "itsdangerous",
+      "purl": "pkg:pypi/itsdangerous@2.2.0",
+      "type": "library",
+      "version": "2.2.0"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "name": "jinja2",
+      "purl": "pkg:pypi/jinja2@3.1.6",
+      "type": "library",
+      "version": "3.1.6"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "name": "lxml",
+      "purl": "pkg:pypi/lxml@6.1.1",
+      "type": "library",
+      "version": "6.1.1"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "name": "markupsafe",
+      "purl": "pkg:pypi/markupsafe@3.0.3",
+      "type": "library",
+      "version": "3.0.3"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "openpyxl",
+      "purl": "pkg:pypi/openpyxl@3.1.5",
+      "type": "library",
+      "version": "3.1.5"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "Apache-2.0 OR BSD-2-Clause"
+        }
+      ],
+      "name": "packaging",
+      "purl": "pkg:pypi/packaging@26.2",
+      "type": "library",
+      "version": "26.2"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "MIT-CMU"
+        }
+      ],
+      "name": "pillow",
+      "purl": "pkg:pypi/pillow@11.3.0",
+      "type": "library",
+      "version": "11.3.0"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "MIT-CMU"
+        }
+      ],
+      "name": "pillow",
+      "purl": "pkg:pypi/pillow@12.3.0",
+      "type": "library",
+      "version": "12.3.0"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "pluggy",
+      "purl": "pkg:pypi/pluggy@1.6.0",
+      "type": "library",
+      "version": "1.6.0"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "BSD-2-Clause"
+        }
+      ],
+      "name": "pygments",
+      "purl": "pkg:pypi/pygments@2.20.0",
+      "type": "library",
+      "version": "2.20.0"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "name": "pypdf",
+      "purl": "pkg:pypi/pypdf@6.14.2",
+      "type": "library",
+      "version": "6.14.2"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "pytest",
+      "purl": "pkg:pypi/pytest@8.4.2",
+      "type": "library",
+      "version": "8.4.2"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "pytest",
+      "purl": "pkg:pypi/pytest@9.1.1",
+      "type": "library",
+      "version": "9.1.1"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "name": "reportlab",
+      "purl": "pkg:pypi/reportlab@5.0.0",
+      "type": "library",
+      "version": "5.0.0"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "Apache-2.0"
+        }
+      ],
+      "name": "requests",
+      "purl": "pkg:pypi/requests@2.32.5",
+      "type": "library",
+      "version": "2.32.5"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "Apache-2.0"
+        }
+      ],
+      "name": "requests",
+      "purl": "pkg:pypi/requests@2.34.2",
+      "type": "library",
+      "version": "2.34.2"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "soupsieve",
+      "purl": "pkg:pypi/soupsieve@2.8.4",
+      "type": "library",
+      "version": "2.8.4"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "tomli",
+      "purl": "pkg:pypi/tomli@2.4.1",
+      "type": "library",
+      "version": "2.4.1"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "PSF-2.0"
+        }
+      ],
+      "name": "typing-extensions",
+      "purl": "pkg:pypi/typing-extensions@4.16.0",
+      "type": "library",
+      "version": "4.16.0"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "urllib3",
+      "purl": "pkg:pypi/urllib3@2.6.3",
+      "type": "library",
+      "version": "2.6.3"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "urllib3",
+      "purl": "pkg:pypi/urllib3@2.7.0",
+      "type": "library",
+      "version": "2.7.0"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "ZPL-2.1"
+        }
+      ],
+      "name": "waitress",
+      "purl": "pkg:pypi/waitress@3.0.2",
+      "type": "library",
+      "version": "3.0.2"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "name": "werkzeug",
+      "purl": "pkg:pypi/werkzeug@3.1.8",
+      "type": "library",
+      "version": "3.1.8"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "zipp",
+      "purl": "pkg:pypi/zipp@3.23.1",
+      "type": "library",
+      "version": "3.23.1"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "Apache-2.0"
+        }
+      ],
+      "name": "aiofile",
+      "purl": "pkg:pypi/aiofile@3.12.3",
+      "scope": "optional",
+      "type": "library",
+      "version": "3.12.3"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "annotated-types",
+      "purl": "pkg:pypi/annotated-types@0.8.0",
+      "scope": "optional",
+      "type": "library",
+      "version": "0.8.0"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "anyio",
+      "purl": "pkg:pypi/anyio@4.14.2",
+      "scope": "optional",
+      "type": "library",
+      "version": "4.14.2"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "attrs",
+      "purl": "pkg:pypi/attrs@26.1.0",
+      "scope": "optional",
+      "type": "library",
+      "version": "26.1.0"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "name": "authlib",
+      "purl": "pkg:pypi/authlib@1.7.2",
+      "scope": "optional",
+      "type": "library",
+      "version": "1.7.2"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "beartype",
+      "purl": "pkg:pypi/beartype@0.22.9",
+      "scope": "optional",
+      "type": "library",
+      "version": "0.22.9"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "cachetools",
+      "purl": "pkg:pypi/cachetools@7.1.7",
+      "scope": "optional",
+      "type": "library",
+      "version": "7.1.7"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "Apache-2.0"
+        }
+      ],
+      "name": "caio",
+      "purl": "pkg:pypi/caio@0.12.2",
+      "scope": "optional",
+      "type": "library",
+      "version": "0.12.2"
+    },
+    {
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/vishalsachdev/canvas-mcp"
+        }
+      ],
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "canvas-mcp",
+      "purl": "pkg:pypi/canvas-mcp@1.7.0",
+      "scope": "optional",
+      "type": "application",
+      "version": "1.7.0"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "MPL-2.0"
+        }
+      ],
+      "name": "certifi",
+      "purl": "pkg:pypi/certifi@2026.7.22",
+      "scope": "optional",
+      "type": "library",
+      "version": "2026.7.22"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "MIT-0"
+        }
+      ],
+      "name": "cffi",
+      "purl": "pkg:pypi/cffi@2.1.1",
+      "scope": "optional",
+      "type": "library",
+      "version": "2.1.1"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "name": "click",
+      "purl": "pkg:pypi/click@8.4.2",
+      "scope": "optional",
+      "type": "library",
+      "version": "8.4.2"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "name": "colorama",
+      "purl": "pkg:pypi/colorama@0.4.6",
+      "scope": "optional",
+      "type": "library",
+      "version": "0.4.6"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "Apache-2.0 OR BSD-3-Clause"
+        }
+      ],
+      "name": "cryptography",
+      "purl": "pkg:pypi/cryptography@50.0.0",
+      "scope": "optional",
+      "type": "library",
+      "version": "50.0.0"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "Apache-2.0"
+        }
+      ],
+      "name": "cyclopts",
+      "purl": "pkg:pypi/cyclopts@4.22.5",
+      "scope": "optional",
+      "type": "library",
+      "version": "4.22.5"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "ISC"
+        }
+      ],
+      "name": "dnspython",
+      "purl": "pkg:pypi/dnspython@2.8.0",
+      "scope": "optional",
+      "type": "library",
+      "version": "2.8.0"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "docstring-parser",
+      "purl": "pkg:pypi/docstring-parser@0.18.0",
+      "scope": "optional",
+      "type": "library",
+      "version": "0.18.0"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "Unlicense"
+        }
+      ],
+      "name": "email-validator",
+      "purl": "pkg:pypi/email-validator@2.3.0",
+      "scope": "optional",
+      "type": "library",
+      "version": "2.3.0"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "exceptiongroup",
+      "purl": "pkg:pypi/exceptiongroup@1.3.1",
+      "scope": "optional",
+      "type": "library",
+      "version": "1.3.1"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "Apache-2.0"
+        }
+      ],
+      "name": "fastmcp",
+      "purl": "pkg:pypi/fastmcp@3.4.6",
+      "scope": "optional",
+      "type": "library",
+      "version": "3.4.6"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "Apache-2.0"
+        }
+      ],
+      "name": "fastmcp-slim",
+      "purl": "pkg:pypi/fastmcp-slim@3.4.6",
+      "scope": "optional",
+      "type": "library",
+      "version": "3.4.6"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "ISC"
+        }
+      ],
+      "name": "griffelib",
+      "purl": "pkg:pypi/griffelib@2.1.0",
+      "scope": "optional",
+      "type": "library",
+      "version": "2.1.0"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "h11",
+      "purl": "pkg:pypi/h11@0.16.0",
+      "scope": "optional",
+      "type": "library",
+      "version": "0.16.0"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "name": "httpcore",
+      "purl": "pkg:pypi/httpcore@1.0.9",
+      "scope": "optional",
+      "type": "library",
+      "version": "1.0.9"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "name": "httpx",
+      "purl": "pkg:pypi/httpx@0.28.1",
+      "scope": "optional",
+      "type": "library",
+      "version": "0.28.1"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "httpx-sse",
+      "purl": "pkg:pypi/httpx-sse@0.4.3",
+      "scope": "optional",
+      "type": "library",
+      "version": "0.4.3"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "name": "idna",
+      "purl": "pkg:pypi/idna@3.18",
+      "scope": "optional",
+      "type": "library",
+      "version": "3.18"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "jaraco-classes",
+      "purl": "pkg:pypi/jaraco-classes@3.4.0",
+      "scope": "optional",
+      "type": "library",
+      "version": "3.4.0"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "jaraco-context",
+      "purl": "pkg:pypi/jaraco-context@6.1.2",
+      "scope": "optional",
+      "type": "library",
+      "version": "6.1.2"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "jaraco-functools",
+      "purl": "pkg:pypi/jaraco-functools@4.6.0",
+      "scope": "optional",
+      "type": "library",
+      "version": "4.6.0"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "jeepney",
+      "purl": "pkg:pypi/jeepney@0.9.0",
+      "scope": "optional",
+      "type": "library",
+      "version": "0.9.0"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "name": "joserfc",
+      "purl": "pkg:pypi/joserfc@1.7.4",
+      "scope": "optional",
+      "type": "library",
+      "version": "1.7.4"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "jsonref",
+      "purl": "pkg:pypi/jsonref@1.1.0",
+      "scope": "optional",
+      "type": "library",
+      "version": "1.1.0"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "jsonschema",
+      "purl": "pkg:pypi/jsonschema@4.26.0",
+      "scope": "optional",
+      "type": "library",
+      "version": "4.26.0"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "Apache-2.0"
+        }
+      ],
+      "name": "jsonschema-path",
+      "purl": "pkg:pypi/jsonschema-path@0.5.0",
+      "scope": "optional",
+      "type": "library",
+      "version": "0.5.0"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "jsonschema-specifications",
+      "purl": "pkg:pypi/jsonschema-specifications@2025.9.1",
+      "scope": "optional",
+      "type": "library",
+      "version": "2025.9.1"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "keyring",
+      "purl": "pkg:pypi/keyring@25.7.0",
+      "scope": "optional",
+      "type": "library",
+      "version": "25.7.0"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "markdown-it-py",
+      "purl": "pkg:pypi/markdown-it-py@4.2.0",
+      "scope": "optional",
+      "type": "library",
+      "version": "4.2.0"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "mcp",
+      "purl": "pkg:pypi/mcp@1.29.0",
+      "scope": "optional",
+      "type": "library",
+      "version": "1.29.0"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "mdurl",
+      "purl": "pkg:pypi/mdurl@0.1.2",
+      "scope": "optional",
+      "type": "library",
+      "version": "0.1.2"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "more-itertools",
+      "purl": "pkg:pypi/more-itertools@11.1.0",
+      "scope": "optional",
+      "type": "library",
+      "version": "11.1.0"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "openapi-pydantic",
+      "purl": "pkg:pypi/openapi-pydantic@0.5.1",
+      "scope": "optional",
+      "type": "library",
+      "version": "0.5.1"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "Apache-2.0"
+        }
+      ],
+      "name": "opentelemetry-api",
+      "purl": "pkg:pypi/opentelemetry-api@1.44.0",
+      "scope": "optional",
+      "type": "library",
+      "version": "1.44.0"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "Apache-2.0 OR BSD-2-Clause"
+        }
+      ],
+      "name": "packaging",
+      "purl": "pkg:pypi/packaging@26.3",
+      "scope": "optional",
+      "type": "library",
+      "version": "26.3"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "Apache-2.0"
+        }
+      ],
+      "name": "pathable",
+      "purl": "pkg:pypi/pathable@0.6.0",
+      "scope": "optional",
+      "type": "library",
+      "version": "0.6.0"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "platformdirs",
+      "purl": "pkg:pypi/platformdirs@4.11.1",
+      "scope": "optional",
+      "type": "library",
+      "version": "4.11.1"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "Apache-2.0"
+        }
+      ],
+      "name": "py-key-value-aio",
+      "purl": "pkg:pypi/py-key-value-aio@0.4.5",
+      "scope": "optional",
+      "type": "library",
+      "version": "0.4.5"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "name": "pycparser",
+      "purl": "pkg:pypi/pycparser@3.0",
+      "scope": "optional",
+      "type": "library",
+      "version": "3.0"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "pydantic",
+      "purl": "pkg:pypi/pydantic@2.13.4",
+      "scope": "optional",
+      "type": "library",
+      "version": "2.13.4"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "pydantic-core",
+      "purl": "pkg:pypi/pydantic-core@2.46.4",
+      "scope": "optional",
+      "type": "library",
+      "version": "2.46.4"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "pydantic-settings",
+      "purl": "pkg:pypi/pydantic-settings@2.15.0",
+      "scope": "optional",
+      "type": "library",
+      "version": "2.15.0"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "BSD-2-Clause"
+        }
+      ],
+      "name": "pygments",
+      "purl": "pkg:pypi/pygments@2.20.0",
+      "scope": "optional",
+      "type": "library",
+      "version": "2.20.0"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "pyjwt",
+      "purl": "pkg:pypi/pyjwt@2.13.0",
+      "scope": "optional",
+      "type": "library",
+      "version": "2.13.0"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "name": "pyperclip",
+      "purl": "pkg:pypi/pyperclip@1.11.0",
+      "scope": "optional",
+      "type": "library",
+      "version": "1.11.0"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "Apache-2.0 OR BSD-3-Clause"
+        }
+      ],
+      "name": "python-dateutil",
+      "purl": "pkg:pypi/python-dateutil@2.9.0.post0",
+      "scope": "optional",
+      "type": "library",
+      "version": "2.9.0.post0"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "name": "python-dotenv",
+      "purl": "pkg:pypi/python-dotenv@1.2.2",
+      "scope": "optional",
+      "type": "library",
+      "version": "1.2.2"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "Apache-2.0"
+        }
+      ],
+      "name": "python-multipart",
+      "purl": "pkg:pypi/python-multipart@0.0.32",
+      "scope": "optional",
+      "type": "library",
+      "version": "0.0.32"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "PSF-2.0"
+        }
+      ],
+      "name": "pywin32",
+      "purl": "pkg:pypi/pywin32@312",
+      "scope": "optional",
+      "type": "library",
+      "version": "312"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "name": "pywin32-ctypes",
+      "purl": "pkg:pypi/pywin32-ctypes@0.2.3",
+      "scope": "optional",
+      "type": "library",
+      "version": "0.2.3"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "pyyaml",
+      "purl": "pkg:pypi/pyyaml@6.0.3",
+      "scope": "optional",
+      "type": "library",
+      "version": "6.0.3"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "referencing",
+      "purl": "pkg:pypi/referencing@0.37.0",
+      "scope": "optional",
+      "type": "library",
+      "version": "0.37.0"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "rich",
+      "purl": "pkg:pypi/rich@15.0.0",
+      "scope": "optional",
+      "type": "library",
+      "version": "15.0.0"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "rich-rst",
+      "purl": "pkg:pypi/rich-rst@2.1.0",
+      "scope": "optional",
+      "type": "library",
+      "version": "2.1.0"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "rpds-py",
+      "purl": "pkg:pypi/rpds-py@2026.6.3",
+      "scope": "optional",
+      "type": "library",
+      "version": "2026.6.3"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "name": "secretstorage",
+      "purl": "pkg:pypi/secretstorage@3.5.0",
+      "scope": "optional",
+      "type": "library",
+      "version": "3.5.0"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "six",
+      "purl": "pkg:pypi/six@1.17.0",
+      "scope": "optional",
+      "type": "library",
+      "version": "1.17.0"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "name": "sse-starlette",
+      "purl": "pkg:pypi/sse-starlette@3.4.8",
+      "scope": "optional",
+      "type": "library",
+      "version": "3.4.8"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "name": "starlette",
+      "purl": "pkg:pypi/starlette@1.6.0",
+      "scope": "optional",
+      "type": "library",
+      "version": "1.6.0"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "PSF-2.0"
+        }
+      ],
+      "name": "typing-extensions",
+      "purl": "pkg:pypi/typing-extensions@4.16.0",
+      "scope": "optional",
+      "type": "library",
+      "version": "4.16.0"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "typing-inspection",
+      "purl": "pkg:pypi/typing-inspection@0.4.2",
+      "scope": "optional",
+      "type": "library",
+      "version": "0.4.2"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "uncalled-for",
+      "purl": "pkg:pypi/uncalled-for@0.3.2",
+      "scope": "optional",
+      "type": "library",
+      "version": "0.3.2"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "name": "uvicorn",
+      "purl": "pkg:pypi/uvicorn@0.52.1",
+      "scope": "optional",
+      "type": "library",
+      "version": "0.52.1"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "watchfiles",
+      "purl": "pkg:pypi/watchfiles@1.2.0",
+      "scope": "optional",
+      "type": "library",
+      "version": "1.2.0"
+    },
+    {
+      "group": "canvas-mcp-environment",
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "name": "websockets",
+      "purl": "pkg:pypi/websockets@17.0.1",
+      "scope": "optional",
+      "type": "library",
+      "version": "17.0.1"
+    }
+  ],
+  "metadata": {
+    "component": {
+      "name": "canvas-automation",
+      "type": "application",
+      "version": "0.1.0"
+    }
+  },
+  "specVersion": "1.6",
+  "version": 1
+}

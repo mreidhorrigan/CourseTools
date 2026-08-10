@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Launch the pinned Canvas MCP server using credentials held in macOS Keychain.
+set -uo pipefail
+HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SERVER="$HERE/.venv/bin/canvas-mcp-server"
+if [ ! -x "$SERVER" ]; then
+  echo "Canvas MCP is not installed. Run setup-after-move.command." >&2; exit 1
+fi
+CANVAS_API_URL="$(security find-generic-password -a "$USER" -s canvas-automation-mcp-url -w 2>/dev/null || true)"
+CANVAS_API_TOKEN="$(security find-generic-password -a "$USER" -s canvas-automation-mcp-token -w 2>/dev/null || true)"
+if [ -z "$CANVAS_API_URL" ] || [ -z "$CANVAS_API_TOKEN" ]; then
+  echo "Canvas MCP credentials are missing. Run commands/setup-canvas-mcp.command." >&2; exit 1
+fi
+export CANVAS_API_URL CANVAS_API_TOKEN
+export ENABLE_TS_SANDBOX=true LOG_REDACT_PII=true
+exec "$SERVER" "$@"

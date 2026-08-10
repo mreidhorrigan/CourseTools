@@ -1,0 +1,33 @@
+// ============================================================================
+//  CANVAS AUTOMATION -- download-content. Your config. Edit this file,
+//  then double-click download-content.command (or run from a shell / a
+//  local AI: canvas-automation download-content --config
+//  commands/download-content.config.jsonc).
+//
+//  Every option lives in this file: the ACTIVE ones are uncommented, the
+//  rest are commented out with a note. Uncomment to enable. Output lands
+//  in a fresh out/download-content/<timestamp>__course-<n>/ folder, never
+//  overwritten. Requires start-server.command to already be running.
+//  Full guide: README.md
+// ============================================================================
+{
+  // "$schema": "./download-content.schema.json",
+
+  "OUT_DIR": "$ENGINE/out/download-content",
+
+  "course_id": 12345,
+
+  // Which resources to pull down, one subfolder per entry.
+  "resources": [
+    "assignments",
+    "pages",
+    "rubrics",
+    "discussion_topics"
+
+    // Anything else Canvas exposes under /courses/:id/<resource> can be
+    // added here too, e.g.:
+    // ,"quizzes"
+    // ,"modules"
+    // ,"files"
+  ]
+}

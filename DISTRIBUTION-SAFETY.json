@@ -1,0 +1,15 @@
+{
+  "checks": [
+    "no credential or student-data file names",
+    "no local macOS absolute paths",
+    "no literal bearer credentials",
+    "no assigned Canvas/Mistral credentials",
+    "no OpenAI-style or JWT-like secrets",
+    "no private assessment authoring or output",
+    "no private IMSCC input or generated output"
+  ],
+  "disclosed_content": "The attributed IAT 210 example course intentionally contains public instructor, institutional, and course information documented in examples/iat210/README.md.",
+  "scanned_files_including_nested_archives": 299,
+  "schema": "canvas-automation-distribution-safety/v1",
+  "status": "PASS"
+}

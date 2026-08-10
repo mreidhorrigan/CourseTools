@@ -1,0 +1,116 @@
+{
+  "schema": "canvas-automation/rubric-source/v1",
+  "key": "board-game-final",
+  "title": "Board-Game Final",
+  "points_possible": 12.0,
+  "criteria": [
+    {
+      "description": "Complete playable package",
+      "points": 2.0,
+      "ratings": [
+        {
+          "description": "Strong",
+          "points": 2.0
+        },
+        {
+          "description": "Partial",
+          "points": 1.0
+        },
+        {
+          "description": "Not demonstrated",
+          "points": 0.0
+        }
+      ]
+    },
+    {
+      "description": "Rule clarity and independent playability",
+      "points": 2.0,
+      "ratings": [
+        {
+          "description": "Strong",
+          "points": 2.0
+        },
+        {
+          "description": "Partial",
+          "points": 1.0
+        },
+        {
+          "description": "Not demonstrated",
+          "points": 0.0
+        }
+      ]
+    },
+    {
+      "description": "Choices, feedback, and system coherence",
+      "points": 2.0,
+      "ratings": [
+        {
+          "description": "Strong",
+          "points": 2.0
+        },
+        {
+          "description": "Partial",
+          "points": 1.0
+        },
+        {
+          "description": "Not demonstrated",
+          "points": 0.0
+        }
+      ]
+    },
+    {
+      "description": "Balance, testing, and revision",
+      "points": 2.0,
+      "ratings": [
+        {
+          "description": "Strong",
+          "points": 2.0
+        },
+        {
+          "description": "Partial",
+          "points": 1.0
+        },
+        {
+          "description": "Not demonstrated",
+          "points": 0.0
+        }
+      ]
+    },
+    {
+      "description": "Gameplay evidence, access, and credits",
+      "points": 2.0,
+      "ratings": [
+        {
+          "description": "Strong",
+          "points": 2.0
+        },
+        {
+          "description": "Partial",
+          "points": 1.0
+        },
+        {
+          "description": "Not demonstrated",
+          "points": 0.0
+        }
+      ]
+    },
+    {
+      "description": "Individual contribution and analysis",
+      "points": 2.0,
+      "ratings": [
+        {
+          "description": "Strong",
+          "points": 2.0
+        },
+        {
+          "description": "Partial",
+          "points": 1.0
+        },
+        {
+          "description": "Not demonstrated",
+          "points": 0.0
+        }
+      ]
+    }
+  ]
+}

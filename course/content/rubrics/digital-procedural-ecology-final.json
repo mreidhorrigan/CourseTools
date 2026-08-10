@@ -1,0 +1,116 @@
+{
+  "schema": "canvas-automation/rubric-source/v1",
+  "key": "digital-procedural-ecology-final",
+  "title": "Digital Procedural-Ecology Final",
+  "points_possible": 12.0,
+  "criteria": [
+    {
+      "description": "Browser package and technical integrity",
+      "points": 2.0,
+      "ratings": [
+        {
+          "description": "Strong",
+          "points": 2.0
+        },
+        {
+          "description": "Partial",
+          "points": 1.0
+        },
+        {
+          "description": "Not demonstrated",
+          "points": 0.0
+        }
+      ]
+    },
+    {
+      "description": "Player loop and procedural ecology",
+      "points": 2.0,
+      "ratings": [
+        {
+          "description": "Strong",
+          "points": 2.0
+        },
+        {
+          "description": "Partial",
+          "points": 1.0
+        },
+        {
+          "description": "Not demonstrated",
+          "points": 0.0
+        }
+      ]
+    },
+    {
+      "description": "Emergence, feedback, and reproducibility",
+      "points": 2.0,
+      "ratings": [
+        {
+          "description": "Strong",
+          "points": 2.0
+        },
+        {
+          "description": "Partial",
+          "points": 1.0
+        },
+        {
+          "description": "Not demonstrated",
+          "points": 0.0
+        }
+      ]
+    },
+    {
+      "description": "Usability, accessibility, and gameplay evidence",
+      "points": 2.0,
+      "ratings": [
+        {
+          "description": "Strong",
+          "points": 2.0
+        },
+        {
+          "description": "Partial",
+          "points": 1.0
+        },
+        {
+          "description": "Not demonstrated",
+          "points": 0.0
+        }
+      ]
+    },
+    {
+      "description": "Testing, revision, documentation, and licences",
+      "points": 2.0,
+      "ratings": [
+        {
+          "description": "Strong",
+          "points": 2.0
+        },
+        {
+          "description": "Partial",
+          "points": 1.0
+        },
+        {
+          "description": "Not demonstrated",
+          "points": 0.0
+        }
+      ]
+    },
+    {
+      "description": "Individual contribution and analysis",
+      "points": 2.0,
+      "ratings": [
+        {
+          "description": "Strong",
+          "points": 2.0
+        },
+        {
+          "description": "Partial",
+          "points": 1.0
+        },
+        {
+          "description": "Not demonstrated",
+          "points": 0.0
+        }
+      ]
+    }
+  ]
+}
