@@ -5,6 +5,10 @@ Examples refer only to files included in the Canvas Automation Toolkit; referenc
 projects have been removed. The handbook is licensed under [CC BY-SA 4.0](#license-and-attribution).
 Toolkit code has separate licensing; see [`LICENSES.md`](../LICENSES.md).
 
+This file is a concise CourseTools operating guide. The distribution also contains the
+[complete adapted handbook](best-practices/README.md), including all 15 chapters, its checklist,
+reusable templates, license, and adaptation record.
+
 ## Division of responsibilities
 
 The deterministic toolkit works without AI. Its commands parse documented inputs, validate

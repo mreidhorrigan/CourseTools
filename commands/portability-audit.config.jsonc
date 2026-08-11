@@ -4,9 +4,9 @@
 {
   // "$schema": "./portability-audit.schema.json",
   "scan_extensions": [".py", ".sh", ".command", ".js", ".jsonc"],
-  "course_content_prefixes": ["course/", "examples/", "assets/"],
+  "course_content_prefixes": ["course/", "examples/", "assets/", "docs/best-practices/"],
   // These acceptance tests deliberately inspect the bundled example course itself.
-  "course_content_test_paths": ["tests/test_direct_authoring.py", "tests/test_distribution.py", "tests/test_iat210_syllabus_454.py"],
+  "course_content_test_paths": ["tests/test_direct_authoring.py", "tests/test_distribution.py", "tests/test_iat210_syllabus_454.py", "scripts/import_best_practices_handbook.py"],
   "markers": [
     {"name": "institution domain", "pattern": "(?:canvas\\.)?sfu\\.ca"},
     {"name": "institution name", "pattern": "Simon Fraser|\\bSFU\\b"},

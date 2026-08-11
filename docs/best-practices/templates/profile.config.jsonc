@@ -1,0 +1,25 @@
+// ============================================================================
+//  profile.config.jsonc — the SHARED per-profile (per-run) config for a STAGED pipeline.
+//
+//  Copy this to  profiles/<name>/profile.config.jsonc  (staged course workflow specialises it as
+//  studies/<name>/study.config.jsonc). When this profile is active (PROFILE=<name>, or via the
+//  stepwise driver), every step loads this file ON TOP of the suite default, then its own
+//  configs/<step>.config.jsonc, then any CLI KEY=VALUE. So: configure the run ONCE here, then run
+//  the steps one at a time.
+//
+//  Keep ONLY genuinely cross-step keys here (each step ignores keys it doesn't use, so these are
+//  safe). Step-specific knobs (a per-step LIMIT, a count, a key that is a path in one step and a
+//  count in another) live in  configs/<step>.config.jsonc , scoped per step so short key names
+//  never clash.  $PROFILE_HOME = this folder.
+//  Precedence (last wins):  CLI  >  configs/<step>.config.jsonc  >  profile.config.jsonc  >  suite default.
+//  See 13-staged-pipelines-and-shared-config.md.
+// ============================================================================
+{
+  "PROFILE": "$PROFILE",                          // auto-resolves to this profile's folder name
+  "INPUT":   "",                                  // the run's shared input; "" = the suite default
+
+  // Profile-isolated workspace (cross-step paths off $PROFILE_HOME): every step writes UNDER this
+  // profile, so runs never collide. Add more shared paths here as your pipeline needs them.
+  "OUT_DIR":  "$PROFILE_HOME/out",                // this run's artifacts + provenance
+  "MANIFEST": "$PROFILE_HOME/out/manifest.json"   // a shared index that later steps read back
+}

@@ -229,8 +229,9 @@ Config conventions:
 
 ## Maintainer documentation
 
-- `docs/BEST_PRACTICES_HANDBOOK.md` adapts the house tooling standards for recipients of this
-  Canvas-specific distribution.
+- `docs/best-practices/README.md` begins the complete adapted Tooling Handbook, including all
+  15 chapters, its checklist, templates, license, and adaptation record.
+- `docs/BEST_PRACTICES_HANDBOOK.md` is the concise CourseTools-specific operating guide.
 - `docs/ARCHITECTURE.md` defines component and security boundaries.
 - `docs/OPERATIONS.md` is the setup, run, update, rollback, and import runbook.
 - `docs/SECURITY.md` documents credentials, privacy, and MCP risk controls.

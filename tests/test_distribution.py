@@ -44,6 +44,11 @@ def test_distribution_is_deterministic_sanitized_and_has_index(tmp_path):
         assert "assets/favicon-slime.svg" in names
         assert "assets/slime-widget.js" in names
         assert "docs/BEST_PRACTICES_HANDBOOK.md" in names
+        assert "docs/best-practices/README.md" in names
+        assert "docs/best-practices/checklist.md" in names
+        assert "docs/best-practices/15-mcp-tools-for-weak-models.md" in names
+        assert "docs/best-practices/templates/verify.command" in names
+        assert "docs/best-practices/COURSETOOLS-ADAPTATION.md" in names
         assert "course/AUTHORING.md" in names
         assert "course/course-manifest.json" in names
         assert json.loads(archive.read("course/rubric-manifest.json"))["course_id"] == 12345
@@ -77,7 +82,8 @@ def test_distribution_is_deterministic_sanitized_and_has_index(tmp_path):
         assert "course/course.config.jsonc" in index
         assert "private/" in index and "out/" in index
         assert "docs/BEST_PRACTICES_HANDBOOK.md" in index
-        assert "The adapted handbook explains how to structure projects" in index
+        assert 'href="docs/best-practices/README.md"' in index
+        assert "The complete adapted handbook explains how to structure projects" in index
         assert "This toolkit’s Testmaker tool turns one editable test source" in index
         assert 'href="docs/TESTMAKING.md"' in index
         assert 'href="docs/TESTMAKER_AUTHORING.md"' in index
@@ -88,6 +94,13 @@ def test_distribution_is_deterministic_sanitized_and_has_index(tmp_path):
         assert "CC BY-SA 4.0" in handbook
         assert "REAPER" not in handbook and "ABLETON" not in handbook
         assert "/Users/" not in handbook and "CLAUDE_PROJECTS" not in handbook
+        complete_handbook = "\n".join(
+            archive.read(name).decode(errors="replace")
+            for name in names
+            if name.startswith("docs/best-practices/")
+        )
+        assert ("/" + "Users" + "/" + "matthorrigan") not in complete_handbook
+        assert "CLAUDE_PROJECTS" not in complete_handbook
         starter_bytes = archive.read(starter_name)
         notice = archive.read(notice_name).decode()
         assert hashlib.sha256(starter_bytes).hexdigest() in notice

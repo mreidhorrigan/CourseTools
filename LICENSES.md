@@ -15,9 +15,9 @@ ZIP. Update both from the locked environments before a release.
 - The house-style tokens and slime artwork are supplied by Matthew Horrigan.
   The slime artwork and `assets/slime-widget.js` remain copyright Matthew Horrigan and are not
   covered by the toolkit's MIT software license.
-- `docs/BEST_PRACTICES_HANDBOOK.md` is adapted from *Tooling Handbook*, copyright © 2026 Matt
-  Horrigan. The source and adaptation are licensed under CC BY-SA 4.0; the adapted file states
-  the changes and links to the license.
+- `docs/BEST_PRACTICES_HANDBOOK.md` and `docs/best-practices/` are adaptations of *Tooling
+  Handbook*, copyright © 2026 Matt Horrigan. The source and adaptations are licensed under
+  CC BY-SA 4.0; the included adaptation record identifies the changes and source repository.
 - `examples/iat210/IAT210-Fall2026-example-course-starter-v2.0.imscc` is an AI-generated example
   course starter, copyright © 2026 M. Horrigan, licensed under CC BY 4.0 with attribution
   required. It is not a production course. See `examples/iat210/README.md` for limitations,

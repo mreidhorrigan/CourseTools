@@ -1,0 +1,31 @@
+// ============================================================================
+//  TOOL_NAME — do-thing.  Your config. Edit this file, then double-click
+//  do-thing.command  (or run:  ./do-thing.command /path/to/input  from a shell / local AI).
+//
+//  Every option lives in this file: the ACTIVE ones are uncommented, the rest are
+//  commented out with a note. Uncomment to enable. Output lands in a fresh
+//  out/<name>/<timestamp>/ folder (never overwritten). Same input + same "seed"
+//  always produces the exact same result. Full guide: README.md
+// ============================================================================
+{
+  // "$schema": "./do-thing.schema.json",  // editor validation + autocomplete; ignored at runtime
+
+  // --- INPUT: where the tool reads from ------------------------------------
+  // A double-click asks where the input is: pick a folder, the DEFAULT_INPUT below, or
+  // CONFIG_INPUT. A path on the command line wins and skips that menu.
+  "DEFAULT_INPUT": "$HOME/Desktop/TOOL_NAME-input",   // menu option 2: the tool's usual input folder
+  // "CONFIG_INPUT": "$HOME/Documents/fixed/input",   // menu option 3: a fixed input path (uncomment to offer it)
+
+  "SEED": 7,                         // the variation control: same seed => identical output
+  // "NAME": "my-result",            // output name (default: derived from the input)
+  "OUT_DIR": "$HOME/Desktop/TOOL_NAME-output",
+
+  // --- COMMON OPTIONS ------------------------------------------------------
+  "STEPS": 30,                       // example knob: more = slower, usually higher quality
+  "WIDTH": 1024,                     // example knob: pixels (or whatever your engine measures)
+  "HEIGHT": 1024                     // last active key takes no comma (the advanced lines lead with one)
+
+  // --- ADVANCED (uncomment to use) -----------------------------------------
+  // ,"GUIDANCE": 3.5                // prompt adherence; higher = closer, less natural
+  // ,"DTYPE": "float32"             // precision knob; see README.md
+}

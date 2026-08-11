@@ -18,7 +18,7 @@
     {
       "bytes": 642,
       "path": "DISTRIBUTION-SAFETY.json",
-      "sha256": "2f3ab50634b5a7192bd94f55f22cf4d07040c9aaa1f0839e7553e75c44e71960"
+      "sha256": "98c1b023731b90a52cfcc3036f46bedee1be33527b458b7667c7ceaeceb8f71b"
     },
     {
       "bytes": 1070,
@@ -26,9 +26,9 @@
       "sha256": "a1d3ef7e50a5110ab575da79ecf22a279ccca5fa758bd6f13ecc5b9a189fc551"
     },
     {
-      "bytes": 3595,
+      "bytes": 3641,
       "path": "LICENSES.md",
-      "sha256": "41da7c5b4f6558f2fb816160de3f63760bc3ed29ccfc8110840f855959942585"
+      "sha256": "204dc4aee3375f93a79280dce59e4c43b49ea518b73e4d9e6c4d7a75ba07d982"
     },
     {
       "bytes": 2857,
@@ -36,9 +36,9 @@
       "sha256": "f7b8f8a50314706b2c6dc1c5c31c7d302ee6b645e3a59aa7dd12dd2f9d56c1ef"
     },
     {
-      "bytes": 20068,
+      "bytes": 20198,
       "path": "README.md",
-      "sha256": "a2fbb8cb43951c955f9b5e3ceb940b5e81b62559af41f378b09007d17abaac74"
+      "sha256": "41c4f579356a05c1cee0aa57fa4431fe110ae7de6999171db62cfa7aaca8a7f3"
     },
     {
       "bytes": 1502,
@@ -251,9 +251,9 @@
       "sha256": "817c30d96b9dfcd0b9f0cb255ebd75556c6ee2a2c7810ac1eda7751a69ca287e"
     },
     {
-      "bytes": 1158,
+      "bytes": 1227,
       "path": "commands/portability-audit.config.jsonc",
-      "sha256": "21b39fa5a82af46a0d552af6659fa90e3bddcb382c7e7dbe654d790abefd7e0b"
+      "sha256": "f3d70cf0bd817e61c101efd39b1e2f15dcb1ffdbece16095bd3ff24d17aa6835"
     },
     {
       "bytes": 820,
@@ -631,9 +631,9 @@
       "sha256": "7984a52c1a08056d2a672aa8840176499716a0e132adc151c18de72bce8fccaf"
     },
     {
-      "bytes": 10963,
+      "bytes": 11200,
       "path": "docs/BEST_PRACTICES_HANDBOOK.md",
-      "sha256": "a57bf58f6bdbbd520085ed50effbc7572609a08ec5b0ae383954b601b1d8d1ad"
+      "sha256": "3a7ee6d4d39e3542e6fa17ceee1eb94c955af132071e26bbc8f501fd3d020055"
     },
     {
       "bytes": 9916,
@@ -669,6 +669,196 @@
       "bytes": 3666,
       "path": "docs/TESTMAKING.md",
       "sha256": "772d759a6db81428eca91540e546e5640b5e4b06da1a6b79c8dd8408d4f3f887"
+    },
+    {
+      "bytes": 6057,
+      "path": "docs/best-practices/01-principles.md",
+      "sha256": "d97094f413180ceae972b7289519b52eebb18d053247146764c45acbd44bdb12"
+    },
+    {
+      "bytes": 6429,
+      "path": "docs/best-practices/02-project-structure.md",
+      "sha256": "e7f2088a3cc20a424fa6b9b749739a9abb50ca8f35c88935becc8e5416b55967"
+    },
+    {
+      "bytes": 10480,
+      "path": "docs/best-practices/03-command-and-config.md",
+      "sha256": "5c42b8c9deea9c86267a69c5a1b094b62829b01c7695770263cd7252082dc2e7"
+    },
+    {
+      "bytes": 7158,
+      "path": "docs/best-practices/04-config-files-jsonc.md",
+      "sha256": "d0440fe05812e383421295564c0f5319b1baab0c08a0d22fec2a6c1d65e6f882"
+    },
+    {
+      "bytes": 6642,
+      "path": "docs/best-practices/05-git-and-artifacts.md",
+      "sha256": "a44b06784b7d4da64570c80110635ad8bc555156a33a45f3d1894cfa7cf7e39b"
+    },
+    {
+      "bytes": 5869,
+      "path": "docs/best-practices/06-vendoring-and-linking.md",
+      "sha256": "1ee2a97478708ea7a51017b7c99d3ebfa6a84ee5d5095ce5e6e1bf9776b3ba96"
+    },
+    {
+      "bytes": 4788,
+      "path": "docs/best-practices/07-mcp-and-apis.md",
+      "sha256": "a68284d5593ca89bcafbdc1684d0745dcd39abeff98dd78236759d1ce41c894c"
+    },
+    {
+      "bytes": 5797,
+      "path": "docs/best-practices/08-skills-and-ai-integration.md",
+      "sha256": "eee60bd6c6bd0cd5d58c3f0f74a8225f2d15c7a9256d417018987ca4137256b0"
+    },
+    {
+      "bytes": 4720,
+      "path": "docs/best-practices/09-documentation-and-house-style.md",
+      "sha256": "fc0d8683a5f079d3bb4b224a0bd138f935e4e7fb9d1b043ee0751806c2b83fed"
+    },
+    {
+      "bytes": 4036,
+      "path": "docs/best-practices/10-gui-extensions.md",
+      "sha256": "9d903de81599dfc32affdb1f00c2383cb8b82471d63d0ad6551cda64d21b49ff"
+    },
+    {
+      "bytes": 5381,
+      "path": "docs/best-practices/11-suites-and-sharing.md",
+      "sha256": "f069630f601024ac0c7a6042961d0f0e87bfd0d6b396b0365cd143ef51ce5fde"
+    },
+    {
+      "bytes": 5429,
+      "path": "docs/best-practices/12-adopting-in-existing-projects.md",
+      "sha256": "7c65d2cd36a8a3cb9462caad5f8d693fd62c6e0906ea3a188c9516921bc527f7"
+    },
+    {
+      "bytes": 5172,
+      "path": "docs/best-practices/13-staged-pipelines-and-shared-config.md",
+      "sha256": "82911087f77579be7a030599403b2f7088eaf6bae64d010768c02606a61133e1"
+    },
+    {
+      "bytes": 7458,
+      "path": "docs/best-practices/14-resilient-agentic-subprocesses.md",
+      "sha256": "3fd15b67f3a4540cbea342e9f8c17e64b3d18e167719733ed9fb3055c2c98354"
+    },
+    {
+      "bytes": 12372,
+      "path": "docs/best-practices/15-mcp-tools-for-weak-models.md",
+      "sha256": "73aa07ffe07fe46360052ed26a88d7f56202d24d3e02ffb32f486e9bad9bfd69"
+    },
+    {
+      "bytes": 933,
+      "path": "docs/best-practices/COURSETOOLS-ADAPTATION.md",
+      "sha256": "a9cf16ca25e8644a9826685aa48ba6d4d52622aaf16f8d1deaa92b8b0213e3c2"
+    },
+    {
+      "bytes": 1341,
+      "path": "docs/best-practices/LICENSE.md",
+      "sha256": "e7c64864af29c42fcb20ead079eadf33ff5545c186bbd2f8c60c08d15194fcce"
+    },
+    {
+      "bytes": 8221,
+      "path": "docs/best-practices/README.md",
+      "sha256": "decefb01a8f36d66f35005ae1d1406e01aaa16d5ea2eaf461af799f2de71c882"
+    },
+    {
+      "bytes": 6486,
+      "path": "docs/best-practices/checklist.md",
+      "sha256": "0cf24b756c13d45d9a4850b51eb7bb6f581bc8e71363eb5b44824aa5c45ebf17"
+    },
+    {
+      "bytes": 2184,
+      "path": "docs/best-practices/templates/LICENSES.md",
+      "sha256": "41f65d271c67b819e5cf0b7f6e840c027f106a6437a5e1273cbda7d75e80249e"
+    },
+    {
+      "bytes": 1841,
+      "path": "docs/best-practices/templates/README.template.md",
+      "sha256": "6fc23d265ef22f22abf2d1813057eb90767bb9c63d086ccf25ed9df45a60ea93"
+    },
+    {
+      "bytes": 1577,
+      "path": "docs/best-practices/templates/SKILL.md.template",
+      "sha256": "6c236fbd14842002633548c93cd63e5e22aea0aa39162b4cff60701328124c25"
+    },
+    {
+      "bytes": 2700,
+      "path": "docs/best-practices/templates/STRUCTURE.txt",
+      "sha256": "990f4b66048825ca0c2a6f1d827ce349a886d52bb6a419997b33c3ef4c153455"
+    },
+    {
+      "bytes": 6623,
+      "path": "docs/best-practices/templates/_jsonc.py",
+      "sha256": "70797751e97cdf4d0a840668c3ef95aca2c45ae3fc645dea2f893d2285882f9d"
+    },
+    {
+      "bytes": 6711,
+      "path": "docs/best-practices/templates/_lib.sh",
+      "sha256": "f80143e9711f3912ffa1ffb6ca1f791159a3166a061ef37a43b729438e1ecee7"
+    },
+    {
+      "bytes": 2806,
+      "path": "docs/best-practices/templates/_pipeline.py",
+      "sha256": "10e26310a6f49079aad1bb2246ccadc53f593f563a443e82b65f2a3045d8b590"
+    },
+    {
+      "bytes": 1577,
+      "path": "docs/best-practices/templates/do-thing.schema.json",
+      "sha256": "366cfd5fe7dd00dc6848f0cbfe0b12a473e2a0dd21b67a0f44adb24342add769"
+    },
+    {
+      "bytes": 780,
+      "path": "docs/best-practices/templates/gitignore.sample",
+      "sha256": "16be4c3b3d8d7ff23fe092b3f0c7ef429a0e7f5a2be030e877be350ca0670559"
+    },
+    {
+      "bytes": 1016,
+      "path": "docs/best-practices/templates/mcp.json.sample",
+      "sha256": "eb581d4903052f583f5ccbb482325941e04361a3fbe403ee85dad44eb76f875d"
+    },
+    {
+      "bytes": 1976,
+      "path": "docs/best-practices/templates/mirror.command",
+      "sha256": "7a85b0957cecb8645b6b3a25f7e1a1384609be18d52503dc4dea0308c32719c5"
+    },
+    {
+      "bytes": 3453,
+      "path": "docs/best-practices/templates/pipeline.command",
+      "sha256": "53eb8ba9f686800ea8e8c75fc8bc304dbf82205f65d568b22372aa1724087119"
+    },
+    {
+      "bytes": 879,
+      "path": "docs/best-practices/templates/pipeline.json",
+      "sha256": "ed6c634186732e1a25c0876cf45be080766650a384261e52ca062032165586aa"
+    },
+    {
+      "bytes": 1745,
+      "path": "docs/best-practices/templates/profile.config.jsonc",
+      "sha256": "23df3c8db3b6ecb27776e69e72cf3902ee29df1e50e5be8d72770f9ad0a6ae5f"
+    },
+    {
+      "bytes": 1318,
+      "path": "docs/best-practices/templates/run.sh",
+      "sha256": "5aa577528d2dead9f3155542a7e7cdc0530d10a137dd94e90635e28c8b00af3f"
+    },
+    {
+      "bytes": 1246,
+      "path": "docs/best-practices/templates/setup-after-move.command",
+      "sha256": "4cb4f88bb9278cc686b8c38db82ca715316815b79bfb5725f5f3352e27f3cd24"
+    },
+    {
+      "bytes": 2548,
+      "path": "docs/best-practices/templates/skeleton.command",
+      "sha256": "2ecf5eb7d2e223cd3df34fef880ab974e280eeb4f7041d9458bddc483d3c0f7e"
+    },
+    {
+      "bytes": 2036,
+      "path": "docs/best-practices/templates/skeleton.config.jsonc",
+      "sha256": "f4acc16364577663c54cf1d8f614350607a6211f7bcb471235ea3a72cd125eb4"
+    },
+    {
+      "bytes": 2123,
+      "path": "docs/best-practices/templates/verify.command",
+      "sha256": "f018cfa5acdc9420c80c8b852035b4814f7ea6b7f53db5f75d22c271ad27795e"
     },
     {
       "bytes": 16279,
@@ -711,9 +901,9 @@
       "sha256": "bfda629f729fab944d3bec95d150d147dc404bd16f7cb7b83098fe6db589449c"
     },
     {
-      "bytes": 15905,
+      "bytes": 16083,
       "path": "index.html",
-      "sha256": "1e8067e4ed45fd6fb0b58166c3c91f28aaf8e31e6435c5dc1514edaaa649a352"
+      "sha256": "1540440b271d8a3eb493bbcd15661c65ce09ab54f9b533c0207b10914704e90b"
     },
     {
       "bytes": 1391,
@@ -911,6 +1101,11 @@
       "sha256": "230b41e8ae3bddcf6f2741702165d9e8ed6456ab6a9e7ee30231fbbc4a666a1f"
     },
     {
+      "bytes": 8127,
+      "path": "scripts/import_best_practices_handbook.py",
+      "sha256": "c8a43405fc7d35f4a502e27de5b5661c48fbb41f097e63e46ebab754ac0dd583"
+    },
+    {
       "bytes": 3985,
       "path": "scripts/initialize_toolkit.py",
       "sha256": "0e88abff22a9b10ea0bb1eb909285f75dad911d7ace29161ce372aac0bddc3a9"
@@ -1056,9 +1251,9 @@
       "sha256": "b9c1f4f057d04f5cec9cfa1445c43348697fbcbff7fc0571494e40d9cc3d495a"
     },
     {
-      "bytes": 15915,
+      "bytes": 16093,
       "path": "templates/distribution-index.html",
-      "sha256": "38c30b750c0585d76a91d72e5ebeb3da8074a7bd832a9faf1dae255e25d18a48"
+      "sha256": "15a94e0a7be587c5a7bfc9dc301fe5c5073229b14978089966361e66be7f307f"
     },
     {
       "bytes": 3982,
@@ -1066,9 +1261,9 @@
       "sha256": "82d4ea4813160b9420768f1e5e7c484b0e867fd1e7be7dc3a9587bff8e59e863"
     },
     {
-      "bytes": 10716,
+      "bytes": 11451,
       "path": "tests/test_distribution.py",
-      "sha256": "739ac97588e1ebc50ef5204b4b9b93cf50b6ef9a8047ffb6c0175b44ffb492ba"
+      "sha256": "d5eac45845c740b98eecec53efd9864887443bfd17ad6a5ee837aa9141ffd3fb"
     },
     {
       "bytes": 31036,

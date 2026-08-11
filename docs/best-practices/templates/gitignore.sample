@@ -1,0 +1,34 @@
+# .gitignore baseline — commit the recipe, ignore the bulk, keep the manifest.
+# See 05-git-and-artifacts.md. Copy to .gitignore and adjust the asset lines per tool.
+
+# Secrets — never commit
+.external-service.json
+*.key
+.env
+
+# Python env / caches / build
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+
+# Large + regenerable (reproduced from the recipe in the pinned env)
+out/
+models/
+vendor/
+*.so
+*.dylib
+
+# macOS
+.DS_Store
+
+# Keep ONLY the manifest for any ignored asset directory (provenance / reproducibility).
+# Uncomment and adjust per asset library:
+# assets/<lib>/*
+# !assets/<lib>/manifest.json
+
+# Iteration snapshots: ignore the big regenerable file, keep the tiny params that rebuild it.
+# sessions/iterations/*/project.BIG
+# !sessions/iterations/*/meta.json

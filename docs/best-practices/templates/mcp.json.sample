@@ -1,0 +1,28 @@
+{
+  "//": "mcp.json sample — see 07-mcp-and-apis.md. Add an MCP ONLY when an AI must drive a live",
+  "//2": "external app. Keep both example servers or delete the one you do not need. JSON has no",
+  "//3": "comments, so these '//' keys are just ignored placeholders; remove them in real use.",
+  "mcpServers": {
+    "my-tool-mcp": {
+      "//": "Pattern A: run a console-script entry point from THIS project in its pinned env.",
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/ABSOLUTE/PATH/TO/MY_PROJECT",
+        "run",
+        "my-tool-mcp"
+      ]
+    },
+    "external-app": {
+      "//": "Pattern B: an installed binary configured entirely through env vars (tag-prefixed).",
+      "command": "<user-home>/.local/bin/external-app-mcp",
+      "args": [],
+      "env": {
+        "APP_WORKSPACE": "/ABSOLUTE/PATH/TO/MY_PROJECT",
+        "APP_BIN": "/Applications/External.app/Contents/MacOS/external",
+        "APP_TIMEOUT": "120",
+        "APP_MAX_FILE": "52428800"
+      }
+    }
+  }
+}

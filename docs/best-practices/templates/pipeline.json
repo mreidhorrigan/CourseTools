@@ -1,0 +1,12 @@
+{
+  "_comment": "The ordered pipeline for a staged tool, read by the stepwise driver (a study.command-style runner via _pipeline.py). 'done_if' is a glob relative to the profile folder (profiles/<name>/): a step is 'done' once that output exists. Edit to add or reorder steps. See 13-staged-pipelines-and-shared-config.md.",
+  "pipeline": [
+    {"n": 1, "step": "prepare", "desc": "normalise the run's inputs",  "done_if": "out/prepared.csv"},
+    {"n": 2, "step": "analyze", "desc": "the core deterministic pass", "done_if": "out/analysis.csv"},
+    {"n": 3, "step": "report",  "desc": "self-contained HTML report",  "done_if": "out/report.html"}
+  ],
+  "optional": [
+    {"step": "fetch",  "gated": true,  "desc": "collect inputs over network / API / local LLM (the driver confirms first)"},
+    {"step": "render", "gated": false, "desc": "extra figures, run on demand"}
+  ]
+}

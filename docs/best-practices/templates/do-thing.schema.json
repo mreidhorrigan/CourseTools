@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "do-thing config",
+  "description": "Sibling schema for do-thing.config.jsonc. Gives editors validation + autocomplete, and _jsonc.py fails fast on a bad value. See 04-config-files-jsonc.md.",
+  "type": "object",
+  "required": ["SEED", "OUT_DIR"],
+  "additionalProperties": true,
+  "properties": {
+    "DEFAULT_INPUT": { "type": "string", "description": "the tool's usual input folder (double-click menu option 2); $HOME expands" },
+    "CONFIG_INPUT":  { "type": "string", "description": "a fixed input path (double-click menu option 3); $HOME expands" },
+    "PROMPT":   { "type": "string", "description": "optional: text the engine generates from, if your tool takes one" },
+    "SEED":     { "type": "integer", "minimum": 0, "description": "variation control; same seed => identical output" },
+    "NAME":     { "type": "string", "description": "output name (default: derived from the input)" },
+    "OUT_DIR":  { "type": "string", "description": "where output lands; $HOME expands" },
+    "STEPS":    { "type": "integer", "minimum": 1, "maximum": 500, "description": "more = slower, usually higher quality" },
+    "WIDTH":    { "type": "integer", "minimum": 1, "maximum": 8192 },
+    "HEIGHT":   { "type": "integer", "minimum": 1, "maximum": 8192 },
+    "GUIDANCE": { "type": "number", "minimum": 0, "maximum": 30, "description": "prompt adherence; higher = closer, less natural" },
+    "DTYPE":    { "type": "string", "enum": ["float32", "float16", "bfloat16"], "description": "precision knob" }
+  }
+}

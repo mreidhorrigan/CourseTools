@@ -1,0 +1,39 @@
+---
+name: TOOL-operating
+description: >-
+  Use this when asked to <do the thing TOOL does> with TOOL (PROJECT_FOLDER).
+  States which *.command to run and which *.config.jsonc keys to set for common
+  jobs, so an AI (cloud or lightweight local) can drive the AI-free tool. Trigger
+  it whenever a request maps to one of TOOL's functions.
+---
+
+# Operating TOOL
+
+The single source of truth for driving TOOL. TOOL runs AI-free: a human double-clicks a
+`.command` and edits a `.config.jsonc`. This skill just maps a request to the right command and
+knobs. See 08-skills-and-ai-integration.md.
+
+## When this applies
+
+Any request to <list the kinds of jobs TOOL handles>. If the request is something TOOL does not
+do, this skill does not apply.
+
+## The commands
+
+| Job | Command | Key config knobs |
+|---|---|---|
+| <job A> | `commands/do-a.command` | `PROMPT`, `SEED`, `OUT_DIR` |
+| <job B> | `commands/do-b.command` | `PROMPT`, `WIDTH`, `HEIGHT`, `SEED` |
+
+## How to run
+
+- Double-click the `.command`, or run it headless: `./commands/do-a.command` (edit the config
+  first, or pass `KEY=VALUE` overrides if the launcher supports them).
+- Or call the engine directly: `.venv/bin/TOOL SUBCOMMAND "PROMPT" --seed 7`.
+
+## Rules
+
+1. Always set `SEED` for reproducibility. Same config plus same seed yields identical output.
+2. Output and `provenance.json` land in `out/<name>/<timestamp>/`. Never overwrite.
+3. If a run fails, read the printed error and check the paths in the `.config.jsonc`.
+4. Do not require any AI at runtime. The tool must work for a human with just the command.

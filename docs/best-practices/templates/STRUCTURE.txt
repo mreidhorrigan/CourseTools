@@ -1,0 +1,33 @@
+STANDARD PROJECT TREE  (see 02-project-structure.md)
+Copy this shape for a new tool. Tracked = in git; ignored = in .gitignore.
+
+TOOL_NAME/
+├── README.md                  # what / why / setup / use / config / output        [tracked]
+├── pyproject.toml             # package metadata + deps (extras for options)       [tracked]
+├── uv.lock                    # pinned, committed environment                      [tracked]
+├── .gitignore                 # commit the recipe, ignore the bulk, keep manifest  [tracked]
+├── .venv/                     # uv virtual env                                     [ignored]
+├── src/                       # hand-written source: the engine + CLI              [tracked]
+│   └── TOOL_NAME/             #   the importable package
+├── bin/                       # thin entry-point wrappers (optional)               [tracked]
+├── commands/                  # the AI-free interface                              [tracked]
+│   ├── _lib.sh                #   shared read_config() + launch()
+│   ├── _jsonc.py              #   string-aware JSONC -> shell KEY=value
+│   ├── do-thing.command       #   one launcher per major function
+│   └── do-thing.config.jsonc  #   its sibling config (the whole interface)
+├── out/                       # generated artifacts, timestamped, never overwritten[ignored]
+│   └── <name>/<timestamp>/    #   provenance.json beside each artifact
+├── models/                    # downloaded weights                                 [ignored]
+├── vendor/                    # third-party code, buildable from setup             [ignored]
+├── research/                  # committed design research / audits / decisions     [tracked]
+├── detritus/                  # throwaway scratch                                  [ignored]
+├── archive/                   # old-but-kept material                         [tracked/zipped]
+├── profiles/                  # staged tools only: one dir per run/variant         [tracked]
+│   └── <run-name>/            #   profile.config.jsonc (shared) + configs/<step>.config.jsonc
+└── setup-after-move.command   # re-resolve paths after relocating                  [tracked]
+
+Notes:
+- Some tools use scripts/templates/ instead of commands/ for drop-in launcher+config pairs.
+- research/ (committed "why"), detritus/ (throwaway), archive/ (finished/superseded) stay distinct.
+- profiles/ appears only for STAGED pipelines (one run per dir; shared + per-step config overlay).
+- The engine in src/ is POSIX/Python and AI-free; macOS conveniences live only in the .command.
