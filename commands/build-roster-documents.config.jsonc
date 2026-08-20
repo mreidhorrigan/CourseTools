@@ -1,0 +1,15 @@
+{
+  "seed": 210,
+  // Opens the original, browser-based Nameplates tool with a private adapter
+  // CSV beside it. Review parsed first names before printing to PDF.
+  "nameplates": {"enabled": true},
+  "seating_chart": {
+    // Enable after setting a reviewed room layout with enough seats. The exact
+    // supplied layouts under vendor/doctools-seatplanner/layouts/. The selected
+    // room must have at least as many seats as the current roster.
+    "enabled": false,
+    "layout": null,
+    "require_all_students_fit": true,
+    "rank": false
+  }
+}

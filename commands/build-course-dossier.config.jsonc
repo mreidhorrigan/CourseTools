@@ -1,0 +1,22 @@
+{
+  // "$schema": "./build-course-dossier.schema.json",
+  "OUT_DIR": "$ENGINE/out/course-dossier",
+  "title": "IAT 210: Course Design Dossier",
+  "dossier_tools_directory": "$HOME/Documents/bio/storage/DOSSIER_TOOLS",
+  "chrome_path": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+  "documents": [
+    {"title":"Course Syllabus", "source":"course/content/syllabus.html"},
+    {"title":"Course Rationale and Design", "source":"course/content/pages/course-rationale-and-design.html"},
+    {"title":"Actual-Play Project: Ideation", "source":"course/content/discussions/259661-actual-play-project-ideation-discussion.html"},
+    {"title":"Actual-Play Project: Plan", "source":"course/content/assignments/211857-actual-play-project-session-plan-and-rulebook.html"},
+    {"title":"Actual-Play Project: Final", "source":"course/content/assignments/211856-actual-play-project-final-submission.html"},
+    {"title":"Digital Procedural-Ecosystem Project: Ideation", "source":"course/content/discussions/259659-digital-procedural-ecology-project-ideation-discussion.html"},
+    {"title":"Digital Procedural-Ecosystem Project: Plan", "source":"course/content/assignments/211860-digital-procedural-ecology-project-design-and-technical-plan.html"},
+    {"title":"Digital Procedural-Ecosystem Project: Final", "source":"course/content/assignments/211861-digital-procedural-ecology-project-final-submission.html"},
+    {"title":"Board-Game Project: Ideation", "source":"course/content/discussions/259660-board-game-project-ideation-discussion.html"},
+    {"title":"Board-Game Project: Plan", "source":"course/content/assignments/211858-board-game-project-design-plan-and-draft-rulebook.html"},
+    {"title":"Board-Game Project: Final", "source":"course/content/assignments/211859-board-game-project-final-submission.html"},
+    {"title":"Final Examination", "source":"course/content/assignments/211862-in-person-final-examination.html"}
+  ],
+  "dossier": {"contents":true, "page_number_format":"Course dossier {n}", "position":"bottom-center"}
+}

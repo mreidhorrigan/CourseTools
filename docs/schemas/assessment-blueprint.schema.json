@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Private assessment coverage blueprint",
+  "type": "object",
+  "required": ["schema", "course", "materials", "assessments"],
+  "properties": {
+    "schema": {"const": "canvas-testmaking-blueprint/v1"},
+    "course": {"type": "object", "required": ["title", "timezone"], "properties": {"title": {"type": "string"}, "timezone": {"type": "string"}}},
+    "materials": {"type": "array", "items": {"type": "object", "required": ["id", "week", "title", "testable", "rights", "destination"], "properties": {"id": {"type": "string"}, "week": {"type": "integer", "minimum": 1}, "title": {"type": "string"}, "url": {"type": "string"}, "local_source": {"type": "string"}, "destination": {"type": "string"}, "testable": {"type": "boolean"}, "rights": {"enum": ["course-authored", "open-access", "public-web", "copyrighted-course-use", "metadata-only", "unknown"]}}}},
+    "assessments": {"type": "array", "items": {"type": "object", "required": ["key", "title", "kind", "question_count", "candidate_count", "material_ids", "bloom_draws", "source"], "properties": {"key": {"type": "string"}, "title": {"type": "string"}, "kind": {"enum": ["canvas-classic-quiz", "final-exam"]}, "question_count": {"type": "integer", "minimum": 1}, "candidate_count": {"type": "integer", "minimum": 1}, "time_limit_minutes": {"type": "integer", "minimum": 1}, "allowed_attempts": {"type": "integer", "minimum": 1}, "unlock_at": {"type": "string"}, "lock_at": {"type": "string"}, "material_ids": {"type": "array", "items": {"type": "string"}, "minItems": 1}, "bloom_draws": {"type": "object", "required": ["Remember", "Understand", "Apply", "Analyze", "Evaluate", "Create"], "additionalProperties": false, "properties": {"Remember": {"type": "integer", "minimum": 1}, "Understand": {"type": "integer", "minimum": 1}, "Apply": {"type": "integer", "minimum": 1}, "Analyze": {"type": "integer", "minimum": 1}, "Evaluate": {"type": "integer", "minimum": 1}, "Create": {"type": "integer", "minimum": 1}}}, "source": {"type": "string"}}}}
+  }
+}

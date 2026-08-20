@@ -10,7 +10,7 @@ Canvas Automation includes Testmaker, a deterministic, AI-optional assessment wo
    quizzes and PDF settings. Git ignores these files; back them up in instructor-controlled
    encrypted storage rather than a shared toolkit repository.
 2. Run `scripts/validate_question_pool.py SOURCE --expect-questions 10 --json-out out/question-QA.json`. Fix every error and review warnings editorially.
-3. Edit `commands/build-test-forms.config.jsonc`, then run `commands/build-test-forms.command`; AIs may invoke the equivalent CLI or `scripts/build_test_forms.py`. The fresh output includes forms, keys, a manifest recording the source hash and seed, and provenance.
+3. Edit `commands/build-test-forms.config.jsonc`, then run `commands/build-test-forms.command`; AIs may invoke the equivalent CLI or `scripts/build_test_forms.py`. The fresh output includes PDF and DOCX forms and keys, a manifest recording the source hash, renderer hash, seed, and pagination audit, and provenance.
 4. Run `create-quiz.command` in dry-run mode. Review its conversion plan, then create the unpublished Canvas quiz.
 5. Preview every Canvas question and PDF. Content validity, ambiguity, accessibility, reading alignment, and distractor plausibility require human review.
 
@@ -32,9 +32,10 @@ it requires the course-specific `SYNC-TESTMAKING-ID` confirmation.
 
 `[Only Version A.]` through E are honored for paper forms and by Canvas `fixed_version`. Take-N pools create randomized paper selections and native Classic Quiz question groups; Canvas draws independently for each student. To give each student 10 questions, use a pool larger than 10 with `Each version take 10`, then verify the live group has `pick_count=10`. Never publish a nominal ten-question quiz whose approved pool cannot supply ten.
 
-This Testmaker implementation adapts the documented tagged format and general validation practices from the instructor's existing testmaking workflow. Testmaker retains compatibility with earlier MCQer files. Private readings, prior exams, student data, and unlicensed DOC_TOOLS or legacy MCQer implementation source are not redistributed. This Testmaker implementation is MIT-licensed; ReportLab generates PDFs and appears in the generated SBOM.
+Python parses and validates Testmaker sources, resolves pools and fixed versions, and prepares a clean interchange document. The vendored original MCQer JavaScript then performs printable PDF and DOCX layout. Its year-tested spatial formatting and question-block pagination are therefore the authoritative print backend. The bridge adds deterministic seeding and HTML interchange; it does not reimplement the layout. Node dependencies are pinned by `vendor/testmaker-mcqer/package-lock.json` and installed by `setup-after-move.command`.
 
-DOCX image tags are supported by the Canvas quiz upload path. The printable PDF
-builder currently renders image tags as text references; add and verify those
-images manually before using a paper form. Grammar, factual accuracy, answer-key
+A possible Python port is recorded in `TODO.md`. Any port must first demonstrate visual and pagination parity against the original JavaScript fixtures. Private readings, prior exams, student data, and generated assessment outputs are excluded from distributions.
+
+DOCX image tags are supported by the Canvas quiz upload path. Printable image
+handling should be inspected in every generated form. Grammar, factual accuracy, answer-key
 validity, accessibility, and distractor quality remain human review gates.

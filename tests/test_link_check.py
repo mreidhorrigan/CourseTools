@@ -63,6 +63,17 @@ def test_generic_success_is_ok_and_missing_video_id_fails():
     assert check_url("https://vimeo.com/channels/staffpicks", session=FakeSession(200))["status"] == "FAIL"
 
 
+def test_doi_uses_crossref_metadata_without_claiming_full_text_access():
+    endpoint, params = media_probe("https://doi.org/10.1234/example.value")
+    assert endpoint == "https://api.crossref.org/works/10.1234%2Fexample.value"
+    assert params is None
+    session = FakeSession(200)
+    result = check_url("https://doi.org/10.1234/example.value", session=session)
+    assert result["status"] == "METADATA"
+    assert "full-text access" in result["detail"]
+    assert session.calls[0][0] == endpoint
+
+
 def test_sfu_library_search_is_an_outtake_without_false_network_success():
     session = FakeSession(200)
     result = check_url(

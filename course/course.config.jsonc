@@ -13,6 +13,7 @@
   "authoring": {
     "manifest": "course/course-manifest.json",
     "links_manifest": "course/links-manifest.json",
+    "stylesheet": "course/styles/canvas.css",
     "imscc_template": "examples/iat210/IAT210-Fall2026-example-course-starter-v2.0.imscc"
   }
 }

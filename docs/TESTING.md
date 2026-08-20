@@ -39,6 +39,8 @@ date, toolkit commit, and observations locally without tokens or student data.
 Run `scripts/check_external_links.py` on the package. Use
 `scripts/verify_imported_course.py --check-external` when that course-specific
 verifier applies. Treat `PROTECTED` as requiring manual review, not as a pass.
+Treat `METADATA` as confirmation of a DOI record only; it does not establish
+full-text access.
 
 MCP acceptance consists of starting a fresh Codex session, listing a harmless
 course resource, and confirming the configured server version. Perform a write

@@ -29,29 +29,29 @@ SYLLABUS_COPYEDITS = {
         "To receive a nonzero grade for this course's three major projects, each student must schedule and attend one synchronous video interview with the instructor or a teaching assistant during the final month of the course.",
 }
 SYLLABUS_EXACT_COPYEDITS = {
-    "Actual-play ideation; Quiz 1": "Actual-play ideation; Quiz 1 (Sep 22, 09:00–23:59)",
-    "Actual-play final; Quiz 2": "Actual-play final; Quiz 2 (Oct 6, 09:00–23:59)",
-    "Digital ideation; Quiz 3": "Digital ideation; Quiz 3 (Oct 20, 09:00–23:59)",
-    "Quiz 4": "Quiz 4 (Nov 3, 09:00–23:59)",
-    "Digital final; Quiz 5": "Digital final; Quiz 5 (Nov 10, 09:00–23:59)",
-    "Board-game plan; Quiz 6; interviews": "Board-game plan; Quiz 6 (Nov 24, 09:00–23:59); interviews",
+    "Actual-play ideation; Quiz 1": "Actual-play ideation; Quiz 1 (Sep 22, 00:00–24:00)",
+    "Actual-play final; Quiz 2": "Actual-play final; Quiz 2 (Oct 6, 00:00–24:00)",
+    "Digital ideation; Quiz 3": "Digital ideation; Quiz 3 (Oct 20, 00:00–24:00)",
+    "Quiz 4": "Quiz 4 (Nov 3, 00:00–24:00)",
+    "Digital final; Quiz 5": "Digital final; Quiz 5 (Nov 10, 00:00–24:00)",
+    "Board-game plan; Quiz 6; interviews": "Board-game plan; Quiz 6 (Nov 24, 00:00–24:00); interviews",
     "Board-game final; Quiz 7; exam review; interviews complete":
-        "Board-game final; Quiz 7 (Dec 7, 09:00–23:59); exam review; interviews complete",
+        "Board-game final; Quiz 7 (Dec 7, 00:00–24:00); exam review; interviews complete",
 }
 QUIZ_WINDOWS = {
-    1: ("2026-09-22T16:00:00", "2026-09-23T06:59:00", "2026-09-22"),
-    2: ("2026-10-06T16:00:00", "2026-10-07T06:59:00", "2026-10-06"),
-    3: ("2026-10-20T16:00:00", "2026-10-21T06:59:00", "2026-10-20"),
-    4: ("2026-11-03T17:00:00", "2026-11-04T07:59:00", "2026-11-03"),
-    5: ("2026-11-10T17:00:00", "2026-11-11T07:59:00", "2026-11-10"),
-    6: ("2026-11-24T17:00:00", "2026-11-25T07:59:00", "2026-11-24"),
-    7: ("2026-12-07T17:00:00", "2026-12-08T07:59:00", "2026-12-07"),
+    1: ("2026-09-22T07:00:00", "2026-09-23T07:00:00", "2026-09-22"),
+    2: ("2026-10-06T07:00:00", "2026-10-07T07:00:00", "2026-10-06"),
+    3: ("2026-10-20T07:00:00", "2026-10-21T07:00:00", "2026-10-20"),
+    4: ("2026-11-03T08:00:00", "2026-11-04T08:00:00", "2026-11-03"),
+    5: ("2026-11-10T08:00:00", "2026-11-11T08:00:00", "2026-11-10"),
+    6: ("2026-11-24T08:00:00", "2026-11-25T08:00:00", "2026-11-24"),
+    7: ("2026-12-07T08:00:00", "2026-12-08T08:00:00", "2026-12-07"),
 }
 QUIZ_AVAILABILITY_TEXT = (
-    "Quiz availability uses Pacific time: Quiz 1 is available Sep 22, 09:00–23:59; "
-    "Quiz 2 Oct 6, 09:00–23:59; Quiz 3 Oct 20, 09:00–23:59; Quiz 4 Nov 3, "
-    "09:00–23:59; Quiz 5 Nov 10, 09:00–23:59; Quiz 6 Nov 24, 09:00–23:59; "
-    "and Quiz 7 Dec 7, 09:00–23:59."
+    "Each quiz has one 24-hour Pacific-time window: Quiz 1 Sep 22, 00:00–24:00; "
+    "Quiz 2 Oct 6, 00:00–24:00; Quiz 3 Oct 20, 00:00–24:00; Quiz 4 Nov 3, "
+    "00:00–24:00; Quiz 5 Nov 10, 00:00–24:00; Quiz 6 Nov 24, 00:00–24:00; "
+    "and Quiz 7 Dec 7, 00:00–24:00."
 )
 
 
@@ -127,14 +127,15 @@ def rewrite_html(path: Path, add_warning: bool = False) -> None:
                 span = parent.find("span")
                 if span:
                     span.string = "Open-access publisher-hosted PDF."
-    if add_warning and soup.body and WARNING not in soup.get_text(" ", strip=True):
+    if add_warning and WARNING not in soup.get_text(" ", strip=True):
         aside = soup.new_tag("aside")
         aside["role"] = "note"
         strong = soup.new_tag("strong")
         strong.string = "Example course starter: "
         aside.append(strong)
         aside.append(WARNING)
-        soup.body.insert(0, aside)
+        container = soup.body or soup
+        container.insert(0, aside)
     path.write_text(str(soup), encoding="utf-8")
 
 
@@ -159,6 +160,13 @@ def rewrite_quiz_window(path: Path) -> None:
 def rename_testmaker_in_text(path: Path) -> None:
     text = path.read_text(encoding="utf-8")
     text = text.replace("MCQer", "Testmaker").replace("MCQER", "TESTMAKER")
+    # Assignment and discussion descriptions are HTML escaped inside XML. The
+    # ordinary HTML pass cannot see their attributes, so remove live-instance
+    # API metadata in both literal and escaped forms here as well.
+    text = re.sub(r"\sdata-api-endpoint=(?:\"[^\"]*\"|'[^']*')", "", text)
+    text = re.sub(r"\sdata-api-returntype=(?:\"[^\"]*\"|'[^']*')", "", text)
+    text = re.sub(r"\sdata-api-endpoint=&quot;.*?&quot;", "", text)
+    text = re.sub(r"\sdata-api-returntype=&quot;.*?&quot;", "", text)
     path.write_text(text, encoding="utf-8")
 
 
@@ -196,7 +204,9 @@ def build(source: Path, output: Path) -> str:
             pdf.unlink()
         rewrite_manifest(root / "imsmanifest.xml")
         rewrite_course_metadata(root / "course_settings/course_settings.xml")
-        rewrite_course_metadata(root / "course_settings/context.xml", context=True)
+        context = root / "course_settings/context.xml"
+        if context.is_file():
+            rewrite_course_metadata(context, context=True)
         for html in root.rglob("*.html"):
             rewrite_html(html, html.name in {"start-here.html", "iat-210-course-syllabus.html", "syllabus.html"})
         for metadata in root.rglob("assessment_meta.xml"):

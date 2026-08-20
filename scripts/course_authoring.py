@@ -10,14 +10,17 @@ import sys
 import zipfile
 from collections import defaultdict
 from pathlib import Path
-from urllib.parse import urlparse
+from urllib.parse import parse_qsl, urlencode, urlparse, urlsplit, urlunsplit
 
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, Comment
 from lxml import etree
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(ROOT / "src"), str(ROOT / "scripts")]
 from canvas_automation import jsonc
+from canvas_automation.course_html import compile_fragment, sha256_text
+from canvas_automation.util import fresh_out_dir
+from migrate_course_inline_styles import transform as decompile_canvas_html
 from sandbox_course_lifecycle import GuardedCanvas
 
 FIXED_ZIP_TIME = (2026, 1, 1, 0, 0, 0)
@@ -29,10 +32,24 @@ def sha(text: str) -> str:
 
 def semantic(text: str) -> str:
     soup = BeautifulSoup(text or "", "html.parser")
+    # Canvas discards authoring comments (including generated-section markers)
+    # when HTML is saved. They remain useful in canonical local sources, but
+    # must not create permanent synchronization drift.
+    for comment in soup.find_all(string=lambda value: isinstance(value, Comment)):
+        comment.extract()
     for tag in soup.find_all(True):
         tag.attrs.pop("data-api-endpoint", None)
         tag.attrs.pop("data-api-returntype", None)
-    return sha(str(soup))
+        # Inline declarations are compiled build output. Canvas and Premailer
+        # may serialize equivalent declarations differently; semantic drift is
+        # determined from editable structure, classes, prose, and links.
+        tag.attrs.pop("style", None)
+        if tag.name == "a" and tag.get("href"):
+            split = urlsplit(tag["href"])
+            query = [(key, value) for key, value in parse_qsl(split.query, keep_blank_values=True)
+                     if key.casefold() != "verifier"]
+            tag["href"] = urlunsplit((split.scheme, split.netloc, split.path, urlencode(query), split.fragment))
+    return sha(str(soup).strip())
 
 
 def safe_name(value: str) -> str:
@@ -58,7 +75,9 @@ def load_context(root: Path, server: str):
 def write_source(root: Path, relative: str, body: str) -> None:
     path = root / relative
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(body or "", encoding="utf-8")
+    # Canvas returns the compiled inline-style target. Restore a semantic,
+    # stylesheet-driven authoring source while retaining prose and classes.
+    path.write_text(decompile_canvas_html(body or ""), encoding="utf-8")
 
 
 def object_record(kind, canvas_id, title, source, *, slug=None, published=None, front_page=None):
@@ -177,6 +196,45 @@ def build_links(root: Path, manifest: dict, config: dict) -> dict:
     return {"schema": "canvas-course-links/v1", "institution": config["institution"], "links": links}
 
 
+def compiled_sources(root: Path, manifest: dict, config: dict) -> tuple[dict[str, str], dict]:
+    stylesheet = root / config["authoring"]["stylesheet"]
+    css = stylesheet.read_text(encoding="utf-8")
+    compiled = {}
+    records = []
+    for relative in sorted({item["source"] for item in manifest["objects"]}):
+        source = root / relative
+        html = source.read_text(encoding="utf-8")
+        result = compile_fragment(html, css)
+        compiled[relative] = result
+        records.append({
+            "source": relative,
+            "source_sha256": sha256_text(html),
+            "compiled_sha256": sha256_text(result),
+        })
+    report = {
+        "schema": "canvas-course-html-compilation/v1",
+        "stylesheet": config["authoring"]["stylesheet"],
+        "stylesheet_sha256": sha256_text(css),
+        "sources": records,
+    }
+    return compiled, report
+
+
+def write_compiled_course(root: Path) -> dict:
+    config = jsonc.load_and_validate(root / "course/course.config.jsonc")
+    manifest = json.loads((root / config["authoring"]["manifest"]).read_text(encoding="utf-8"))
+    compiled, report = compiled_sources(root, manifest, config)
+    output = fresh_out_dir(root / "out/course-compiled", "canvas-inline-html")
+    for relative, html in compiled.items():
+        destination = output / Path(relative).relative_to("course/content")
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        destination.write_text(html, encoding="utf-8")
+    (output / "compilation-manifest.json").write_text(
+        json.dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+    )
+    return {"output": str(output), "compiled_sources": len(compiled), **report}
+
+
 def endpoint(obj, cid):
     if obj["kind"] == "syllabus": return "PUT", f"/courses/{cid}", "course", "syllabus_body"
     if obj["kind"] == "page": return "PUT", f"/courses/{cid}/pages/{obj['slug']}", "wiki_page", "body"
@@ -207,21 +265,24 @@ def compare_or_apply(root, server, apply, confirm):
     if apply and canvas.raw("GET", f"/courses/{cid}").get("workflow_state") != "unpublished":
         raise RuntimeError("Refusing authoring synchronization because the target course is published")
     changes = []
-    source_cache = {}
+    source_cache, compilation = compiled_sources(root, manifest, config)
     for obj in manifest["objects"]:
-        desired = source_cache.setdefault(obj["source"], (root / obj["source"]).read_text(encoding="utf-8"))
+        desired = source_cache[obj["source"]]
         live = current_body(canvas, cid, obj)
         if semantic(desired) == semantic(live):
             continue
         changes.append({"kind": obj["kind"], "title": obj["title"], "source": obj["source"], "before": semantic(live), "after": semantic(desired)})
         if apply:
+            preview = canvas.raw("POST", f"/courses/{cid}/preview_html", {"html": desired})
+            if not isinstance(preview, dict) or not isinstance(preview.get("html"), str):
+                raise RuntimeError(f"Canvas preview_html returned no processed HTML for {obj['title']!r}")
             method, path, wrapper, field = endpoint(obj, cid)
             payload = {field: desired}
             if wrapper: payload = {wrapper: payload}
             canvas.raw(method, path, payload)
     expected_links = build_links(root, manifest, config)
     stored_links = json.loads((root / config["authoring"]["links_manifest"]).read_text(encoding="utf-8"))
-    return {"course_id": cid, "status": "CURRENT" if not changes else ("APPLIED" if apply else "DRIFT"), "changed_objects": changes, "links_manifest_current": expected_links == stored_links}
+    return {"course_id": cid, "status": "CURRENT" if not changes else ("APPLIED" if apply else "DRIFT"), "changed_objects": changes, "links_manifest_current": expected_links == stored_links, "compilation": compilation}
 
 
 def xml_title(data):
@@ -298,8 +359,9 @@ def build_imscc(root, output: Path | None):
     if not source.is_file(): raise ValueError("Configure authoring.imscc_template before building")
     output = output or root / "out/course-authoring/course-from-authoring.imscc"
     output.parent.mkdir(parents=True, exist_ok=True)
-    bodies = {obj["title"]: (root / obj["source"]).read_text(encoding="utf-8") for obj in manifest["objects"]}
-    page_bodies = {obj.get("slug"): (root / obj["source"]).read_text(encoding="utf-8") for obj in manifest["objects"] if obj["kind"] == "page"}
+    compiled, _ = compiled_sources(root, manifest, config)
+    bodies = {obj["title"]: compiled[obj["source"]] for obj in manifest["objects"]}
+    page_bodies = {obj.get("slug"): compiled[obj["source"]] for obj in manifest["objects"] if obj["kind"] == "page"}
     replacements = {}
     rubric_manifest_path = root / "course/rubric-manifest.json"
     rubric_sources = []
@@ -343,12 +405,14 @@ def main() -> int:
     verify = sub.add_parser("verify")
     apply_parser = sub.add_parser("apply"); apply_parser.add_argument("--confirm", required=True)
     build = sub.add_parser("build-imscc"); build.add_argument("--output", type=Path)
+    sub.add_parser("compile")
     links = sub.add_parser("refresh-links")
     args = parser.parse_args(); root = args.root.resolve()
     if args.command == "export-live": result = export_live(root, args.server, args.initialize)
     elif args.command == "verify": result = compare_or_apply(root, args.server, False, None)
     elif args.command == "apply": result = compare_or_apply(root, args.server, True, args.confirm)
     elif args.command == "build-imscc": result = build_imscc(root, args.output)
+    elif args.command == "compile": result = write_compiled_course(root)
     else:
         config = jsonc.load_and_validate(root / "course/course.config.jsonc")
         manifest = json.loads((root / config["authoring"]["manifest"]).read_text())

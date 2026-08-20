@@ -27,6 +27,23 @@ it to an unapproved service. Provenance records identifiers but no credentials.
 Review logs and screenshots before sharing them because error responses can
 contain course data.
 
+Student rosters, grades, submissions, accommodations, and other educational
+records must use deterministic local scripts. Do not request them through the
+Canvas MCP: `LOG_REDACT_PII=true` redacts MCP logs, but a tool's successful
+result is still supplied to the language model that called it. The private
+roster pipeline uses a read-only client that never includes Canvas response
+bodies in error messages, prints only aggregate counts and filenames, and
+writes records under ignored `out/`. Do not open or paste those generated files
+into an AI conversation. Avatar URLs are disabled by default. Private roster
+directories are created with owner-only `700` permissions and their files with
+owner-only `600` permissions.
+
+Nameplate and seating workspaces are also private educational records. The
+document command processes them locally, captures renderer diagnostics, prints
+aggregate counts only, and never sends names or grades to an AI service. Review
+preferred names in the local browser tool; do not share its CSV or generated
+documents outside the authorized teaching workflow.
+
 The cartridge path is credential-free but output may contain copyrighted or
 sensitive teaching materials. Inspect its file list before distribution.
 Dependencies are locked; update them through the documented review-and-commit

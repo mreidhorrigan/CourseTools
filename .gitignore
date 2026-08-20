@@ -10,6 +10,7 @@ __pycache__/
 *.egg-info/
 build/
 dist/
+vendor/testmaker-mcqer/node_modules/
 
 # Generated artifacts: regenerable by re-running the matching *.command
 out/
@@ -20,6 +21,16 @@ release/
 private/testmaking/*
 !private/testmaking/README.md
 private/transcripts/
+private/redaction/
+# Instructor-only integrity-assurance configuration, catchwords, scripts, and
+# scan reports. These materials are excluded from GitHub and distributions.
+private/integrity-assurance/
+# Local instructor command that invokes the private integrity layer.
+commands/update-canvas-from-authoring.command
+
+# Raw course-package inputs may contain copyrighted or instructor-only source.
+# Commit distributable examples under examples/ after the safety build instead.
+input/imscc/*.imscc
 
 # macOS
 .DS_Store

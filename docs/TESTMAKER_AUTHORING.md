@@ -4,11 +4,18 @@
 instructor's earlier `MCQer.html` sources, although this toolkit uses the name Testmaker.
 DOCX, Markdown, or plain text. Separate logical entries with blank paragraphs.
 
+Printable PDF and DOCX output uses the original JavaScript MCQer renderer. Python handles
+validation, Canvas conversion, deterministic pool selection, and the temporary interchange file;
+JavaScript retains the established page geometry and pagination behavior.
+
 ```text
 [Question.] Which answer is correct?
 [Correct.] This one
 [Distractor.] Not this one
 [Distractor.] Nor this one
+[Distractor.] Or this one
+[Bloom.] Apply
+[Material.] W01-R1
 ```
 
 `[Answer.]` is a synonym for `[Correct.]`. A question without distractors
@@ -16,6 +23,13 @@ becomes an essay item; its answer remains only in the local plan as an
 instructor key. `[Paragraph.]` creates a zero-point text item in Classic
 Quizzes. `[Page break.]` is ignored with a warning because Canvas pagination is
 a quiz setting.
+
+Instructor-ready assessment sources add exactly one `[Bloom.]` value and one
+or more comma-separated `[Material.]` identifiers to every question. Accepted
+Bloom levels are Remember, Understand, Apply, Analyze, Evaluate, and Create.
+Run `scripts/validate_question_pool.py SOURCE --expect-questions N
+--assessment-ready`; this requires exactly one correct answer, exactly three
+distractors, material traceability, and guaranteed use of all six levels.
 
 ## Fixed versions
 
@@ -39,6 +53,19 @@ silently merging versions.
 random order. Pool points are configured once because Canvas assigns points at
 the group level. Pools require Classic; the public New Quiz Items API does not
 provide creation of random item-bank selection blocks.
+
+For a randomized ten-question Canvas quiz, use ten target-specific pools. Each
+pool contains two equivalent variants tagged with one shared `[Target.]`
+identifier, and Canvas draws one. Assign the ten pools across Remember,
+Understand, Apply, Analyze, Evaluate, and Create in a 1/2/2/2/2/1 pattern. This
+selects 10 of 20 candidates, preserves Bloom balance for every student, and
+prevents one learning target from appearing twice in an attempt.
+
+Use `scripts/testmaking_authoring.py apply-settings --confirm
+SYNC-TESTMAKING-COURSE_ID` when dates, attempts, timing, answer visibility, or
+publication state change without a question-bank change. Use `apply` when the
+questions or group structure change; it saves a private backup before replacing
+the mapped quiz content. Both commands refuse to modify a published course.
 
 ## DOCX images
 

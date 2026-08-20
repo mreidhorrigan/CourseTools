@@ -70,6 +70,28 @@ def test_json_result_rejects_unstructured_output():
         raise AssertionError("unstructured output was accepted")
 
 
+def test_complete_json_repairs_truncated_response():
+    class RepairClient:
+        def __init__(self):
+            self.calls = 0
+
+        def complete(self, messages, **kwargs):
+            self.calls += 1
+            if self.calls == 1:
+                return '{"overall_score": 4', {"id": "truncated"}
+            assert "incomplete or invalid JSON" in messages[-1]["content"]
+            return '{"overall_score": 4, "maximum_score": 10}', {"id": "repaired"}
+
+    client = RepairClient()
+    value, metadata = module.complete_json(
+        client, [{"role": "user", "content": "Return JSON"}], stage="grading",
+        seed=1, temperature=0, max_tokens=100,
+    )
+    assert value == {"overall_score": 4, "maximum_score": 10}
+    assert metadata["successful_attempt"] == 2
+    assert metadata["attempts"][0]["raw_response"] == '{"overall_score": 4'
+
+
 def test_read_source_enforces_input_limit(tmp_path):
     source = tmp_path / "large.md"
     source.write_text("x" * 20)

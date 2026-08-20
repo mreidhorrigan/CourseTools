@@ -1,0 +1,214 @@
+/* ===========================================================================
+   brand.css — the one canonical stylesheet for matthorrigan.com's house style.
+
+   Drop-in for build tools (the CV builder, a dossier builder, future tools):
+     <link rel="stylesheet" href="brand/brand.css">
+   …then include the shared menubar:
+     <script src="menubar.js" defer></script>
+
+   This file is the SOURCE OF TRUTH for the tokens. brand/tokens.json mirrors it
+   for programmatic consumers; brand/house-style.md explains the rules + rationale.
+   The existing pages (index, CV, MCQer/SeatPlanner/ExamTimer) are the reference
+   implementations and already embody these values.
+   =========================================================================== */
+
+:root {
+  /* ---- Colour: the PENTAD (light "document" context: index, CV, tools) ----
+     Five hues 72 degrees apart on the wheel, anchored on the cyan (hue 195).
+     Three members are long-established and hand-tuned (cyan, violet, orange);
+     rose + green complete the ring. Generate/retune them with brand/pentad.py
+     (the single knob: change the anchor or the tonal recipe, re-emit, paste).
+     Deploy rose and green SPARINGLY, as semantic accents, never as co-equal
+     brand colours; and never show violet + orange as the only two colours of a
+     mark (the pair reads as FedEx).
+       arm +0    195  cyan    --brand-cyan   highlight / interaction
+       arm +72   267  violet  --accent*      links, buttons, labels
+       arm +144  339  rose    --rose*        secondary / warm accent (sparse)
+       arm +216   51  orange  --flare*       landing flare / warm callout
+       arm +288  123  green   --green*       positive / affirmation accent (sparse) */
+  --brand-cyan:        #c3f0ff;  /* cyan   (arm 0): THE highlight/interaction colour */
+  --accent:            #5b2a86;  /* violet (arm 1): links, buttons, labels    */
+  --accent-strong:     #46206a;  /* accent hover / active                     */
+  --accent-wash:       #f1ebf8;  /* tint behind hovered/confirmed surfaces    */
+  --on-accent:         #ffffff;  /* text/icons on an accent fill              */
+
+  --flare-warm:        #f28b46;  /* orange (arm 3): home/landing cloud         */
+  --flare-strong:      #9a4310;  /* deep burnt orange (brown-adjacent): orange callout text/border */
+  --flare-wash:        #fdefe2;  /* light orange tint: orange callout background  */
+  --flare-cool:        #c3f0ff;  /* home/landing cloud: blue (= --brand-cyan) */
+
+  /* rose (arm 2) + green (arm 4): the two NEW pentad members. Sparse semantic
+     accents only. Deep `base`/`-strong` clear WCAG AA for text on white; `-mid`
+     is a bright fill; `-tint`/`-wash` mirror the cyan and violet-wash tonalities.
+     Caution: --rose, --green and --accent all sit near L 33%, so they can collapse
+     under red-green colour-vision deficiency. Never separate them by hue alone. */
+  --rose:              #862a4a;  /* rose base: AA text/links (the pink we can use) */
+  --rose-strong:       #6e233d;  /* rose hover / active                       */
+  --rose-mid:          #cb4d79;  /* bright rose fill / accent line            */
+  --rose-tint:         #ffc2d7;  /* pale rose highlight (cyan-tint sibling)   */
+  --rose-wash:         #f8ebf0;  /* rose surface / callout background         */
+  --green:             #287e2c;  /* green base: AA text (positive / affirmation) */
+  --green-strong:      #226b26;  /* green hover / active                      */
+  --green-mid:         #4dcb53;  /* bright green fill                         */
+  --green-tint:        #c2ffc5;  /* pale green highlight                      */
+  --green-wash:        #ebf8ec;  /* green surface / callout background        */
+
+  /* ---- Supporting colours: the "world" around the pentad ------------------
+     Derivatives of the arms, NOT new brand hues. Brown is the orange arm
+     darkened + muted (so it reads as native warmth, not a 6th colour); the
+     neutrals are grey pulled toward an arm (violet = cool, orange = warm).
+     Use browns/neutrals freely for structure; keep --teal / --gold RARE. The
+     burnt orange --flare-strong is brown-adjacent but too hot to be THE brown. */
+  --brown:             #584132;  /* walnut: the house brown (warm rules, sepia, brown text) */
+  --brown-deep:        #493527;  /* espresso: deepest warm near-black text     */
+  --taupe:             #7c685a;  /* warm neutral: muted text in warm contexts  */
+  --slate:             #726c7a;  /* cool neutral: secondary text/icons         */
+  --teal:              #2a8186;  /* RARE cool bridge (near cyan): secondary cool accent */
+  --gold:              #ba962c;  /* RARE warm bridge (near orange): decorative only */
+  --violet-black:      #1e1528;  /* near-black tinted to the identity violet   */
+  --parchment:         #f6f4ee;  /* warm surface: an orange-keyed callout card */
+  --cream:             #f9f8f3;  /* lightest warm page tint                    */
+
+  --ink:               #1a1a1a;  /* primary text                             */
+  --muted:             #595959;  /* secondary text, subtitles                */
+  --faint:             #8a8a8a;  /* hints, captions                          */
+  --rule:              #d9d9d9;  /* hairlines, borders, dashed drop-zones    */
+  --bg:                #f9f7fb;  /* page background (lavender-tinted white)   */
+  --surface:           #ffffff;  /* cards, drop-zones                        */
+  --surface-tint:      #f1edf7;  /* panels, previews                         */
+
+  --danger:            #b2241a;  /* error/warning text (distinct from brand) */
+  --danger-strong:     #8f1c14;  /* error hover / active                     */
+  --danger-wash:       #fbecea;  /* error/warning background                 */
+  --ok:                #1f7a3d;  /* affirmation (used by ExamTimer)          */
+  --focus:             #c3f0ff;  /* focus ring (= --brand-cyan)              */
+
+  /* ---- The leaf corner (fixed elliptical radii — never %, except fluid) --
+     Shape: big sweep at TOP-LEFT + BOTTOM-RIGHT, near-square TOP-RIGHT + BOTTOM-LEFT.
+     Same names the components already expect, so importing this "feeds" them. */
+  --leaf:      15px 4px 15px 4px / 8px 3px 8px 3px;     /* buttons & medium controls */
+  --leaf-lg:   22px 6px 22px 6px / 12px 4px 12px 4px;   /* cards, panels, modals, drop zones */
+  --leaf-sm:   8px 3px 8px 3px / 5px 2px 5px 2px;       /* inputs, chips, badges, small boxes */
+  --mh-leaf:     16px 4px 16px 4px / 7px 2px 7px 2px;   /* pills / menubar items / highlights */
+  --mh-leaf-box: 22px 6px 22px 6px / 10px 3px 10px 3px; /* the menubar dropdown panel */
+  --mh-leaf-bar: 34px 16px;                             /* the menubar's bottom-right sweep */
+  --leaf-fluid:  25% 5% 25% 5%;                         /* fluid/inline only (text highlights) */
+
+  /* ---- Layout ----------------------------------------------------------- */
+  --card-max: 860px;   /* shared max-width for a tool's main card/panel, so the
+                          three tools read as one set. Sized for comfortable
+                          reading in the single-column tool (MCQer), not just the
+                          grid tools; the seat grid scrolls inside its own pane. */
+
+  /* ---- Type ------------------------------------------------------------- */
+  --sans-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --body-font: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --mono-font: ui-monospace, "SF Mono", Menlo, Consolas, monospace;  /* code / tabular previews */
+  /* NB: the menubar (menubar.js) hard-codes its own near-identical sans stack
+     that additionally lists `system-ui`; it is self-contained on purpose. */
+
+  /* ---- Elevation -------------------------------------------------------- */
+  --shadow-card:     0 4px 28px rgba(0,0,0,0.10);  /* main cards / elevated surfaces */
+  --shadow-bar:      0 1px 4px  rgba(0,0,0,0.05);  /* the fixed menubar           */
+  --shadow-dropdown: 0 6px 18px rgba(0,0,0,0.12);  /* the menubar dropdown panel  */
+
+  /* Emboss / deboss for menubar items (light from the top-left, agreeing with the
+     leaf diagonal). One definition so the injected menubar and the CV menubar can
+     both reference it and not drift. `raised` = an available item; `pressed` =
+     the current / hovered item (layered with the cyan fill + glow). */
+  --emboss-raised:   -1px -1px 0 rgba(255,255,255,.7), 1px 1px 2px rgba(0,0,0,.10);
+  --emboss-pressed:  inset 1px 1px 2px rgba(0,0,0,.16), inset -1px -1px 1px rgba(255,255,255,.55);
+
+  /* ---- Misc ------------------------------------------------------------- */
+  --radius: 8px;   /* legacy symmetric radius/spacing scalar, still defined by the
+                      tools; superseded for corners by the --leaf* tokens above   */
+}
+
+/* ---------------------------------------------------------------------------
+   Utility classes — opt-in helpers so a builder doesn't re-derive the rules.
+   --------------------------------------------------------------------------- */
+
+/* Leaf-cornered surfaces */
+.leaf      { border-radius: var(--leaf); }
+.leaf-lg   { border-radius: var(--leaf-lg); }
+.leaf-sm   { border-radius: var(--leaf-sm); }
+
+/* The cyan "highlighter" treatment (key words, active chips, menubar items) */
+.hl {
+  color: #000;
+  background: var(--brand-cyan);
+  border-radius: var(--mh-leaf);
+  filter: drop-shadow(0 0 5px var(--brand-cyan));
+}
+
+/* Site-wide selection colour — matches the highlight (radius/filter are ignored
+   by ::selection, so only background + colour take effect) */
+::selection { background: var(--brand-cyan); color: #000; }
+
+/* Focus ring — cyan, 3px. Apply on your control's :focus-visible (and tint
+   native form controls with the accent). Recipe used across the tools:
+     .btn:focus-visible, input:focus-visible {
+       outline: none; box-shadow: 0 0 0 3px var(--focus); border-color: var(--accent);
+     }
+     input[type="checkbox"], input[type="radio"] { accent-color: var(--accent); } */
+.focus-ring:focus-visible { outline: none; box-shadow: 0 0 0 3px var(--focus); }
+
+/* Left-accent callout / notice strip — an intentional NON-leaf exception:
+   a coloured left border with simple right-rounded corners. Use --accent for
+   info, --danger for errors. */
+.callout {
+  border-left: 4px solid var(--accent);
+  border-radius: 0 6px 6px 0;
+  background: var(--accent-wash);
+  padding: 0.6rem 0.9rem;
+}
+.callout.is-error { border-left-color: var(--danger); background: var(--danger-wash); }
+
+/* Soft orange→cyan landing backdrop (home/splash). Put on a full-bleed layer
+   behind content, e.g. a fixed/absolute element with z-index below the page. */
+.flare-backdrop {
+  background: radial-gradient(ellipse at 70% 100%,
+              var(--flare-warm) 20%, var(--flare-cool) 30%, #ffffff 75%);
+}
+
+/* The full landing glow as one shared rule: a blurred orange→cyan radial anchored to the
+   top-left, sat behind content. Add <div class="flare"></div> + link brand.css — no per-page
+   copy. (Canonicalised from the identical block each tool page used to inline.) */
+.flare {
+  pointer-events: none;
+  position: absolute;
+  top: 0; left: 0;
+  width: 50%; height: 50%;
+  z-index: -1;
+  filter: blur(50px);
+  background: radial-gradient(ellipse at 70% 100%, var(--flare-warm) 20%, var(--flare-cool) 30%, #ffffff 75%);
+}
+
+/* Opt-in animated variant: <div class="flare is-animated"></div>. Slowly morphs the
+   gradient's own center point and cyan/orange split (not just the box position), via
+   animatable custom properties. Needs a positioned ancestor that establishes its own
+   stacking context (e.g. position:relative + z-index:0) so the flare's z-index:-1
+   stays contained to that box instead of escaping behind the whole page.
+   @property support is broad (2024+); browsers without it just render the static
+   .flare gradient, no animation, no breakage. */
+@property --flare-x { syntax: '<percentage>'; inherits: false; initial-value: 70%; }
+@property --flare-y { syntax: '<percentage>'; inherits: false; initial-value: 100%; }
+@property --flare-mid { syntax: '<percentage>'; inherits: false; initial-value: 30%; }
+.flare.is-animated {
+  background: radial-gradient(ellipse at var(--flare-x) var(--flare-y),
+              var(--flare-warm) 20%, var(--flare-cool) var(--flare-mid), #ffffff 75%);
+  animation: flare-morph 20s ease-in-out infinite alternate;
+}
+@keyframes flare-morph {
+  0%   { --flare-x: 70%; --flare-y: 100%; --flare-mid: 30%; }
+  50%  { --flare-x: 30%; --flare-y: 60%;  --flare-mid: 45%; }
+  100% { --flare-x: 60%; --flare-y: 20%;  --flare-mid: 25%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .flare.is-animated { animation: none; }
+}
+
+/* NEVER leaf these — kept here as a reminder for generated markup:
+     .progress-track, .progress-fill { border-radius: 999px; }  (rounded ends)
+     .avatar, .dot                   { border-radius: 50%; }     (true circles)
+   and print/fullscreen surfaces are intentionally squared (border-radius: 0). */

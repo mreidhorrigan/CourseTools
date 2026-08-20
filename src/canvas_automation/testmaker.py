@@ -20,6 +20,9 @@ class Question:
     distractors: list[str] = field(default_factory=list)
     text_only: bool = False
     only_version: str | None = None
+    bloom_level: str | None = None
+    material_ids: list[str] = field(default_factory=list)
+    target_id: str | None = None
 
 
 @dataclass
@@ -44,7 +47,7 @@ class ParsedQuiz:
         return result
 
 
-_CONTENT_TAG = re.compile(r"(\[Question\.\]|\[Answer\.\]|\[Correct\.\]|\[Distractor\.\])", re.I)
+_CONTENT_TAG = re.compile(r"(\[Question\.\]|\[Answer\.\]|\[Correct\.\]|\[Distractor\.\]|\[Bloom\.\]|\[Material\.\]|\[Target\.\])", re.I)
 _POOL = re.compile(r"^\[Each version take (\d+) of the following options?\.\]$", re.I)
 _SCRAMBLE = re.compile(r"^\[Scramble the order of the following options?\.\]$", re.I)
 _ONLY_VERSION = re.compile(r"^\[Only Version ([A-E])\.\]", re.I)
@@ -110,22 +113,33 @@ def _parse_question(text: str, source_number: int) -> Question:
     stem = None
     answer = None
     distractors: list[str] = []
+    bloom_level = None
+    material_ids: list[str] = []
+    target_id = None
     for part in parts:
         normalized = part.lower()
         if normalized == "[question.]": current = "q"; continue
         if normalized in {"[answer.]", "[correct.]"}: current = "a"; continue
         if normalized == "[distractor.]": current = "d"; continue
+        if normalized == "[bloom.]": current = "b"; continue
+        if normalized == "[material.]": current = "m"; continue
+        if normalized == "[target.]": current = "t"; continue
         value = part.strip()
         if not value:
             continue
         if current == "q": stem = value
         elif current == "a": answer = value
         elif current == "d": distractors.append(value)
+        elif current == "b": bloom_level = value
+        elif current == "m": material_ids.extend(item.strip() for item in value.split(",") if item.strip())
+        elif current == "t": target_id = value
     if not stem:
         raise TestmakerFormatError(f"Question paragraph {source_number} has no [Question.] text.")
     if distractors and not answer:
         raise TestmakerFormatError(f"Question paragraph {source_number} has distractors but no [Answer.] or [Correct.].")
-    return Question(stem=stem, answer=answer, distractors=distractors, only_version=only_version)
+    return Question(stem=stem, answer=answer, distractors=distractors,
+                    only_version=only_version, bloom_level=bloom_level,
+                    material_ids=material_ids, target_id=target_id)
 
 
 def parse_testmaker(path: Path) -> ParsedQuiz:

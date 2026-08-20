@@ -108,10 +108,43 @@ def json_result(text: str, stage: str) -> dict[str, Any]:
     return value
 
 
+def complete_json(client: MistralClient, messages: list[dict[str, str]], *, stage: str,
+                  seed: int, temperature: float, max_tokens: int,
+                  repair_attempts: int = 2) -> tuple[dict[str, Any], dict[str, Any]]:
+    """Request JSON and retry malformed/truncated responses with an explicit repair prompt."""
+    attempts: list[dict[str, Any]] = []
+    current_messages = messages
+    for attempt in range(repair_attempts + 1):
+        raw, metadata = client.complete(
+            current_messages, seed=seed + attempt, temperature=temperature,
+            max_tokens=max_tokens, json_mode=True,
+        )
+        attempts.append({"attempt": attempt + 1, "raw_response": raw, "api_metadata": metadata})
+        try:
+            value = json_result(raw, stage)
+            return value, {"successful_attempt": attempt + 1, "attempts": attempts}
+        except MistralQAError:
+            if attempt >= repair_attempts:
+                raise MistralQAError(
+                    f"Mistral returned invalid JSON during {stage} after {attempt + 1} attempts. "
+                    "Raw responses remain available in the API caller's diagnostic context."
+                ) from None
+            current_messages = messages + [
+                {"role": "assistant", "content": raw},
+                {"role": "user", "content": (
+                    "The preceding response was incomplete or invalid JSON. Return the same result "
+                    "as one complete, valid JSON object. Be concise enough to finish within the token limit."
+                )},
+            ]
+    raise AssertionError("unreachable")
+
+
 def student_messages(instructions: str, context: str, profile: str) -> list[dict[str, str]]:
     return [
         {"role": "system", "content": (
-            "Act as a student completing an assignment. Use only the supplied assignment instructions and context. "
+            "Act as a student completing an assignment. The supplied STUDENT PROFILE is binding and controls the submission's completeness, reasoning, evidence, and execution. "
+            "Do not compensate for a weak profile, silently repair its omissions, or produce excellent work unless the profile explicitly calls for it. "
+            "Use only the supplied assignment instructions and context. "
             "Do not ask questions, consult a rubric, invent hidden requirements, or explain your process. Produce the submission itself. "
             "When a submission normally contains a ZIP, media, website, PDF, or other binary artifact, return a textual submission dossier: "
             "list every file and reproduce or concretely describe enough of each file's contents for a grader to assess it. "
@@ -187,18 +220,19 @@ def run(root: Path, config_path: Path, client: MistralClient) -> Path:
             student_messages(instructions, context, profile), seed=base_seed + index * 10,
             temperature=float(config["student_temperature"]), max_tokens=int(config["student_max_tokens"]),
         )
-        grade_text, grade_meta = client.complete(
-            grading_messages(complete_instructions, rubric, submission), seed=base_seed + index * 10 + 1,
-            temperature=float(config["grader_temperature"]), max_tokens=int(config["analysis_max_tokens"]), json_mode=True,
+        grade, grade_meta = complete_json(
+            client, grading_messages(complete_instructions, rubric, submission), stage="grading",
+            seed=base_seed + index * 10 + 1,
+            temperature=float(config["grader_temperature"]), max_tokens=int(config["analysis_max_tokens"]),
         )
-        grade = json_result(grade_text, "grading")
-        audit_text, audit_meta = client.complete(
-            audit_messages(complete_instructions, rubric, config.get("expected_requirements", []), submission, grade),
+        audit, audit_meta = complete_json(
+            client, audit_messages(complete_instructions, rubric, config.get("expected_requirements", []), submission, grade),
+            stage="specificity audit",
             seed=base_seed + index * 10 + 2, temperature=float(config["grader_temperature"]),
-            max_tokens=int(config["analysis_max_tokens"]), json_mode=True,
+            max_tokens=int(config["analysis_max_tokens"]),
         )
         trials.append({"trial": index + 1, "student_profile": profile, "submission": submission,
-                       "grade": grade, "audit": json_result(audit_text, "specificity audit"),
+                       "grade": grade, "audit": audit,
                        "api_metadata": {"student": student_meta, "grader": grade_meta, "auditor": audit_meta}})
     record = {
         "schema": "canvas-automation/assignment-rubric-qa/v1", "model": client.model,

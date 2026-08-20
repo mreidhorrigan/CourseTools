@@ -26,15 +26,17 @@ TOP_FILES = {
     "LICENSES.md", "PUBLIC_REPOSITORY.md", "README.md", "TODO.md", "pyproject.toml", "uv.lock",
     "setup-after-move.command", "verify.command",
 }
-INCLUDE_DIRS = {"assets", "commands", "course", "docs", "examples", "mcp", "research", "skills", "src", "scripts", "templates", "tests"}
+INCLUDE_DIRS = {"assets", "commands", "course", "docs", "examples", "mcp", "research", "skills", "src", "scripts", "templates", "tests", "vendor"}
 PRIVATE_ASSESSMENT_PREFIXES = ("private/", "out/testmaking-authoring/", "out/build-test-forms/")
 LICENSES = {
-    "beautifulsoup4": "MIT", "blinker": "MIT", "canvas-automation": "MIT",
-    "certifi": "MPL-2.0", "charset-normalizer": "MIT", "click": "BSD-3-Clause",
-    "colorama": "BSD-3-Clause", "et-xmlfile": "MIT", "exceptiongroup": "MIT",
+    "beautifulsoup4": "MIT", "blinker": "MIT", "cachetools": "MIT", "canvas-automation": "MIT",
+    "certifi": "MPL-2.0", "chardet": "0BSD", "charset-normalizer": "MIT", "click": "BSD-3-Clause",
+    "colorama": "BSD-3-Clause", "cssselect": "BSD-3-Clause", "cssutils": "LGPL-3.0-or-later",
+    "encutils": "LGPL-3.0-or-later", "et-xmlfile": "MIT", "exceptiongroup": "MIT",
     "flask": "BSD-3-Clause", "idna": "BSD-3-Clause", "importlib-metadata": "Apache-2.0",
     "iniconfig": "MIT", "itsdangerous": "BSD-3-Clause", "jinja2": "BSD-3-Clause",
-    "lxml": "BSD-3-Clause", "markupsafe": "BSD-3-Clause", "openpyxl": "MIT",
+    "lxml": "BSD-3-Clause", "markupsafe": "BSD-3-Clause", "more-itertools": "MIT",
+    "openpyxl": "MIT", "premailer": "BSD-3-Clause",
     "packaging": "Apache-2.0 OR BSD-2-Clause", "pillow": "MIT-CMU", "pluggy": "MIT",
     "pygments": "BSD-2-Clause", "pypdf": "BSD-3-Clause", "pytest": "MIT",
     "reportlab": "BSD-3-Clause", "requests": "Apache-2.0", "soupsieve": "MIT",
@@ -131,7 +133,7 @@ def source_files(root, excluded_files=()):
                 continue
             if rel != ".gitignore" and any(part.startswith(".") for part in path.relative_to(root).parts):
                 continue
-            if any(part in {".git", ".venv", "__pycache__", "out", "dist", "build"} for part in path.relative_to(root).parts):
+            if any(part in {".git", ".venv", "node_modules", "__pycache__", "out", "dist", "build"} for part in path.relative_to(root).parts):
                 continue
             files.append((rel, path))
     return sorted(files)
@@ -218,6 +220,18 @@ def build_sbom(root):
         if name == "canvas-mcp":
             component["externalReferences"] = [{"type": "vcs", "url": "https://github.com/vishalsachdev/canvas-mcp"}]
         components.append(component)
+    npm_lock = json.loads((root / "vendor/testmaker-mcqer/package-lock.json").read_text())
+    npm_licenses = {
+        "commander": "MIT", "docx": "MIT", "jsdom": "MIT", "jspdf": "MIT",
+        "mammoth": "BSD-2-Clause", "pdf-lib": "MIT",
+    }
+    for name, license_id in npm_licenses.items():
+        package = npm_lock["packages"][f"node_modules/{name}"]
+        components.append({
+            "type": "library", "name": name, "version": package["version"],
+            "purl": f"pkg:npm/{name}@{package['version']}", "group": "testmaker-renderer",
+            "licenses": [{"expression": license_id}],
+        })
     return {
         "bomFormat": "CycloneDX", "specVersion": "1.6", "version": 1,
         "metadata": {"component": {"type": "application", "name": "canvas-automation", "version": "0.1.0"}},

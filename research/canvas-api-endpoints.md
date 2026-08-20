@@ -129,3 +129,24 @@ over.
 
 https://developerdocs.instructure.com/services/canvas/resources/enrollments
 https://developerdocs.instructure.com/services/canvas/resources/submissions
+# Private roster and gradebook derivatives
+
+The read-only roster pipeline uses documented endpoints rather than Canvas's
+browser-session gradebook export:
+
+- `GET /api/v1/courses/:course_id/enrollments` with active
+  `StudentEnrollment` filtering supplies roster identities and whole-course
+  grade fields.
+- `GET /api/v1/courses/:course_id/sections` resolves section IDs to labels.
+- `GET /api/v1/courses/:course_id/assignments` defines gradebook columns.
+- `GET /api/v1/courses/:course_id/students/submissions` with
+  `student_ids[]=all` and `grouped=true` supplies assignment scores.
+
+Official documentation:
+
+- https://developerdocs.instructure.com/services/canvas/resources/enrollments
+- https://developerdocs.instructure.com/services/canvas/resources/sections
+- https://developerdocs.instructure.com/services/canvas/resources/submissions
+
+The outputs are private educational records under ignored `out/`; only the
+transformations and synthetic tests belong in version control.

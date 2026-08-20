@@ -12,6 +12,8 @@
   // Local course-maintenance files excluded from the collaborator package. Review this list
   // before distributing a different example course.
   "exclude_paths": [
+    "docs/SESSION_CLOSEOUT_2026-08-20.md",
+    "commands/update-canvas-from-authoring.command",
     "course/PENDING-LIVE-UPDATE.md",
     "scripts/build_iat210_materials_update.py",
     "scripts/finalize_imported_course.py",
@@ -26,6 +28,7 @@
     "scripts/update_iat210_syllabus_454.py",
     "tests/test_iat210_configure.py",
     "tests/test_iat210_package.py",
+    "tests/test_iat210_starter_builder.py",
     "tests/test_import_finalizer.py",
     "tests/test_imported_course_verifier.py",
     "tests/test_native_content_restore.py"

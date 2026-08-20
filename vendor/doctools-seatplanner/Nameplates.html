@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nameplates</title>
+<!-- the one site-wide menubar (links + dropdowns live in this file) -->
+<script src="menubar.js" defer></script>
+<!-- canonical house tokens (--ink/--accent/--leaf*/--focus/fonts…); Nameplates
+     uses only shared tokens, so it has no page-specific :root of its own -->
+<link rel="stylesheet" href="brand/brand.css">
+<style>
+  /* ── Palette & theme tokens ─────────────────────────────────────────────────
+     Shared vocabulary with matthorrigan.com / Seat Planner / Exam Timer: --ink,
+     --muted, --faint, --rule, --accent (violet), the cyan --focus ring, the
+     orange→blue --flare glow from the home page. All of it comes from
+     brand/brand.css, so this tool reads as a sibling of the others in the menu.
+  ────────────────────────────────────────────────────────────────────────────── */
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* Base colour lives on <html> so the z-index:-1 flare shows over it. */
+  html { background: var(--bg); }
+
+  body {
+    font-family: var(--sans-font);
+    color: var(--ink);
+    background: transparent;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2.5rem 1.5rem 4rem;
+    overflow-x: hidden;
+  }
+
+  ::selection { background: var(--focus); }
+
+  /* .flare landing glow is shared in brand/brand.css now. */
+
+  .card {
+    position: relative;
+    background: var(--surface);
+    border-radius: var(--leaf-lg);
+    box-shadow: 0 4px 28px rgba(0,0,0,0.10);
+    padding: 2.5rem 2.5rem 2.25rem;
+    max-width: var(--card-max);
+    width: 100%;
+  }
+
+  @media (max-width: 620px) { .card { padding: 1.75rem 1.4rem 1.75rem; } }
+
+  /* ── Masthead ─────────────────────────────────────────────────────────────── */
+  .masthead { margin-bottom: 1.5rem; }
+
+  h1 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.35rem;
+  }
+
+  h1 em { font-style: normal; color: var(--accent); }
+
+  .subtitle {
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.55;
+    max-width: 640px;
+    font-family: var(--body-font);
+  }
+
+  .subtitle strong { color: var(--ink); font-weight: 700; }
+
+  /* ── Drop zone (one file: a Canvas gradebook or a simple name list) ────────── */
+  .upload-card {
+    position: relative;
+    border: 1.5px dashed var(--rule);
+    border-radius: var(--leaf-lg);
+    background: var(--surface);
+    padding: 1.5rem 1.5rem 1.4rem;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color .15s ease, background-color .15s ease;
+    margin-bottom: 1.5rem;
+  }
+
+  .upload-card input[type="file"] {
+    position: absolute; inset: 0; opacity: 0; cursor: pointer;
+  }
+
+  .upload-card:hover, .upload-card.dragover {
+    border-color: var(--accent);
+    background: var(--accent-wash);
+  }
+
+  .card-title { font-weight: 700; font-size: 1rem; color: var(--ink); margin-bottom: 0.35rem; }
+
+  .card-hint {
+    font-size: 0.84rem;
+    color: var(--muted);
+    line-height: 1.55;
+    font-family: var(--body-font);
+  }
+
+  .card-hint strong { color: var(--ink); font-weight: 700; }
+
+  .card-status { font-size: 0.82rem; color: var(--accent); font-weight: 700; margin-top: 0.6rem; min-height: 1em; }
+
+  .error-msg {
+    color: var(--danger);
+    background: var(--danger-wash);
+    border: 1px solid var(--danger);
+    border-radius: var(--leaf-sm);
+    padding: 0.7rem 0.9rem;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ── On-page note: how first names are parsed (serif prose) ────────────────── */
+  .parse-note {
+    background: var(--surface-tint);
+    border-radius: var(--leaf-lg);
+    padding: 1.1rem 1.25rem;
+    margin-bottom: 1.5rem;
+    font-family: var(--body-font);
+    font-size: 0.86rem;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+
+  .parse-note strong { color: var(--ink); font-weight: 700; }
+  .parse-note b { color: var(--accent); font-weight: 700; }
+
+  /* ── Editable review list (verify and fix each first name) ─────────────────── */
+  .review { margin-bottom: 1.5rem; }
+
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.7rem;
+  }
+
+  .review-table { width: 100%; border-collapse: collapse; }
+
+  .review-table th {
+    text-align: left;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--faint);
+    padding: 0 0.6rem 0.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .review-table td {
+    padding: 0.4rem 0.6rem;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: middle;
+  }
+
+  .review-table .orig {
+    font-family: var(--mono-font);
+    font-size: 0.82rem;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .review-table .arrow { color: var(--faint); width: 1.5em; text-align: center; }
+
+  .first-input {
+    width: 100%;
+    font-family: var(--sans-font);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--ink);
+    padding: 0.4rem 0.6rem;
+    border: 1px solid var(--rule);
+    border-radius: var(--leaf-sm);
+    background: var(--surface);
+  }
+
+  .first-input:focus-visible { outline: none; box-shadow: 0 0 0 3px var(--focus); border-color: var(--accent); }
+
+  .review-table tr.skip td { opacity: 0.45; }
+
+  .drop-btn {
+    border: 0;
+    background: none;
+    color: var(--faint);
+    font-size: 1.1rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0.2rem 0.4rem;
+    border-radius: var(--leaf-sm);
+  }
+
+  .drop-btn:hover { color: var(--danger); background: var(--danger-wash); }
+  .drop-btn:focus-visible { outline: none; box-shadow: 0 0 0 3px var(--focus); }
+
+  /* ── Toolbar (print) ──────────────────────────────────────────────────────── */
+  .toolbar { display: flex; gap: 0.6rem; flex-wrap: wrap; align-items: center; margin-bottom: 0.5rem; }
+
+  .btn {
+    font-family: var(--sans-font);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--on-accent);
+    background: var(--accent);
+    border: 0;
+    border-radius: var(--leaf);
+    padding: 0.6rem 1.1rem;
+    cursor: pointer;
+    transition: background-color .15s ease;
+  }
+
+  .btn:hover { background: var(--accent-strong); }
+  .btn:focus-visible { outline: none; box-shadow: 0 0 0 3px var(--focus); }
+
+  .kbd-hint { font-size: 0.82rem; color: var(--faint); font-family: var(--body-font); }
+  .kbd-hint kbd {
+    font-family: var(--mono-font); font-size: 0.78rem;
+    background: var(--surface-tint); border: 1px solid var(--rule);
+    border-radius: 4px; padding: 0.05em 0.4em;
+  }
+
+  /* ── Options (page size + name sizing), shown with the print toolbar ───────── */
+  .options { display: flex; gap: 1.25rem; flex-wrap: wrap; align-items: flex-end; margin-bottom: 0.75rem; }
+
+  .field { display: flex; flex-direction: column; gap: 0.35rem; }
+
+  .field-label {
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent);
+  }
+
+  .field-select {
+    font-family: var(--sans-font); font-size: 0.95rem; font-weight: 600; color: var(--ink);
+    padding: 0.4rem 0.6rem; border: 1px solid var(--rule);
+    border-radius: var(--leaf-sm); background: var(--surface); cursor: pointer;
+  }
+
+  .field-select:focus-visible { outline: none; box-shadow: 0 0 0 3px var(--focus); border-color: var(--accent); }
+
+  .opt-hint { flex-basis: 100%; margin: 0; }
+
+  /* ── The nameplate sheets (plates per page follow the chosen page size) ───────
+     TENT-FOLD DESK NAMEPLATES. Letter (the default) fits three to a page, the
+     example's real layout. Other page sizes keep that strip height and fit more
+     or fewer strips, computed from the page height (see PAGE_SIZES in the script).
+
+     A .sheet is one full 8.5x11 portrait page. It holds THREE .plate strips, each
+     exactly one third of the page (792/3 = 264 pt tall in the example). Within a
+     third the name sits LOW (its bottom band ~14 pt above the third's lower edge),
+     with a large BLANK ABOVE it. You cut along the third boundaries and fold each
+     strip on its blank so the name stands up on a desk. Measured from the example
+     PDF (612x792 pt): name band yTop 176/444/712, yBot 250/518/786, centered at
+     x=306. So the name occupies roughly the bottom 28% of its third and the blank
+     above is ~67% — that blank is the fold. No cut/fold guide LINES appear in the
+     example (the layout is pure spacing), so print is spacing-only; the screen
+     preview shows faint dashed boundaries just to make the thirds legible. */
+  .plates { margin-top: 1.5rem; }
+
+  .sheet {
+    position: relative;
+    width: 100%;
+    max-width: 460px;                /* screen preview only; print fills the page */
+    aspect-ratio: var(--sheet-aspect, 8.5 / 11);  /* page-size control sets this; letter default */
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: var(--leaf-sm);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    margin: 0 auto 1.25rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;          /* three stacked thirds */
+  }
+
+  .plate {
+    position: relative;
+    flex: 1 1 0;                      /* each third = exactly 1/3 of the sheet */
+    min-height: 0;
+    display: flex;
+    align-items: flex-end;           /* name BOTTOM-anchored; all slack is the fold above */
+    justify-content: center;         /* horizontally centered, like the example */
+    overflow: hidden;
+    /* BOTTOM-ANCHORED: the whole space above each name is for folding, so push the
+       name as low as it goes. A minimal bottom safety gap (~4% of a 264 pt third
+       ≈ 10 pt) clears the glyph's descender so the cut never clips it, while the
+       name still reads as bottom-anchored. Side gaps keep the name off the paper
+       edge. The big blank above comes from align-items:flex-end. */
+    padding: 0 5% 4%;
+    /* the name's font-size is calc(ratio * 100cqw/cqh), so each third is its own
+       container: the same ratio fills the small preview AND the full print page */
+    container-type: size;
+  }
+
+  /* faint dashed cut boundary between strips — SCREEN ONLY (example has no lines) */
+  .plate + .plate { border-top: 1px dashed var(--rule); }
+
+  /* The name itself. The font-size is set per-plate in JS to auto-fit its third.
+     One line, never wrapped, never clipped. */
+  .plate .name {
+    font-family: var(--body-font);
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.05;
+    white-space: nowrap;
+    text-align: center;
+    /* a sane starting size before JS measures; JS overrides it */
+    font-size: 40px;
+  }
+
+  /* a partly-filled last sheet keeps its empty thirds blank (still cuttable) */
+  .plate.empty { visibility: hidden; }
+
+  /* ── Print ────────────────────────────────────────────────────────────────── */
+  @page { size: letter portrait; margin: 0; }   /* default; #page-style overrides for other page sizes */
+
+  @media print {
+    /* hide every bit of UI chrome */
+    .flare, .masthead, .upload-card, .error-msg, .parse-note, .review,
+    .options, .toolbar, #mh-menubar { display: none !important; }
+
+    body { padding: 0 !important; display: block !important; background: #fff !important; }
+    html { background: #fff !important; }
+
+    .card {
+      box-shadow: none !important;
+      max-width: none !important;
+      padding: 0 !important;
+      background: transparent !important;
+      border-radius: 0 !important;
+    }
+
+    .plates { margin: 0 !important; }
+
+    .sheet {
+      width: 100% !important;
+      max-width: none !important;
+      height: 100vh;                 /* one full page, split into three thirds */
+      aspect-ratio: auto !important;
+      margin: 0 !important;
+      border: 0 !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      page-break-after: always;
+      break-after: page;
+    }
+
+    .sheet:last-child { page-break-after: auto; break-after: auto; }
+
+    /* spacing-only in print: no cut/fold lines, faithful to the example */
+    .plate + .plate { border-top: 0 !important; }
+  }
+
+  /* Respect reduced-motion: neutralise transitions (mirrors the other tools). */
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{ animation-duration:.001ms!important; animation-iteration-count:1!important; transition-duration:.001ms!important; scroll-behavior:auto!important; }
+  }
+</style>
+<!-- The page-size control rewrites @page here. The letter default in the
+     stylesheet above stays as a fallback. Empty until a size is picked. -->
+<style id="page-style"></style>
+</head>
+<body>
+
+<div class="flare"></div>
+
+<div class="card">
+
+  <!-- ── Masthead ── -->
+  <div class="masthead">
+    <h1>Name<em>plates</em></h1>
+    <p class="subtitle">Upload a class roster (a Canvas gradebook export <strong>or a plain name list</strong>) and print tent-fold desk nameplates. Each name sits low in its strip with blank space above. Cut the page into strips and fold each one so the name stands up on the desk. Pick a page size, check the parsed first names below, fix any the tool got wrong, then print to PDF.</p>
+  </div>
+
+  <!-- ── File upload ── -->
+  <div class="upload-card" id="card-roster">
+    <input type="file" accept=".csv,.txt" id="input-roster">
+    <div class="card-title">Class roster</div>
+    <div class="card-hint">
+      <strong>Canvas export:</strong> drop it in as-is. The tool finds the
+      <strong>Student</strong> column and skips the points and test rows.<br>
+      <strong>Plain list:</strong> one name per line, or a CSV with names in the
+      first column.
+    </div>
+    <div class="card-status" id="status-roster"></div>
+  </div>
+
+  <div class="error-msg" id="error-msg" style="display:none;"></div>
+
+  <!-- ── How first names are parsed (read this once) ── -->
+  <div class="parse-note" id="parse-note" style="display:none;">
+    <strong>How the first name is read.</strong> For a Canvas
+    "<b>Last, First</b>" entry the tool takes the first given name after the
+    comma. For a "<b>First Last</b>" entry it takes the first token. It keeps a
+    hyphen (<b>Mary-Jane</b>), drops middle names (<b>John</b> Michael becomes
+    John), and leaves surname particles where they belong (<b>van</b>, <b>de</b>,
+    <b>del</b>, <b>bin</b>, <b>al-</b> stay with the last name). A single-token
+    name (<b>Madonna</b>) stands on its own. If the roster has a nickname or
+    preferred-name column, that wins. Names are guesses, so read the list below
+    and fix anything wrong before printing.
+  </div>
+
+  <!-- ── Editable review list ── -->
+  <div class="review" id="review" style="display:none;">
+    <div class="section-label">Verify the first names</div>
+    <table class="review-table">
+      <thead>
+        <tr>
+          <th>Roster name</th>
+          <th></th>
+          <th>First name on the plate</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="review-body"></tbody>
+    </table>
+  </div>
+
+  <!-- ── Page size and name sizing (shown with the print toolbar) ── -->
+  <div class="options" id="options" style="display:none;">
+    <label class="field">
+      <span class="field-label">Page size</span>
+      <select class="field-select" id="page-size">
+        <option value="letter" selected>US Letter (8.5 × 11 in)</option>
+        <option value="legal">US Legal (8.5 × 14 in)</option>
+        <option value="a4">A4 (210 × 297 mm)</option>
+        <option value="tabloid">Tabloid (11 × 17 in)</option>
+        <option value="a3">A3 (297 × 420 mm)</option>
+      </select>
+    </label>
+    <label class="field">
+      <span class="field-label">Name size</span>
+      <select class="field-select" id="fit-mode">
+        <option value="uniform" selected>One size fits every name</option>
+        <option value="each">Fill each plate</option>
+      </select>
+    </label>
+    <p class="kbd-hint opt-hint">One size matches every name to the longest. Fill each plate makes shorter names larger.</p>
+  </div>
+
+  <!-- ── Print ── -->
+  <div class="toolbar" id="toolbar" style="display:none;">
+    <button class="btn" id="btn-print" type="button">Print nameplates</button>
+    <span class="kbd-hint">or press <kbd>Cmd</kbd>+<kbd>P</kbd> and save as PDF. <span id="per-page-hint">Three names per page.</span></span>
+  </div>
+
+  <!-- ── The sheets (filled by JS; the print target) ── -->
+  <div class="plates" id="plates"></div>
+
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     Nameplates: ingest a Canvas-style gradebook (or a plain name list) and print
+     one large first name per 8.5x11 page. The hard part is pulling the FIRST name
+     out of each roster entry, so every parsed name is shown in an editable list
+     for the user to verify before printing.
+
+	TO DO: Pagination works on Chrome but doesn't work on Firefox yet, where Cmd + P produces different results from what the web interface shows.
+
+     PARSING RULES (documented here and in the on-page note):
+       - Canvas "Last, First [Middle …]": first token AFTER the comma is the
+         given name. Surname particles can't lead a given name, so token 1 is safe.
+       - "First [Middle] Last" (no comma): the first token is the given name.
+       - Hyphenated given names keep the hyphen ("Mary-Jane").
+       - Middle/extra given names are dropped (one name fits a plate best).
+       - Surname particles (van, von, de, del, della, di, da, du, la, le, el, al,
+         bin, ibn, ben, mac, mc, st …) belong to the LAST name and are never
+         returned as a first name.
+       - A single-token name is returned as-is ("Madonna").
+       - A nickname / preferred-name column, when present, wins outright.
+     The editable list is the safety net: any guess can be corrected by hand.
+  ───────────────────────────────────────────────────────────────────────────── */
+
+  // ── CSV parsing (RFC-4180-ish: quoted fields, embedded commas/quotes/newlines).
+  //    Same parser as SeatPlanner.html. ──────────────────────────────────────────
+  function parseCSV(text) {
+    const rows = [];
+    let row = [], field = '', inQuotes = false;
+    text = text.replace(/\r\n?/g, '\n');
+    for (let i = 0; i < text.length; i++) {
+      const ch = text[i];
+      if (inQuotes) {
+        if (ch === '"') {
+          if (text[i + 1] === '"') { field += '"'; i++; }
+          else inQuotes = false;
+        } else field += ch;
+      } else {
+        if (ch === '"') inQuotes = true;
+        else if (ch === ',') { row.push(field); field = ''; }
+        else if (ch === '\n') { row.push(field); rows.push(row); row = []; field = ''; }
+        else field += ch;
+      }
+    }
+    if (field !== '' || row.length) { row.push(field); rows.push(row); }
+    return rows.map(r => r.map(c => c.trim()));
+  }
+
+  // Surname particles/prefixes that attach to the LAST name, never the first.
+  // (Reserved for the no-comma "First Last" case where a particle could lead the
+  // surname. In "Last, First" order the comma already isolates the given name.)
+  const SURNAME_PARTICLES = new Set([
+    'van','von','de','del','della','der','den','di','da','dos','das','du','la',
+    'le','el','al','bin','ibn','ben','ter','ten','af','av','mac','mc','st','st.',
+    'san','santa','lo','degli','vander','vanden'
+  ]);
+
+  // Extract the FIRST (given) name from a raw roster name. See PARSING RULES above.
+  function firstNameFromRaw(raw) {
+    const s = (raw || '').replace(/\s+/g, ' ').trim();
+    if (!s) return '';
+
+    const comma = s.indexOf(',');
+    if (comma !== -1) {
+      // Canvas "Last, First [Middle …]": given name is the first token AFTER
+      // the comma. Fall back to the part before the comma if nothing follows.
+      const after = s.slice(comma + 1).trim();
+      const first = after.split(' ')[0] || '';
+      return first || s.slice(0, comma).trim();
+    }
+
+    // No comma → "First [Middle] Last". The first token is the given name.
+    // (Particles lead the SURNAME, which is last, so token 1 is never a particle.)
+    return s.split(' ')[0];
+  }
+
+  // ── Canvas detection: header row starts with "student" and carries a Canvas
+  //    login column. Mirrors SeatPlanner's isCanvasGradebook. ───────────────────
+  function isCanvasGradebook(rows) {
+    if (!rows.length) return false;
+    const header = rows[0].map(h => h.toLowerCase());
+    return header[0] === 'student' && header.some(h => h.includes('sis login id'));
+  }
+
+  // Find a nickname / preferred-name column index in a header row, or -1.
+  function nicknameColumn(header) {
+    return header.findIndex(h => /\b(nick ?name|preferred( name)?|goes by|chosen name)\b/.test(h));
+  }
+
+  const isTestStudent = n => /^\s*(student,\s*test|test\s+student)\s*$/i.test(n || '');
+
+  // Turn parsed rows into [{ orig, first }]. `orig` is the raw roster name shown
+  // to the user; `first` is the editable guess.
+  function buildEntries(rows) {
+    if (!rows.length) return [];
+
+    if (isCanvasGradebook(rows)) {
+      const header = rows[0].map(h => h.toLowerCase());
+      const idxNick = nicknameColumn(header);
+      let data = rows.slice(1).filter(r => {
+        const n = (r[0] || '').trim();
+        if (!n) return false;
+        if (/^points possible/i.test(n)) return false;
+        return true;
+      });
+      // drop the Canvas "Student, Test" row only if real students remain
+      if (data.some(r => !isTestStudent(r[0]))) data = data.filter(r => !isTestStudent(r[0]));
+
+      return data.map(r => {
+        const orig = (r[0] || '').replace(/\s+/g, ' ').trim();
+        const nick = idxNick >= 0 ? (r[idxNick] || '').trim() : '';
+        return { orig, first: nick || firstNameFromRaw(orig) };
+      }).filter(e => e.orig);
+    }
+
+    // Plain list: one name per line / first CSV column. A "name" header is skipped.
+    const data = rows.filter(r => {
+      const n = (r[0] || '').trim();
+      if (!n) return false;
+      if (n.toLowerCase() === 'name') return false;
+      if (isTestStudent(n)) return false;
+      return true;
+    });
+    return data.map(r => {
+      const orig = (r[0] || '').replace(/\s+/g, ' ').trim();
+      return { orig, first: firstNameFromRaw(orig) };
+    }).filter(e => e.orig);
+  }
+
+  // ── Auto-fit: ONE uniform size for the whole roster. ─────────────────────────
+  //    The names should read as a set, so a short name must not balloon while a
+  //    long name stays small. Method:
+  //      1. For every name, find its max-fit ratio = the largest font-size (as a
+  //         fraction of a third's width) that fits BOTH the third's usable width
+  //         and its usable height. A long name is width-bound; a short name is
+  //         height-bound.
+  //      2. The UNIFORM ratio is the MINIMUM across the roster (the most-
+  //         constrained name). Applying it to every plate makes them all the same
+  //         size, so short names match the long ones instead of ballooning.
+  //      3. Cap the spread: if one outlier-long name would force everyone tiny,
+  //         don't tank the set. Names may size up to MAX_SPREAD x the uniform
+  //         ratio (still capped by their own max-fit so nothing clips), which
+  //         keeps the set visually consistent without an unreadable floor.
+  //
+  //    The ratio is stored as a fraction of a third's width and applied with
+  //    calc(ratio * 100cqw): the same value fills the small on-screen preview AND
+  //    the full 8.5x11 print page. One line, never wrapped, never clipped.
+  const FIT_W = 0.85;   // fraction of the usable width the longest names may fill
+                        // (conservative: leaves clear margin on both sides, no clip)
+  const FIT_H = 0.74;   // fraction of the usable height (leaves room for the font's
+                        // descender below the line, so a bottom-anchored name's
+                        // descender clears the cut)
+  const MAX_SPREAD = 1.6;  // a name may exceed the uniform size by at most this
+                           // factor (still bounded by its own no-clip max-fit)
+
+  // The largest no-clip ratio (font-size / third-width) for a single name.
+  function maxFitRatio(nameEl, plateW, plateH) {
+    const padXpct = 0.05 * 2;   // .plate side padding: 5% each side of the width
+    const padBpct = 0.04;       // .plate bottom padding: 4% of the width
+    if (plateW <= 0 || plateH <= 0) return 0;
+
+    const usableW = plateW * (1 - padXpct);
+    const usableH = plateH - plateW * padBpct;
+
+    const REF = 100;
+    nameEl.style.fontSize = REF + 'px';
+    const wAtRef = nameEl.scrollWidth || 1;
+    const hAtRef = nameEl.scrollHeight || 1;
+
+    const sizeForW = REF * (usableW * FIT_W) / wAtRef;
+    const sizeForH = REF * (usableH * FIT_H) / hAtRef;
+    return Math.min(sizeForW, sizeForH) / plateW;   // as a fraction of the width
+  }
+
+  function fitAll() {
+    const platesEls = Array.prototype.slice.call(document.querySelectorAll('.plate'))
+      .filter(p => !p.classList.contains('empty'));
+    if (!platesEls.length) return;
+
+    // Per-name max-fit ratio: the largest no-clip font-size (as a fraction of the
+    // plate width) that fits the name. Kept index-aligned with platesEls.
+    const ratios = platesEls.map(p => maxFitRatio(p.querySelector('.name'), p.clientWidth, p.clientHeight));
+    const positive = ratios.filter(r => r > 0);
+    if (!positive.length) return;
+    const fallback = Math.min.apply(null, positive);
+
+    if (fitMode === 'each') {
+      // FILL EACH PLATE: every name as large as its own plate allows, so shorter
+      // names render larger than longer ones. Each is still capped by its own
+      // no-clip max-fit, so nothing wraps or clips.
+      platesEls.forEach((p, i) => {
+        const r = ratios[i] > 0 ? ratios[i] : fallback;
+        p.querySelector('.name').style.fontSize = 'calc(' + r.toFixed(5) + ' * 100cqw)';
+      });
+      return;
+    }
+
+    // ONE SIZE FITS EVERY NAME (default): pull the whole set DOWN to the most-
+    // constrained (longest) name, so every plate renders at the SAME size. Short
+    // names match the longest instead of ballooning.
+    //
+    // Outlier guard: if a single very long name would force everyone uncomfortably
+    // small (the rest could be much bigger), don't tank the set. When the median
+    // name's max-fit exceeds the uniform size by more than MAX_SPREAD, lift the
+    // target to uniform * MAX_SPREAD. Each name is still capped by its own no-clip
+    // max-fit, so the outlier stays smaller and nothing clips, but the spread is
+    // bounded and the set stays visually consistent.
+    const uniform = fallback;        // the most-constrained name
+    const sorted = positive.slice().sort((a, b) => a - b);
+    const median = sorted[Math.floor(sorted.length / 2)];
+    let target = uniform;
+    if (median > uniform * MAX_SPREAD) target = uniform * MAX_SPREAD;
+
+    platesEls.forEach((p, i) => {
+      const own = ratios[i] > 0 ? ratios[i] : uniform;
+      const applied = Math.min(own, target);   // never above a name's own max-fit
+      p.querySelector('.name').style.fontSize = 'calc(' + applied.toFixed(5) + ' * 100cqw)';
+    });
+  }
+
+  // ── Page sizes ────────────────────────────────────────────────────────────────
+  //    Each plate is one tent-fold strip. Letter (the default) fits three per page.
+  //    Other sizes keep that strip height (~3.67 in) and fit as many whole strips
+  //    as the page is tall: round(pageHeight / strip). So US Legal fits 4, A4 fits
+  //    3, Tabloid and A3 fit 5. These dimensions drive BOTH the on-screen sheet
+  //    aspect-ratio and the print @page size, so preview and print always agree.
+  const MM_PER_IN = 25.4;
+  const STRIP_IN = 11 / 3;        // Letter's natural strip height (one third)
+  const PAGE_SIZES = {
+    letter:  { w: 8.5 * MM_PER_IN, h: 11 * MM_PER_IN, css: '8.5in 11in' },
+    legal:   { w: 8.5 * MM_PER_IN, h: 14 * MM_PER_IN, css: '8.5in 14in' },
+    a4:      { w: 210,             h: 297,            css: '210mm 297mm' },
+    tabloid: { w: 11 * MM_PER_IN,  h: 17 * MM_PER_IN, css: '11in 17in' },
+    a3:      { w: 297,             h: 420,            css: '297mm 420mm' }
+  };
+
+  function perPageFor(key) {
+    const p = PAGE_SIZES[key] || PAGE_SIZES.letter;
+    return Math.max(1, Math.round((p.h / MM_PER_IN) / STRIP_IN));
+  }
+
+  // Small-number word for the per-page hint ("Three names per page.").
+  function countWord(n) {
+    const words = ['zero','one','two','three','four','five','six','seven','eight','nine','ten'];
+    const w = words[n] || String(n);
+    return w.charAt(0).toUpperCase() + w.slice(1);
+  }
+
+  // ── State + DOM refs ─────────────────────────────────────────────────────────
+  let entries = [];         // [{ orig, first, skip }]
+  let pageKey = 'letter';   // chosen page size (key into PAGE_SIZES)
+  let fitMode = 'uniform';  // name sizing: 'uniform' (default) or 'each'
+  let perPage = 3;          // plates per page, derived from the page size
+
+  const inputRoster = document.getElementById('input-roster');
+  const cardRoster  = document.getElementById('card-roster');
+  const statusRoster= document.getElementById('status-roster');
+  const errorMsg    = document.getElementById('error-msg');
+  const parseNote   = document.getElementById('parse-note');
+  const reviewWrap  = document.getElementById('review');
+  const reviewBody  = document.getElementById('review-body');
+  const toolbar     = document.getElementById('toolbar');
+  const plates      = document.getElementById('plates');
+  const btnPrint    = document.getElementById('btn-print');
+  const optionsRow  = document.getElementById('options');
+  const pageSizeSel = document.getElementById('page-size');
+  const fitModeSel  = document.getElementById('fit-mode');
+  const pageStyle   = document.getElementById('page-style');
+  const perPageHint = document.getElementById('per-page-hint');
+
+  function showError(msg) {
+    errorMsg.textContent = msg;
+    errorMsg.style.display = 'block';
+  }
+  function clearError() { errorMsg.style.display = 'none'; errorMsg.textContent = ''; }
+
+  // ── Render the editable review list ──────────────────────────────────────────
+  function renderReview() {
+    reviewBody.innerHTML = '';
+    entries.forEach((e, i) => {
+      const tr = document.createElement('tr');
+      if (e.skip) tr.className = 'skip';
+
+      const tdOrig = document.createElement('td');
+      tdOrig.className = 'orig';
+      tdOrig.textContent = e.orig;
+
+      const tdArrow = document.createElement('td');
+      tdArrow.className = 'arrow';
+      tdArrow.textContent = '→';
+
+      const tdInput = document.createElement('td');
+      const input = document.createElement('input');
+      input.type = 'text';
+      input.className = 'first-input';
+      input.value = e.first;
+      input.setAttribute('aria-label', 'First name for ' + e.orig);
+      input.addEventListener('input', () => { entries[i].first = input.value; renderPlates(); });
+      tdInput.appendChild(input);
+
+      const tdDrop = document.createElement('td');
+      const drop = document.createElement('button');
+      drop.type = 'button';
+      drop.className = 'drop-btn';
+      drop.textContent = e.skip ? '↺' : '✕';     // ↺ to restore, ✕ to remove
+      drop.title = e.skip ? 'Add this name back' : 'Leave this name out';
+      drop.setAttribute('aria-label', drop.title);
+      drop.addEventListener('click', () => { entries[i].skip = !entries[i].skip; renderReview(); renderPlates(); });
+      tdDrop.appendChild(drop);
+
+      tr.append(tdOrig, tdArrow, tdInput, tdDrop);
+      reviewBody.appendChild(tr);
+    });
+  }
+
+  // ── Render the plates for each sheet (the tent-fold layout), then auto-fit ────
+  //    Kept names are chunked into groups of `perPage` (set by the page size). Each
+  //    group is one .sheet (a full page). A final partial sheet is padded with blank
+  //    strips so every page still cuts cleanly into equal strips.
+  function renderPlates() {
+    plates.innerHTML = '';
+    const names = entries.filter(e => !e.skip && e.first.trim()).map(e => e.first.trim());
+
+    for (let i = 0; i < names.length; i += perPage) {
+      const sheet = document.createElement('div');
+      sheet.className = 'sheet';
+      for (let j = 0; j < perPage; j++) {
+        const plate = document.createElement('div');
+        plate.className = 'plate';
+        const name = document.createElement('div');
+        name.className = 'name';
+        const text = names[i + j];
+        if (text === undefined) plate.classList.add('empty');   // blank but cuttable
+        else name.textContent = text;
+        plate.appendChild(name);
+        sheet.appendChild(plate);
+      }
+      plates.appendChild(sheet);
+    }
+    fitAll();
+  }
+
+  // ── Apply a page size: set the preview shape, the print @page, and the count ──
+  function applyPageSize(key) {
+    pageKey = PAGE_SIZES[key] ? key : 'letter';
+    const p = PAGE_SIZES[pageKey];
+    perPage = perPageFor(pageKey);
+    // screen preview: the sheet takes the page's shape
+    document.documentElement.style.setProperty('--sheet-aspect', p.w + ' / ' + p.h);
+    // print: rewrite @page so the printed page matches the preview
+    pageStyle.textContent = '@page { size: ' + p.css + '; margin: 0; }';
+    perPageHint.textContent = countWord(perPage) + ' name' + (perPage === 1 ? '' : 's') + ' per page.';
+    renderPlates();
+  }
+
+  // ── Ingest a dropped/selected file ───────────────────────────────────────────
+  function ingestFile(file) {
+    clearError();
+    const reader = new FileReader();
+    reader.onload = ev => {
+      let rows;
+      try { rows = parseCSV(ev.target.result); }
+      catch (err) { showError('That file could not be read as text. Try a .csv or .txt export.'); return; }
+
+      entries = buildEntries(rows).map(e => ({ orig: e.orig, first: e.first, skip: false }));
+
+      if (!entries.length) {
+        showError('No student names were found. Upload a Canvas gradebook export or a plain name list.');
+        statusRoster.textContent = '';
+        parseNote.style.display = reviewWrap.style.display = optionsRow.style.display = toolbar.style.display = 'none';
+        plates.innerHTML = '';
+        return;
+      }
+
+      const kind = isCanvasGradebook(rows) ? 'Canvas gradebook' : 'name list';
+      statusRoster.textContent = entries.length + ' name' + (entries.length === 1 ? '' : 's') +
+        ' loaded from a ' + kind + '.';
+      parseNote.style.display = reviewWrap.style.display = optionsRow.style.display = toolbar.style.display = '';
+      renderReview();
+      renderPlates();
+    };
+    reader.onerror = () => showError('That file could not be read.');
+    reader.readAsText(file);
+  }
+
+  inputRoster.addEventListener('change', e => {
+    const file = e.target.files[0];
+    if (file) ingestFile(file);
+  });
+
+  // Drag-and-drop onto the upload card (mirrors SeatPlanner).
+  cardRoster.addEventListener('dragover', e => { e.preventDefault(); cardRoster.classList.add('dragover'); });
+  cardRoster.addEventListener('dragleave', () => cardRoster.classList.remove('dragover'));
+  cardRoster.addEventListener('drop', e => {
+    e.preventDefault();
+    cardRoster.classList.remove('dragover');
+    const file = e.dataTransfer.files[0];
+    if (file) {
+      const dt = new DataTransfer(); dt.items.add(file);
+      inputRoster.files = dt.files;
+      inputRoster.dispatchEvent(new Event('change'));
+    }
+  });
+
+  btnPrint.addEventListener('click', () => window.print());
+
+  // Page size and name-size controls.
+  pageSizeSel.addEventListener('change', () => applyPageSize(pageSizeSel.value));
+  fitModeSel.addEventListener('change', () => {
+    fitMode = fitModeSel.value === 'each' ? 'each' : 'uniform';
+    fitAll();
+  });
+
+  // Re-fit on resize (preview width changes) and before/after print.
+  let resizeTimer;
+  window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(fitAll, 120); });
+  window.addEventListener('beforeprint', fitAll);
+  window.addEventListener('afterprint', fitAll);
+
+})();
+</script>
+
+  <script src="slime-widget.js" defer></script>
+</body>
+</html>

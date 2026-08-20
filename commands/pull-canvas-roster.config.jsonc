@@ -1,0 +1,15 @@
+{
+  // Course identity comes only from course/course.config.jsonc and must match
+  // the running server's guard. This command is read-only.
+  "include_assignment_scores": true,
+  "only_published_assignments": true,
+  // Avatar URLs are unnecessary for names, nameplates, and ordinary seating
+  // plans and may contain opaque access parameters. Enable only for a reviewed
+  // local task that requires portraits.
+  "include_avatar_urls": false,
+  "seating": {
+    "columns": 6,
+    "order": "alphabetical", // alphabetical | random
+    "random_seed": 210
+  }
+}

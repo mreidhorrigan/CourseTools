@@ -21,7 +21,7 @@
     },
     {
       "canvas_id": 0,
-      "front_page": true,
+      "front_page": false,
       "kind": "page",
       "published": true,
       "slug": "iat-210-course-syllabus",
@@ -197,7 +197,7 @@
       "published": true,
       "slug": "week-2-historiography-gender-slash-race-and-game-culture-2",
       "source": "course/content/pages/week-2-historiography-gender-slash-race-and-game-culture-2.html",
-      "title": "Week 2: Historiography, gender/race, and game culture"
+      "title": "Week 2: Historiography, representation, and game culture"
     },
     {
       "canvas_id": 0,
@@ -266,120 +266,138 @@
       "canvas_id": 0,
       "kind": "assignment",
       "published": true,
-      "source": "course/content/assignments/207279-actual-play-project-final-submission.html",
+      "source": "course/content/assignments/211856-actual-play-project-final-submission.html",
       "title": "Actual-Play Project: Final Submission"
     },
     {
       "canvas_id": 0,
       "kind": "assignment",
       "published": true,
-      "source": "course/content/assignments/207309-actual-play-project-session-plan-and-rulebook.html",
+      "source": "course/content/assignments/211857-actual-play-project-session-plan-and-rulebook.html",
       "title": "Actual-Play Project: Session Plan and Rulebook"
     },
     {
       "canvas_id": 0,
       "kind": "assignment",
       "published": true,
-      "source": "course/content/assignments/207310-board-game-project-design-plan-and-draft-rulebook.html",
+      "source": "course/content/assignments/211858-board-game-project-design-plan-and-draft-rulebook.html",
       "title": "Board-Game Project: Design Plan and Draft Rulebook"
     },
     {
       "canvas_id": 0,
       "kind": "assignment",
       "published": true,
-      "source": "course/content/assignments/207280-board-game-project-final-submission.html",
+      "source": "course/content/assignments/211859-board-game-project-final-submission.html",
       "title": "Board-Game Project: Final Submission"
     },
     {
       "canvas_id": 0,
       "kind": "assignment",
       "published": true,
-      "source": "course/content/assignments/207311-digital-procedural-ecology-project-design-and-technical-plan.html",
-      "title": "Digital Procedural-Ecology Project: Design and Technical Plan"
+      "source": "course/content/assignments/211860-digital-procedural-ecology-project-design-and-technical-plan.html",
+      "title": "Digital Procedural-Ecosystem Project: Design and Technical Plan"
     },
     {
       "canvas_id": 0,
       "kind": "assignment",
       "published": true,
-      "source": "course/content/assignments/207281-digital-procedural-ecology-project-final-submission.html",
-      "title": "Digital Procedural-Ecology Project: Final Submission"
+      "source": "course/content/assignments/211861-digital-procedural-ecology-project-final-submission.html",
+      "title": "Digital Procedural-Ecosystem Project: Final Submission"
     },
     {
       "canvas_id": 0,
       "kind": "assignment",
       "published": true,
-      "source": "course/content/assignments/207282-in-person-final-examination.html",
+      "source": "course/content/assignments/211862-in-person-final-examination.html",
       "title": "In-Person Final Examination"
     },
     {
       "canvas_id": 0,
       "kind": "discussion",
       "published": true,
-      "source": "course/content/discussions/256071-actual-play-project-ideation-discussion.html",
+      "source": "course/content/discussions/259661-actual-play-project-ideation-discussion.html",
       "title": "Actual-Play Project: Ideation Discussion"
     },
     {
       "canvas_id": 0,
       "kind": "discussion",
       "published": true,
-      "source": "course/content/discussions/256072-board-game-project-ideation-discussion.html",
+      "source": "course/content/discussions/259660-board-game-project-ideation-discussion.html",
       "title": "Board-Game Project: Ideation Discussion"
     },
     {
       "canvas_id": 0,
       "kind": "discussion",
       "published": true,
-      "source": "course/content/discussions/256073-digital-procedural-ecology-project-ideation-discussion.html",
-      "title": "Digital Procedural-Ecology Project: Ideation Discussion"
+      "source": "course/content/discussions/259659-digital-procedural-ecology-project-ideation-discussion.html",
+      "title": "Digital Procedural-Ecosystem Project: Ideation Discussion"
     },
     {
       "canvas_id": 0,
       "kind": "quiz",
-      "published": false,
-      "source": "course/content/quizzes/74955-practice-quiz-1.html",
+      "published": true,
+      "source": "course/content/quizzes/75963-practice-quiz-1.html",
       "title": "Practice Quiz 1"
     },
     {
       "canvas_id": 0,
       "kind": "quiz",
-      "published": false,
-      "source": "course/content/quizzes/74953-practice-quiz-2.html",
+      "published": true,
+      "source": "course/content/quizzes/75969-practice-quiz-2.html",
       "title": "Practice Quiz 2"
     },
     {
       "canvas_id": 0,
       "kind": "quiz",
-      "published": false,
-      "source": "course/content/quizzes/74960-practice-quiz-3.html",
+      "published": true,
+      "source": "course/content/quizzes/75964-practice-quiz-3.html",
       "title": "Practice Quiz 3"
     },
     {
       "canvas_id": 0,
       "kind": "quiz",
-      "published": false,
-      "source": "course/content/quizzes/74959-practice-quiz-4.html",
+      "published": true,
+      "source": "course/content/quizzes/75965-practice-quiz-4.html",
       "title": "Practice Quiz 4"
     },
     {
       "canvas_id": 0,
       "kind": "quiz",
-      "published": false,
-      "source": "course/content/quizzes/74952-practice-quiz-5.html",
+      "published": true,
+      "source": "course/content/quizzes/75967-practice-quiz-5.html",
       "title": "Practice Quiz 5"
     },
     {
       "canvas_id": 0,
       "kind": "quiz",
-      "published": false,
-      "source": "course/content/quizzes/74954-practice-quiz-6.html",
+      "published": true,
+      "source": "course/content/quizzes/75966-practice-quiz-6.html",
       "title": "Practice Quiz 6"
     },
     {
       "canvas_id": 0,
       "kind": "quiz",
-      "published": false,
-      "source": "course/content/quizzes/74958-practice-quiz-7.html",
+      "published": true,
+      "source": "course/content/quizzes/75968-practice-quiz-7.html",
       "title": "Practice Quiz 7"
+    },
+    {
+      "canvas_id": 0,
+      "front_page": false,
+      "kind": "page",
+      "published": true,
+      "slug": "course-rationale-and-design",
+      "source": "course/content/pages/course-rationale-and-design.html",
+      "title": "Course Rationale and Design"
+    },
+    {
+      "canvas_id": 0,
+      "front_page": true,
+      "kind": "page",
+      "published": true,
+      "slug": "iat-210-course-home",
+      "source": "course/content/pages/course-home.html",
+      "title": "IAT 210 Course Home"
     }
   ],
   "requires_reinitialization": true,

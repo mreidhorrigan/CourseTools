@@ -1,7 +1,7 @@
 {
   "schema": "canvas-automation/rubric-source/v1",
   "key": "digital-procedural-ecology-ideation",
-  "title": "Digital Procedural-Ecology Ideation",
+  "title": "Digital Procedural-Ecosystem Ideation",
   "points_possible": 3.0,
   "criteria": [
     {
@@ -19,7 +19,7 @@
       ]
     },
     {
-      "description": "Procedural ecology and concept",
+      "description": "Procedural ecosystem and concept",
       "points": 1.0,
       "ratings": [
         {

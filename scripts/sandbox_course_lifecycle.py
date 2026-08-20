@@ -73,6 +73,15 @@ class GuardedCanvas:
             counts[resource] = len(result) if isinstance(result, list) else None
         return {"course": course, "counts": counts}
 
+    def require_unpublished(self) -> dict:
+        """Return course metadata or refuse any content-changing operation."""
+        course = self.raw("GET", f"/courses/{self.course_id}")
+        if course.get("workflow_state") != "unpublished":
+            raise RuntimeError(
+                f"Refusing to modify Canvas course {self.course_id} because it is published"
+            )
+        return course
+
     def backup(self, output: Path, poll_seconds: float = 2.0, timeout: float = 300.0) -> dict:
         self.health()
         export = self.raw(
@@ -120,6 +129,7 @@ class GuardedCanvas:
         if confirmation != expected:
             raise ValueError(f"Reset requires --confirm {expected}")
         self.health()
+        self.require_unpublished()
         return self.raw("POST", f"/courses/{self.course_id}/reset_content", {})
 
     def import_package(
@@ -128,6 +138,7 @@ class GuardedCanvas:
         if not package.is_file() or not zipfile.is_zipfile(package):
             raise ValueError(f"Package is not a readable IMSCC: {package}")
         self.health()
+        self.require_unpublished()
         with package.open("rb") as stream:
             response = requests.post(
                 f"{self.server}/api/courses/{self.course_id}/content_migrations",
@@ -143,6 +154,40 @@ class GuardedCanvas:
         if not migration_id:
             raise RuntimeError(f"Migration upload returned no migration ID: {created}")
         return self.monitor_migration(migration_id, package, poll_seconds, timeout)
+
+    def backup_and_import(
+        self,
+        package: Path,
+        backup: Path,
+        confirmation: str,
+        allow_existing_content: bool = False,
+    ) -> dict:
+        """Back up an unpublished target, inspect it, and then import a cartridge."""
+        expected = f"COPY-INTO-COURSE-{self.course_id}"
+        if confirmation != expected:
+            raise ValueError(f"Copy requires --confirm {expected}")
+        if not package.is_file() or not zipfile.is_zipfile(package):
+            raise ValueError(f"Package is not a readable IMSCC: {package}")
+        self.health()
+        self.require_unpublished()
+        backup_record = self.backup(backup)
+        inventory = self.inventory()
+        content_counts = {
+            key: value for key, value in inventory["counts"].items()
+            if key != "assignment_groups" and value
+        }
+        if content_counts and not allow_existing_content:
+            raise RuntimeError(
+                "Target backup succeeded, but existing content requires "
+                f"--allow-existing-content before import: {content_counts}"
+            )
+        imported = self.import_package(package)
+        return {
+            "course_id": self.course_id,
+            "backup": backup_record,
+            "pre_import_inventory": inventory,
+            "import": imported,
+        }
 
     def monitor_migration(
         self,
@@ -216,6 +261,7 @@ class GuardedCanvas:
             raise ValueError(f"Cleanup requires --confirm {expected}")
         if plan.get("course_id") != self.course_id:
             raise ValueError("Cleanup plan course does not match --course")
+        self.require_unpublished()
         current = self.cleanup_plan()
         planned_ids = self._plan_identity(plan)
         current_ids = self._plan_identity(current)
@@ -300,6 +346,12 @@ def build_parser() -> argparse.ArgumentParser:
     package_import = commands.add_parser("import-package")
     package_import.add_argument("--package", required=True, type=Path)
     package_import.add_argument("--record", required=True, type=Path)
+    safe_copy = commands.add_parser("backup-and-import")
+    safe_copy.add_argument("--package", required=True, type=Path)
+    safe_copy.add_argument("--backup", required=True, type=Path)
+    safe_copy.add_argument("--confirm", required=True)
+    safe_copy.add_argument("--allow-existing-content", action="store_true")
+    safe_copy.add_argument("--record", required=True, type=Path)
     monitor = commands.add_parser("monitor-migration")
     monitor.add_argument("--migration-id", required=True, type=int)
     monitor.add_argument("--record", required=True, type=Path)
@@ -328,6 +380,15 @@ def main() -> int:
         args.record.write_text(json.dumps(result, indent=2), encoding="utf-8")
     elif args.command == "import-package":
         result = canvas.import_package(args.package)
+        args.record.parent.mkdir(parents=True, exist_ok=True)
+        args.record.write_text(json.dumps(result, indent=2), encoding="utf-8")
+    elif args.command == "backup-and-import":
+        result = canvas.backup_and_import(
+            args.package,
+            args.backup,
+            args.confirm,
+            args.allow_existing_content,
+        )
         args.record.parent.mkdir(parents=True, exist_ok=True)
         args.record.write_text(json.dumps(result, indent=2), encoding="utf-8")
     else:

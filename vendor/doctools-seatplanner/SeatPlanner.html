@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seat Planner</title>
+<style>
+  /* ── Palette & theme tokens ─────────────────────────────────────────────────
+     Shared vocabulary with matthorrigan.com / MCQer (base.css): --ink, --muted,
+     --faint, --rule, --accent (deep maroon). Seat Planner re-skins from the
+     :root block below so it reads as a sibling of MCQer and the CV it sits
+     beside in the site menubar. The cyan --focus (the menubar highlight) is used
+     for swap flashes and input focus; the orange→blue --flare glow is lifted
+     from the home page. Swap the brand here once and every control follows.
+  ────────────────────────────────────────────────────────────────────────────── */
+  :root {
+    --ink:           #1a1a1a;   /* primary text                                   */
+    --muted:         #595959;   /* secondary text, subtitles                      */
+    --faint:         #8a8a8a;   /* hints, captions, empty seats                   */
+    --rule:          #d9d9d9;   /* hairlines, borders, dashed drop-zones          */
+    --accent:        #6b1f2a;   /* deep maroon — buttons, labels, links           */
+    --accent-strong: #531722;   /* accent hover / active                          */
+    --accent-wash:   #f6eef0;   /* tint behind confirmed / hovered surfaces       */
+    --on-accent:     #ffffff;   /* text & icons on an accent fill                 */
+    --bg:            #faf6f7;   /* page background                                */
+    --surface:       #ffffff;   /* cards, drop-zones, filled-seat chips           */
+    --surface-tint:  #f3eef1;   /* panels, preview, filled seats                  */
+    --danger:        #b2241a;   /* integrity flags / error (distinct from brand)  */
+    --danger-wash:   #fbecea;   /* flag / error background                        */
+    --focus:         #c3f0ff;   /* cyan focus ring & swap flash — nods to menubar */
+    --flare-warm:    #f28b46;   /* home-page cloud: orange (exact)                */
+    --flare-cool:    #c3f0ff;   /* home-page cloud: blue (exact, same as --focus) */
+    --radius:        8px;
+    --sans-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    --body-font: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* Base colour lives on <html> so the z-index:-1 flare shows over it. */
+  html { background: var(--bg); }
+
+  body {
+    font-family: var(--sans-font);
+    color: var(--ink);
+    background: transparent;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2.5rem 1.5rem 4rem;
+    overflow-x: hidden;
+  }
+
+  ::selection { background: var(--focus); }
+
+  /* Cloudy orange→blue glow lifted from matthorrigan.com's home page (.flare). */
+  .flare {
+    pointer-events: none;
+    position: absolute;
+    top: 0; left: 0;
+    width: 50%; height: 50%;
+    z-index: -1;
+    filter: blur(50px);
+    background: radial-gradient(ellipse at 70% 100%, var(--flare-warm) 20%, var(--flare-cool) 30%, #ffffff 75%);
+  }
+
+  .card {
+    position: relative;
+    background: var(--surface);
+    border-radius: 14px;
+    box-shadow: 0 4px 28px rgba(0,0,0,0.10);
+    padding: 2.5rem 2.5rem 2.25rem;
+    max-width: 1000px;
+    width: 100%;
+  }
+
+  @media (max-width: 620px) { .card { padding: 1.75rem 1.4rem 1.75rem; } }
+
+  /* ── Masthead ─────────────────────────────────────────────────────────────── */
+  .masthead { margin-bottom: 1.75rem; }
+
+  .eyebrow {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.3rem;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.25rem;
+  }
+
+  h1 em { font-style: normal; color: var(--accent); }
+
+  .subtitle {
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.55;
+    max-width: 640px;
+  }
+
+  .subtitle strong { color: var(--ink); font-weight: 700; }
+
+  /* ── Upload cards ─────────────────────────────────────────────────────────── */
+  .uploads {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  @media (max-width: 620px) { .uploads { grid-template-columns: 1fr; } }
+
+  .upload-card {
+    border: 2px dashed var(--rule);
+    border-radius: 10px;
+    padding: 1.3rem 1.4rem;
+    cursor: pointer;
+    transition: border-color 0.18s, background 0.18s;
+    position: relative;
+    background: var(--surface);
+  }
+
+  .upload-card:hover, .upload-card.dragover {
+    border-color: var(--accent);
+    background: var(--accent-wash);
+  }
+
+  .upload-card.loaded {
+    border-style: solid;
+    border-color: var(--accent);
+    background: var(--accent-wash);
+  }
+
+  .upload-card input[type="file"] {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+  }
+
+  .card-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .card-label .optional {
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0;
+    background: var(--surface-tint);
+    color: var(--muted);
+    font-size: 0.7rem;
+    padding: 0.1rem 0.45rem;
+    border-radius: 4px;
+  }
+
+  .card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+    color: var(--ink);
+  }
+
+  .card-hint {
+    font-size: 0.76rem;
+    color: var(--faint);
+    line-height: 1.6;
+  }
+
+  .card-status {
+    margin-top: 0.55rem;
+    font-size: 0.76rem;
+    color: var(--accent);
+    font-weight: 700;
+    min-height: 1rem;
+    line-height: 1.4;
+  }
+
+  .upload-card.loaded .card-status::before { content: '✓ '; }
+
+  /* ── Options panel (ranking / flagging toggles) ───────────────────────────── */
+  .options-panel {
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    background: var(--surface);
+    padding: 0.35rem 0.95rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .opt-row {
+    display: flex;
+    gap: 0.7rem;
+    align-items: flex-start;
+    padding: 0.6rem 0;
+    cursor: pointer;
+  }
+  .opt-row + .opt-row { border-top: 1px solid var(--surface-tint); }
+
+  .opt-row input[type="checkbox"] {
+    width: 1.15rem;
+    height: 1.15rem;
+    margin-top: 0.05rem;
+    accent-color: var(--accent);
+    flex: none;
+    cursor: pointer;
+  }
+
+  .opt-text { display: flex; flex-direction: column; gap: 2px; }
+  .opt-title { font-weight: 700; font-size: 0.9rem; color: var(--ink); }
+  .opt-desc { font-size: 0.76rem; color: var(--muted); line-height: 1.5; }
+
+  .flag-terms-wrap {
+    display: none;
+    margin: 0 0 0.6rem 1.85rem;
+    padding: 0.7rem 0.8rem;
+    background: var(--surface-tint);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+  }
+  .flag-terms-wrap.visible { display: block; }
+
+  .flag-terms-label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+  }
+
+  #flag-terms {
+    width: 100%;
+    font-family: var(--sans-font);
+    font-size: 0.85rem;
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 0.5rem 0.6rem;
+    resize: vertical;
+    line-height: 1.5;
+  }
+  #flag-terms:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--focus); }
+
+  .flag-terms-upload { display: flex; align-items: center; gap: 0.6rem; margin-top: 0.45rem; flex-wrap: wrap; }
+  .link-btn {
+    font-size: 0.8rem; font-weight: 700; color: var(--accent);
+    cursor: pointer; text-decoration: underline; text-underline-offset: 2px;
+  }
+  .link-btn:hover { color: var(--accent-strong); }
+  .flag-terms-hint { font-size: 0.74rem; color: var(--faint); }
+
+  /* ── Notice bar ───────────────────────────────────────────────────────────── */
+  .notice {
+    font-size: 0.85rem;
+    color: var(--ink);
+    margin-bottom: 1.1rem;
+    padding: 0.55rem 0.9rem;
+    background: var(--surface-tint);
+    border-left: 3px solid var(--muted);
+    border-radius: 0 6px 6px 0;
+    line-height: 1.6;
+  }
+
+  .notice strong { font-weight: 700; }
+
+  .notice.grade-mode {
+    border-left-color: var(--accent);
+    background: var(--accent-wash);
+    color: var(--accent);
+  }
+
+  .notice.grade-mode strong { color: var(--accent-strong); }
+
+  /* ── Error ────────────────────────────────────────────────────────────────── */
+  .error-msg {
+    background: var(--danger-wash);
+    border-left: 3px solid var(--danger);
+    border-radius: 0 6px 6px 0;
+    padding: 0.55rem 0.9rem;
+    font-size: 0.85rem;
+    color: var(--danger);
+    margin-bottom: 1.1rem;
+    display: none;
+  }
+  .error-msg.visible { display: block; }
+
+  /* ── Controls toolbar ─────────────────────────────────────────────────────── */
+  .toolbar {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1.75rem;
+    padding: 0.85rem 1rem;
+    background: var(--surface-tint);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    font-family: var(--sans-font);
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    padding: 0.55rem 1.25rem;
+    border: 1.5px solid var(--accent);
+    border-radius: 7px;
+    background: var(--accent);
+    color: var(--on-accent);
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s, color 0.15s, opacity 0.15s, transform 0.1s;
+  }
+
+  .btn:hover { background: var(--accent-strong); border-color: var(--accent-strong); }
+  .btn:active { transform: translateY(1px); }
+  .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .btn:focus-visible { outline: none; box-shadow: 0 0 0 3px var(--focus); }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--accent);
+  }
+  .btn-secondary:hover { background: var(--accent); color: var(--on-accent); }
+
+  .btn-pdf { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+  .btn-pdf:hover { background: var(--accent-strong); border-color: var(--accent-strong); }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--muted);
+    border-color: var(--rule);
+    font-size: 0.83rem;
+    padding: 0.52rem 1rem;
+  }
+  .btn-ghost:hover { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+  .btn-ghost:disabled { opacity: 0.3; }
+  .btn-ghost.active { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+
+  /* Push the undo button to the right edge of the toolbar */
+  .toolbar .spacer { flex: 1 1 auto; }
+
+  /* ── Preview section ──────────────────────────────────────────────────────── */
+  .preview-section { display: none; animation: fadeIn 0.35s ease; }
+  .preview-section.visible { display: block; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .drag-hint {
+    font-size: 0.74rem;
+    color: var(--faint);
+    font-style: italic;
+    letter-spacing: 0;
+    text-transform: none;
+    font-weight: 400;
+  }
+
+  /* ── Stats ────────────────────────────────────────────────────────────────── */
+  .stats-row {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 0.6rem 1rem;
+    background: var(--surface-tint);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    min-width: 92px;
+  }
+
+  .stat-value {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.7rem;
+    color: var(--muted);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* ── Swap log ─────────────────────────────────────────────────────────────── */
+  .swap-log {
+    font-size: 0.83rem;
+    color: var(--muted);
+    margin-bottom: 1rem;
+    min-height: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .swap-log-text { flex: 1; }
+  .swap-log-text strong { color: var(--ink); font-weight: 700; }
+
+  .swap-badge {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--on-accent);
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.15rem 0.55rem;
+    border-radius: 999px;
+    letter-spacing: 0.03em;
+  }
+
+  /* ── Grid ─────────────────────────────────────────────────────────────────── */
+  .grid-preview {
+    overflow-x: auto;
+    margin-bottom: 0.5rem;
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    background: var(--surface);
+    padding: 1.25rem;
+    user-select: none;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  }
+
+  /* Caption shown only when ranking is on — describes the chart, not the room. */
+  .rank-caption {
+    text-align: center;
+    font-size: 0.76rem;
+    font-style: italic;
+    color: var(--faint);
+    margin: 0.6rem 0 0;
+  }
+
+  .grid-table {
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.8rem;
+    margin: 0 auto;
+  }
+
+  .grid-table td {
+    min-width: 112px;
+    width: 112px;
+    height: 52px;
+    text-align: center;
+    border: 1px solid #e6dfe2;
+    padding: 5px 7px;
+    vertical-align: middle;
+    white-space: normal;
+    word-break: break-word;
+    line-height: 1.3;
+    color: var(--faint);
+    transition: background 0.12s, box-shadow 0.12s;
+    position: relative;
+  }
+
+  /* Filled seat */
+  .cell-filled {
+    background: var(--surface-tint);
+    border-color: #d8c9cf !important;
+    color: var(--ink);
+    font-weight: 600;
+    cursor: grab;
+  }
+
+  .cell-filled:hover {
+    background: #ece1e5;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    z-index: 2;
+  }
+
+  .cell-empty-seat {
+    background: var(--surface);
+    border-color: #ece6e8 !important;
+    color: var(--faint);
+    font-style: italic;
+    font-size: 0.72rem;
+  }
+
+  .cell-spacer {
+    background: transparent;
+    border-color: transparent !important;
+  }
+
+  /* Cell inner layout */
+  .cell-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    height: 100%;
+  }
+
+  .badges-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+
+  /* Grade badge — neutral chip so names stay dominant */
+  .grade-badge {
+    display: inline-block;
+    background: var(--surface);
+    color: var(--muted);
+    border: 1px solid var(--rule);
+    font-size: 0.62rem;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 4px;
+    letter-spacing: 0.02em;
+    line-height: 1.4;
+  }
+
+  /* Integrity flag marker — red alert */
+  .flag-marker {
+    display: inline-flex;
+    align-items: center;
+    background: var(--danger-wash);
+    color: var(--danger);
+    font-size: 0.62rem;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 4px;
+    line-height: 1.4;
+    border: 1px solid rgba(178,36,26,0.3);
+  }
+
+  /* Flagged cell: red left-border accent */
+  .cell-filled.has-flag {
+    border-left-color: var(--danger) !important;
+    border-left-width: 3px !important;
+  }
+
+  /* Hide all details when toggle is off */
+  .grid-table.details-off .badges-row { display: none; }
+  .grid-table.details-off .grade-badge,
+  .grid-table.details-off .flag-marker { display: none; }
+  .grid-table.details-off .cell-filled.has-flag {
+    border-left-color: #d8c9cf !important;
+    border-left-width: 1px !important;
+  }
+
+  /* Drag states */
+  .cell-filled.dragging { opacity: 0.35; cursor: grabbing; }
+
+  .cell-filled.drag-over,
+  .cell-empty-seat.drag-over {
+    background: var(--accent-wash) !important;
+    border-color: var(--accent) !important;
+    box-shadow: inset 0 0 0 1px var(--accent);
+    color: var(--accent);
+  }
+
+  /* Swap flash — cyan, the menubar highlight */
+  @keyframes swapFlash {
+    0%   { background: var(--focus); }
+    60%  { background: rgba(195,240,255,0.4); }
+    100% { background: var(--surface-tint); }
+  }
+  .cell-just-swapped { animation: swapFlash 0.55s ease forwards; }
+
+  /* ── Drag ghost ───────────────────────────────────────────────────────────── */
+  #drag-ghost {
+    position: fixed;
+    pointer-events: none;
+    background: var(--accent);
+    color: var(--on-accent);
+    font-family: var(--sans-font);
+    font-size: 0.83rem;
+    font-weight: 700;
+    padding: 5px 14px;
+    border-radius: 999px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    z-index: 9999;
+    display: none;
+    white-space: nowrap;
+  }
+
+  /* ══════════════════════════════════════════════════════════════════════════
+     PRINT / PDF STYLES
+  ══════════════════════════════════════════════════════════════════════════ */
+  @media print {
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+
+    html, body { background: #fff !important; }
+    .flare { display: none !important; }
+
+    body { display: block !important; padding: 0 !important; }
+    .card {
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      padding: 0 !important;
+      max-width: none !important;
+    }
+
+    .masthead,
+    .uploads,
+    .options-panel,
+    .notice,
+    .error-msg,
+    .toolbar,
+    .section-label,
+    .stats-row,
+    .swap-log,
+    .drag-hint,
+    #drag-ghost,
+    #mh-menubar { display: none !important; }
+
+    .preview-section {
+      display: block !important;
+      animation: none !important;
+    }
+
+    .grid-preview {
+      border: none !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+      overflow: visible !important;
+      margin: 0 !important;
+    }
+
+    #print-header { display: block !important; }
+
+    .grid-table {
+      width: 100% !important;
+      table-layout: fixed !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      font-size: 9px !important;
+    }
+
+    .grid-table td {
+      min-width: 0 !important;
+      width: auto !important;
+      height: 30px !important;
+      padding: 3px !important;
+      white-space: normal !important;
+      word-break: break-word !important;
+      line-height: 1.2 !important;
+      vertical-align: middle !important;
+      border: 1px solid #cfc5c9 !important;
+      color: #b3a8ac !important;
+    }
+
+    .cell-filled {
+      background: #f3eef1 !important;
+      border-color: #bda9b0 !important;
+      color: #1a1a1a !important;
+      font-weight: 700 !important;
+    }
+
+    .cell-empty-seat {
+      background: #fbf9fa !important;
+      border-color: #ddd2d6 !important;
+      color: #c2b8bc !important;
+    }
+
+    .cell-spacer {
+      background: #ffffff !important;
+      border-color: transparent !important;
+    }
+
+    .grade-badge,
+    .flag-marker { display: none !important; }
+
+    .cell-filled.has-flag {
+      border-left-color: #bda9b0 !important;
+      border-left-width: 1px !important;
+    }
+
+    .rank-caption { color: #8a8a8a !important; margin-top: 8px !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="flare"></div>
+<div id="drag-ghost"></div>
+
+<div class="card">
+
+  <!-- ── Masthead ── -->
+  <div class="masthead">
+    <div class="eyebrow">Classroom Seating</div>
+    <h1>Seat Planner <em>v11</em></h1>
+    <p class="subtitle">Upload a class roster — a simple name list <strong>or a Canvas gradebook export</strong> — and an optional room layout to generate a seating chart, then <strong>drag any student onto another</strong> to swap. Optional toggles let you rank by gradebook score and flag integrity concerns.</p>
+  </div>
+
+  <!-- ── File uploads ── -->
+  <div class="uploads">
+    <div class="upload-card" id="card-students">
+      <input type="file" accept=".csv" id="input-students">
+      <div class="card-label">Roster CSV</div>
+      <div class="card-title">Student Roster</div>
+      <div class="card-hint">
+        <strong>Simple CSV:</strong> name, optional score, optional note.<br>
+        <strong>Canvas export:</strong> drop it in as-is. Ranking and integrity
+        flags are off by default — enable them below.
+      </div>
+      <div class="card-status" id="status-students"></div>
+    </div>
+
+    <div class="upload-card" id="card-layout">
+      <input type="file" accept=".csv" id="input-layout">
+      <div class="card-label">Classroom Layout CSV <span class="optional">optional</span></div>
+      <div class="card-title">Classroom Layout</div>
+      <div class="card-hint">Cells with "X" mark valid seat positions.<br>Leave blank to use the default layout.</div>
+      <div class="card-status" id="status-layout"></div>
+    </div>
+  </div>
+
+  <!-- ── Options: ranking + flagging (both off by default) ── -->
+  <div class="options-panel">
+    <label class="opt-row">
+      <input type="checkbox" id="chk-rank">
+      <span class="opt-text">
+        <span class="opt-title">Rank by gradebook score</span>
+        <span class="opt-desc">Place students with lower scores toward the bottom of the chart (Canvas <em>Unposted Current Score</em>, or column 2 of a simple CSV). Shuffling is disabled while on.</span>
+      </span>
+    </label>
+    <label class="opt-row">
+      <input type="checkbox" id="chk-flag">
+      <span class="opt-text">
+        <span class="opt-title">Flag integrity concerns</span>
+        <span class="opt-desc">Flag students whose Canvas <em>Notes</em> (or column 3 of a simple CSV) contain any term below, and seat them at the bottom-most seats.</span>
+      </span>
+    </label>
+    <div class="flag-terms-wrap" id="flag-terms-wrap">
+      <label class="flag-terms-label" for="flag-terms">Flag when the notes contain any of these (one per line)</label>
+      <textarea id="flag-terms" rows="3" spellcheck="false">integrity concern
+integrity flag</textarea>
+      <div class="flag-terms-upload">
+        <label class="link-btn" for="input-flag-terms">Upload a list…</label>
+        <input type="file" id="input-flag-terms" accept=".txt,.csv" hidden>
+        <span class="flag-terms-hint" id="flag-terms-hint">.txt or .csv — one term per line</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notice bar — updated dynamically -->
+  <div class="notice" id="main-notice">
+    <strong>Default layout active:</strong> 5 rows × 9 columns with two aisle gaps — 35 seats total. Upload a layout CSV above to override.
+  </div>
+
+  <div class="error-msg" id="error-msg"></div>
+
+  <!-- ── Controls ── -->
+  <div class="toolbar">
+    <button class="btn"               id="btn-assign"   disabled>Assign Seats</button>
+    <button class="btn btn-secondary" id="btn-reassign" style="display:none">Reassign (Shuffle)</button>
+    <button class="btn btn-secondary" id="btn-download" style="display:none">Download CSV</button>
+    <button class="btn btn-pdf"       id="btn-pdf"      style="display:none">Download PDF</button>
+    <button class="btn btn-ghost"     id="btn-toggle-details" style="display:none">Show Details</button>
+    <span class="spacer"></span>
+    <button class="btn btn-ghost"     id="btn-undo"     style="display:none" disabled>↩ Undo Swap</button>
+  </div>
+
+  <!-- ── Preview ── -->
+  <div class="preview-section" id="preview-section">
+
+    <!-- Print-only header -->
+    <div id="print-header" style="display:none; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
+      <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:12px; border-bottom:2px solid #6b1f2a; padding-bottom:8px;">
+        <div>
+          <div style="font-size:8px; letter-spacing:0.14em; text-transform:uppercase; color:#6b1f2a; margin-bottom:4px;">Seat Planner</div>
+          <div style="font-size:18px; font-weight:700; color:#1a1a1a;">Seating Plan</div>
+        </div>
+        <div id="print-meta" style="font-size:9px; color:#595959; text-align:right; line-height:1.7;"></div>
+      </div>
+    </div>
+
+    <div class="section-label">
+      <span>Seating Chart Preview</span>
+      <span class="drag-hint">drag a student onto another to swap</span>
+    </div>
+    <div class="stats-row" id="stats-row"></div>
+    <div class="swap-log"  id="swap-log"></div>
+    <div class="grid-preview">
+      <table class="grid-table" id="grid-table"></table>
+    </div>
+    <div class="rank-caption" id="rank-caption" style="display:none">Lower scores ranked toward the bottom of the chart</div>
+  </div>
+
+</div>
+
+<script>
+  // ════════════════════════════════════════════════════════════════════════════
+  //  CORE LOGIC — kept in lock-step with the headless CLI (seatplanner.js).
+  //  parseCSV / isCanvasGradebook / ingest* / noteMatches / selectFilledSeats /
+  //  the assignment ordering are intentionally identical in both; fix bugs in BOTH.
+  // ════════════════════════════════════════════════════════════════════════════
+
+  // ── Default layout ─────────────────────────────────────────────────────────
+  // 5 rows, 9 cols: X X _ X X X _ X X
+  const DEFAULT_LAYOUT = (function() {
+    const pattern = ['X','X','','X','X','X','','X','X'];
+    return Array.from({ length: 5 }, () => [...pattern]);
+  })();
+
+  const DEFAULT_FLAG_TERMS = ['integrity concern', 'integrity flag'];
+
+  // ── State ──────────────────────────────────────────────────────────────────
+  let studentsData = null;  // [{name, score (number|null), note (string)}] — RAW
+  let rosterSource = null;  // 'canvas' | 'simple'
+  let rosterHasScores = false;
+  let rosterHasNotes  = false;
+  let rankingEnabled  = false;  // "Rank by gradebook score" checkbox
+  let flaggingEnabled = false;  // "Flag integrity concerns" checkbox
+  let gradeSource     = null;   // 'canvas'|'simple' while ranking active — drives badge format
+  let rankActiveGlobal = false; // ranking actually applied to the current chart
+  let detailsVisible  = false;  // grade badges + flag markers hidden by default
+  let layoutData   = DEFAULT_LAYOUT;
+  let resultGrid   = null;  // 2D array of name strings
+  let gradeGrid    = null;  // 2D array of grade values (null where absent)
+  let flagGrid     = null;  // 2D array of booleans (true = flagged)
+  let swapHistory  = [];
+  let swapCount    = 0;
+  let dragSrc      = null;
+  let totalSeatsGlobal = 0, totalStudentsGlobal = 0, assignedGlobal = 0;
+
+  // ── DOM refs ───────────────────────────────────────────────────────────────
+  const inputStudents  = document.getElementById('input-students');
+  const inputLayout    = document.getElementById('input-layout');
+  const cardStudents   = document.getElementById('card-students');
+  const cardLayout     = document.getElementById('card-layout');
+  const statusStudents = document.getElementById('status-students');
+  const statusLayout   = document.getElementById('status-layout');
+  const chkRank        = document.getElementById('chk-rank');
+  const chkFlag        = document.getElementById('chk-flag');
+  const flagTermsWrap  = document.getElementById('flag-terms-wrap');
+  const flagTermsEl    = document.getElementById('flag-terms');
+  const inputFlagTerms = document.getElementById('input-flag-terms');
+  const flagTermsHint  = document.getElementById('flag-terms-hint');
+  const btnAssign      = document.getElementById('btn-assign');
+  const btnDownload    = document.getElementById('btn-download');
+  const btnReassign    = document.getElementById('btn-reassign');
+  const btnPdf         = document.getElementById('btn-pdf');
+  const btnToggle      = document.getElementById('btn-toggle-details');
+  const btnUndo        = document.getElementById('btn-undo');
+  const previewSection = document.getElementById('preview-section');
+  const gridTable      = document.getElementById('grid-table');
+  const statsRow       = document.getElementById('stats-row');
+  const errorMsg       = document.getElementById('error-msg');
+  const swapLogEl      = document.getElementById('swap-log');
+  const dragGhost      = document.getElementById('drag-ghost');
+  const printMeta      = document.getElementById('print-meta');
+  const printHeader    = document.getElementById('print-header');
+  const mainNotice     = document.getElementById('main-notice');
+  const rankCaption    = document.getElementById('rank-caption');
+
+  // ── CSV parsing (RFC-4180-ish: quoted fields, embedded commas/quotes/newlines)
+  function parseCSV(text) {
+    const rows = [];
+    let row = [], field = '', inQuotes = false;
+    text = text.replace(/\r\n?/g, '\n');
+    for (let i = 0; i < text.length; i++) {
+      const ch = text[i];
+      if (inQuotes) {
+        if (ch === '"') {
+          if (text[i + 1] === '"') { field += '"'; i++; }
+          else inQuotes = false;
+        } else field += ch;
+      } else {
+        if (ch === '"') inQuotes = true;
+        else if (ch === ',') { row.push(field); field = ''; }
+        else if (ch === '\n') { row.push(field); rows.push(row); row = []; field = ''; }
+        else field += ch;
+      }
+    }
+    if (field !== '' || row.length) { row.push(field); rows.push(row); }
+    return rows.map(r => r.map(c => c.trim()));
+  }
+
+  // ── Canvas gradebook detection & ingestion ───────────────────────────────────
+  function isCanvasGradebook(rows) {
+    if (!rows.length) return false;
+    const header = rows[0].map(h => h.toLowerCase());
+    return header[0] === 'student' && header.some(h => h.includes('sis login id'));
+  }
+
+  // "Last, First Middle" → "First Middle Last"
+  function flipName(raw) {
+    const s = (raw || '').trim();
+    const comma = s.indexOf(',');
+    if (comma === -1) return s;
+    const last  = s.slice(0, comma).trim();
+    const first = s.slice(comma + 1).trim();
+    return (first + ' ' + last).trim() || s;
+  }
+
+  // Ingest returns RAW per-student data: { name, score (number|null), note }.
+  // Whether a score ranks and whether a note flags is decided at assign time.
+  function ingestCanvas(rows) {
+    const header = rows[0].map(h => h.toLowerCase());
+    const idxNotes = header.indexOf('notes');
+    const idxScore = header.indexOf('unposted current score');   // ranking uses the UNPOSTED score
+
+    let dataRows = rows.slice(1).filter(r => {
+      const name = (r[0] || '').trim();
+      if (!name) return false;
+      if (/^points possible/i.test(name)) return false;
+      return true;
+    });
+
+    const isTestStudent = n => /^\s*(student,\s*test|test\s+student)\s*$/i.test(n || '');
+    if (dataRows.some(r => !isTestStudent(r[0])))
+      dataRows = dataRows.filter(r => !isTestStudent(r[0]));
+
+    const students = dataRows.map(r => {
+      const scoreRaw = idxScore >= 0 ? r[idxScore] : '';
+      const score = (scoreRaw !== undefined && scoreRaw !== '' && !isNaN(parseFloat(scoreRaw)))
+        ? parseFloat(scoreRaw) : null;
+      const note = idxNotes >= 0 ? (r[idxNotes] || '').trim() : '';
+      return { name: flipName(r[0]), score, note };
+    }).filter(s => s.name);
+
+    return { students, hasScores: students.some(s => s.score !== null),
+             hasNotes: students.some(s => s.note !== ''), source: 'canvas' };
+  }
+
+  function ingestSimple(rows) {
+    const dataRows = rows.filter(r => r[0] && r[0].toLowerCase() !== 'name');
+    const numericCol2 = dataRows.length > 0 &&
+      dataRows.every(r => r[1] !== undefined && r[1] !== '' && !isNaN(parseFloat(r[1])));
+    const students = dataRows.map(r => ({
+      name:  r[0],
+      score: numericCol2 ? parseFloat(r[1]) : null,
+      note:  (r[2] !== undefined ? r[2] : '').trim()
+    }));
+    return { students, hasScores: students.some(s => s.score !== null),
+             hasNotes: students.some(s => s.note !== ''), source: 'simple' };
+  }
+
+  // ── Integrity-flag matching & term parsing ───────────────────────────────────
+  function noteMatches(note, terms) {
+    const n = (note || '').toLowerCase();
+    return terms.some(t => t && n.includes(t));
+  }
+  function getFlagTerms() {
+    return [...new Set(flagTermsEl.value.split(/\r?\n/).map(t => t.trim()).filter(Boolean).map(t => t.toLowerCase()))];
+  }
+
+  // ── Even seat selection (spreads EMPTY seats evenly across the room) ──────────
+  function selectFilledSeats(seats, count) {
+    const M = seats.length;
+    if (count >= M) return seats.slice();
+    const K = M - count;                       // empties to place
+
+    const byRow = new Map();
+    for (const s of seats) {
+      if (!byRow.has(s[0])) byRow.set(s[0], []);
+      byRow.get(s[0]).push(s);
+    }
+    for (const arr of byRow.values()) arr.sort((a, b) => a[1] - b[1]);
+
+    const rows = [...byRow.keys()].sort((a, b) => a - b).map(k => {
+      const n = byRow.get(k).length, exact = K * n / M, floor = Math.floor(exact);
+      return { k, n, floor, frac: exact - floor };
+    });
+    let assigned = rows.reduce((s, r) => s + r.floor, 0);
+    rows.slice().sort((a, b) => b.frac - a.frac || b.n - a.n)
+      .slice(0, K - assigned).forEach(r => r.floor++);
+
+    const empty = new Set();
+    for (const r of rows) {
+      const rowSeats = byRow.get(r.k), n = r.n, e = r.floor;
+      if (e <= 0) continue;
+      const phase = Math.random();             // random phase: reshuffles move the gaps, evenly
+      for (let j = 0; j < e; j++) {
+        let idx = Math.floor(((j + phase) * n) / e);
+        if (idx >= n) idx = n - 1;
+        let tries = 0;
+        while (empty.has(rowSeats[idx]) && tries < n) { idx = (idx + 1) % n; tries++; }
+        empty.add(rowSeats[idx]);
+      }
+    }
+    return seats.filter(s => !empty.has(s));
+  }
+
+  // ── Grade formatting (source-aware) ──────────────────────────────────────────
+  function formatGradeBadge(g) {
+    if (g === null || g === undefined) return '';
+    return gradeSource === 'canvas' ? (Math.round(g) + '%') : ('Gr. ' + g);
+  }
+  function formatGradeTitle(g) {
+    return gradeSource === 'canvas' ? (Math.round(g) + '%') : ('Grade ' + g);
+  }
+
+  function showError(msg) { errorMsg.textContent = msg; errorMsg.classList.add('visible'); }
+  function clearError()   { errorMsg.classList.remove('visible'); }
+  function checkReady()   { btnAssign.disabled = !studentsData || !studentsData.length; }
+
+  function isSeat(r, c) {
+    return layoutData[r] && layoutData[r][c] !== undefined && layoutData[r][c].toUpperCase() === 'X';
+  }
+
+  function updateNotice() {
+    const parts = [];
+    if (layoutData === DEFAULT_LAYOUT)
+      parts.push('<strong>Default layout active:</strong> 5 rows × 9 columns with two aisle gaps — 35 seats total. Upload a layout CSV above to override.');
+
+    let accentMode = false;
+    if (rankingEnabled) {
+      if (rosterHasScores) {
+        parts.push('<strong>Ranking on:</strong> lower scores are placed toward the bottom of the chart. Shuffling is disabled while ranking.');
+        accentMode = true;
+      } else {
+        parts.push('<strong>Ranking on,</strong> but no gradebook scores were found in this roster — students will be spread evenly.');
+      }
+    }
+    if (flaggingEnabled) {
+      if (rosterHasNotes)
+        parts.push('<strong>Flagging on:</strong> students whose notes contain a term are seated at the bottom-most seats.');
+      else
+        parts.push('<strong>Flagging on,</strong> but this roster has no notes to match.');
+    }
+
+    mainNotice.className = accentMode ? 'notice grade-mode' : 'notice';
+    if (parts.length) { mainNotice.style.display = ''; mainNotice.innerHTML = parts.join('<br>'); }
+    else mainNotice.style.display = 'none';
+  }
+
+  // ── File: students ─────────────────────────────────────────────────────────
+  inputStudents.addEventListener('change', e => {
+    const file = e.target.files[0]; if (!file) return;
+    const reader = new FileReader();
+    reader.onload = ev => {
+      const rows = parseCSV(ev.target.result);
+      const canvas = isCanvasGradebook(rows);
+      const result = canvas ? ingestCanvas(rows) : ingestSimple(rows);
+
+      studentsData    = result.students;
+      rosterSource    = result.source;
+      rosterHasScores = result.hasScores;
+      rosterHasNotes  = result.hasNotes;
+
+      const bits = [];
+      if (result.hasScores) bits.push(canvas ? 'scores detected' : 'grades detected');
+      if (result.hasNotes)  bits.push('notes detected');
+      const origin = canvas ? ' from Canvas gradebook' : '';
+      statusStudents.textContent = `${studentsData.length} students loaded${origin}` +
+        (bits.length ? ' · ' + bits.join(', ') : '');
+      cardStudents.classList.add('loaded');
+      checkReady();
+      updateNotice();
+      if (previewSection.classList.contains('visible')) assign();   // re-apply with the new roster
+    };
+    reader.readAsText(file);
+  });
+
+  // ── File: layout ───────────────────────────────────────────────────────────
+  inputLayout.addEventListener('change', e => {
+    const file = e.target.files[0]; if (!file) return;
+    const reader = new FileReader();
+    reader.onload = ev => {
+      layoutData = parseCSV(ev.target.result);
+      const seats = layoutData.flat().filter(c => c.toUpperCase() === 'X').length;
+      statusLayout.textContent = `${layoutData.length} rows × ${layoutData[0].length} cols — ${seats} seats`;
+      cardLayout.classList.add('loaded');
+      updateNotice();
+    };
+    reader.readAsText(file);
+  });
+
+  // Drag-and-drop file onto upload cards
+  [cardStudents, cardLayout].forEach(card => {
+    card.addEventListener('dragover', e => { e.preventDefault(); card.classList.add('dragover'); });
+    card.addEventListener('dragleave', () => card.classList.remove('dragover'));
+    card.addEventListener('drop', e => {
+      e.preventDefault();
+      card.classList.remove('dragover');
+      const input = card.querySelector('input[type="file"]');
+      const file = e.dataTransfer.files[0];
+      if (file) {
+        const dt = new DataTransfer(); dt.items.add(file);
+        input.files = dt.files;
+        input.dispatchEvent(new Event('change'));
+      }
+    });
+  });
+
+  // ── Options: ranking / flagging toggles ──────────────────────────────────────
+  chkRank.addEventListener('change', () => {
+    rankingEnabled = chkRank.checked;
+    updateNotice();
+    if (previewSection.classList.contains('visible')) assign();
+  });
+  chkFlag.addEventListener('change', () => {
+    flaggingEnabled = chkFlag.checked;
+    flagTermsWrap.classList.toggle('visible', flaggingEnabled);
+    updateNotice();
+    if (previewSection.classList.contains('visible')) assign();
+  });
+  // Re-apply on edited terms (on blur/change, not every keystroke)
+  flagTermsEl.addEventListener('change', () => {
+    if (flaggingEnabled && previewSection.classList.contains('visible')) assign();
+  });
+  // Upload a list of flag terms (.txt one per line, or .csv first column)
+  inputFlagTerms.addEventListener('change', e => {
+    const file = e.target.files[0]; if (!file) return;
+    const reader = new FileReader();
+    reader.onload = ev => {
+      const lines = ev.target.result.split(/\r?\n/).map(l => l.split(',')[0].trim()).filter(Boolean);
+      if (lines.length) {
+        flagTermsEl.value = lines.join('\n');
+        flagTermsHint.textContent = `loaded ${lines.length} term${lines.length !== 1 ? 's' : ''} from ${file.name}`;
+        if (flaggingEnabled && previewSection.classList.contains('visible')) assign();
+      } else {
+        flagTermsHint.textContent = 'no terms found in that file';
+      }
+    };
+    reader.readAsText(file);
+  });
+
+  // ── Assign ─────────────────────────────────────────────────────────────────
+  btnAssign.addEventListener('click',   () => assign());
+  btnReassign.addEventListener('click', () => assign());
+
+  function assign() {
+    clearError();
+
+    const seats = [];
+    for (let r = 0; r < layoutData.length; r++)
+      for (let c = 0; c < layoutData[r].length; c++)
+        if (layoutData[r][c] && layoutData[r][c].toUpperCase() === 'X') seats.push([r, c]);
+
+    if (!seats.length)                         { showError('No seats found. Make sure the layout CSV has cells containing "X".'); return; }
+    if (!studentsData || !studentsData.length) { showError('No student names found.'); return; }
+
+    // Resolve the optional features from the toggles + terms.
+    const terms = getFlagTerms();
+    const rankActive = rankingEnabled && rosterHasScores;
+    const resolved = studentsData.map(s => ({
+      name:    s.name,
+      grade:   rankActive ? s.score : null,
+      flagged: flaggingEnabled ? noteMatches(s.note, terms) : false,
+    }));
+    const flagsActive = flaggingEnabled && resolved.some(s => s.flagged);
+    gradeSource = rankActive ? rosterSource : null;
+    rankActiveGlobal = rankActive;
+
+    const count = Math.min(resolved.length, seats.length);
+    const filled = selectFilledSeats(seats, count);     // even spread of empties, always
+    const bottomFirst = (a, b) => (a[0] !== b[0] ? b[0] - a[0] : a[1] - b[1]);
+    let orderedSeats, orderedStudents;
+
+    if (rankActive) {
+      orderedSeats = [...filled].sort(bottomFirst);
+      orderedStudents = [...resolved]
+        .sort((a, b) => {
+          const ea = a.flagged ? -Infinity : (a.grade ?? 0);
+          const eb = b.flagged ? -Infinity : (b.grade ?? 0);
+          return ea - eb;
+        })
+        .slice(0, count);
+    } else if (flagsActive) {
+      orderedSeats = [...filled].sort(bottomFirst);
+      const flagged   = resolved.filter(s => s.flagged).sort(() => Math.random() - 0.5);
+      const unflagged = resolved.filter(s => !s.flagged).sort(() => Math.random() - 0.5);
+      orderedStudents = [...flagged, ...unflagged].slice(0, count);
+    } else {
+      orderedSeats = filled;
+      orderedStudents = [...resolved].sort(() => Math.random() - 0.5).slice(0, count).map(s => ({ ...s }));
+    }
+
+    // Build result grids
+    const rows = layoutData.length;
+    const cols = Math.max(...layoutData.map(r => r.length));
+
+    resultGrid = Array.from({ length: rows }, (_, r) =>
+      Array.from({ length: cols }, (_, c) => {
+        const v = layoutData[r] && layoutData[r][c] !== undefined ? layoutData[r][c] : '';
+        return v.toUpperCase() === 'X' ? '' : v;
+      })
+    );
+    gradeGrid = Array.from({ length: rows }, () => Array(cols).fill(null));
+    flagGrid  = Array.from({ length: rows }, () => Array(cols).fill(false));
+
+    for (let i = 0; i < orderedSeats.length; i++) {
+      const [r, c] = orderedSeats[i];
+      const student = orderedStudents[i];
+      if (!student) break;
+      resultGrid[r][c] = student.name;
+      gradeGrid[r][c]  = student.grade;
+      flagGrid[r][c]   = student.flagged || false;
+    }
+
+    swapHistory = []; swapCount = 0;
+    updateSwapLog(null);
+
+    totalSeatsGlobal    = seats.length;
+    totalStudentsGlobal = resolved.length;
+    assignedGlobal      = orderedSeats.length;
+
+    renderPreview(seats.length, resolved.length, orderedSeats.length, rankActive, flagsActive);
+  }
+
+  // ── Render preview ─────────────────────────────────────────────────────────
+  function renderPreview(totalSeats, totalStudents, assigned, rankActive, flagsActive) {
+    statsRow.innerHTML = `
+      <div class="stat"><span class="stat-value">${totalStudents}</span><span class="stat-label">students</span></div>
+      <div class="stat"><span class="stat-value">${totalSeats}</span><span class="stat-label">seats</span></div>
+      <div class="stat"><span class="stat-value">${assigned}</span><span class="stat-label">assigned</span></div>
+      <div class="stat"><span class="stat-value">${totalSeats - assigned}</span><span class="stat-label">empty seats</span></div>
+    `;
+
+    detailsVisible = false;
+    gridTable.classList.add('details-off');
+    btnToggle.textContent = 'Show Details';
+    btnToggle.classList.remove('active');
+
+    rebuildTable();
+    previewSection.classList.add('visible');
+    btnDownload.style.display = '';
+    btnReassign.style.display = rankActive ? 'none' : '';
+    btnPdf.style.display      = '';
+    btnToggle.style.display   = (rankActive || flagsActive) ? '' : 'none';
+    btnUndo.style.display     = '';
+    rankCaption.style.display = rankActive ? '' : 'none';
+    syncUndoBtn();
+  }
+
+  function rebuildTable(flashCells) {
+    gridTable.innerHTML = '';
+    const rows = resultGrid.length;
+    const cols = Math.max(...resultGrid.map(r => r.length));
+
+    for (let r = 0; r < rows; r++) {
+      const tr = document.createElement('tr');
+      for (let c = 0; c < cols; c++) {
+        const td      = document.createElement('td');
+        const val     = resultGrid[r] ? (resultGrid[r][c] || '') : '';
+        const grade   = (gradeGrid && gradeGrid[r]) ? gradeGrid[r][c] : null;
+        const flagged = (flagGrid  && flagGrid[r])  ? flagGrid[r][c]  : false;
+        const seat    = isSeat(r, c);
+
+        td.dataset.r = r;
+        td.dataset.c = c;
+
+        if (seat && val) {
+          td.className = 'cell-filled' + (flagged ? ' has-flag' : '');
+
+          const gradeLabel = grade !== null ? ' · ' + formatGradeTitle(grade) : '';
+          const flagLabel  = flagged ? ' · ⚑ integrity flag' : '';
+          td.title = `${val}${gradeLabel}${flagLabel} — drag to swap`;
+
+          const inner = document.createElement('div');
+          inner.className = 'cell-inner';
+
+          const nameSpan = document.createElement('span');
+          nameSpan.textContent = val;
+          inner.appendChild(nameSpan);
+
+          if (grade !== null || flagged) {
+            const badgesRow = document.createElement('div');
+            badgesRow.className = 'badges-row';
+
+            if (grade !== null) {
+              const badge = document.createElement('span');
+              badge.className = 'grade-badge';
+              badge.textContent = formatGradeBadge(grade);
+              badgesRow.appendChild(badge);
+            }
+
+            if (flagged) {
+              const marker = document.createElement('span');
+              marker.className = 'flag-marker';
+              marker.textContent = '⚑';
+              marker.title = 'Academic integrity flag';
+              badgesRow.appendChild(marker);
+            }
+
+            inner.appendChild(badgesRow);
+          }
+
+          td.appendChild(inner);
+          attachDragHandlers(td);
+
+        } else if (seat) {
+          td.className = 'cell-empty-seat';
+          td.textContent = 'empty';
+          attachDropOnlyHandlers(td);
+        } else {
+          td.className = 'cell-spacer';
+        }
+
+        if (flashCells && flashCells.some(([fr,fc]) => fr===r && fc===c))
+          td.classList.add('cell-just-swapped');
+
+        tr.appendChild(td);
+      }
+      gridTable.appendChild(tr);
+    }
+  }
+
+  // ── Drag-to-swap ───────────────────────────────────────────────────────────
+  function attachDragHandlers(td) {
+    td.draggable = true;
+
+    td.addEventListener('dragstart', e => {
+      dragSrc = { r: +td.dataset.r, c: +td.dataset.c, td };
+      td.classList.add('dragging');
+      const nameEl = td.querySelector('.cell-inner span:first-child') || td;
+      dragGhost.textContent = nameEl.textContent || td.textContent;
+      dragGhost.style.display = 'block';
+      e.dataTransfer.setDragImage(dragGhost, -999, -999);
+      e.dataTransfer.effectAllowed = 'move';
+      e.dataTransfer.setData('text/plain', `${td.dataset.r},${td.dataset.c}`);
+    });
+
+    td.addEventListener('drag', e => {
+      if (e.clientX === 0 && e.clientY === 0) return;
+      dragGhost.style.left = (e.clientX + 14) + 'px';
+      dragGhost.style.top  = (e.clientY - 16) + 'px';
+    });
+
+    td.addEventListener('dragend', () => {
+      dragGhost.style.display = 'none';
+      td.classList.remove('dragging');
+      document.querySelectorAll('.drag-over').forEach(el => el.classList.remove('drag-over'));
+      dragSrc = null;
+    });
+
+    attachDropHandlers(td);
+  }
+
+  function attachDropOnlyHandlers(td) { attachDropHandlers(td); }
+
+  function attachDropHandlers(td) {
+    td.addEventListener('dragover', e => {
+      e.preventDefault();
+      if (!dragSrc) return;
+      if (dragSrc.r === +td.dataset.r && dragSrc.c === +td.dataset.c) return;
+      e.dataTransfer.dropEffect = 'move';
+      td.classList.add('drag-over');
+    });
+
+    td.addEventListener('dragleave', () => td.classList.remove('drag-over'));
+
+    td.addEventListener('drop', e => {
+      e.preventDefault();
+      td.classList.remove('drag-over');
+      if (!dragSrc) return;
+      const srcR = dragSrc.r, srcC = dragSrc.c;
+      const dstR = +td.dataset.r, dstC = +td.dataset.c;
+      if (srcR === dstR && srcC === dstC) return;
+      if (!isSeat(dstR, dstC)) return;
+      performSwap(srcR, srcC, dstR, dstC);
+    });
+  }
+
+  function performSwap(r1, c1, r2, c2, isUndo = false) {
+    const nameA  = resultGrid[r1][c1];
+    const nameB  = resultGrid[r2][c2];
+    const gradeA = gradeGrid[r1][c1];
+    const gradeB = gradeGrid[r2][c2];
+    const flagA  = flagGrid[r1][c1];
+    const flagB  = flagGrid[r2][c2];
+
+    resultGrid[r1][c1] = nameB;  resultGrid[r2][c2] = nameA;
+    gradeGrid[r1][c1]  = gradeB; gradeGrid[r2][c2]  = gradeA;
+    flagGrid[r1][c1]   = flagB;  flagGrid[r2][c2]   = flagA;
+
+    if (!isUndo) {
+      swapHistory.push({ r1, c1, r2, c2, nameA, nameB, gradeA, gradeB, flagA, flagB });
+      swapCount++;
+    }
+    syncUndoBtn();
+    rebuildTable([[r1,c1],[r2,c2]]);
+    updateSwapLog({ nameA, nameB, isUndo });
+  }
+
+  function updateSwapLog(info) {
+    if (!info) {
+      swapLogEl.innerHTML = swapCount > 0
+        ? `<span class="swap-badge">${swapCount} swap${swapCount!==1?'s':''}</span><span class="swap-log-text">chart modified</span>`
+        : `<span class="swap-log-text" style="opacity:0.45">no swaps yet</span>`;
+      return;
+    }
+    const verb = info.isUndo ? 'undid swap of' : 'swapped';
+    const a = info.nameA || 'empty seat';
+    const b = info.nameB || 'empty seat';
+    swapLogEl.innerHTML = `<span class="swap-badge">${swapCount} swap${swapCount!==1?'s':''}</span><span class="swap-log-text">${verb} <strong>${a}</strong> ↔ <strong>${b}</strong></span>`;
+  }
+
+  function syncUndoBtn() { btnUndo.disabled = swapHistory.length === 0; }
+
+  btnUndo.addEventListener('click', () => {
+    if (!swapHistory.length) return;
+    const last = swapHistory.pop();
+    swapCount = Math.max(0, swapCount - 1);
+    resultGrid[last.r1][last.c1] = last.nameA;  resultGrid[last.r2][last.c2] = last.nameB;
+    gradeGrid[last.r1][last.c1]  = last.gradeA; gradeGrid[last.r2][last.c2]  = last.gradeB;
+    flagGrid[last.r1][last.c1]   = last.flagA;  flagGrid[last.r2][last.c2]   = last.flagB;
+    syncUndoBtn();
+    rebuildTable([[last.r1,last.c1],[last.r2,last.c2]]);
+    updateSwapLog({ nameA: last.nameA, nameB: last.nameB, isUndo: true });
+  });
+
+  // ── Toggle details (grade badges + flag markers) ────────────────────────────
+  btnToggle.addEventListener('click', () => {
+    detailsVisible = !detailsVisible;
+    if (detailsVisible) {
+      gridTable.classList.remove('details-off');
+      btnToggle.textContent = 'Hide Details';
+      btnToggle.classList.add('active');
+    } else {
+      gridTable.classList.add('details-off');
+      btnToggle.textContent = 'Show Details';
+      btnToggle.classList.remove('active');
+    }
+  });
+
+  // ── Download CSV (names only — same grid as the chart) ───────────────────────
+  btnDownload.addEventListener('click', () => {
+    const csvRows = resultGrid.map(row =>
+      row.map(cell => {
+        if (cell && (cell.includes(',') || cell.includes('"') || cell.includes('\n')))
+          return `"${cell.replace(/"/g, '""')}"`;
+        return cell;
+      }).join(',')
+    );
+    const blob = new Blob([csvRows.join('\n')], { type: 'text/csv' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'seating-chart.csv';
+    a.click();
+    URL.revokeObjectURL(a.href);
+  });
+
+  // ── Download PDF (via print) ────────────────────────────────────────────────
+  btnPdf.addEventListener('click', () => {
+    const now = new Date();
+    const dateStr = now.toLocaleDateString('en-CA', { year:'numeric', month:'long', day:'numeric' });
+    const timeStr = now.toLocaleTimeString('en-CA', { hour:'2-digit', minute:'2-digit', second:'2-digit' });
+    printMeta.innerHTML =
+      `${totalStudentsGlobal} students · ${totalSeatsGlobal} seats<br>` +
+      `${assignedGlobal} assigned · ${totalSeatsGlobal - assignedGlobal} empty` +
+      (rankActiveGlobal ? `<br>Ranked by gradebook score` : '') +
+      (swapCount > 0 ? `<br>${swapCount} manual swap${swapCount!==1?'s':''}` : '') +
+      `<br>Generated ${dateStr} at ${timeStr}`;
+
+    printHeader.style.display = 'block';
+    setTimeout(() => {
+      window.print();
+      setTimeout(() => { printHeader.style.display = 'none'; }, 600);
+    }, 80);
+  });
+</script>
+</body>
+</html>

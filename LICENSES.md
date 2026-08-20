@@ -7,11 +7,19 @@ ZIP. Update both from the locked environments before a release.
 ## This project
 
 - Canvas Automation: MIT. See `LICENSE`.
-- No model weights or vendored source are included.
-- This toolkit's Testmaker implementation follows the documented tagged interchange
-  format and general QA practices from local instructor workflows. It does not
-  redistribute the legacy MCQer.html application, DOC_TOOLS source, private readings, prior exams, or
-  student data. Those sources retain their respective rights and licenses.
+- No model weights are included.
+- `vendor/testmaker-mcqer/` contains M. Horrigan's original headless MCQer
+  JavaScript renderer, adapted only for deterministic seeded runs and a clean
+  HTML interchange input. It is included under this project's MIT license. Its
+  locked npm dependencies retain the licenses recorded in that directory's
+  package lock and in the generated distribution SBOM.
+- `vendor/doctools-seatplanner/` contains M. Horrigan's original Seat Planner
+  and Nameplates renderers, imported without formatting changes from DOC_TOOLS
+  and the bio-site versions. The software is included under this project's MIT
+  license. The accompanying brand and slime assets remain copyright Matthew
+  Horrigan and are not covered by the MIT software license. See that directory's
+  provenance record and source hashes.
+- Private readings, prior exams, and student data are not distributed.
 - The house-style tokens and slime artwork are supplied by Matthew Horrigan.
   The slime artwork and `assets/slime-widget.js` remain copyright Matthew Horrigan and are not
   covered by the toolkit's MIT software license.
@@ -42,8 +50,14 @@ Exact versions and artifact hashes are pinned in `uv.lock`.
 | Beautiful Soup | `>=4.12` | MIT |
 | openpyxl | `>=3.1` | MIT |
 | lxml | `>=5.0,<7.0` | BSD-3-Clause |
+| Premailer | `>=3.10,<4.0` | BSD-3-Clause |
 | Waitress | `>=3.0,<4.0` | ZPL-2.1 |
 | pytest (development extra) | `>=8.0` | MIT |
+
+The authoritative printable Testmaker backend also requires Node.js and the
+locked npm packages under `vendor/testmaker-mcqer/`: commander (MIT), docx
+(MIT), jsdom (MIT), jsPDF (MIT), Mammoth (BSD-2-Clause), and pdf-lib (MIT).
+The optional native `canvas` package is not required.
 
 Transitive packages and their exact versions appear in `sbom.json`. Their
 license expressions come from package metadata and the SPDX mappings maintained

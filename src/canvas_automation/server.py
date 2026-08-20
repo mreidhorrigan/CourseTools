@@ -24,7 +24,7 @@ import threading
 import time
 from urllib.parse import urlparse
 
-from flask import Flask, request, jsonify
+from flask import Flask, g, request, jsonify
 
 from .canvas_client import CanvasClient, build_rubric_criteria_hash
 
@@ -45,7 +45,7 @@ def canvas_hosts_match(base_url, sandbox_course_url):
     return bool(canvas_host and canvas_host == sandbox_host)
 
 
-def create_app(base_url, token, allowed_course_id=None):
+def create_app(base_url, token, allowed_course_id=None, access_log=True):
     """Build a configured Flask app around one CanvasClient."""
     if not base_url.startswith(("http://", "https://")):
         base_url = "https://" + base_url
@@ -56,6 +56,23 @@ def create_app(base_url, token, allowed_course_id=None):
     app.canvas_client = client  # exposed so run() can do the startup whoami() check
     app.allowed_course_id = int(allowed_course_id) if allowed_course_id else None
 
+    if access_log:
+        @app.before_request
+        def start_access_timer():
+            g.canvas_access_started = time.perf_counter()
+
+        @app.after_request
+        def print_access_result(response):
+            elapsed_ms = (time.perf_counter() - g.canvas_access_started) * 1000
+            # request.path deliberately omits the query string. Never include
+            # headers, bodies, or the Canvas client's authorization data here.
+            print(
+                f"HTTP {request.method} {request.path} -> "
+                f"{response.status_code} ({elapsed_ms:.1f} ms)",
+                flush=True,
+            )
+            return response
+
     def reject_wrong_course(course_id):
         if app.allowed_course_id is not None and course_id != app.allowed_course_id:
             return jsonify({
@@ -64,6 +81,22 @@ def create_app(base_url, token, allowed_course_id=None):
                 "allowed_course_id": app.allowed_course_id,
             }), 403
         return None
+
+    def reject_published_course(course_id):
+        """Refuse every Canvas write when the guarded course is published."""
+        response = client.get(f"/courses/{course_id}")
+        response.raise_for_status()
+        course = response.json()
+        if course.get("workflow_state") != "unpublished":
+            return jsonify({
+                "error": "Canvas writes are blocked because the guarded course is published.",
+                "course_id": course_id,
+                "workflow_state": course.get("workflow_state"),
+            }), 409
+        return None
+
+    def reject_unsafe_write(course_id):
+        return reject_wrong_course(course_id) or reject_published_course(course_id)
 
     def forward_response(resp):
         content_type = resp.headers.get("Content-Type", "application/json")
@@ -86,7 +119,7 @@ def create_app(base_url, token, allowed_course_id=None):
 
     @app.route("/api/courses/<int:course_id>/assignments", methods=["POST"])
     def create_assignment(course_id):
-        blocked = reject_wrong_course(course_id)
+        blocked = reject_unsafe_write(course_id)
         if blocked:
             return blocked
         body = request.get_json(force=True) or {}
@@ -96,7 +129,7 @@ def create_app(base_url, token, allowed_course_id=None):
 
     @app.route("/api/courses/<int:course_id>/rubrics", methods=["POST"])
     def create_rubric(course_id):
-        blocked = reject_wrong_course(course_id)
+        blocked = reject_unsafe_write(course_id)
         if blocked:
             return blocked
         body = request.get_json(force=True) or {}
@@ -116,7 +149,7 @@ def create_app(base_url, token, allowed_course_id=None):
 
     @app.route("/api/courses/<int:course_id>/discussion_topics", methods=["POST"])
     def create_discussion_topic(course_id):
-        blocked = reject_wrong_course(course_id)
+        blocked = reject_unsafe_write(course_id)
         if blocked:
             return blocked
         # Discussion Topics uses flat top-level params, unlike assignments,
@@ -127,7 +160,7 @@ def create_app(base_url, token, allowed_course_id=None):
 
     @app.route("/api/courses/<int:course_id>/pages", methods=["POST"])
     def create_page(course_id):
-        blocked = reject_wrong_course(course_id)
+        blocked = reject_unsafe_write(course_id)
         if blocked:
             return blocked
         body = request.get_json(force=True) or {}
@@ -138,7 +171,7 @@ def create_app(base_url, token, allowed_course_id=None):
 
     @app.route("/api/courses/<int:course_id>/files", methods=["POST"])
     def upload_course_file(course_id):
-        blocked = reject_wrong_course(course_id)
+        blocked = reject_unsafe_write(course_id)
         if blocked:
             return blocked
         uploaded = request.files.get("file")
@@ -153,7 +186,7 @@ def create_app(base_url, token, allowed_course_id=None):
     @app.route("/api/courses/<int:course_id>/files/<int:file_id>/download", methods=["GET"])
     def download_course_file(course_id, file_id):
         """Download a known Canvas file through the in-memory credentials."""
-        blocked = reject_wrong_course(course_id)
+        blocked = reject_unsafe_write(course_id)
         if blocked:
             return blocked
         metadata = client.get(f"/files/{file_id}")
@@ -197,6 +230,10 @@ def create_app(base_url, token, allowed_course_id=None):
             blocked = reject_wrong_course(path_course_id)
             if blocked:
                 return blocked
+            if method != "GET":
+                blocked = reject_published_course(path_course_id)
+                if blocked:
+                    return blocked
         elif method != "GET" and app.allowed_course_id is not None:
             return jsonify({
                 "error": "Guarded raw mutations must contain the allowed /courses/:id path.",

@@ -29,6 +29,28 @@
           "expression": "MIT"
         }
       ],
+      "name": "cachetools",
+      "purl": "pkg:pypi/cachetools@6.2.6",
+      "type": "library",
+      "version": "6.2.6"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "cachetools",
+      "purl": "pkg:pypi/cachetools@7.1.7",
+      "type": "library",
+      "version": "7.1.7"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
       "name": "canvas-automation",
       "purl": "pkg:pypi/canvas-automation@0.1.0",
       "type": "library",
@@ -44,6 +66,17 @@
       "purl": "pkg:pypi/certifi@2026.6.17",
       "type": "library",
       "version": "2026.6.17"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "0BSD"
+        }
+      ],
+      "name": "chardet",
+      "purl": "pkg:pypi/chardet@7.6.0",
+      "type": "library",
+      "version": "7.6.0"
     },
     {
       "licenses": [
@@ -88,6 +121,61 @@
       "purl": "pkg:pypi/colorama@0.4.6",
       "type": "library",
       "version": "0.4.6"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "name": "cssselect",
+      "purl": "pkg:pypi/cssselect@1.3.0",
+      "type": "library",
+      "version": "1.3.0"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "name": "cssselect",
+      "purl": "pkg:pypi/cssselect@1.5.0",
+      "type": "library",
+      "version": "1.5.0"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "LGPL-3.0-or-later"
+        }
+      ],
+      "name": "cssutils",
+      "purl": "pkg:pypi/cssutils@2.11.1",
+      "type": "library",
+      "version": "2.11.1"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "LGPL-3.0-or-later"
+        }
+      ],
+      "name": "cssutils",
+      "purl": "pkg:pypi/cssutils@2.15.0",
+      "type": "library",
+      "version": "2.15.0"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "LGPL-3.0-or-later"
+        }
+      ],
+      "name": "encutils",
+      "purl": "pkg:pypi/encutils@1.0.0",
+      "type": "library",
+      "version": "1.0.0"
     },
     {
       "licenses": [
@@ -216,6 +304,28 @@
           "expression": "MIT"
         }
       ],
+      "name": "more-itertools",
+      "purl": "pkg:pypi/more-itertools@10.8.0",
+      "type": "library",
+      "version": "10.8.0"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "more-itertools",
+      "purl": "pkg:pypi/more-itertools@11.1.0",
+      "type": "library",
+      "version": "11.1.0"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
       "name": "openpyxl",
       "purl": "pkg:pypi/openpyxl@3.1.5",
       "type": "library",
@@ -264,6 +374,17 @@
       "purl": "pkg:pypi/pluggy@1.6.0",
       "type": "library",
       "version": "1.6.0"
+    },
+    {
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "name": "premailer",
+      "purl": "pkg:pypi/premailer@3.10.0",
+      "type": "library",
+      "version": "3.10.0"
     },
     {
       "licenses": [
@@ -1397,6 +1518,78 @@
       "scope": "optional",
       "type": "library",
       "version": "17.0.1"
+    },
+    {
+      "group": "testmaker-renderer",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "commander",
+      "purl": "pkg:npm/commander@11.1.0",
+      "type": "library",
+      "version": "11.1.0"
+    },
+    {
+      "group": "testmaker-renderer",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "docx",
+      "purl": "pkg:npm/docx@8.5.0",
+      "type": "library",
+      "version": "8.5.0"
+    },
+    {
+      "group": "testmaker-renderer",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "jsdom",
+      "purl": "pkg:npm/jsdom@22.1.0",
+      "type": "library",
+      "version": "22.1.0"
+    },
+    {
+      "group": "testmaker-renderer",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "jspdf",
+      "purl": "pkg:npm/jspdf@2.5.2",
+      "type": "library",
+      "version": "2.5.2"
+    },
+    {
+      "group": "testmaker-renderer",
+      "licenses": [
+        {
+          "expression": "BSD-2-Clause"
+        }
+      ],
+      "name": "mammoth",
+      "purl": "pkg:npm/mammoth@1.12.0",
+      "type": "library",
+      "version": "1.12.0"
+    },
+    {
+      "group": "testmaker-renderer",
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "name": "pdf-lib",
+      "purl": "pkg:npm/pdf-lib@1.17.1",
+      "type": "library",
+      "version": "1.17.1"
     }
   ],
   "metadata": {

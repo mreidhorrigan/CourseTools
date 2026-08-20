@@ -12,6 +12,9 @@ an unpublished sandbox before students enter the course.
    oEmbed endpoints for YouTube and Vimeo, because a provider page can return
    HTTP 200 while its video is unavailable. `PROTECTED` means automation could
    not prove playability. It is not a pass.
+   `METADATA` means Crossref confirms a DOI citation; it does not confirm
+   full-text availability. Prefer an authoritative open-access repository or
+   publisher link, and manually confirm required copyrighted readings.
    Use `--outtakes-out out/link-outtakes.json`. Library search/resolver URLs are
    `OUTTAKE`: replace them with stable item-level DOI, publisher, repository,
    or author links. Keep unresolved items in outtakes until a human verifies a
@@ -54,3 +57,17 @@ an unpublished sandbox before students enter the course.
 - [Canvas Accessibility Checker](https://community.instructure.com/en/kb/articles/664351-how-do-i-use-the-accessibility-checker-in-canvas)
 - [Canvas API endpoint attributes](https://developerdocs.instructure.com/services/canvas/basics/file.endpoint_attributes)
 - [Vimeo oEmbed behavior](https://developer.vimeo.com/api/oembed/videos)
+# Reading workload
+
+Run `python3 scripts/audit_reading_workload.py --check` after changing assigned
+materials or weekly activities. The configuration in
+`course/reading-workload.config.jsonc` records local source files, instructor
+estimates, non-reading minutes, the reading-rate assumption, and the review band.
+Use `--strict-balance` in release QA when every out-of-band week has been resolved
+or consciously waived. PDF extraction uses its text layer and falls back to the
+machine's `pdftoppm` and Tesseract OCR tools when necessary.
+
+The reverse planner targets 450 minutes per week, the midpoint of SFU's official
+6–9-hour expectation for a three-unit course. It deducts measured reading time
+and distributes the remainder using the project-round allocation profile in the
+JSONC. Review the profiles whenever project requirements or assigned media change.

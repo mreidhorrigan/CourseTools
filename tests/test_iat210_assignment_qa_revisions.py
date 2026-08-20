@@ -22,11 +22,14 @@ def test_actual_play_rubric_totals_and_descriptors_are_complete():
 
 
 def test_actual_play_assignment_pages_contain_gradeable_requirements():
-    plan = BeautifulSoup((ROOT / "course/content/assignments/207309-actual-play-project-session-plan-and-rulebook.html").read_text(), "html.parser").get_text(" ", strip=True)
-    final = BeautifulSoup((ROOT / "course/content/assignments/207279-actual-play-project-final-submission.html").read_text(), "html.parser").get_text(" ", strip=True)
+    assignments = ROOT / "course/content/assignments"
+    plan_path = next(assignments.glob("*-actual-play-project-session-plan-and-rulebook.html"))
+    final_path = next(assignments.glob("*-actual-play-project-final-submission.html"))
+    plan = BeautifulSoup(plan_path.read_text(), "html.parser").get_text(" ", strip=True)
+    final = BeautifulSoup(final_path.read_text(), "html.parser").get_text(" ", strip=True)
     for phrase in ("one PDF", "consequential", "primary and backup recording", "testable question", "AI appendix"):
         assert phrase in plan
-    for phrase in ("one ZIP", "10–15 minute", "Consent and permissions record", "before/after", "Individual contribution and analysis", "AI appendix"):
+    for phrase in ("exactly two files", "MP4", "ODT", "10–15 minute", "rubric evidence map", "Consent and permissions record", "before/after", "Individual contribution and analysis", "AI appendix"):
         assert phrase in final
 
 

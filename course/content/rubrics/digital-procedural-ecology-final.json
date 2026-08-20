@@ -1,116 +1,14 @@
 {
   "schema": "canvas-automation/rubric-source/v1",
   "key": "digital-procedural-ecology-final",
-  "title": "Digital Procedural-Ecology Final",
+  "title": "Digital Procedural-Ecosystem Final",
   "points_possible": 12.0,
   "criteria": [
-    {
-      "description": "Browser package and technical integrity",
-      "points": 2.0,
-      "ratings": [
-        {
-          "description": "Strong",
-          "points": 2.0
-        },
-        {
-          "description": "Partial",
-          "points": 1.0
-        },
-        {
-          "description": "Not demonstrated",
-          "points": 0.0
-        }
-      ]
-    },
-    {
-      "description": "Player loop and procedural ecology",
-      "points": 2.0,
-      "ratings": [
-        {
-          "description": "Strong",
-          "points": 2.0
-        },
-        {
-          "description": "Partial",
-          "points": 1.0
-        },
-        {
-          "description": "Not demonstrated",
-          "points": 0.0
-        }
-      ]
-    },
-    {
-      "description": "Emergence, feedback, and reproducibility",
-      "points": 2.0,
-      "ratings": [
-        {
-          "description": "Strong",
-          "points": 2.0
-        },
-        {
-          "description": "Partial",
-          "points": 1.0
-        },
-        {
-          "description": "Not demonstrated",
-          "points": 0.0
-        }
-      ]
-    },
-    {
-      "description": "Usability, accessibility, and gameplay evidence",
-      "points": 2.0,
-      "ratings": [
-        {
-          "description": "Strong",
-          "points": 2.0
-        },
-        {
-          "description": "Partial",
-          "points": 1.0
-        },
-        {
-          "description": "Not demonstrated",
-          "points": 0.0
-        }
-      ]
-    },
-    {
-      "description": "Testing, revision, documentation, and licences",
-      "points": 2.0,
-      "ratings": [
-        {
-          "description": "Strong",
-          "points": 2.0
-        },
-        {
-          "description": "Partial",
-          "points": 1.0
-        },
-        {
-          "description": "Not demonstrated",
-          "points": 0.0
-        }
-      ]
-    },
-    {
-      "description": "Individual contribution and analysis",
-      "points": 2.0,
-      "ratings": [
-        {
-          "description": "Strong",
-          "points": 2.0
-        },
-        {
-          "description": "Partial",
-          "points": 1.0
-        },
-        {
-          "description": "Not demonstrated",
-          "points": 0.0
-        }
-      ]
-    }
+    {"description": "Browser package and technical integrity", "long_description": "The ZIP has index.html at its root, required files use local relative paths, the documented launch method works in a current desktop browser, and source and dependencies are inspectable.", "points": 2.0, "ratings": [{"description": "Strong: the integrated package launches and operates as documented without a material technical failure", "points": 2.0}, {"description": "Partial: the package is substantially inspectable but a limited launch, path, dependency, or integration problem interferes", "points": 1.0}, {"description": "Not demonstrated: no assessable browser package or a core technical failure prevents play", "points": 0.0}]},
+    {"description": "Player loop and procedural ecosystem", "long_description": "A repeatable player action affects at least two stateful entities, resources, or environmental processes whose interactions shape subsequent play.", "points": 2.0, "ratings": [{"description": "Strong: a coherent player loop and interacting ecosystem are clearly implemented", "points": 2.0}, {"description": "Partial: a playable action or interaction exists, but the loop or ecosystem is thin, disconnected, or inconsistently implemented", "points": 1.0}, {"description": "Not demonstrated: no assessable player loop or interacting procedural ecosystem", "points": 0.0}]},
+    {"description": "Emergence, feedback, and reproducibility", "long_description": "Outcomes arise from interacting rules and conditions, relevant state changes are legible, and a seed, initial state, configuration, or action sequence reproduces at least one reported outcome.", "points": 2.0, "ratings": [{"description": "Strong: rule interaction produces legible variation and the reported evidence is reproducible", "points": 2.0}, {"description": "Partial: feedback or variation is present, but emergence, legibility, or reproduction evidence is incomplete", "points": 1.0}, {"description": "Not demonstrated: outcomes are absent, purely scripted, illegible, or unsupported by reproducible evidence", "points": 0.0}]},
+    {"description": "Usability, accessibility, and gameplay evidence", "long_description": "Instructions, controls, text, contrast, and alternatives for essential colour-, sound-, or animation-only information support use, and the video demonstrates representative play and system feedback.", "points": 2.0, "ratings": [{"description": "Strong: a new player can operate and interpret the game, and the video clearly evidences representative play", "points": 2.0}, {"description": "Partial: the game remains usable but a limited instruction, control, access, or video-evidence problem interferes", "points": 1.0}, {"description": "Not demonstrated: use or interpretation is substantially blocked, or gameplay evidence is absent", "points": 0.0}]},
+    {"description": "Testing, revision, documentation, and licences", "long_description": "The README documents launch, controls, goal, ecology, browser, and limitations; an external test separates observations from interpretations and supports a revision or retention decision; third-party work is accurately credited and licensed.", "points": 2.0, "ratings": [{"description": "Strong: documentation, external evidence, revision reasoning, credits, and licences are complete and connected to the artifact", "points": 2.0}, {"description": "Partial: the record supports assessment but one material element is thin or incomplete", "points": 1.0}, {"description": "Not demonstrated: no assessable test-and-revision record or serious documentation/licensing gaps remain", "points": 0.0}]},
+    {"description": "Individual contribution, analysis, and applicable AI appendix", "long_description": "Each student identifies concrete contributions and analyzes one effect on the integrated system. When AI contributed to submitted work, complete relevant chatlogs are included without credentials or private third-party information.", "points": 2.0, "ratings": [{"description": "Strong: every contribution entry is specific and analytical, and any applicable appendix is complete", "points": 2.0}, {"description": "Partial: entries or analysis are uneven, or an applicable appendix has a limited omission", "points": 1.0}, {"description": "Not demonstrated: contribution evidence or analysis is absent, or an applicable appendix has a material omission", "points": 0.0}]}
   ]
 }

@@ -7,6 +7,7 @@ import hashlib
 import json
 import re
 import sys
+from collections import Counter
 from pathlib import Path
 
 from bs4 import BeautifulSoup
@@ -16,6 +17,7 @@ PRIVATE_TESTMAKING = Path("private/testmaking")
 sys.path[:0] = [str(ROOT / "src"), str(ROOT / "scripts")]
 from canvas_automation import jsonc
 from canvas_automation.testmaker import Pool, Question, parse_testmaker, question_payload
+from canvas_automation.test_quality import audit_quiz
 from canvas_automation.test_forms import build_forms
 from canvas_automation.util import fresh_out_dir
 from sandbox_course_lifecycle import GuardedCanvas
@@ -24,6 +26,7 @@ from sandbox_course_lifecycle import GuardedCanvas
 def cid(config): return int(re.search(r"/courses/(\d+)", config["course_url"]).group(1))
 def plain(html): return BeautifulSoup(html or "", "html.parser").get_text(" ", strip=True)
 def group_list(value): return value.get("quiz_groups", []) if isinstance(value, dict) else value
+def assessments(manifest): return manifest.get("assessments", manifest.get("quizzes", []))
 
 
 def question_markdown(question: dict) -> str:
@@ -104,22 +107,45 @@ def live_signature(questions):
     return result
 
 
+def canvas_settings_current(live_quiz, expected):
+    """Compare only settings owned by the private testmaking manifest."""
+    return all(live_quiz.get(key) == value for key, value in expected.items()
+               if value is not None)
+
+
 def verify(root, server=None):
     _,manifest=load(root); reports=[]
     canvas=GuardedCanvas(server,manifest["course_id"]) if server else None
     if canvas: canvas.health()
-    for quiz in manifest["quizzes"]:
-        parsed=parse_testmaker(root/quiz["source"]); report={"key":quiz["key"],"source":quiz["source"],"questions":len(parsed.questions),"valid":True}
-        if canvas:
+    for quiz in assessments(manifest):
+        parsed=parse_testmaker(root/quiz["source"])
+        quality=audit_quiz(parsed, expected_questions=quiz["expected_questions"],
+                           require_metadata=True, exact_distractors=3,
+                           require_all_bloom=True)
+        report={"key":quiz["key"],"source":quiz["source"],"candidates":len(parsed.questions),
+                "generated_questions":quality.get("generated_question_count"),
+                "quality":quality,"valid":quality["errors"] == 0}
+        if canvas and quiz.get("canvas_quiz_id"):
+            live_quiz=canvas.raw("GET",f"/courses/{manifest['course_id']}/quizzes/{quiz['canvas_quiz_id']}")
             live=canvas.raw("GET",f"/courses/{manifest['course_id']}/quizzes/{quiz['canvas_quiz_id']}/questions",params={"per_page":100})
-            report["canvas_question_count"]=len(live); report["canvas_current"]=live_signature(live)==source_signature(parsed)
+            groups=group_list(canvas.raw("GET",f"/courses/{manifest['course_id']}/quizzes/{quiz['canvas_quiz_id']}/groups",params={"per_page":100}))
+            expected_draws=[item.take for item in parsed.items if isinstance(item,Pool)]
+            report["canvas_question_count"]=len(live)
+            report["canvas_group_draws"]=[item.get("pick_count") for item in groups]
+            group_sizes=Counter(item.get("quiz_group_id") for item in live if item.get("quiz_group_id"))
+            report["canvas_group_sizes"]=[group_sizes.get(item.get("id"),0) for item in groups]
+            report["canvas_settings_current"]=canvas_settings_current(live_quiz,quiz["canvas"])
+            report["canvas_current"]=(Counter(live_signature(live))==Counter(source_signature(parsed))
+                and sorted(report["canvas_group_draws"])==sorted(expected_draws)
+                and report["canvas_group_sizes"]==[2] * len(groups)
+                and report["canvas_settings_current"])
         reports.append(report)
-    return {"status":"PASS" if all(r.get("canvas_current",True) for r in reports) else "DRIFT","quizzes":reports}
+    return {"status":"PASS" if all(r["valid"] and r.get("canvas_current",True) for r in reports) else "DRIFT","assessments":reports}
 
 
 def build_pdf(root, selected=None):
     _,manifest=load(root); outputs=[]
-    for quiz in manifest["quizzes"]:
+    for quiz in assessments(manifest):
         if selected and quiz["key"] != selected: continue
         out=root/"out/testmaking-authoring"/quiz["key"]
         built=build_forms(root/quiz["source"],out,quiz["pdf"]["title"],quiz["pdf"]["versions"],quiz["pdf"]["seed"])
@@ -127,19 +153,25 @@ def build_pdf(root, selected=None):
     return {"built":outputs}
 
 
-def apply(root, server, confirm):
+def apply(root, server, confirm, selected=None):
     _,manifest=load(root); course_id=manifest["course_id"]
     if confirm != f"SYNC-TESTMAKING-{course_id}": raise ValueError(f"Apply requires --confirm SYNC-TESTMAKING-{course_id}")
     canvas=GuardedCanvas(server,course_id); canvas.health()
     if canvas.raw("GET",f"/courses/{course_id}").get("workflow_state") != "unpublished":
         raise RuntimeError("Refusing testmaking synchronization because the target course is published")
-    parsed={q["key"]:parse_testmaker(root/q["source"]) for q in manifest["quizzes"]}
-    for quiz in manifest["quizzes"]:
-        live_quiz=canvas.raw("GET",f"/courses/{course_id}/quizzes/{quiz['canvas_quiz_id']}")
-        if live_quiz.get("published"):
-            raise RuntimeError(f"Refusing to replace questions in published quiz: {quiz['title']}")
+    canvas_quizzes=[q for q in assessments(manifest) if q.get("canvas_quiz_id") and (not selected or q["key"] == selected)]
+    if selected and not canvas_quizzes:
+        raise ValueError(f"No Canvas quiz is mapped for assessment {selected!r}")
+    parsed={q["key"]:parse_testmaker(root/q["source"]) for q in canvas_quizzes}
+    for quiz in canvas_quizzes:
+        quality=audit_quiz(parsed[quiz["key"]], expected_questions=quiz["expected_questions"],
+                           require_metadata=True, exact_distractors=3, require_all_bloom=True)
+        if quality["errors"]:
+            raise RuntimeError(f"Refusing invalid assessment source {quiz['key']}: {quality['issues']}")
+        # The course-level unpublished guard above prevents student access while
+        # allowing a completed quiz to remain internally published and ready.
     out=fresh_out_dir(root/"out/testmaking-authoring","canvas-question-backup"); changes=[]
-    for quiz in manifest["quizzes"]:
+    for quiz in canvas_quizzes:
         qid=quiz["canvas_quiz_id"]
         live=canvas.raw("GET",f"/courses/{course_id}/quizzes/{qid}/questions",params={"per_page":100})
         groups=group_list(canvas.raw("GET",f"/courses/{course_id}/quizzes/{qid}/groups",params={"per_page":100}))
@@ -150,7 +182,14 @@ def apply(root, server, confirm):
         for item in planned_items(parsed[quiz["key"]]):
             if item["kind"]=="pool":
                 created=canvas.raw("POST",f"/courses/{course_id}/quizzes/{qid}/groups",{"quiz_groups":[{"name":item["name"],"pick_count":item["take"],"question_points":1}]})
-                group=(created[0] if isinstance(created,list) else created); gid=group["id"]
+                created_groups=group_list(created)
+                if isinstance(created,dict) and "id" in created:
+                    group=created
+                elif created_groups:
+                    group=created_groups[0]
+                else:
+                    raise RuntimeError(f"Canvas returned no quiz group for {quiz['key']}: {created!r}")
+                gid=group["id"]
                 for question in item["questions"]:
                     number+=1; canvas.raw("POST",f"/courses/{course_id}/quizzes/{qid}/questions",question_payload(question,name=f"Question {number}",mcq_points=1,written_points=5,group_id=gid))
             else:
@@ -161,15 +200,41 @@ def apply(root, server, confirm):
     return {"status":"APPLIED","backup":str(out),"quizzes":changes}
 
 
+def apply_settings(root, server, confirm):
+    """Apply quiz behavior without replacing questions or groups."""
+    _,manifest=load(root); course_id=manifest["course_id"]
+    if confirm != f"SYNC-TESTMAKING-{course_id}":
+        raise ValueError(f"Apply requires --confirm SYNC-TESTMAKING-{course_id}")
+    canvas=GuardedCanvas(server,course_id); canvas.health()
+    if canvas.raw("GET",f"/courses/{course_id}").get("workflow_state") != "unpublished":
+        raise RuntimeError("Refusing testmaking synchronization because the target course is published")
+    changes=[]
+    for quiz in assessments(manifest):
+        if not quiz.get("canvas_quiz_id"):
+            continue
+        parsed=parse_testmaker(root/quiz["source"])
+        quality=audit_quiz(parsed, expected_questions=quiz["expected_questions"],
+                           require_metadata=True, exact_distractors=3, require_all_bloom=True)
+        if quality["errors"]:
+            raise RuntimeError(f"Refusing invalid assessment source {quiz['key']}: {quality['issues']}")
+        settings={key:value for key,value in quiz["canvas"].items() if value is not None}
+        canvas.raw("PUT",f"/courses/{course_id}/quizzes/{quiz['canvas_quiz_id']}",{"quiz":settings})
+        changes.append({"key":quiz["key"],"settings":sorted(settings)})
+    return {"status":"APPLIED","quizzes":changes}
+
+
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument("--root",type=Path,default=ROOT);p.add_argument("--server",default="http://127.0.0.1:5055")
     sub=p.add_subparsers(dest="command",required=True);e=sub.add_parser("export-live");e.add_argument("--initialize",action="store_true")
-    sub.add_parser("verify");b=sub.add_parser("build-pdf");b.add_argument("--quiz");a=sub.add_parser("apply");a.add_argument("--confirm",required=True)
+    v=sub.add_parser("verify");v.add_argument("--local",action="store_true")
+    b=sub.add_parser("build-pdf");b.add_argument("--quiz");a=sub.add_parser("apply");a.add_argument("--confirm",required=True);a.add_argument("--assessment")
+    settings=sub.add_parser("apply-settings");settings.add_argument("--confirm",required=True)
     args=p.parse_args();root=args.root.resolve()
     if args.command=="export-live":result=export_live(root,args.server,args.initialize)
-    elif args.command=="verify":result=verify(root,args.server)
+    elif args.command=="verify":result=verify(root,None if args.local else args.server)
     elif args.command=="build-pdf":result=build_pdf(root,args.quiz)
-    else:result=apply(root,args.server,args.confirm)
+    elif args.command=="apply":result=apply(root,args.server,args.confirm,args.assessment)
+    else:result=apply_settings(root,args.server,args.confirm)
     print(json.dumps(result,indent=2,sort_keys=True));return 0
 
 if __name__=="__main__":raise SystemExit(main())

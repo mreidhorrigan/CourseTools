@@ -4,113 +4,11 @@
   "title": "Board-Game Final",
   "points_possible": 12.0,
   "criteria": [
-    {
-      "description": "Complete playable package",
-      "points": 2.0,
-      "ratings": [
-        {
-          "description": "Strong",
-          "points": 2.0
-        },
-        {
-          "description": "Partial",
-          "points": 1.0
-        },
-        {
-          "description": "Not demonstrated",
-          "points": 0.0
-        }
-      ]
-    },
-    {
-      "description": "Rule clarity and independent playability",
-      "points": 2.0,
-      "ratings": [
-        {
-          "description": "Strong",
-          "points": 2.0
-        },
-        {
-          "description": "Partial",
-          "points": 1.0
-        },
-        {
-          "description": "Not demonstrated",
-          "points": 0.0
-        }
-      ]
-    },
-    {
-      "description": "Choices, feedback, and system coherence",
-      "points": 2.0,
-      "ratings": [
-        {
-          "description": "Strong",
-          "points": 2.0
-        },
-        {
-          "description": "Partial",
-          "points": 1.0
-        },
-        {
-          "description": "Not demonstrated",
-          "points": 0.0
-        }
-      ]
-    },
-    {
-      "description": "Balance, testing, and revision",
-      "points": 2.0,
-      "ratings": [
-        {
-          "description": "Strong",
-          "points": 2.0
-        },
-        {
-          "description": "Partial",
-          "points": 1.0
-        },
-        {
-          "description": "Not demonstrated",
-          "points": 0.0
-        }
-      ]
-    },
-    {
-      "description": "Gameplay evidence, access, and credits",
-      "points": 2.0,
-      "ratings": [
-        {
-          "description": "Strong",
-          "points": 2.0
-        },
-        {
-          "description": "Partial",
-          "points": 1.0
-        },
-        {
-          "description": "Not demonstrated",
-          "points": 0.0
-        }
-      ]
-    },
-    {
-      "description": "Individual contribution and analysis",
-      "points": 2.0,
-      "ratings": [
-        {
-          "description": "Strong",
-          "points": 2.0
-        },
-        {
-          "description": "Partial",
-          "points": 1.0
-        },
-        {
-          "description": "Not demonstrated",
-          "points": 0.0
-        }
-      ]
-    }
+    {"description": "Complete playable package", "long_description": "The ZIP contains PDF rules, PDF printable components, and labelled simulations or facsimiles for required non-printable pieces; the inventory and supplied materials allow reconstruction of the game.", "points": 2.0, "ratings": [{"description": "Strong: the package is complete, internally consistent, and ready to reconstruct", "points": 2.0}, {"description": "Partial: the game is substantially reconstructable but a limited component, file, or consistency problem interferes", "points": 1.0}, {"description": "Not demonstrated: missing core materials prevent an assessable playable reconstruction", "points": 0.0}]},
+    {"description": "Rule clarity and independent playability", "long_description": "The rules state audience, player count, duration, goal, inventory, setup, sequence, legal actions, resolutions, end condition, and tie handling, with examples or diagrams where needed; unfamiliar players can proceed with little or no designer intervention.", "points": 2.0, "ratings": [{"description": "Strong: the rules support accurate independent play and resolve likely questions", "points": 2.0}, {"description": "Partial: play can proceed but recurring ambiguities or omissions require interpretation", "points": 1.0}, {"description": "Not demonstrated: the rules do not support independent play", "points": 0.0}]},
+    {"description": "Choices, feedback, and system coherence", "long_description": "Players encounter viable consequential choices, receive legible feedback, and can connect actions to changes in state; rules and components interact in support of the stated audience and experience goal.", "points": 2.0, "ratings": [{"description": "Strong: meaningful choices, feedback, and rule interactions form a coherent playable system", "points": 2.0}, {"description": "Partial: a system is playable but choices, feedback, or interactions are thin, disconnected, or inconsistent", "points": 1.0}, {"description": "Not demonstrated: no assessable coherent system or consequential choice", "points": 0.0}]},
+    {"description": "Balance, testing, and revision", "long_description": "Blind or low-intervention testing records observable evidence such as duration, questions, strategies, stalls, and outcome ranges; the team uses that evidence to revise or retain features so intended choices remain meaningfully viable.", "points": 2.0, "ratings": [{"description": "Strong: relevant evidence and before/after reasoning support convincing balance and revision decisions", "points": 2.0}, {"description": "Partial: testing occurred but evidence, balance reasoning, follow-up, or revision is thin", "points": 1.0}, {"description": "Not demonstrated: no assessable test, balance, and revision record", "points": 0.0}]},
+    {"description": "Gameplay evidence, access, and credits", "long_description": "The video demonstrates setup, representative play, consequential choices, feedback, and an end or scoring procedure; materials are readable and usable, and third-party work is accurately credited and licensed.", "points": 2.0, "ratings": [{"description": "Strong: gameplay is clearly evidenced, materials support access, and credits/licences are complete", "points": 2.0}, {"description": "Partial: the evidence remains assessable but a limited video, access, credit, or licence problem interferes", "points": 1.0}, {"description": "Not demonstrated: gameplay evidence is absent or serious access/credit problems remain", "points": 0.0}]},
+    {"description": "Individual contribution, analysis, and applicable AI appendix", "long_description": "Each student identifies concrete contributions and analyzes one effect on rules, experience, testing, or production. When AI contributed to submitted work, complete relevant chatlogs are included without credentials or private third-party information.", "points": 2.0, "ratings": [{"description": "Strong: every contribution entry is specific and analytical, and any applicable appendix is complete", "points": 2.0}, {"description": "Partial: entries or analysis are uneven, or an applicable appendix has a limited omission", "points": 1.0}, {"description": "Not demonstrated: contribution evidence or analysis is absent, or an applicable appendix has a material omission", "points": 0.0}]}
   ]
 }

@@ -27,3 +27,6 @@ re-derive a decision that was already made once.
 - `07-iat210-materials-v2.md`: specification-driven, identifier-preserving course-material migration and derived tests.
 - `08-assignment-instruction-canaries.md`: gated research and implementation plan for hidden instruction canaries and deterministic received-writing scans.
 - `09-iat210-mistral-assignment-qa.md`: Mistral-only student simulation, rubric grading, specificity findings, local Actual-Play revisions, and deferred live synchronization.
+- `10-iat210-mistral-course-standards-audit.md`: cited standards profile,
+  reproducible Mistral course audit, returned model version, and human review of
+  the model's useful findings.

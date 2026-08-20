@@ -77,6 +77,20 @@ def test_testmaker_parses_all_question_tags_in_one_paragraph(tmp_path):
     assert parsed.questions[0].distractors == ["Not this one", "Nor this one"]
 
 
+def test_testmaker_parses_bloom_material_and_target_metadata(tmp_path):
+    source = tmp_path / "metadata.md"
+    source.write_text(
+        "[Question.] Choose. [Correct.] A [Distractor.] B [Distractor.] C "
+        "[Distractor.] D [Bloom.] Analyze [Material.] W01-R1, W01-PAGE "
+        "[Target.] quiz-1:analyze-1",
+        encoding="utf-8",
+    )
+    question = parse_testmaker(source).questions[0]
+    assert question.bloom_level == "Analyze"
+    assert question.material_ids == ["W01-R1", "W01-PAGE"]
+    assert question.target_id == "quiz-1:analyze-1"
+
+
 def test_legacy_mcqer_import_remains_compatible(tmp_path):
     from canvas_automation.mcqer import parse_mcqer
 
@@ -438,6 +452,17 @@ def test_health_reports_status_and_never_the_token():
     assert "super-secret-token" not in json.dumps(body)
 
 
+def test_access_notification_has_status_and_omits_query_and_token(capsys):
+    app = create_app("fake-canvas-test.invalid", "super-secret-token")
+    response = app.test_client().get("/health?token=must-not-appear&detail=private")
+    assert response.status_code == 200
+    output = capsys.readouterr().out
+    assert "HTTP GET /health -> 200" in output
+    assert "must-not-appear" not in output
+    assert "detail=private" not in output
+    assert "super-secret-token" not in output
+
+
 def test_health_reports_the_sandbox_course_guard():
     app = create_app("fake-canvas-test.invalid", "secret", allowed_course_id=77)
     body = app.test_client().get("/health").get_json()
@@ -505,6 +530,25 @@ def test_sandbox_guard_blocks_raw_mutations_without_a_course_path(path):
     )
     assert resp.status_code == 403
     assert resp.get_json()["allowed_course_id"] == 77
+
+
+def test_sandbox_guard_blocks_mutations_when_allowed_course_is_published(monkeypatch):
+    app = create_app("fake-canvas-test.invalid", "dummy", allowed_course_id=77)
+
+    class PublishedResponse:
+        def raise_for_status(self):
+            return None
+
+        def json(self):
+            return {"id": 77, "workflow_state": "available"}
+
+    monkeypatch.setattr(app.canvas_client, "get", lambda path, **kwargs: PublishedResponse())
+    response = app.test_client().post(
+        "/api/raw",
+        json={"method": "PUT", "path": "/courses/77", "payload": {"course": {}}},
+    )
+    assert response.status_code == 409
+    assert response.get_json()["workflow_state"] == "available"
 
 
 def test_all_expected_routes_are_registered():

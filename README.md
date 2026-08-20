@@ -99,13 +99,17 @@ local AI:
 | `create-discussion.command` | `create-discussion.config.jsonc` | Creates a discussion topic |
 | `create-page.command` | `create-page.config.jsonc` | Creates a page |
 | `create-quiz.command` | `create-quiz.config.jsonc` | Converts a Testmaker-tagged DOCX/Markdown/text file into a Classic Canvas Quiz, including random take-N pools |
-| `build-test-forms.command` | `build-test-forms.config.jsonc` | Builds deterministic PDF forms and answer keys from the same Testmaker source; no Canvas connection needed |
+| `build-test-forms.command` | `build-test-forms.config.jsonc` | Builds deterministic PDF and DOCX forms and answer keys with the original JavaScript MCQer layout; no Canvas connection needed |
 | `build-imscc.command` | `build-imscc.config.jsonc` | Builds an offline Common Cartridge containing course settings, pages, assignments, files, and modules |
 | `build-distribution.command` | `build-distribution.config.jsonc` | Builds a sanitized deterministic ZIP with a top-level HTML guide, manifest, provenance, and SBOM |
 | `test-assignment-rubric.command` | `test-assignment-rubric.config.jsonc` | Uses Mistral to simulate literal student responses, grade them with a rubric, and identify specification gaps |
 | `download-content.command` | `download-content.config.jsonc` | Downloads existing content into `out/` |
 | `export-course-packet.command` | `export-course-packet.config.jsonc` | Prompts for a course URL, then downloads published assignments as one combined PDF and builds a gradebook CSV/XLSX |
+| `build-course-dossier.command` | `build-course-dossier.config.jsonc` | Builds a local, bookmarked course-design PDF from selected canonical course sources |
 | `merge-pdfs.command` | `merge-pdfs.config.jsonc` | Opens a Finder dialog to pick any number of PDFs and merges them into one. Purely local; does not need the server running |
+| `convert-gradebook.command` | `convert-gradebook.config.jsonc` | Converts a Canvas gradebook CSV into a headerless five-column registrar-upload CSV using configurable whole-percentage rounding and letter-grade thresholds |
+| `pull-canvas-roster.command` | `pull-canvas-roster.config.jsonc` | Read-only guarded pull of the configured course roster, grades, and assignment scores into private canonical, nameplate, and seating-plan datasets |
+| `build-roster-documents.command` | `build-roster-documents.config.jsonc` | Opens the original Nameplates tool with a private roster adapter and optionally builds a deterministic DOC_TOOLS seating chart from a reviewed room layout |
 
 Additional details for these commands:
 
@@ -339,6 +343,10 @@ For external course links, run:
 
 Vimeo and YouTube links use their official oEmbed endpoints. A provider page
 that returns HTTP 200 while showing an unavailable video therefore fails QA.
+DOI links are checked through Crossref and reported as `METADATA`: the citation
+exists, while full-text access still requires a publisher, repository, library,
+or manual browser check. Prefer an authoritative open-access item link when one
+is available.
 Institutional library search-result URLs configured in the example course are `OUTTAKE`, never
 verified: replace them with a stable DOI or verified publisher, repository, or
 author URL. Configure resolver hosts in the course's `link-check.config.jsonc`.

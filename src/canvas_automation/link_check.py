@@ -8,7 +8,7 @@ run network requests concurrently but should sort records by URL for output.
 from __future__ import annotations
 
 import re
-from urllib.parse import parse_qs, urlparse
+from urllib.parse import parse_qs, quote, urlparse
 
 import requests
 from bs4 import BeautifulSoup
@@ -46,6 +46,14 @@ def media_probe(url):
         # The ordinary Vimeo page may return HTTP 200 for an unavailable-video
         # shell. Vimeo documents oEmbed as the availability/embedability probe.
         return "https://vimeo.com/api/oembed.json", {"url": url}
+    if host == "doi.org":
+        doi = parsed.path.strip("/")
+        if not doi:
+            raise ValueError("no DOI identifier")
+        # DOI resolver and publisher pages commonly reject automated clients.
+        # Crossref's public REST record confirms that the cited object exists;
+        # it does not claim that the full text is openly accessible.
+        return f"https://api.crossref.org/works/{quote(doi, safe='')}", None
     return url, None
 
 
@@ -80,6 +88,13 @@ def check_url(url, timeout=15, session=None, search_resolver_hosts=()):
         requester = session or requests.Session()
         requester.headers.update({"User-Agent": USER_AGENT})
         response = requester.get(endpoint, params=params, timeout=timeout, allow_redirects=True)
-        return classify_response(url, response)
+        record = classify_response(url, response)
+        if host == "doi.org" and record["status"] == "OK":
+            record["status"] = "METADATA"
+            record["detail"] = (
+                "Crossref confirms the DOI record; full-text access still depends "
+                "on the publisher, repository, or library"
+            )
+        return record
     except Exception as exc:
         return {"url": url, "status": "FAIL", "code": None, "final_url": None, "detail": str(exc)}

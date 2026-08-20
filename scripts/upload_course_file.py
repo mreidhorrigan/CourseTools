@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import mimetypes
 from pathlib import Path
 
 import requests
@@ -34,9 +35,10 @@ def main() -> int:
         expected = f"UPLOAD-FILE-{args.course}"
         if args.confirm != expected:
             raise ValueError(f"Apply requires --confirm {expected}")
+        media_type = mimetypes.guess_type(args.file.name)[0] or "application/octet-stream"
         response = requests.post(
             f"{args.server}/api/courses/{args.course}/files",
-            files={"file": (args.file.name, content, "application/zip")},
+            files={"file": (args.file.name, content, media_type)},
             data={"parent_folder_path": args.folder}, timeout=180,
         )
         response.raise_for_status()

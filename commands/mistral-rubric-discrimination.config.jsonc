@@ -1,0 +1,63 @@
+{
+  "OUT_DIR": "out/course-development/mistral-discrimination",
+  "model": "mistral-small-latest",
+  "api_url": "https://api.mistral.ai/v1/chat/completions",
+  "timeout_seconds": 180,
+  "analysis_max_tokens": 2200,
+  "cases": [
+    {
+      "key": "digital-existing-evolution-of-trust",
+      "kind": "existing",
+      "rubric_file": "course/content/rubrics/digital-procedural-ecology-final.json",
+      "dossier_file": "course/research/rubric-benchmarks/evolution-of-trust.md",
+      "portable_criteria": [
+        "Browser package and technical integrity",
+        "Player loop and procedural ecosystem",
+        "Emergence, feedback, and reproducibility",
+        "Usability, accessibility, and gameplay evidence",
+        "Testing, revision, documentation, and licences"
+      ]
+    },
+    {
+      "key": "digital-broken-early-pass",
+      "kind": "broken",
+      "rubric_file": "course/content/rubrics/digital-procedural-ecology-final.json",
+      "qa_results_file": "out/course-development/mistral-calibration/20260815T121407Z__course-assessments/assessment-runs/20260815T122135Z__207281-digital-procedural-ecology-projec/qa-results.json",
+      "trial": 1,
+      "portable_criteria": [
+        "Browser package and technical integrity",
+        "Player loop and procedural ecosystem",
+        "Emergence, feedback, and reproducibility",
+        "Usability, accessibility, and gameplay evidence",
+        "Testing, revision, documentation, and licences"
+      ]
+    },
+    {
+      "key": "board-existing-root",
+      "kind": "existing",
+      "rubric_file": "course/content/rubrics/board-game-final.json",
+      "dossier_file": "course/research/rubric-benchmarks/root.md",
+      "portable_criteria": [
+        "Complete playable package",
+        "Rule clarity and independent playability",
+        "Choices, feedback, and system coherence",
+        "Balance, testing, and revision",
+        "Gameplay evidence, access, and credits"
+      ]
+    },
+    {
+      "key": "board-broken-early-pass",
+      "kind": "broken",
+      "rubric_file": "course/content/rubrics/board-game-final.json",
+      "qa_results_file": "out/course-development/mistral-calibration/20260815T121407Z__course-assessments/assessment-runs/20260815T122458Z__207280-board-game-project-final-submissi/qa-results.json",
+      "trial": 2,
+      "portable_criteria": [
+        "Complete playable package",
+        "Rule clarity and independent playability",
+        "Choices, feedback, and system coherence",
+        "Balance, testing, and revision",
+        "Gameplay evidence, access, and credits"
+      ]
+    }
+  ]
+}

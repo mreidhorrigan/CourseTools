@@ -13,13 +13,13 @@
     {"old": "When competing ideas cannot be", "new": "When two competing ideas cannot be"},
     {"old": "The grade does not reward theatrical skill or professional equipment. It rewards", "new": "The grade rewards"},
     {"old": "Report sustained team problems", "new": "Report persistent team problems"},
-    {"old": "Actual-play ideation; Quiz 1", "new": "Actual-play ideation; Quiz 1 (Sep 22, 09:00–23:59)", "exact": true},
-    {"old": "Actual-play final; Quiz 2", "new": "Actual-play final; Quiz 2 (Oct 6, 09:00–23:59)", "exact": true},
-    {"old": "Digital ideation; Quiz 3", "new": "Digital ideation; Quiz 3 (Oct 20, 09:00–23:59)", "exact": true},
-    {"old": "Quiz 4", "new": "Quiz 4 (Nov 3, 09:00–23:59)", "exact": true},
-    {"old": "Digital final; Quiz 5", "new": "Digital final; Quiz 5 (Nov 10, 09:00–23:59)", "exact": true},
-    {"old": "Board-game plan; Quiz 6; interviews", "new": "Board-game plan; Quiz 6 (Nov 24, 09:00–23:59); interviews", "exact": true},
-    {"old": "Board-game final; Quiz 7; exam review; interviews complete", "new": "Board-game final; Quiz 7 (Dec 7, 09:00–23:59); exam review; interviews complete", "exact": true},
+    {"old": "Actual-play ideation; Quiz 1", "new": "Actual-play ideation; Quiz 1 (Sep 22, 00:00–24:00)", "exact": true},
+    {"old": "Actual-play final; Quiz 2", "new": "Actual-play final; Quiz 2 (Oct 6, 00:00–24:00)", "exact": true},
+    {"old": "Digital ideation; Quiz 3", "new": "Digital ideation; Quiz 3 (Oct 20, 00:00–24:00)", "exact": true},
+    {"old": "Quiz 4", "new": "Quiz 4 (Nov 3, 00:00–24:00)", "exact": true},
+    {"old": "Digital final; Quiz 5", "new": "Digital final; Quiz 5 (Nov 10, 00:00–24:00)", "exact": true},
+    {"old": "Board-game plan; Quiz 6; interviews", "new": "Board-game plan; Quiz 6 (Nov 24, 00:00–24:00); interviews", "exact": true},
+    {"old": "Board-game final; Quiz 7; exam review; interviews complete", "new": "Board-game final; Quiz 7 (Dec 7, 00:00–24:00); exam review; interviews complete", "exact": true},
     {"old": "Each student must schedule and attend one synchronous video interview with the instructor or a teaching assistant during the final month of the course.", "new": "To receive a nonzero grade for this course's three major projects, each student must schedule and attend one synchronous video interview with the instructor or a teaching assistant during the final month of the course."}
   ],
   "heading_styles": [
@@ -43,13 +43,13 @@
       "container_selector": "#course",
       "start_after_selector": "h2",
       "stop_before_selector": "h3",
-      "html": "<p>IAT 210 studies the history and evolution of games from board and card games through contemporary electronic games. It examines games as rules and designed systems, games as play and experience, and games as cultural and industrial forms. Students move between reading, play, analysis, and making to ask how rules organize action, how games communicate values, how players create meaning together, and how technologies and platforms shape what designers can build.</p><p>The three project rounds introduce different forms of design practice. The first uses tabletop roleplay and actual-play recording to study facilitation, agency, consent, performance, and editing. The second uses a browser-playable procedural ecology to explore computational rules, interfaces, interacting entities, resources, variation, and emergence. The third uses a board game to make human-executable rules, probability, feedback, balance, onboarding, and blind testing visible. The project calendar follows a 4-5-4 sequence: four weeks of actual play, five weeks of digital game design, and four weeks of board-game design.</p>"
+      "html": "<p>IAT 210 studies the history and evolution of games from board and card games through contemporary electronic games. It examines games as rules and designed systems, games as play and experience, and games as cultural and industrial forms. Students move between reading, play, analysis, and making to ask how rules organize action, how games communicate values, how players create meaning together, and how technologies and platforms shape what designers can build.</p><p>The three project rounds introduce different forms of design practice. The first uses tabletop roleplay and actual-play recording to study facilitation, agency, consent, performance, and editing. The second uses a browser-playable procedural ecosystem to explore computational rules, interfaces, interacting entities, resources, variation, and emergence. The third uses a board game to make human-executable rules, probability, feedback, balance, onboarding, and blind testing visible. The project calendar follows a 4-5-4 sequence: four weeks of actual play, five weeks of digital game design, and four weeks of board-game design.</p>"
     }
   ],
   "paragraph_rules": [
     {
       "heading": "Practice quizzes and final examination",
-      "append": [{"marker": "Quiz 1 is available", "html": "Quiz availability uses Pacific time: Quiz 1 is available Sep 22, 09:00–23:59; Quiz 2 Oct 6, 09:00–23:59; Quiz 3 Oct 20, 09:00–23:59; Quiz 4 Nov 3, 09:00–23:59; Quiz 5 Nov 10, 09:00–23:59; Quiz 6 Nov 24, 09:00–23:59; and Quiz 7 Dec 7, 09:00–23:59."}]
+      "append": [{"marker": "Quiz 1 is available", "html": "Each quiz has one 24-hour Pacific-time window: Quiz 1 Sep 22, 00:00–24:00; Quiz 2 Oct 6, 00:00–24:00; Quiz 3 Oct 20, 00:00–24:00; Quiz 4 Nov 3, 00:00–24:00; Quiz 5 Nov 10, 00:00–24:00; Quiz 6 Nov 24, 00:00–24:00; and Quiz 7 Dec 7, 00:00–24:00."}]
     },
     {
       "heading": "How grading works",

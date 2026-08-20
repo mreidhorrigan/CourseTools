@@ -55,6 +55,28 @@ def test_import_rejects_a_non_zip_before_contacting_server(tmp_path):
         canvas.import_package(bad)
 
 
+def test_backup_and_import_requires_target_specific_confirmation(tmp_path):
+    package = tmp_path / "course.imscc"
+    import zipfile
+    with zipfile.ZipFile(package, "w") as archive:
+        archive.writestr("imsmanifest.xml", "<manifest/>")
+    canvas = MODULE.GuardedCanvas("http://127.0.0.1:5055", 12345)
+    with pytest.raises(ValueError, match="COPY-INTO-COURSE-12345"):
+        canvas.backup_and_import(
+            package, tmp_path / "backup.imscc", "COPY-INTO-COURSE-OTHER"
+        )
+
+
+def test_parser_supports_atomic_backup_and_import_command():
+    args = MODULE.build_parser().parse_args([
+        "--course", "12345", "backup-and-import",
+        "--package", "source.imscc", "--backup", "before.imscc",
+        "--confirm", "COPY-INTO-COURSE-12345", "--record", "result.json",
+    ])
+    assert args.command == "backup-and-import"
+    assert args.backup == Path("before.imscc")
+
+
 def test_parser_supports_resuming_a_migration():
     args = MODULE.build_parser().parse_args([
         "--course", "12345", "monitor-migration", "--migration-id", "34492",

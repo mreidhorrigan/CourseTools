@@ -4,5 +4,5 @@ set -uo pipefail
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"; ENGINE="$(cd "$HERE/.." && pwd)"
 export ENGINE HOME; cd "$ENGINE"; source "$HERE/_lib.sh"
 CONFIG="$HERE/build-distribution.config.jsonc"; eval "$(read_config "$CONFIG")"
-launch "$OUT_DIR" -- "$ENGINE/.venv/bin/python" scripts/build_distribution.py --root "$ENGINE" --config "$CONFIG"
-echo; read -rp "Press return to close… " _
+launch "$release_dir" -- "$ENGINE/.venv/bin/python" scripts/build_distribution.py --root "$ENGINE" --config "$CONFIG"
+if [ -t 0 ]; then echo; read -rp "Press return to close… " _; fi

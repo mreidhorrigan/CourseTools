@@ -38,6 +38,9 @@ def test_distribution_is_deterministic_sanitized_and_has_index(tmp_path):
         assert "docs/TESTMAKING.md" in names
         assert "scripts/build_test_forms.py" in names
         assert "scripts/validate_question_pool.py" in names
+        assert "vendor/testmaker-mcqer/mcqer.js" in names
+        assert "vendor/testmaker-mcqer/package-lock.json" in names
+        assert not any("node_modules" in name for name in names)
         assert "commands/build-test-forms.command" in names
         assert "commands/build-test-forms.config.jsonc" in names
         assert "commands/build-test-forms.schema.json" in names
@@ -119,7 +122,7 @@ def test_distribution_is_deterministic_sanitized_and_has_index(tmp_path):
             assert "fabricate sources or playtests" not in syllabus and "fabricate sources" in syllabus
             assert "Report persistent team problems" in syllabus
             assert "To receive a nonzero grade for this course's three major projects" in syllabus
-            assert "Quiz 7 Dec 7, 09:00–23:59" in syllabus
+            assert "Quiz 7 Dec 7, 00:00–24:00" in syllabus
             assert "font-family: OpenDyslexic" in syllabus or "font-family:OpenDyslexic" in syllabus
             quiz_metadata = [starter.read(name).decode() for name in starter_names if name.endswith("assessment_meta.xml")]
             quiz_metadata = [text for text in quiz_metadata if "Practice Quiz " in text]
@@ -173,6 +176,8 @@ def test_sbom_covers_locked_packages_and_optional_mcp():
     }
     sbom_names = {item["name"] for item in bom["components"] if item.get("group") == "canvas-mcp-environment"}
     assert sbom_names == locked_names
+    testmaker_names = {item["name"] for item in bom["components"] if item.get("group") == "testmaker-renderer"}
+    assert testmaker_names == {"commander", "docx", "jsdom", "jspdf", "mammoth", "pdf-lib"}
 
 
 def test_distribution_safety_rejects_private_assessment_material(tmp_path):

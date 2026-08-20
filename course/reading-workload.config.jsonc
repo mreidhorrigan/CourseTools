@@ -1,0 +1,56 @@
+{
+  // Academic prose is estimated at 130 words/minute. Change this value once
+  // student feedback or an accessibility review supports a course-specific rate.
+  "reading_words_per_minute": 130,
+  // Wake Forest inputs: 600-word academic pages, some new concepts, read to
+  // understand. Direct-duration entries cover every other course activity.
+  "estimator": {
+    "name": "Wake Forest Workload Estimator 2.0",
+    "url": "https://cat.wfu.edu/resources/workload2/",
+    "reading_density_words_per_page": 600,
+    "reading_difficulty": "some new concepts",
+    "reading_purpose": "understand"
+  },
+  "weekly_target_minutes": {"minimum": 300, "maximum": 540},
+  // Midpoint of SFU's 6–9 hour expectation for a three-unit course.
+  "target_weekly_minutes": 450,
+  "allocation_profiles": {
+    "actual_play": {"viewing_and_play": 0.20, "quiz_and_review": 0.05, "team_coordination": 0.20, "project_work": 0.55},
+    "digital_design": {"viewing_and_play": 0.15, "quiz_and_review": 0.05, "team_coordination": 0.15, "project_work": 0.65},
+    "board_design": {"viewing_and_play": 0.10, "quiz_and_review": 0.05, "team_coordination": 0.20, "project_work": 0.65}
+  },
+  "weeks": {
+    "1": {"page": "course/content/pages/week-01.html", "other_minutes": "auto", "profile": "actual_play", "materials": [
+      {"id":"W01-R1", "source":"private/testmaking/materials/readings/W01-R1.pdf"},
+      {"id":"W01-R2", "source":"private/testmaking/materials/readings/W01-R2.pdf"}]},
+    "2": {"page": "course/content/pages/week-2-historiography-gender-slash-race-and-game-culture-2.html", "other_minutes": "auto", "profile": "actual_play", "materials": [
+      {"id":"W02-R1", "source":"private/testmaking/materials/readings/W02-R1.html", "estimated_words":6500}]},
+    "3": {"page": "course/content/pages/week-3-criticism-paratexts-and-parasociality-2.html", "other_minutes": "auto", "profile": "actual_play", "materials": [
+      {"id":"W03-R1", "estimated_words":7500, "note":"assigned book excerpt; replace with a measured accessible copy"},
+      {"id":"W03-R2", "source":"private/testmaking/materials/readings/W03-R2.pdf"}]},
+    "4": {"page": "course/content/pages/week-4-actual-play-as-medium.html", "other_minutes": "auto", "profile": "actual_play", "materials": [
+      {"id":"W04-R1", "source":"private/testmaking/materials/readings/W04-R1.html", "estimated_words":6500},
+      {"id":"W04-R2", "source":"private/testmaking/materials/readings/W04-R2.pdf"},
+      {"id":"W04-N1", "source":"private/testmaking/materials/readings/W04-N1.html", "estimated_words":1800}]},
+    "5": {"page": "course/content/pages/week-5-formal-systems-and-computational-rules-2.html", "other_minutes": "auto", "profile": "digital_design", "materials": [
+      {"id":"W05-R1", "source":"private/testmaking/materials/readings/W05-R1.pdf"}]},
+    "6": {"page": "course/content/pages/week-6-vibe-coding-modding-and-computational-authorship-2.html", "other_minutes": "auto", "profile": "digital_design", "materials": [
+      {"id":"W06-R1", "source":"private/testmaking/materials/readings/W06-R1.pdf"},
+      {"id":"W06-R2", "source":"private/testmaking/materials/readings/W06-R2.pdf"}]},
+    "7": {"page": "course/content/pages/week-7-audiovisual-assets-interfaces-and-representation.html", "other_minutes": "auto", "profile": "digital_design", "materials": []},
+    "8": {"page": "course/content/pages/week-8-gamblification-monetization-and-whales-2.html", "other_minutes": "auto", "profile": "digital_design", "materials": [
+      {"id":"W08-R1", "estimated_words":9000, "note":"assigned book excerpt; replace with a measured accessible copy"},
+      {"id":"W08-R2", "source":"private/testmaking/materials/readings/W08-R2.pdf"}]},
+    "9": {"page": "course/content/pages/week-9-simulation-and-procedural-ecology.html", "other_minutes": "auto", "profile": "digital_design", "materials": [
+      {"id":"W09-R1", "source":"private/testmaking/materials/readings/W09-R1.pdf"}]},
+    "10": {"page": "course/content/pages/week-10-deep-history-and-historiography-of-board-games.html", "other_minutes": "auto", "profile": "board_design", "materials": [
+      {"id":"W10-R1", "source":"private/testmaking/materials/readings/W10-R1.html", "estimated_words":6000},
+      {"id":"W10-R2", "source":"private/testmaking/materials/readings/W10-R2.html", "estimated_words":6000}]},
+    "11": {"page": "course/content/pages/week-11-strategy-metagames-and-expert-ecosystems.html", "other_minutes": "auto", "profile": "board_design", "materials": [
+      {"id":"W11-R1", "source":"private/testmaking/materials/readings/W11-R1.html", "estimated_words":6500},
+      {"id":"W11-R2", "estimated_words":9000, "note":"assigned book excerpt; replace with a measured accessible copy"}]},
+    "12": {"page": "course/content/pages/week-12-serious-persuasive-and-educational-games.html", "other_minutes": "auto", "profile": "board_design", "materials": []},
+    "13": {"page": "course/content/pages/week-13-playtesting-balance-and-rulebook-engineering-2.html", "other_minutes": "auto", "profile": "board_design", "materials": [
+      {"id":"W13-R1", "source":"private/testmaking/materials/readings/W13-R1.pdf"}]}
+  }
+}

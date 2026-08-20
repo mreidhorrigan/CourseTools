@@ -1,0 +1,42 @@
+{
+  // Canvas gradebook columns. "Final Score" includes all assignments;
+  // choose "Current Score" only when that distinction is intentional.
+  "input_columns": {
+    "student_id": "SIS User ID",
+    "percentage": "Final Score",
+    "section": "Section"
+  },
+
+  // Leave these null to infer IAT, 206W, and D100 from "IAT206W D100".
+  // Set any value explicitly for a nonstandard Canvas section name.
+  "course": {
+    "subject": null,
+    "catalog_number": null,
+    "section": null
+  },
+
+  // Percentage is rounded to a whole number before this scale is applied.
+  // Rounding uses half-up behavior: 94.5 becomes 95 and therefore A+.
+  "grade_scale": [
+    {"minimum": 95, "grade": "A+"},
+    {"minimum": 90, "grade": "A"},
+    {"minimum": 85, "grade": "A-"},
+    {"minimum": 80, "grade": "B+"},
+    {"minimum": 75, "grade": "B"},
+    {"minimum": 70, "grade": "B-"},
+    {"minimum": 65, "grade": "C+"},
+    {"minimum": 60, "grade": "C"},
+    {"minimum": 55, "grade": "C-"},
+    {"minimum": 50, "grade": "D"},
+    {"minimum": 0, "grade": "F"}
+  ],
+
+  // "error" prevents silent omission of an identified student without a grade.
+  "missing_percentage": "error",
+  // SFU student numbers are numeric. Disable only for a different institution
+  // whose documented upload format permits nonnumeric identifiers.
+  "require_numeric_student_id": true,
+  // SFU's grade-upload instructions accept headerless CSV or tab-delimited
+  // TXT (and legacy XLS). CSV is the portable default. XLSX is not accepted.
+  "output_formats": ["csv"]
+}

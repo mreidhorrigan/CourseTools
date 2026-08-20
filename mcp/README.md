@@ -11,6 +11,12 @@ afterward. Use MCP for conversational discovery and small, reviewable changes;
 use the repository commands for repeatable scripted changes and `build-imscc`
 for deterministic bulk import packages.
 
+Do not use MCP to retrieve student rosters, grades, submissions,
+accommodations, or other educational records. `LOG_REDACT_PII=true` protects
+server logs; it cannot keep a successful tool result out of the calling model's
+context. Use `commands/pull-canvas-roster.command`, which writes response data
+directly to private ignored files and prints only aggregate metadata.
+
 ## Updating
 
 Run `commands/update-canvas-mcp.command VERSION` with an explicit release. It
